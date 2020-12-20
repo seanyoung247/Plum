@@ -87,7 +87,6 @@ Holds information on each registered user
 | name       | User Name             |
 | password   | User's password hash  |
 | recipes    | List of recipe tokens |
-| favourites | List of recipe tokens |
 
 ###### Recipe Token
 
@@ -96,11 +95,37 @@ Holds information on each registered user
 | name       | Recipe name      |
 | recipe_id  | Recipe record id |
 
-##### Rating collection 
+##### Rating collection
+
+Holds individual user-recipe rating interactions. Indexed on user_id and recipe_id.
+
+| Field Name | Description                                 |
+| ---------- | ------------------------------------------- |
+| _id        | Record id                                   |
+| user_id    | Record id of the user making this rating    |
+| recipe_id  | Record id of the recipe being rated         |
+| rating     | Number 1-5 indicating the star rating given |
+| favourited | Did the user favourite the recipe?          |
 
 ##### Units collection
 
+Enumerates unit types for use in recipe ingredient lists.
+
+| Field Name | Description           |
+| ---------- | --------------------- |
+| _id        | Record id             |
+| name       | Name of the unit type |
+
+Note: Can be expanded to allow unit conversion later
+
 ##### Cuisine collection 
+
+Enumerates cuisine types.
+
+| Field Name | Description              |
+| ---------- | ------------------------ |
+| _id        | Record id                |
+| name       | Name of the cuisine type |
 
 #### Queries
 
