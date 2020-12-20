@@ -1,4 +1,4 @@
-# ![plum](static\images\plum.png)Plum
+# ![plum](static/images/plum.png)Plum
 Plum is a recipe sharing website designed to help users find recipes and share their own with others.
 
 ## UX (User Experience)
