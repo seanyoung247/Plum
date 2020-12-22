@@ -41,7 +41,7 @@ Stores individual recipes
 | _id         | Record id                                                    |
 | name        | Recipe name                                                  |
 | author      | User token for recipe author                                 |
-| favourited  | List of user tokens for users who have favourited this recipe |
+| date        | The date this recipe was added                               |
 | description | Short description of the recipe                              |
 | cuisine     | Cuisine type                                                 |
 | prep_time   | Time in seconds it takes to prepare the recipe               |
@@ -111,10 +111,11 @@ Holds individual user-recipe rating interactions. Indexed on user_id and recipe_
 
 Enumerates unit types for use in recipe ingredient lists.
 
-| Field Name | Description           |
-| ---------- | --------------------- |
-| _id        | Record id             |
-| name       | Name of the unit type |
+| Field Name | Description               |
+| ---------- | ------------------------- |
+| _id        | Record id                 |
+| name       | Name of the unit type     |
+| display    | Display name for the unit |
 
 Note: Can be expanded to allow unit conversion later
 
@@ -127,7 +128,23 @@ Enumerates cuisine types.
 | _id        | Record id                |
 | name       | Name of the cuisine type |
 
+#### Indexes
+
 #### Queries
+
+**Returns the 10 newest recipes (for US001):**
+
+```
+plumdb.recipes.find().sort({$natural:1}).limit(10)
+```
+
+or
+
+```
+plumdb.recipes.find().sort({_id:1}).limit(10)
+```
+
+##### 
 
 ### Fonts
 
