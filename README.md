@@ -1,6 +1,29 @@
 # ![plum](static/images/plum.png)Plum
 Plum is a recipe sharing website designed to help users find recipes and share their own with others.
 
+## Table of Contents
+
+- **[UX (User Experience)](#UX-(User-Experience))**
+  - [Project Goals](#Project-Goals)
+    - [User Stories](#User-Stories)
+- **[Design](#Design)**
+  - [Database](#Database)
+    - [Schema](#Schema)
+      - [Recipe Collection](#Recipe-Collection)
+        - [User Token](#User-Token)
+        - [Ingredient List](#Ingredient-List)
+        - [Comment List](#Comment-List)
+      - [User Collection](#User-Collection)
+        - [Recipe Token](#Recipe-Token)
+      - [Rating Collection](#Rating-Collection)
+      - [Units Collection](#Units-Collection)
+      - [Cuisine Collection](#Cuisine-Collection)
+    - [Indexes](#Indexes)
+    - [Queries](#Queries)
+  - [Fonts](#Fonts)
+  - [Colours](#Colours)
+  - [Layout](#Layout)
+
 ## UX (User Experience)
 
 ### Project Goals
@@ -9,18 +32,18 @@ TBC
 
 ### User Stories
 
-#### Browsing
+**Browsing**
 
-- (US001) - As a cook I want the website to be able to make suggestions to me so I can be introduced to new content.
+- (US001) - As a cook I want the website to make suggestions to me so I can be introduced to new content.
 
-#### Searching
+**Searching**
 
 - (US002) - As a cook I want to search recipes by name so that I can find specific dishes that I want to make.
 - (US003) - As a cook I want to search recipes on cuisine type so that I can get dishes of a specific type I want to make.
 - (US004) - As a cook I want to be able to be able to filter recipes based on cooking time so I can get dishes I have time to prepare.
 - (US005) - As a cook I want to save my favourite recipes so that I can quickly find them again in the future.
 
-#### Uploading
+**Uploading**
 
 - (US006) - As a recipe creator I want to upload my own recipes so that other users can benefit from them.
 - (US007) - As a recipe creator I want to gain feedback on my recipes so I can discover improvements.
@@ -32,7 +55,7 @@ TBC
 
 #### Schema
 
-##### Recipe collection
+##### Recipe Collection
 
 Stores individual recipes
 
@@ -59,7 +82,7 @@ Stores individual recipes
 | name       | User name      |
 | user_id    | User record id |
 
-###### Ingredients List
+###### Ingredient List
 
 | Field Name | Description                                                |
 | ---------- | ---------------------------------------------------------- |
@@ -77,7 +100,7 @@ Stores individual recipes
 | user_id    | User's record id                      |
 | comment    | String content of the comment         |
 
-##### User collection
+##### User Collection
 
 Holds information on each registered user
 
@@ -95,7 +118,7 @@ Holds information on each registered user
 | name       | Recipe name      |
 | recipe_id  | Recipe record id |
 
-##### Rating collection
+##### Rating Collection
 
 Holds individual user-recipe rating interactions. Indexed on user_id and recipe_id.
 
@@ -107,7 +130,7 @@ Holds individual user-recipe rating interactions. Indexed on user_id and recipe_
 | rating     | Number 1-5 indicating the star rating given |
 | favourited | Did the user favourite the recipe?          |
 
-##### Units collection
+##### Units Collection
 
 Enumerates unit types for use in recipe ingredient lists.
 
@@ -119,7 +142,7 @@ Enumerates unit types for use in recipe ingredient lists.
 
 Note: Can be expanded to allow unit conversion later
 
-##### Cuisine collection 
+##### Cuisine Collection 
 
 Enumerates cuisine types.
 
