@@ -150,5 +150,7 @@ plumdb.recipes.find().sort({_id:1}).limit(10)
 
 ### Colours
 
+![pallet](C:\Users\seany\OneDrive\Documents\GitHub\Plum\static\images\raw\pallet\palette.png)
+
 ### Layout
 
