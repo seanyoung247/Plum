@@ -3,7 +3,7 @@ Plum is a recipe sharing website designed to help users find recipes and share t
 
 ## Table of Contents
 
-- **[UX (User Experience)](#UX-(User-Experience))**
+- **[User Experience](#User-Experience)**
   - [Project Goals](#Project-Goals)
     - [User Stories](#User-Stories)
 - **[Design](#Design)**
@@ -24,7 +24,7 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Colours](#Colours)
   - [Layout](#Layout)
 
-## UX (User Experience)
+## User Experience
 
 ### Project Goals
 
@@ -166,8 +166,6 @@ or
 ```
 plumdb.recipes.find().sort({_id:1}).limit(10)
 ```
-
-##### 
 
 ### Fonts
 
