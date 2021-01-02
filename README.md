@@ -49,7 +49,12 @@ TBC
 - (US007) - As a recipe creator I want to gain feedback on my recipes so I can discover improvements.
 - (US008) - As a recipe creator I want to be able to edit a recipe I've posted so I can improve it.
 
-## Design
+**Administration**
+
+- (US009) - As an admin I want to be able to edit content to ensure it adheres to site rules.
+- (US010) - As an admin I want to be able to add cuisine categories so users can search efficiently.
+
+##  Design
 
 ### Database 
 
@@ -104,12 +109,13 @@ Stores individual recipes
 
 Holds information on each registered user
 
-| Field Name | Description           |
-| ---------- | --------------------- |
-| _id        | Record id             |
-| name       | User Name             |
-| password   | User's password hash  |
-| recipes    | List of recipe tokens |
+| Field Name | Description              |
+| ---------- | ------------------------ |
+| _id        | Record id                |
+| name       | User Name                |
+| password   | User's password hash     |
+| role       | User role, user or admin |
+| recipes    | List of recipe tokens    |
 
 ###### Recipe Token
 
@@ -171,7 +177,30 @@ plumdb.recipes.find().sort({_id:1}).limit(10)
 
 ### Colours
 
-![pallet](static/images/raw/pallet/palette.png)
+Sap Green was chosen as it is associated with nature, health, and freshness. Plum purple fits the branding of the site well while also being complimentary to Sap Green and evoking feelings of luxury. Honeydew was chosen as a background colour as it is near white, providing plenty of contrast for darker elements and text, while also tying into the main green colour.
+
+![pallet](dev/images/pallet/palette.png)
+
+- Sap Green (#3F7D20) - Main site brand colour
+- Plum (#8E4585) - Accent colour
+- Honeydew (#F3FCF0) - Background colour
+- Rich Black (#0D0A0B) - Main text colour
 
 ### Layout
+
+Home
+
+Cuisine Categories
+
+Search Results
+
+Recipe Page
+
+User Page
+
+Create User
+
+Create Recipe
+
+
 
