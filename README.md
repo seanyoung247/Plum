@@ -175,6 +175,8 @@ plumdb.recipes.find().sort({_id:1}).limit(10)
 
 ### Fonts
 
+Headers are rendered using [Oswald](https://fonts.google.com/specimen/Oswald) with body text in [Roboto](https://fonts.google.com/specimen/Roboto). Oswald was chosen for headers because it is bold and clear, while Roboto is easy to use and widely used on the web. Both are obtained from Google Fonts.
+
 ### Colours
 
 Sap Green was chosen as it is associated with nature, health, and freshness. Plum purple fits the branding of the site well while also being complimentary to Sap Green and evoking feelings of luxury. Honeydew was chosen as a background colour as it is near white, providing plenty of contrast for darker elements and text, while also tying into the main green colour.
@@ -197,6 +199,8 @@ Search Results
 Recipe Page
 
 User Page
+
+Login
 
 Create User
 
