@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def test():
-    return "plum lives!"
+    return render_template("base.html")
 
 
 if __name__ == "__main__":
