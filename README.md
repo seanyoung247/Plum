@@ -1,6 +1,8 @@
 # ![plum](static/images/plum.png)Plum
 Plum is a recipe sharing website designed to help users find recipes and share their own with others.
 
+[See live site.](https://plum-recipes.herokuapp.com/)
+
 ## Table of Contents
 
 - **[User Experience](#User-Experience)**
