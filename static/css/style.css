@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*font-family: 'Oswald', sans-serif;*/
+
+body, html {
+    background-color: #F3FCF0;
+    color: #0D0A0B;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*
+ * Header and Navigation
+ */
+.brand-logo img {
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+}
+nav .nav-wrapper {
+    background-color: #3F7D20;
+    color: #F3FCF0;
+
+    font-family: 'Oswald', sans-serif;
+}
