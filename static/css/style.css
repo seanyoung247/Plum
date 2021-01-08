@@ -31,5 +31,9 @@ nav .nav-wrapper {
     background-color: #3F7D20;
     color: #F3FCF0;
 
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+.sidenav {
+    background-color: #F3FCF0;
+    font-family: 'Open Sans', sans-serif;
 }
