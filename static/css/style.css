@@ -11,6 +11,15 @@ body, html {
     color: #0D0A0B;
     font-family: 'Roboto', sans-serif;
 }
+ /*Forces body to full height so footer can be positioned to bottom*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
 
 /*
  * Header and Navigation
@@ -36,4 +45,11 @@ nav .nav-wrapper {
 .sidenav {
     background-color: #F3FCF0;
     font-family: 'Open Sans', sans-serif;
+}
+/*
+ * Footer
+ */
+footer {
+    background-color: #3F7D20;
+    color: #F3FCF0;
 }
