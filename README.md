@@ -73,6 +73,7 @@ Stores individual recipes
 | author      | User token for recipe author                                 |
 | date        | The date this recipe was added                               |
 | description | Short description of the recipe                              |
+| image       | Recipe Image URL string                                      |
 | cuisine     | Cuisine type                                                 |
 | prep_time   | Time in seconds it takes to prepare the recipe               |
 | cook_time   | Time in seconds it takes to cook the recipe                  |
@@ -192,21 +193,7 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 
 ### Layout
 
-Home
-
-Cuisine Categories
-
-Search Results
-
-Recipe Page
-
-User Page
-
-Login
-
-Create User
-
-Create Recipe
+Wireframes
 
 
 
