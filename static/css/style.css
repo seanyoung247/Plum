@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 /*font-family: 'Oswald', sans-serif;*/
 
 body, html {
@@ -11,10 +15,17 @@ body, html {
 /*
  * Header and Navigation
  */
-.brand-logo img {
-    margin: 5px;
+.brand-icon {
     width: 50px;
     height: 50px;
+
+    background-image: url("../images/plum.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.brand-title {
+    padding: 0;
+    margin: 0;
 }
 nav .nav-wrapper {
     background-color: #3F7D20;
