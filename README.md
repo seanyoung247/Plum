@@ -193,7 +193,7 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 
 ### Layout
 
-Wireframes
+[Wireframes](dev/mockups/wireframes.pdf)
 
 
 

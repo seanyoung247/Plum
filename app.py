@@ -18,8 +18,24 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+#
+# Helper functions
+#
+
+
+#
+# App routes
+#
+#Home page
 @app.route("/")
-def test():
+def home():
+    #Finds the newest eight Recipes
+    recipes = mongo.db.recipes.find().sort("_id", -1).limit(8)
+    return render_template("home.html", recipes=recipes)
+
+#login
+@app.route("/login", methods=["GET", "POST"])
+def login():
     return render_template("base.html")
 
 

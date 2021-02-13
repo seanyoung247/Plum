@@ -1,55 +1,141 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+/*font-family: 'Roboto', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+/*font-family: 'Open Sans', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 /*font-family: 'Oswald', sans-serif;*/
 
+/*
+Colours:
+  Main Brand Colour (Sap Green)  : #3F7D20
+  Accent Colour (Plum purple)    : #8E4585
+  Background Colour (Honeydew)   : #F3FCF0
+  Main text colour (Rich Black)  : #0D0A0B
+*/
 body, html {
-    background-color: #F3FCF0;
-    color: #0D0A0B;
-    font-family: 'Roboto', sans-serif;
+  background-color: #F3FCF0;
+  color: #0D0A0B;
+  font-family: 'Roboto', sans-serif;
 }
  /*Forces body to full height so footer can be positioned to bottom*/
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
-
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+.outline-text {
+  -webkit-text-stroke: 1px black;
+  -webkit-text-fill-color: white;
+}
 /*
  * Header and Navigation
  */
 .brand-icon {
-    width: 50px;
-    height: 50px;
-
-    background-image: url("../images/plum.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+  width: 50px;
+  height: 50px;
+  background-image: url("../images/plum.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .brand-title {
-    padding: 0;
-    margin: 0;
+  color: #3F7D20;
+  padding: 0;
+  margin: 0;
+}
+.sidenav-trigger {
+  color: #3F7D20;
 }
 nav .nav-wrapper {
-    background-color: #3F7D20;
-    color: #F3FCF0;
-
-    font-family: 'Open Sans', sans-serif;
+  background-color: #F3FCF0;
+  color: #3F7D20;
+  border-bottom: solid 2px #8E4585; /*#3F7D20;*/
+  font-family: 'Open Sans', sans-serif;
+}
+nav ul a {
+  color: #3F7D20;
 }
 .sidenav {
-    background-color: #F3FCF0;
-    font-family: 'Open Sans', sans-serif;
+  background-color: #F3FCF0;
+  font-family: 'Open Sans', sans-serif;
 }
+/*
+ * Recipe cards
+ */
+ .card {
+   background-color: #F3FCF0;
+ }
+ .card .card-content {
+   padding: 10px;
+ }
+ .card-title {
+   color: #3F7D20;
+   font-family: 'Open Sans', sans-serif;
+ }
+ /*Forces card images to be square and have their final size on load.
+   This prevents layout changes as images load in.*/
+ .card .card-image {
+   padding-top: 100%;
+ }
+ .card .card-image img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-color: #8E4585;
+ }
+ /*
+  * Star rating element
+  */
+ .star-rating {
+   display: inline-block;
+   vertical-align: bottom;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   width: 125px;
+   height: 25px;
+ }
+ ul.star-rating > li {
+   float: left;
+ }
+ ul.star-rating > li > svg {
+   fill: none;
+   stroke: orange;
+   stroke-width: 1px;
+   width: 25px;
+   height: 25px;
+ }
+ ul.star-rating > li.checked > svg {
+   fill: orange;
+ }
+ ul.star-rating > li.check-half > svg {
+   fill: url('#star-half-gradient');
+ }
+ /*Star Gradient values*/
+ .star-stop-fill {
+   stop-color: orange;
+   stop-opacity: 1;
+ }
+ .star-stop-empty {
+   stop-color: none;
+   stop-opacity: 0;
+ }
+ #rating-template {
+   visibility: hidden;
+   position: absolute;
+   width:0;
+   height:0;
+ }
 /*
  * Footer
  */
 footer {
-    background-color: #3F7D20;
-    color: #F3FCF0;
+  background-color: #3F7D20;
+  color: #F3FCF0;
 }
