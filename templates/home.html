@@ -1,6 +1,6 @@
 {% extends "base.html" %}
+{% from "recipe_card.html" import generate_recipe_card %}
+
 {% block content %}
-  {% with var1=1234 %}
-    {% include "recipe_card.html" %}
-  {% endwith %}
+  {{ generate_recipe_card() }}
 {% endblock %}
