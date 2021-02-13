@@ -37,24 +37,25 @@ TBC
 **Browsing**
 
 - (US001) - As a cook I want the website to make suggestions to me so I can be introduced to new content.
+- (US002) - As a cook I want to see reviews and ratings from other users so I can select the best content.
 
 **Searching**
 
-- (US002) - As a cook I want to search recipes by name so that I can find specific dishes that I want to make.
-- (US003) - As a cook I want to search recipes on cuisine type so that I can get dishes of a specific type I want to make.
-- (US004) - As a cook I want to be able to be able to filter recipes based on cooking time so I can get dishes I have time to prepare.
-- (US005) - As a cook I want to save my favourite recipes so that I can quickly find them again in the future.
+- (US003) - As a cook I want to search recipes by name so that I can find specific dishes that I want to make.
+- (US004) - As a cook I want to search recipes on cuisine type so that I can get dishes of a specific type I want to make.
+- (US005) - As a cook I want to be able to be able to filter recipes based on cooking time so I can get dishes I have time to prepare.
+- (US006) - As a cook I want to save my favourite recipes so that I can quickly find them again in the future.
 
 **Uploading**
 
-- (US006) - As a recipe creator I want to upload my own recipes so that other users can benefit from them.
-- (US007) - As a recipe creator I want to gain feedback on my recipes so I can discover improvements.
-- (US008) - As a recipe creator I want to be able to edit a recipe I've posted so I can improve it.
+- (US007) - As a recipe creator I want to upload my own recipes so that other users can benefit from them.
+- (US008) - As a recipe creator I want to gain feedback on my recipes so I can discover improvements.
+- (US009) - As a recipe creator I want to be able to edit a recipe I've posted so I can improve it.
 
 **Administration**
 
-- (US009) - As an admin I want to be able to edit content to ensure it adheres to site rules.
-- (US010) - As an admin I want to be able to add cuisine categories so users can search efficiently.
+- (US010) - As an admin I want to be able to edit content to ensure it adheres to site rules.
+- (US011) - As an admin I want to be able to add cuisine categories so users can search efficiently.
 
 ##  Design
 
@@ -164,21 +165,15 @@ Enumerates cuisine types.
 
 #### Queries
 
-**Returns the 10 newest recipes (for US001):**
+**Returns the 8 newest recipes (for US001):**
 
-```
-plumdb.recipes.find().sort({$natural:1}).limit(10)
-```
-
-or
-
-```
-plumdb.recipes.find().sort({_id:1}).limit(10)
+```mongodb
+plumdb.recipes.find().sort("_id", -1).limit(8)
 ```
 
 ### Fonts
 
-Headers are rendered using [Oswald](https://fonts.google.com/specimen/Oswald) with body text in [Roboto](https://fonts.google.com/specimen/Roboto). Oswald was chosen for headers because it is bold and clear, while Roboto is easy to use and widely used on the web. Both are obtained from Google Fonts.
+Headers are rendered using [Open Sans](https://fonts.google.com/specimen/Open+Sans) with body text in [Roboto](https://fonts.google.com/specimen/Roboto). Open Sans was chosen for headers because it is bold and clear, while Roboto is easy to read and widely used on the web. Both are obtained from Google Fonts.
 
 ### Colours
 
