@@ -2,5 +2,12 @@
 {% from "recipe_card.html" import generate_recipe_card %}
 
 {% block content %}
-  {{ generate_recipe_card() }}
+  {% for row in recipes|batch(4) %}
+    <div class="row">
+      {% for recipe in row %}
+        {# TODO: Add record reading to recipe_card.html #}
+        {{ generate_recipe_card() }}
+      {% endfor %}
+    </div>
+  {% endfor %}
 {% endblock %}
