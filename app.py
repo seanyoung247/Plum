@@ -18,9 +18,20 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+#
+# Helper functions
+#
+
+
+#
+# App routes
+#
+#Home page
 @app.route("/")
-def test():
-    return render_template("home.html")
+def home():
+    #Finds the newest eight Recipes
+    recipes = mongo.db.recipes.find().sort("_id", -1).limit(8)
+    return render_template("home.html", recipes=recipes)
 
 
 if __name__ == "__main__":
