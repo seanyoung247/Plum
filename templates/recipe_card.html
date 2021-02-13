@@ -1,3 +1,5 @@
+{% from "star-rating.html" import generate_static_star_rating, calculate_rating %}
+
 {% macro generate_recipe_card(recipe_record) %}
   <div class="col s12 m6 xl3">
     <div class="card">
@@ -7,7 +9,7 @@
       <div class="card-content">
         <p class="card-title">{{ recipe_record.name }}</p>
         <span class="card-recipe-rating">
-          rating goes here
+          {{ generate_static_star_rating(calculate_rating(recipe_record.rating)|float) }}
         </span>
       </div>
     </div>

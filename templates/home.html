@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% from "recipe_card.html" import generate_recipe_card %}
 
+{% block templates %}
+  {# Should be an include/macro #}
+  <svg id="rating-template" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+    <defs>
+      <linearGradient id="star-half-gradient">
+        <stop offset="0%" class="star-stop-fill"></stop>
+        <stop offset="50%" class="star-stop-fill"></stop>
+        <stop offset="50%" class="star-stop-empty"></stop>
+      </linearGradient>
+    </defs>
+    <symbol id="star-icon" viewBox="0 0 25 25">
+      <polygon points="12.5 18.5 5.75 23.5 8.5 15.25 1.5 10.0 10.0 10.0
+        12.5 1.75 15.0 10.0 23.5 10.0 16.75 15.25 19.25 23.75 12.5 18.5"/>
+    </symbol>
+  </svg>
+{% endblock %}
+
 {% block content %}
   {% for row in recipes|batch(4) %}
     <div class="row">
