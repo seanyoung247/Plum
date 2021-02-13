@@ -68,70 +68,78 @@ nav ul a {
 /*
  * Recipe cards
  */
- .card {
-   background-color: #F3FCF0;
- }
- .card .card-content {
-   padding: 10px;
- }
- .card-title {
-   color: #3F7D20;
-   font-family: 'Open Sans', sans-serif;
- }
- /*Forces card images to be square and have their final size on load.
-   This prevents layout changes as images load in.*/
- .card .card-image {
-   padding-top: 100%;
- }
- .card .card-image img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   background-color: #8E4585;
- }
- /*
-  * Star rating element
-  */
- .star-rating {
-   display: inline-block;
-   vertical-align: bottom;
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   width: 125px;
-   height: 25px;
- }
- ul.star-rating > li {
-   float: left;
- }
- ul.star-rating > li > svg {
-   fill: none;
-   stroke: orange;
-   stroke-width: 1px;
-   width: 25px;
-   height: 25px;
- }
- ul.star-rating > li.checked > svg {
-   fill: orange;
- }
- ul.star-rating > li.check-half > svg {
-   fill: url('#star-half-gradient');
- }
- /*Star Gradient values*/
- .star-stop-fill {
-   stop-color: orange;
-   stop-opacity: 1;
- }
- .star-stop-empty {
-   stop-color: none;
-   stop-opacity: 0;
- }
- #rating-template {
-   visibility: hidden;
-   position: absolute;
-   width:0;
-   height:0;
- }
+.card {
+  background-color: #F3FCF0;
+}
+.card .card-content {
+  padding: 10px;
+}
+.card-title {
+  color: #3F7D20;
+  font-family: 'Open Sans', sans-serif;
+}
+/*Forces card images to be square and have their final size on load.
+  This prevents layout changes as images load in.*/
+.card .card-image {
+  padding-top: 100%;
+}
+.card .card-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #8E4585;
+}
+/*
+* Star rating element
+*/
+.star-rating {
+  display: inline-block;
+  vertical-align: bottom;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 125px;
+  height: 25px;
+}
+ul.star-rating > li {
+  float: left;
+}
+ul.star-rating > li > svg {
+  fill: none;
+  stroke: orange;
+  stroke-width: 1px;
+  width: 25px;
+  height: 25px;
+}
+ul.star-rating > li.checked > svg {
+  fill: orange;
+}
+ul.star-rating > li.check-half > svg {
+  fill: url('#star-half-gradient');
+}
+/*Star Gradient values*/
+.star-stop-fill {
+  stop-color: orange;
+  stop-opacity: 1;
+}
+.star-stop-empty {
+  stop-color: none;
+  stop-opacity: 0;
+}
+#rating-template {
+  visibility: hidden;
+  position: absolute;
+  width:0;
+  height:0;
+}
+/*
+ * Login page
+ */
+.login-header {
+  background-color: #F3FCF0;
+  color: #3F7D20;
+  border-bottom: 2px solid #8E4585;
+}
 /*
  * Footer
  */
