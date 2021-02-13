@@ -5,8 +5,7 @@
   {% for row in recipes|batch(4) %}
     <div class="row">
       {% for recipe in row %}
-        {# TODO: Add record reading to recipe_card.html #}
-        {{ generate_recipe_card() }}
+        {{ generate_recipe_card(recipe) }}
       {% endfor %}
     </div>
   {% endfor %}

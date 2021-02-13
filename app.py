@@ -33,6 +33,11 @@ def home():
     recipes = mongo.db.recipes.find().sort("_id", -1).limit(8)
     return render_template("home.html", recipes=recipes)
 
+#login
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return render_template("base.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
