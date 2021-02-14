@@ -138,7 +138,16 @@ ul.star-rating > li.check-half > svg {
 .login-header {
   background-color: #F3FCF0;
   color: #3F7D20;
+}
+.login-header:not(.active) {
+  border-bottom: 2px solid #8E4585;  
+}
+.login-body {
   border-bottom: 2px solid #8E4585;
+}
+.login-btn {
+  background-color: #3F7D20;
+  color: #F3FCF0;
 }
 /*
  * Footer
