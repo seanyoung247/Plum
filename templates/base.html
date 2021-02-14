@@ -30,8 +30,12 @@
           <li><a href="#">Search</a></li>
           {% if session.user %}
             <li><a href="#">Add Recipe</a></li>
-            <li><a href="#">User</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li>
+              <a class="dropdown-trigger" href="#" data-target="user-dropdown">
+                {{ session.user }}
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
           {% else %}
             <li><a href="{{ url_for('login') }}">Log In</a></li>
           {% endif %}
@@ -39,21 +43,32 @@
       </div>
     </nav>
 
+    <ul id="user-dropdown" class="dropdown-content">
+      <li><a href="#!">profile</a></li>
+      <li><a href="{{ url_for('logout') }}">logout</a></li>
+    </ul>
+
     <ul class="sidenav" id="mobile-demo">
       <li><a href="#">Search</a></li>
       {% if session.user %}
         <li><a href="#">Add Recipe</a></li>
-        <li><a href="#">User</a></li>
-        <li><a href="#">Log Out</a></li>
+        <li>
+          <a class="" href="#" data-target="">
+            {{ session.user }}
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
       {% else %}
-        <li><a href="#">Log In</a></li>
+        <li><a href="{{ url_for('login') }}">Log In</a></li>
       {% endif %}
     </ul>
   </header>
 
-  <main class="container">
-    {% block content %}
-    {% endblock %}
+  <main>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
   </main>
 
   <footer>
