@@ -147,3 +147,13 @@ footer {
   background-color: #3F7D20;
   color: #F3FCF0;
 }
+
+/*
+ * Media Queries
+ */
+@media only screen and (max-width: 274px) {
+  /* Don't show brand title on really small screens */
+  .brand-title {
+    display: none;
+  }
+}
