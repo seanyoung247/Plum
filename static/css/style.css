@@ -17,6 +17,8 @@ body, html {
   background-color: #F3FCF0;
   color: #0D0A0B;
   font-family: 'Roboto', sans-serif;
+
+  height: 100%;
 }
  /*Forces body to full height so footer can be positioned to bottom*/
 body {
@@ -139,8 +141,11 @@ ul.star-rating > li.check-half > svg {
   background-color: #F3FCF0;
   color: #3F7D20;
 }
-.login-header:not(.active) {
-  border-bottom: 2px solid #8E4585;  
+li:not(.active) > .login-header {
+  border-bottom: 2px solid #8E4585;
+  /* Delays the application of this rule on collapse so the border appears
+     as the content dissapears for a seemless transition. */
+  transition-delay: 0.3s;
 }
 .login-body {
   border-bottom: 2px solid #8E4585;
