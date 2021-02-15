@@ -53,7 +53,7 @@ def register():
             {"name": request.form.get("username").lower()})
         #if user exists, we need to redirect back to login to try again
         if existing_user:
-            #--- Flash message ---#
+            flash("That user name already exists", category="warning")
             return redirect(url_for("login"))
 
         register = {
@@ -65,7 +65,7 @@ def register():
         mongo.db.users.insert_one(register)
         #put the new user into the session cookie
         session["user"] = request.form.get("username").lower()
-        #---FLASH MESSAGE HERE---#
+        flash("User " + session["user"] + " registered!", category="information")
         return redirect(url_for("home"))
 
     return render_template("login.html")
@@ -87,13 +87,13 @@ def login():
             #ensure password matches
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                # --- flash message here --- #
+                flash("User " + session["user"] + " Logged in!", category="information")
                 return redirect(url_for("home"))
             else:
-                # --- flash message here --- #
+                flash("Incorrect username or password", category="warning")
                 return redirect(url_for("login"))
         else:
-            # --- flash message here --- #
+            flash("Incorrect username or password", category="warning")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -103,8 +103,8 @@ def login():
 @app.route("/logout")
 def logout():
     if user_logged_in():
+        flash("User " + session["user"] + " Logged out", category="information")
         #remove user from session cookies
-        flash("You have been logged out")
         session.pop("user")
 
     return redirect(url_for("home"))
