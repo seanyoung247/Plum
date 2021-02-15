@@ -30,28 +30,53 @@
           <li><a href="#">Search</a></li>
           {% if session.user %}
             <li><a href="#">Add Recipe</a></li>
-            <li><a href="#">User</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li>
+              <a class="dropdown-trigger" href="#" data-target="user-dropdown">
+                {{ session.user }}
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
           {% else %}
-            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="{{ url_for('login') }}">Login/register</a></li>
           {% endif %}
         </ul>
       </div>
     </nav>
 
+    <ul id="user-dropdown" class="user-dropdown dropdown-content">
+      <li><a href="#!">profile</a></li>
+      <li><a href="{{ url_for('logout') }}">logout</a></li>
+    </ul>
+
     <ul class="sidenav" id="mobile-demo">
       <li><a href="#">Search</a></li>
       {% if session.user %}
         <li><a href="#">Add Recipe</a></li>
-        <li><a href="#">User</a></li>
-        <li><a href="#">Log Out</a></li>
+        <li>
+          <ul class="collapsible">
+            <li>
+              <div class="collapsible-header">
+                {{ session.user }}
+                <i class="material-icons right">arrow_drop_down</i>
+              </div>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#!">profile</a></li>
+                  <li><a href="{{ url_for('logout') }}">logout</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
       {% else %}
-        <li><a href="#">Log In</a></li>
+        <li><a href="{{ url_for('login') }}">Login/register</a></li>
       {% endif %}
     </ul>
   </header>
 
-  <main class="container">
+  {# --- FLASH MESSAGES HERE --- #}
+
+  <main>
     {% block content %}
     {% endblock %}
   </main>

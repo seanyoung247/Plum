@@ -25,7 +25,9 @@ body {
   flex-direction: column;
 }
 main {
+  display: flex;
   flex: 1 0 auto;
+  flex-flow: column nowrap;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
@@ -34,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-stroke: 1px black;
   -webkit-text-fill-color: white;
 }
+
 /*
  * Header and Navigation
  */
@@ -49,93 +52,142 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
 }
-.sidenav-trigger {
-  color: #3F7D20;
-}
 nav .nav-wrapper {
   background-color: #F3FCF0;
   color: #3F7D20;
   border-bottom: solid 2px #8E4585; /*#3F7D20;*/
   font-family: 'Open Sans', sans-serif;
 }
-nav ul a {
+nav ul li a {
+  color: #3F7D20;
+}
+.user-dropdown {
+  background-color: #F3FCF0;
+}
+ul.user-dropdown li > a {
+  color: #3F7D20;
+}
+.sidenav-trigger {
   color: #3F7D20;
 }
 .sidenav {
   background-color: #F3FCF0;
   font-family: 'Open Sans', sans-serif;
 }
+.sidenav .collapsible-header,
+.sidenav .collapsible-body {
+  padding: 0 32px;
+  background-color: transparent;
+}
 /*
  * Recipe cards
  */
- .card {
-   background-color: #F3FCF0;
- }
- .card .card-content {
-   padding: 10px;
- }
- .card-title {
-   color: #3F7D20;
-   font-family: 'Open Sans', sans-serif;
- }
- /*Forces card images to be square and have their final size on load.
-   This prevents layout changes as images load in.*/
- .card .card-image {
-   padding-top: 100%;
- }
- .card .card-image img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   background-color: #8E4585;
- }
- /*
-  * Star rating element
-  */
- .star-rating {
-   display: inline-block;
-   vertical-align: bottom;
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   width: 125px;
-   height: 25px;
- }
- ul.star-rating > li {
-   float: left;
- }
- ul.star-rating > li > svg {
-   fill: none;
-   stroke: orange;
-   stroke-width: 1px;
-   width: 25px;
-   height: 25px;
- }
- ul.star-rating > li.checked > svg {
-   fill: orange;
- }
- ul.star-rating > li.check-half > svg {
-   fill: url('#star-half-gradient');
- }
- /*Star Gradient values*/
- .star-stop-fill {
-   stop-color: orange;
-   stop-opacity: 1;
- }
- .star-stop-empty {
-   stop-color: none;
-   stop-opacity: 0;
- }
- #rating-template {
-   visibility: hidden;
-   position: absolute;
-   width:0;
-   height:0;
- }
+.card {
+  background-color: #F3FCF0;
+}
+.card .card-content {
+  padding: 10px;
+}
+.card-title {
+  color: #3F7D20;
+  font-family: 'Open Sans', sans-serif;
+}
+/*Forces card images to be square and have their final size on load.
+  This prevents layout changes as images load in.*/
+.card .card-image {
+  padding-top: 100%;
+}
+.card .card-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #8E4585;
+}
+/*
+* Star rating element
+*/
+.star-rating {
+  display: inline-block;
+  vertical-align: bottom;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 125px;
+  height: 25px;
+}
+ul.star-rating > li {
+  float: left;
+}
+ul.star-rating > li > svg {
+  fill: none;
+  stroke: orange;
+  stroke-width: 1px;
+  width: 25px;
+  height: 25px;
+}
+ul.star-rating > li.checked > svg {
+  fill: orange;
+}
+ul.star-rating > li.check-half > svg {
+  fill: url('#star-half-gradient');
+}
+/*Star Gradient values*/
+.star-stop-fill {
+  stop-color: orange;
+  stop-opacity: 1;
+}
+.star-stop-empty {
+  stop-color: none;
+  stop-opacity: 0;
+}
+#rating-template {
+  visibility: hidden;
+  position: absolute;
+  width:0;
+  height:0;
+}
+/*
+ * Login page
+ */
+.login-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+}
+.login-box {
+  max-width: 750px;
+}
+.login-header {
+  background-color: #F3FCF0;
+  color: #3F7D20;
+}
+li:not(.active) > .login-header {
+  border-bottom: 2px solid #8E4585;
+  /* Delays the application of this rule on collapse so the border appears
+     as the content dissapears for a seemless transition. */
+  transition-delay: 0.3s;
+}
+.login-body {
+  border-bottom: 2px solid #8E4585;
+}
+.login-btn {
+  background-color: #3F7D20;
+  color: #F3FCF0;
+}
 /*
  * Footer
  */
 footer {
   background-color: #3F7D20;
   color: #F3FCF0;
+}
+
+/*
+ * Media Queries
+ */
+@media only screen and (max-width: 274px) {
+  /* Don't show brand title on really small screens */
+  .brand-title {
+    display: none;
+  }
 }

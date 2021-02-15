@@ -7,11 +7,13 @@
 {% endblock %}
 
 {% block content %}
-  {% for row in recipes|batch(4) %}
-    <div class="row">
-      {% for recipe in row %}
-        {{ generate_recipe_card(recipe) }}
-      {% endfor %}
-    </div>
-  {% endfor %}
+  <div class="container">
+    {% for row in recipes|batch(4) %}
+      <div class="row">
+        {% for recipe in row %}
+          {{ generate_recipe_card(recipe) }}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
