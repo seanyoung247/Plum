@@ -53,10 +53,20 @@
       {% if session.user %}
         <li><a href="#">Add Recipe</a></li>
         <li>
-          <a class="" href="#" data-target="">
-            {{ session.user }}
-            <i class="material-icons right">arrow_drop_down</i>
-          </a>
+          <ul class="collapsible">
+            <li>
+              <div class="collapsible-header">
+                {{ session.user }}
+                <i class="material-icons right">arrow_drop_down</i>
+              </div>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#!">profile</a></li>
+                  <li><a href="{{ url_for('logout') }}">logout</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </li>
       {% else %}
         <li><a href="{{ url_for('login') }}">Login/register</a></li>

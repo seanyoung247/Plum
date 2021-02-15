@@ -61,12 +61,17 @@ nav .nav-wrapper {
   border-bottom: solid 2px #8E4585; /*#3F7D20;*/
   font-family: 'Open Sans', sans-serif;
 }
-nav ul a {
+nav ul li a {
   color: #3F7D20;
 }
 .sidenav {
   background-color: #F3FCF0;
   font-family: 'Open Sans', sans-serif;
+}
+.sidenav .collapsible-header,
+.sidenav .collapsible-body {
+  padding: 0 32px;
+  background-color: transparent;
 }
 /*
  * Recipe cards
