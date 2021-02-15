@@ -21,7 +21,8 @@ mongo = PyMongo(app)
 #
 # Helper functions
 #
-
+def userLoggedIn():
+    return false
 
 #
 # App routes
@@ -33,9 +34,17 @@ def home():
     recipes = mongo.db.recipes.find().sort("_id", -1).limit(8)
     return render_template("home.html", recipes=recipes)
 
-#login
+
+#User Registration
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("login.html")
+
+
+#User login
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    #---Should check if user is logged in.---
     if request.method == "POST":
         #check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -56,7 +65,8 @@ def login():
 
     return render_template("login.html")
 
-#logout
+
+#User logout
 @app.route("/logout")
 def logout():
     #remove user from session cookies
