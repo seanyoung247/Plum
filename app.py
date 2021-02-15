@@ -21,8 +21,12 @@ mongo = PyMongo(app)
 #
 # Helper functions
 #
-def userLoggedIn():
-    return false
+#Returns whether a user is currently logged in
+def user_logged_in():
+    if session.get("user") is None:
+        return False
+    else:
+        return True
 
 #
 # App routes
@@ -38,6 +42,10 @@ def home():
 #User Registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    #Don't need to log in if user is already logged in..
+    if user_logged_in():
+        return redirect("home")
+
     if request.method == "POST":
         #check username doesn't already exist in the db
         existing_user = mongo.db.users.find_one(
@@ -65,7 +73,10 @@ def register():
 #User login
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    #---Should check if user is logged in.---
+    #Don't need to log in if user is already logged in..
+    if user_logged_in():
+        return redirect("home")
+
     if request.method == "POST":
         #check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -90,10 +101,17 @@ def login():
 #User logout
 @app.route("/logout")
 def logout():
-    #remove user from session cookies
-    flash("You have been logged out")
-    session.pop("user")
+    if user_logged_in():
+        #remove user from session cookies
+        flash("You have been logged out")
+        session.pop("user")
+
     return redirect(url_for("home"))
+
+
+#
+# AJAX routes
+#
 
 
 if __name__ == "__main__":

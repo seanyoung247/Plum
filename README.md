@@ -118,6 +118,7 @@ Holds information on each registered user
 | _id        | Record id                |
 | name       | User Name                |
 | password   | User's password hash     |
+| email      | User's email address     |
 | role       | User role, user or admin |
 | recipes    | List of recipe tokens    |
 
