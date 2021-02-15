@@ -28,6 +28,7 @@ def user_logged_in():
     else:
         return True
 
+
 #
 # App routes
 #

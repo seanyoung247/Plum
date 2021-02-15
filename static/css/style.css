@@ -52,9 +52,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
 }
-.sidenav-trigger {
-  color: #3F7D20;
-}
 nav .nav-wrapper {
   background-color: #F3FCF0;
   color: #3F7D20;
@@ -62,6 +59,15 @@ nav .nav-wrapper {
   font-family: 'Open Sans', sans-serif;
 }
 nav ul li a {
+  color: #3F7D20;
+}
+.user-dropdown {
+  background-color: #F3FCF0;
+}
+ul.user-dropdown li > a {
+  color: #3F7D20;
+}
+.sidenav-trigger {
   color: #3F7D20;
 }
 .sidenav {
