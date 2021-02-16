@@ -41,8 +41,13 @@ def home():
 
 
 #Recipe page
-@app.route
-
+@app.route("/recipe/<pageid>")
+def recipe(pageid):
+    recipe = mongo.db.recipes.find_one({"pageid": pageid})
+    if recipe:
+        return render_template(recipe, recipe=recipe)
+    else:
+        return abort(404)
 
 #User Registration
 @app.route("/register", methods=["GET", "POST"])
@@ -117,6 +122,16 @@ def logout():
 #
 # AJAX routes
 #
+
+
+#
+# Error Handling
+#
+@app.errorhandler(404)
+def not_found_error(error):
+    #temporary error handling - just returns to home page with flash message
+    flash("Page not found: 404", category="error")
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
