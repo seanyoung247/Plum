@@ -40,6 +40,10 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
+#Recipe page
+@app.route
+
+
 #User Registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
