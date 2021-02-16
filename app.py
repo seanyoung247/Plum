@@ -45,7 +45,7 @@ def home():
 def recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
     if recipe:
-        return render_template(recipe, recipe=recipe)
+        return render_template("recipe.html", recipe=recipe)
     else:
         return abort(404)
 

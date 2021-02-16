@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% from "star-rating.html" import generate_star_template %}
+
+{% block templates %}
+  {{ generate_star_template() }}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col s12 l6">
+        IMAGE AND RATING HERE!
+      </div>
+      <div class="col s12 l6">
+        TITLE DESCRIPTION AND STEPS HERE
+      </div>
+    </div>
+  </div>
+{% endblock %}

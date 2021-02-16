@@ -4,10 +4,16 @@
   <div class="col s12 m6 xl3">
     <div class="card">
       <div class="card-image">
-        <img src="{{ recipe_record.image }}" alt="">
+        <a href="{{ url_for('recipe', pageid=recipe_record.pageid) }}">
+          <img src="{{ recipe_record.image }}" alt="">
+        </a>
       </div>
       <div class="card-content">
-        <p class="card-title">{{ recipe_record.name }}</p>
+        <p class="card-title">
+          <a href="{{ url_for('recipe', pageid=recipe_record.pageid) }}">
+            {{ recipe_record.name }}
+          </a>
+        </p>
         <span class="card-recipe-rating">
           {{ generate_static_star_rating(calculate_rating(recipe_record.rating)|float) }}
         </span>
