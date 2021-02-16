@@ -1,4 +1,7 @@
+
+
 # ![plum](static/images/plum.png)Plum
+
 Plum is a recipe sharing website designed to help users find recipes and share their own with others.
 
 [See live site.](https://plum-recipes.herokuapp.com/)
@@ -56,6 +59,10 @@ TBC
 
 - (US010) - As an admin I want to be able to edit content to ensure it adheres to site rules.
 - (US011) - As an admin I want to be able to add cuisine categories so users can search efficiently.
+
+**General**
+
+- (US012) - As a user I want to receive clear feedback for my actions so I know if any further action is required.
 
 ##  Design
 
@@ -171,6 +178,19 @@ Enumerates cuisine types.
 ```mongodb
 plumdb.recipes.find().sort("_id", -1).limit(8)
 ```
+
+**Returns a specific user account based on username:**
+
+```mongodb
+plumdb.users.find_one({"name": "username"})
+```
+**Inserts a new user account into the database:**
+
+```mongodb
+plumdb.users.insert_one(user-record)
+```
+
+
 
 ### Fonts
 
