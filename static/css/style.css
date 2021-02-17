@@ -37,11 +37,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #0D0A0B;
   font-family: 'Open Sans', sans-serif;
 }
-.outline-text {
-  -webkit-text-stroke: 1px black;
-  -webkit-text-fill-color: white;
-}
-
 /*
  * Header and Navigation
  */
@@ -111,6 +106,9 @@ ul.user-dropdown li > a {
   object-fit: cover;
   background-color: #8E4585;
 }
+.card-title a {
+  color: #3F7D20;
+}
 .card-recipe-rating {
   color: darkorange;
 }
@@ -122,6 +120,7 @@ ul.user-dropdown li > a {
   max-width: 100%;
 }
 .recipe-title {
+  color: #3F7D20;
   font-size: calc(20px + 2vw);
   text-align: center;
 }

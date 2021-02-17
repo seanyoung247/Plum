@@ -15,19 +15,6 @@
   </svg>
 {% endmacro %}
 
-{# Calculates the rating from a list of votes.
-   This is a fairly naive formula, a better weighting may be possible.
-   It may also be better to move this calculation to the python side. #}
-{% macro calculate_rating(rating) %}
-  {% set cumulative = rating[0] + rating[1] * 2 + rating[2] * 3 + rating[3] * 4 + rating[4] * 5 %}
-  {% set weight =  rating[0] + rating[1] + rating[2] + rating[3] + rating[4] %}
-  {% if (weight > 0) and (cumulative > 0) %}
-    {{ cumulative / weight }}
-  {% else %}
-    {{ 0 }}
-  {% endif %}
-{% endmacro %}
-
 {# Returns the current star's required check state #}
 {% macro star_checked(n) %}
   {% if n > 0.25 %}
