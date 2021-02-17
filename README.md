@@ -83,8 +83,8 @@ Stores individual recipes
 | description | Short description of the recipe                              |
 | image       | Recipe Image URL string                                      |
 | cuisine     | Cuisine type                                                 |
-| prep_time   | Time in seconds it takes to prepare the recipe               |
-| cook_time   | Time in seconds it takes to cook the recipe                  |
+| prep_time   | Time token                                                   |
+| cook_time   | Time token                                                   |
 | servings    | Integer number of the number of servings this recipe provides |
 | rating      | List of values for how many of each star rating the recipe has received. |
 | ingredients | List of ingredients                                          |
@@ -97,6 +97,14 @@ Stores individual recipes
 | ---------- | -------------- |
 | name       | User name      |
 | user_id    | User record id |
+
+###### User Token
+
+| Field Name | Description           |
+| ---------- | --------------------- |
+| total      | Total time in seconds |
+| hours      | Number of hours       |
+| minutes    | Number of minutes     |
 
 ###### Ingredient List
 

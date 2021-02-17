@@ -15,9 +15,8 @@
           </a>
         </p>
         <span class="card-recipe-rating">
-          {% set avg_rating = calculate_rating(recipe.rating)|float|round(1, 'common') %}
-          {{ generate_static_star_rating(avg_rating) }}
-          ({{ avg_rating }})
+          {{ generate_static_star_rating(recipe.rating[0]) }}
+          ({{ recipe.rating[0] }})
         </span>
       </div>
     </div>
