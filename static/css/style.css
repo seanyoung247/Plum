@@ -34,6 +34,7 @@ main .container {
   margin-top: 10px;
 }
 h1, h2, h3, h4, h5, h6 {
+  color: #0D0A0B;
   font-family: 'Open Sans', sans-serif;
 }
 .outline-text {
@@ -111,7 +112,7 @@ ul.user-dropdown li > a {
   background-color: #8E4585;
 }
 .card-recipe-rating {
-  color: orange;
+  color: darkorange;
 }
 /*
  * Recipe page
@@ -121,15 +122,25 @@ ul.user-dropdown li > a {
   max-width: 100%;
 }
 .recipe-title {
+  font-size: calc(20px + 2vw);
   text-align: center;
 }
 .recipe-author {}
 .recipe-rating {
-  color: orange;
+  color: darkorange;
 }
 .recipe-description {}
 .recipe-header-sub {
   text-align: center;
+}
+.recipe-header-sub:not(:last-child) {
+  border-right: 1px solid #0D0A0B;
+}
+.recipe-header-sub h5 {
+  font-size: calc(15px + 0.5vw);
+}
+.recipe-header-sub span {
+  font-size: calc(20px + 0.5vw);
 }
 .recipe-collapsible {
   padding: 10px;
@@ -155,20 +166,20 @@ ul.star-rating > li {
 }
 ul.star-rating > li > svg {
   fill: none;
-  stroke: orange;
+  stroke: darkorange;
   stroke-width: 1px;
   width: 25px;
   height: 25px;
 }
 ul.star-rating > li.checked > svg {
-  fill: orange;
+  fill: darkorange;
 }
 ul.star-rating > li.check-half > svg {
   fill: url('#star-half-gradient');
 }
 /*Star Gradient values*/
 .star-stop-fill {
-  stop-color: orange;
+  stop-color: darkorange;
   stop-opacity: 1;
 }
 .star-stop-empty {

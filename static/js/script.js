@@ -1,8 +1,8 @@
 $(document).ready(function(){
   $('.sidenav').sidenav();
   $(".dropdown-trigger").dropdown({
+    //Prevents the dropdown menu covering the trigger item
     coverTrigger: false
   });
-
-  $('.collapsible').collapsible(); //Might be better to be inserted on the page?
+  $('.collapsible').collapsible();
 });

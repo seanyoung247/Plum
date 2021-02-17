@@ -23,15 +23,15 @@
         <div class="row">
           <div class="recipe-header-sub col s4">
             <h5>Prep</h5>
-            {{ recipe.prep_time.hours }}:{{ recipe.prep_time.minutes }}
+            <span>{{ recipe.prep_time.hours }}:{{ recipe.prep_time.minutes }}</span>
           </div>
           <div class="recipe-header-sub col s4">
             <h5>Cook</h5>
-            {{ recipe.cook_time.hours }}:{{ recipe.cook_time.minutes }}
+            <span>{{ recipe.cook_time.hours }}:{{ recipe.cook_time.minutes }}</span>
           </div>
           <div class="recipe-header-sub col s4">
             <h5>Servings</h5>
-            {{ recipe.servings }}
+            <span>{{ recipe.servings }}</span>
           </div>
         </div>
       </div>
