@@ -41,8 +41,8 @@
       <div class="col s12">
         <ul class="collapsible">
           <li class="active">
-            <div class="collapsible-header">
-              Ingredients
+            <div class="recipe-collapsible collapsible-header">
+              <h5>Ingredients</h5>
             </div>
             <div class="recipe-collapsible collapsible-body">
               {% if recipe.ingredients|length > 0 %}
@@ -57,8 +57,8 @@
             </div>
           </li>
           <li>
-            <div class="collapsible-header">
-              Method
+            <div class="recipe-collapsible collapsible-header">
+              <h5>Method</h5>
             </div>
             <div class="recipe-collapsible collapsible-body">
               {% if recipe.steps|length > 0 %}
@@ -76,7 +76,9 @@
       </div>
     </div>
 
-    {# Logged in user interactions here #}
+    {# User comment form #}
+
+    {# previous comments here #}
 
   </div>
 {% endblock %}

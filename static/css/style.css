@@ -133,6 +133,10 @@ ul.user-dropdown li > a {
 }
 .recipe-collapsible {
   padding: 10px;
+  background-color: white;
+}
+.recipe-collapsible .collection .collection-item {
+  background-color: transparent;
 }
 /*
 * Star rating element
