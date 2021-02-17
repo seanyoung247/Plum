@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{% from "star-rating.html" import generate_star_template %}
+{% from "star-rating.html" import generate_star_template,
+                                  generate_static_star_rating,
+                                  calculate_rating %}
 
 {% block templates %}
   {{ generate_star_template() }}
@@ -9,10 +11,41 @@
   <div class="container">
     <div class="row">
       <div class="col s12 l6">
-        IMAGE AND RATING HERE!
+        <img class="recipe-title-img" src="{{ recipe.image }}" alt="">
       </div>
       <div class="col s12 l6">
-        TITLE DESCRIPTION AND STEPS HERE
+        <h1 class="recipe-title">{{ recipe.name }}</h1>
+        <div class="recipe-rating">
+
+          {% set avg_rating = calculate_rating(recipe.rating)|float|round(1, 'common') %}
+          {{ generate_static_star_rating(avg_rating) }}
+          ({{ avg_rating }})
+
+        </div>
+        <p class="recipe-description">{{ recipe.description }}</p>
+      </div>
+    </div>
+    <hr class="row">
+    <div class="row">
+      <div class="col s12">
+        <ul class="collapsible">
+          <li class="active">
+            <div class="collapsible-header">
+              Ingredients
+            </div>
+            <div class="collapsible-body">
+              <span>Lorem ipsum dolor sit amet.</span>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              Method
+            </div>
+            <div class="collapsible-body">
+              <span>Lorem ipsum dolor sit amet.</span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
