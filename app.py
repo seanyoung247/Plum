@@ -58,7 +58,8 @@ def recipe(pageid):
 def register():
     #Don't need to log in if user is already logged in..
     if user_logged_in():
-        return redirect("home")
+        flash("User already logged in!", category="information")
+        return redirect(url_for("home"))
 
     if request.method == "POST":
         #check username doesn't already exist in the db
@@ -89,7 +90,8 @@ def register():
 def login():
     #Don't need to log in if user is already logged in..
     if user_logged_in():
-        return redirect("home")
+        flash("User already logged in!", category="information")
+        return redirect(url_for("home"))
 
     if request.method == "POST":
         #check if username exists in db
