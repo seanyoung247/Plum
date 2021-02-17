@@ -198,7 +198,11 @@ plumdb.users.find_one({"name": "username"})
 plumdb.users.insert_one(user-record)
 ```
 
+**Finds a single recipe from it's pageid:**
 
+```Mongodb
+plumdb.recipes.find_one({"pageid": pageid})
+```
 
 ### Fonts
 
