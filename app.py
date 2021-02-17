@@ -4,6 +4,7 @@ from flask import ( Flask, flash, render_template, redirect,
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from secrets import token_urlsafe
 if os.path.exists("env.py"):
     import env
 
@@ -27,6 +28,9 @@ def user_logged_in():
         return False
     else:
         return True
+
+#random pageid pad = secrets.token_urlsafe(8)
+#01 formated number string: print(str(5).zfill(2))
 
 
 #
