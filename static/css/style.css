@@ -103,6 +103,19 @@ ul.user-dropdown li > a {
   left: 0;
   background-color: #8E4585;
 }
+.card-recipe-rating {
+  color: orange;
+}
+/*
+ * Recipe page
+ */
+.recipe-title-img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.recipe-rating {
+  color: orange;
+}
 /*
 * Star rating element
 */

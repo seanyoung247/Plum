@@ -1,21 +1,23 @@
 {% from "star-rating.html" import generate_static_star_rating, calculate_rating %}
 
-{% macro generate_recipe_card(recipe_record) %}
+{% macro generate_recipe_card(recipe) %}
   <div class="col s12 m6 xl3">
     <div class="card">
       <div class="card-image">
-        <a href="{{ url_for('recipe', pageid=recipe_record.pageid) }}">
-          <img src="{{ recipe_record.image }}" alt="">
+        <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
+          <img src="{{ recipe.image }}" alt="">
         </a>
       </div>
       <div class="card-content">
         <p class="card-title">
-          <a href="{{ url_for('recipe', pageid=recipe_record.pageid) }}">
-            {{ recipe_record.name }}
+          <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
+            {{ recipe.name }}
           </a>
         </p>
         <span class="card-recipe-rating">
-          {{ generate_static_star_rating(calculate_rating(recipe_record.rating)|float) }}
+          {% set avg_rating = calculate_rating(recipe.rating)|float|round(1, 'common') %}
+          {{ generate_static_star_rating(avg_rating) }}
+          ({{ avg_rating }})
         </span>
       </div>
     </div>

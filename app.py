@@ -127,6 +127,7 @@ def logout():
 #
 # Error Handling
 #
+#Not found. Raised by app when requested data not found in database
 @app.errorhandler(404)
 def not_found_error(error):
     #temporary error handling - just returns to home page with flash message
