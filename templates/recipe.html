@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% from "star-rating.html" import generate_star_template,
-                                  generate_static_star_rating,
-                                  calculate_rating %}
+                                  generate_static_star_rating %}
 
 {% block templates %}
   {{ generate_star_template() }}
@@ -22,14 +21,17 @@
         </div>
         <p class="recipe-description">{{ recipe.description }}</p>
         <div class="row">
-          <div class="col s4">
-            Prep Time:
+          <div class="recipe-header-sub col s4">
+            <h5>Prep</h5>
+            {{ recipe.prep_time.hours }}:{{ recipe.prep_time.minutes }}
           </div>
-          <div class="col s4">
-            Cook Time:
+          <div class="recipe-header-sub col s4">
+            <h5>Cook</h5>
+            {{ recipe.cook_time.hours }}:{{ recipe.cook_time.minutes }}
           </div>
-          <div class="col s4">
-            Servings: {{ recipe.servings }}
+          <div class="recipe-header-sub col s4">
+            <h5>Servings</h5>
+            {{ recipe.servings }}
           </div>
         </div>
       </div>
@@ -42,7 +44,7 @@
             <div class="collapsible-header">
               Ingredients
             </div>
-            <div class="collapsible-body">
+            <div class="recipe-collapsible collapsible-body">
               {% if recipe.ingredients|length > 0 %}
                 <ul class="collection">
                   {% for ingredient in recipe.ingredients %}
@@ -58,15 +60,15 @@
             <div class="collapsible-header">
               Method
             </div>
-            <div class="collapsible-body">
+            <div class="recipe-collapsible collapsible-body">
               {% if recipe.steps|length > 0 %}
-                <ul class="collection">
+                <ol class="collection">
                   {% for step in recipe.steps %}
                     <li class="collection-item">
                       {{ step }}
                     </li>
                   {% endfor %}
-                </ul>
+                </ol>
               {% endif %}
             </div>
           </li>

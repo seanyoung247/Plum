@@ -29,6 +29,10 @@ main {
   flex: 1 0 auto;
   flex-flow: column nowrap;
 }
+/* Shifts content down below the header */
+main .container {
+  margin-top: 10px;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
 }
@@ -124,6 +128,12 @@ ul.user-dropdown li > a {
   color: orange;
 }
 .recipe-description {}
+.recipe-header-sub {
+  text-align: center;
+}
+.recipe-collapsible {
+  padding: 10px;
+}
 /*
 * Star rating element
 */
