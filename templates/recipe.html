@@ -15,14 +15,23 @@
       </div>
       <div class="col s12 l6">
         <h1 class="recipe-title">{{ recipe.name }}</h1>
+        <p class="recipe-author">by {{ recipe.author.name }}</p>
         <div class="recipe-rating">
-
-          {% set avg_rating = calculate_rating(recipe.rating)|float|round(1, 'common') %}
-          {{ generate_static_star_rating(avg_rating) }}
-          ({{ avg_rating }})
-
+          {{ generate_static_star_rating(recipe.rating[0]) }}
+          ({{ recipe.rating[0] }})
         </div>
         <p class="recipe-description">{{ recipe.description }}</p>
+        <div class="row">
+          <div class="col s4">
+            Prep Time:
+          </div>
+          <div class="col s4">
+            Cook Time:
+          </div>
+          <div class="col s4">
+            Servings: {{ recipe.servings }}
+          </div>
+        </div>
       </div>
     </div>
     <hr class="row">
@@ -34,7 +43,15 @@
               Ingredients
             </div>
             <div class="collapsible-body">
-              <span>Lorem ipsum dolor sit amet.</span>
+              {% if recipe.ingredients|length > 0 %}
+                <ul class="collection">
+                  {% for ingredient in recipe.ingredients %}
+                    <li class="collection-item">
+                      {{ ingredient }}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             </div>
           </li>
           <li>
@@ -42,11 +59,22 @@
               Method
             </div>
             <div class="collapsible-body">
-              <span>Lorem ipsum dolor sit amet.</span>
+              {% if recipe.steps|length > 0 %}
+                <ul class="collection">
+                  {% for step in recipe.steps %}
+                    <li class="collection-item">
+                      {{ step }}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             </div>
           </li>
         </ul>
       </div>
     </div>
+
+    {# Logged in user interactions here #}
+
   </div>
 {% endblock %}

@@ -101,6 +101,9 @@ ul.user-dropdown li > a {
   position: absolute;
   top: 0;
   left: 0;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
   background-color: #8E4585;
 }
 .card-recipe-rating {
@@ -113,9 +116,14 @@ ul.user-dropdown li > a {
   max-height: 100%;
   max-width: 100%;
 }
+.recipe-title {
+  text-align: center;
+}
+.recipe-author {}
 .recipe-rating {
   color: orange;
 }
+.recipe-description {}
 /*
 * Star rating element
 */
