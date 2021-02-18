@@ -14,7 +14,7 @@
         <p class="recipe-author">by {{ recipe.author.name }}</p>
 
         <div class="recipe-rating">
-          {{ generate_static_star_rating(recipe.rating[0], true) }}
+          {{ generate_star_rating_display(recipe.rating[0], true) }}
         </div>
         <div class="row">
           <div class="recipe-header-sub col s4">

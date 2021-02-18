@@ -247,14 +247,12 @@ ol.collection li.collection-item:target::before
 /*  font-size: 50px;*/
   color: darkorange;
 }
-/* Static rating display */
-.star-rating > .star,
-.star-rating > .rating-text {
+.star-rating > .rating-text,
+.star-rating > .star {
   float: left;
   white-space: nowrap;
 }
-.star-rating-ctl > .star,
-.star-rating-ctl > .rating-text {
+.star-rating-ctl > .star {
   float: right;
 }
 .star-rating > .star.off i::after,
@@ -306,7 +304,6 @@ footer {
   background-color: #3F7D20;
   color: #F3FCF0;
 }
-
 /*
  * Media Queries
  */

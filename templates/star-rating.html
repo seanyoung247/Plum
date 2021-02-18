@@ -14,7 +14,7 @@
 {% endmacro %}
 
 {# Generates a static star rating element #}
-{% macro generate_static_star_rating(rating, show_rating_number) %}
+{% macro generate_star_rating_display(rating, show_rating_number) %}
   <ul class="star-rating">
     {% for i in [rating,rating-1,rating-2,rating-3,rating-4] %}
       <li class="star {{ star_checked(i) }}"><i class="material-icons"></i></li>
@@ -23,4 +23,16 @@
       <li class="rating-text">({{ rating }})</li>
     {% endif %}
   </ul>
+{% endmacro %}
+
+{% macro generate_star_rating_control(id) %}
+  <div class="star-rating-ctl" name="star-rating[{{ id }}]">
+    {% for i in [5,4,3,2,1] %}
+      <input id="rating{{ i }}[{{ id }}]" type="radio"
+        name="star-rating-check" value="{{ i }}">
+      <label for="rating{{ i }}[{{ id }}]" class="star">
+        <i class="material-icons"></i>
+      </label>
+    {% endfor %}
+  </div>
 {% endmacro %}
