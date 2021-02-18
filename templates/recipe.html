@@ -7,7 +7,9 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container shift-top">
+  <div class="container vpad">
+
+    {# RECIPE HEADER #}
     <div class="row recipe-header">
       <div class="col s12 l6 recipe-header-img">
         <img src="{{ recipe.image }}" alt="">
@@ -23,11 +25,15 @@
         <div class="row">
           <div class="recipe-header-sub col s4">
             <h5>Prep</h5>
-            <span>{{ recipe.prep_time.hours }}:{{ recipe.prep_time.minutes }}</span>
+            <span>
+              {{ recipe.prep_time.hours }}:{{ recipe.prep_time.minutes }}
+            </span>
           </div>
           <div class="recipe-header-sub col s4">
             <h5>Cook</h5>
-            <span>{{ recipe.cook_time.hours }}:{{ recipe.cook_time.minutes }}</span>
+            <span>
+              {{ recipe.cook_time.hours }}:{{ recipe.cook_time.minutes }}
+            </span>
           </div>
           <div class="recipe-header-sub col s4">
             <h5>Servings</h5>
@@ -36,54 +42,52 @@
         </div>
       </div>
     </div>
+    {# END RECIPE HEADER #}
 
-    <hr class="row">
+    <hr class="row recipe-divider">
 
+    {# RECIPE CONTENT #}
     <div class="row recipe-content">
       <div class="col s12 recipe-description">{{ recipe.description }}</div>
     </div>
     <div class="row recipe-content">
       <div class="col s12">
-
-        {#--- Change this to tabs ---#}
-        <ul class="collapsible">
-          <li class="active">
-            <div class="recipe-collapsible collapsible-header">
-              <h5>Ingredients</h5>
-            </div>
-            <div class="recipe-collapsible collapsible-body">
-              {% if recipe.ingredients|length > 0 %}
-                <ul class="collection">
-                  {% for ingredient in recipe.ingredients %}
-                    <li class="collection-item">
-                      {{ ingredient }}
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </div>
+        <ul class="tabs">
+          <li class="tab col s6">
+            <a href="#Recipe-Ingredients" class="active">Ingredients</a>
           </li>
-          <li>
-            <div class="recipe-collapsible collapsible-header">
-              <h5>Method</h5>
-            </div>
-            <div class="recipe-collapsible collapsible-body">
-              {% if recipe.steps|length > 0 %}
-                <ol class="collection">
-                  {% for step in recipe.steps %}
-                    <li class="collection-item">
-                      {{ step }}
-                    </li>
-                  {% endfor %}
-                </ol>
-              {% endif %}
-            </div>
+          <li class="tab col s6">
+            <a href="#Recipe-Method">Method</a>
           </li>
         </ul>
-
+      </div>
+      <div id="Recipe-Ingredients" class="col s12">
+        {% if recipe.ingredients|length > 0 %}
+          <ul class="collection">
+            {% for ingredient in recipe.ingredients %}
+              <li class="collection-item">
+                {{ ingredient }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div id="Recipe-Method" class="col s12">
+        {% if recipe.steps|length > 0 %}
+          <ol class="collection">
+            {% for step in recipe.steps %}
+              <a href="#step-{{ loop.index }}">
+                <li id="step-{{ loop.index }}" class="collection-item">
+                  {{ step }}
+                </li>
+              </a>
+            {% endfor %}
+          </ol>
+        {% endif %}
       </div>
     </div>
-
+    {# END RECIPE CONTENT #}
+    
     {# User comment form #}
 
     {# previous comments here #}

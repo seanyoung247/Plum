@@ -5,4 +5,5 @@ $(document).ready(function(){
     coverTrigger: false
   });
   $('.collapsible').collapsible();
+  $('.tabs').tabs();
 });

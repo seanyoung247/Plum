@@ -29,9 +29,11 @@ main {
   flex: 1 0 auto;
   flex-flow: column nowrap;
 }
-/* Shifts content down below the header, makes it less visually crowded*/
-main .container.shift-top {
+/* Ensures there's a little space between the content and the header and footer.
+   Scales to screen size so small screens don't have a lot of wasted space. */
+.vpad {
   margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #0D0A0B;
@@ -153,17 +155,63 @@ ul.user-dropdown li > a {
 .recipe-header-sub span {
   font-size: calc(20px + 0.5vw);
 }
-/* indents content more on larger screens giving the
+/* Indents content more on larger screens giving the
    header more impact */
 .recipe-content {
   padding: 0 2vw 0 2vw;
 }
-.recipe-collapsible {
-  padding: 10px;
-  background-color: white;
+/* Styles materialize tabs */
+.recipe-content .tabs .tab a {
+  color: rgba(25,49,13,0.7);
+  /*Custom Text Color*/
 }
-.recipe-collapsible .collection .collection-item {
-  background-color: transparent;
+.recipe-content .tabs .tab a:hover {
+  color: #3F7D20;
+}
+.recipe-content .tabs .tab a:focus.active {
+  color: #3F7D20;
+  background-color: rgba(25,49,13,0.15);
+}
+.recipe-content .tabs .indicator {
+  background-color: #3F7D20;
+}
+/* Removes ordered list numbering so custom numbers can be displayed. */
+ol.collection {
+  list-style: none;
+  counter-reset: list-counter;
+  padding: 0;
+}
+ol.collection li.collection-item {
+  counter-increment: list-counter;
+  padding-left: 50px;
+  color: #0D0A0B;
+}
+/* Adds custom styled list numbers before the HTML content. */
+ol.collection li.collection-item::before {
+  content: counter(list-counter);
+  text-align: center;
+  color: #8E4585; /*#F3FCF0;*/
+  position: absolute;
+  left: 10px;
+  margin-top: -5px;
+  line-height: 30px;
+  background-color: #F3FCF0; /*#8E4585;*/
+  border: 1px solid #8E4585;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+/* Uses hover and target pseudo classes to highlight the current step,
+   so it's easier for the user to see their current position in the
+   recipe. */
+ol.collection li.collection-item:hover,
+ol.collection li.collection-item:target {
+  background-color: rgba(25,49,13,0.15);
+}
+ol.collection li.collection-item:target::before
+{
+  color: #F3FCF0;
+  background-color: #8E4585;
 }
 /*
 * Star rating element
