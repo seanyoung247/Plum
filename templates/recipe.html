@@ -1,10 +1,5 @@
 {% extends "base.html" %}
-{% from "star-rating.html" import generate_star_template,
-                                  generate_static_star_rating %}
-
-{% block templates %}
-  {{ generate_star_template() }}
-{% endblock %}
+{% from "star-rating.html" import generate_static_star_rating %}
 
 {% block content %}
   <div class="container vpad">
@@ -19,8 +14,7 @@
         <p class="recipe-author">by {{ recipe.author.name }}</p>
 
         <div class="recipe-rating">
-          {{ generate_static_star_rating(recipe.rating[0]) }}
-          ({{ recipe.rating[0] }})
+          {{ generate_static_star_rating(recipe.rating[0], true) }}
         </div>
         <div class="row">
           <div class="recipe-header-sub col s4">

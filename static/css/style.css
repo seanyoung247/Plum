@@ -236,45 +236,39 @@ ol.collection li.collection-item:target::before
 /*
 * Star rating element
 */
-.star-rating {
+.star-rating,
+.star-rating-ctl {
   display: inline-block;
-  vertical-align: bottom;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 125px;
-  height: 25px;
 }
-ul.star-rating > li {
+.star i {
+/*  font-size: 50px;*/
+  color: darkorange;
+}
+/* Static rating display */
+.star-rating > .star,
+.star-rating > .rating-text {
   float: left;
+  white-space: nowrap;
 }
-ul.star-rating > li > svg {
-  fill: none;
-  stroke: darkorange;
-  stroke-width: 1px;
-  width: 25px;
-  height: 25px;
+.star-rating-ctl > .star,
+.star-rating-ctl > .rating-text {
+  float: right;
 }
-ul.star-rating > li.checked > svg {
-  fill: darkorange;
+.star-rating > .star.off i::after,
+.star-rating-ctl > .star i::after {
+  content: "star_border";
 }
-ul.star-rating > li.check-half > svg {
-  fill: url('#star-half-gradient');
+.star-rating > .star.half i::after {
+  content: "star_half";
 }
-/*Star Gradient values*/
-.star-stop-fill {
-  stop-color: darkorange;
-  stop-opacity: 1;
-}
-.star-stop-empty {
-  stop-color: transparent;
-  stop-opacity: 0;
-}
-#rating-template {
-  visibility: hidden;
-  position: absolute;
-  width:0;
-  height:0;
+.star-rating > .star.on i::after,
+.star-rating-ctl > .star:hover > i::after,
+.star-rating-ctl > .star:hover ~ .star > i::after,
+.star-rating-ctl:not(:hover) > input[type="radio"]:checked ~ .star > i::after {
+  content: "star";
 }
 /*
  * Login page

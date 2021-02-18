@@ -1,36 +1,26 @@
 {# Inserts the image template for the individual stars #}
-{% macro generate_star_template() %}
-  <svg id="rating-template" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-    <defs>
-      <linearGradient id="star-half-gradient">
-        <stop offset="0%" class="star-stop-fill"></stop>
-        <stop offset="50%" class="star-stop-fill"></stop>
-        <stop offset="50%" class="star-stop-empty"></stop>
-      </linearGradient>
-    </defs>
-    <symbol id="star-icon" viewBox="0 0 25 25">
-      <polygon points="12.5 18.5 5.75 23.5 8.5 15.25 1.5 10.0 10.0 10.0
-        12.5 1.75 15.0 10.0 23.5 10.0 16.75 15.25 19.25 23.75 12.5 18.5"/>
-    </symbol>
-  </svg>
-{% endmacro %}
 
 {# Returns the current star's required check state #}
 {% macro star_checked(n) %}
   {% if n > 0.25 %}
     {% if n < 0.75 %}
-      class="check-half"
+      half
     {% else %}
-      class="checked"
+      on
     {% endif %}
+  {% else %}
+    off
   {% endif %}
 {% endmacro %}
 
 {# Generates a static star rating element #}
-{% macro generate_static_star_rating(rating) %}
+{% macro generate_static_star_rating(rating, show_rating_number) %}
   <ul class="star-rating">
     {% for i in [rating,rating-1,rating-2,rating-3,rating-4] %}
-      <li {{ star_checked(i) }}><svg><use href="#star-icon"/></svg></li>
+      <li class="star {{ star_checked(i) }}"><i class="material-icons"></i></li>
     {% endfor %}
+    {% if show_rating_number == true %}
+      <li class="rating-text">({{ rating }})</li>
+    {% endif %}
   </ul>
 {% endmacro %}
