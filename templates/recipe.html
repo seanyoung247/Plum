@@ -12,7 +12,7 @@
     {# RECIPE HEADER #}
     <div class="row recipe-header">
       <div class="col s12 l6 recipe-header-img">
-        <img src="{{ recipe.image }}" alt="">
+        <img src="{{ recipe.image }}" alt="{{ recipe.name }} header image">
       </div>
       <div class="col s12 l6">
         <h1 class="recipe-title">{{ recipe.name }}</h1>
@@ -100,6 +100,8 @@
     {# User comment form #}
 
     {# previous comments here #}
+
+
 
   </div>
 {% endblock %}

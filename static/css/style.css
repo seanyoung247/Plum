@@ -13,6 +13,9 @@ Colours:
   Background Colour (Honeydew)   : #F3FCF0
   Main text colour (Rich Black)  : #0D0A0B
 */
+/*
+ * Global styles
+ */
 body, html {
   background-color: #F3FCF0;
   color: #0D0A0B;
@@ -38,6 +41,11 @@ main {
 h1, h2, h3, h4, h5, h6 {
   color: #0D0A0B;
   font-family: 'Open Sans', sans-serif;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(25,49,13,0), rgba(25,49,13,1.0), rgba(25,49,13,0));
 }
 /*
  * Header and Navigation
@@ -80,6 +88,12 @@ ul.user-dropdown li > a {
 .sidenav .collapsible-body {
   padding: 0 32px;
   background-color: transparent;
+}
+/*
+ * Home Page
+ */
+.home-section-header {
+  color: #3F7D20;
 }
 /*
  * Recipe cards
