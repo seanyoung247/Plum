@@ -7,19 +7,19 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    <div class="row">
-      <div class="col s12 l6">
-        <img class="recipe-title-img" src="{{ recipe.image }}" alt="">
+  <div class="container shift-top">
+    <div class="row recipe-header">
+      <div class="col s12 l6 recipe-header-img">
+        <img src="{{ recipe.image }}" alt="">
       </div>
       <div class="col s12 l6">
         <h1 class="recipe-title">{{ recipe.name }}</h1>
         <p class="recipe-author">by {{ recipe.author.name }}</p>
+
         <div class="recipe-rating">
           {{ generate_static_star_rating(recipe.rating[0]) }}
           ({{ recipe.rating[0] }})
         </div>
-        <p class="recipe-description">{{ recipe.description }}</p>
         <div class="row">
           <div class="recipe-header-sub col s4">
             <h5>Prep</h5>
@@ -36,9 +36,16 @@
         </div>
       </div>
     </div>
+
     <hr class="row">
-    <div class="row">
+
+    <div class="row recipe-content">
+      <div class="col s12 recipe-description">{{ recipe.description }}</div>
+    </div>
+    <div class="row recipe-content">
       <div class="col s12">
+
+        {#--- Change this to tabs ---#}
         <ul class="collapsible">
           <li class="active">
             <div class="recipe-collapsible collapsible-header">
@@ -73,6 +80,7 @@
             </div>
           </li>
         </ul>
+
       </div>
     </div>
 

@@ -29,9 +29,9 @@ main {
   flex: 1 0 auto;
   flex-flow: column nowrap;
 }
-/* Shifts content down below the header */
-main .container {
-  margin-top: 10px;
+/* Shifts content down below the header, makes it less visually crowded*/
+main .container.shift-top {
+  margin-top: 10vh;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #0D0A0B;
@@ -92,22 +92,30 @@ ul.user-dropdown li > a {
   color: #3F7D20;
   font-family: 'Open Sans', sans-serif;
 }
-/*Forces card images to be square and have their final size on load.
+/*Forces card and recipe images to be square and have their final size on load.
   This prevents layout changes as images load in.*/
-.card .card-image {
-  padding-top: 100%;
+.card .card-image,
+.col.recipe-header-img {
+  position:relative;
+  padding: 0;
 }
-.card .card-image img {
+.card .card-image::after,
+.col.recipe-header-img::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.card .card-image img,
+.recipe-header-img img {
   position: absolute;
-  top: 0;
-  left: 0;
-  max-height: 100%;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   background-color: #8E4585;
 }
 .card-title a {
-  color: #3F7D20;
+  font-size: 20px;
+  color: #8E4585;
 }
 .card-recipe-rating {
   color: darkorange;
@@ -115,17 +123,21 @@ ul.user-dropdown li > a {
 /*
  * Recipe page
  */
-.recipe-title-img {
-  max-height: 100%;
-  max-width: 100%;
+.recipe-header {
+  background-color: rgba(25,49,13,0.15);
 }
 .recipe-title {
-  color: #3F7D20;
+  color: #8E4585;
+  /* Makes the title respond to viewport width to fill the space
+     better while preventing it from getting too big or small */
   font-size: calc(20px + 2vw);
   text-align: center;
 }
-.recipe-author {}
+.recipe-author {
+  text-align: center;
+}
 .recipe-rating {
+  margin: 0 0 20px 0;
   color: darkorange;
 }
 .recipe-description {}
@@ -140,6 +152,11 @@ ul.user-dropdown li > a {
 }
 .recipe-header-sub span {
   font-size: calc(20px + 0.5vw);
+}
+/* indents content more on larger screens giving the
+   header more impact */
+.recipe-content {
+  padding: 0 2vw 0 2vw;
 }
 .recipe-collapsible {
   padding: 10px;
@@ -182,7 +199,7 @@ ul.star-rating > li.check-half > svg {
   stop-opacity: 1;
 }
 .star-stop-empty {
-  stop-color: none;
+  stop-color: transparent;
   stop-opacity: 0;
 }
 #rating-template {
@@ -194,6 +211,7 @@ ul.star-rating > li.check-half > svg {
 /*
  * Login page
  */
+/*Makes the login box centred vertically.*/
 .login-wrapper {
   display: flex;
   flex-flow: column nowrap;
@@ -234,5 +252,16 @@ footer {
   /* Don't show brand title on really small screens */
   .brand-title {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  /* left aligned text looks better when the title is
+     next to the header image */
+  .recipe-title {
+    text-align: left;
+  }
+  .recipe-author {
+    text-align: left;
   }
 }
