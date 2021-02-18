@@ -24,19 +24,28 @@
         </div>
         <div class="row">
           <div class="recipe-header-sub col s4">
-            <h5>Prep</h5>
+            <h5>
+              <p><i class="material-icons">access_time</i></p>
+              Prep
+            </h5>
             <span>
               {{ recipe.prep_time.hours }}:{{ recipe.prep_time.minutes }}
             </span>
           </div>
           <div class="recipe-header-sub col s4">
-            <h5>Cook</h5>
+            <h5>
+              <p><i class="material-icons">access_time</i></p>
+              Cook
+            </h5>
             <span>
               {{ recipe.cook_time.hours }}:{{ recipe.cook_time.minutes }}
             </span>
           </div>
           <div class="recipe-header-sub col s4">
-            <h5>Servings</h5>
+            <h5>
+              <p><i class="material-icons">restaurant</i></p>
+              Servings
+            </h5>
             <span>{{ recipe.servings }}</span>
           </div>
         </div>
@@ -87,7 +96,7 @@
       </div>
     </div>
     {# END RECIPE CONTENT #}
-    
+
     {# User comment form #}
 
     {# previous comments here #}
