@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "star-rating.html" import generate_static_star_rating %}
+{% from "star-rating.html" import generate_star_rating_display %}
 
 {% block content %}
   <div class="container vpad">
@@ -91,11 +91,25 @@
     </div>
     {# END RECIPE CONTENT #}
 
-    {# User comment form #}
+    <hr class="row recipe-divider">
 
-    {# previous comments here #}
+    {# USER COMMENT FORM #}
+      {# User comment form #}
+    {# END USER COMMENT FORM #}
 
+    <hr class="row recipe-divider">
 
+    {# COMMENTS #}
+    {% for comment in recipe.comments %}
+      <div class="row recipe-content">
+        <div class="col s12">
+          <p>{{ comment.author.name }}</p>
+          <span>{{ generate_star_rating_display(comment.rating, false) }}</span>
+          <p>{{ comment.text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+    {# END COMMENTS #}
 
   </div>
 {% endblock %}

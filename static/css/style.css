@@ -35,8 +35,8 @@ main {
 /* Ensures there's a little space between the content and the header and footer.
    Scales to screen size so small screens don't have a lot of wasted space. */
 .vpad {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 h1, h2, h3, h4, h5, h6 {
   color: #0D0A0B;
@@ -244,7 +244,6 @@ ol.collection li.collection-item:target::before
   padding: 0;
 }
 .star i {
-/*  font-size: 50px;*/
   color: darkorange;
 }
 .star-rating > .rating-text,
