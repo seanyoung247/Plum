@@ -1,17 +1,17 @@
 {# Inserts the image template for the individual stars #}
 
 {# Returns the current star's required check state #}
-{% macro star_checked(n) %}
-  {% if n > 0.25 %}
-    {% if n < 0.75 %}
+{%- macro star_checked(n) -%}
+  {%- if n > 0.25 -%}
+    {%- if n < 0.75 -%}
       half
-    {% else %}
+    {%- else -%}
       on
-    {% endif %}
-  {% else %}
+    {%- endif -%}
+  {%- else -%}
     off
-  {% endif %}
-{% endmacro %}
+  {%- endif -%}
+{%- endmacro -%}
 
 {# Generates a static star rating element #}
 {% macro generate_star_rating_display(rating, show_rating_number) %}
