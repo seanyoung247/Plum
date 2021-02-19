@@ -8,10 +8,10 @@
 
 /*
 Colours:
-  Main Brand Colour (Sap Green)  : #3F7D20
-  Accent Colour (Plum purple)    : #8E4585
-  Background Colour (Honeydew)   : #F3FCF0
-  Main text colour (Rich Black)  : #0D0A0B
+  Main Brand Colour (Sap Green)  : #3F7D20 : rgb(63,125,32)
+  Accent Colour (Plum purple)    : #8E4585 : rgb(142,69,133)
+  Background Colour (Honeydew)   : #F3FCF0 : rgb(243,252,240)
+  Main text colour (Rich Black)  : #0D0A0B : rgb(13,10,11)
 */
 /*
  * Global styles
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 hr {
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(25,49,13,0), rgba(25,49,13,1.0), rgba(25,49,13,0));
+  background-image: linear-gradient(to right, rgba(142,69,133,0), rgba(142,69,133,1), rgba(142,69,133,0));
 }
 /*
  * Header and Navigation
@@ -140,7 +140,7 @@ ul.user-dropdown li > a {
  * Recipe page
  */
 .recipe-header {
-  background-color: rgba(25,49,13,0.15);
+  background-color: rgba(63,125,32,0.15);
 }
 .recipe-title {
   color: #8E4585;
@@ -174,12 +174,25 @@ ul.user-dropdown li > a {
 /* Indents content more on larger screens giving the
    header more impact */
 .recipe-content {
-  padding: 0 2vw 0 2vw;
+  padding: 0 2vw;
+}
+.recipe-comments {
+  padding: 0 5vw;
 }
 .recipe-description {}
+.recipe-rating-wrapper .star i {
+  font-size: 3em;
+}
+.recipe-comment-btn {
+  color: #F3FCF0;
+  background-color: #3F7D20;
+}
+.recipe-comment-btn:hover {
+  background-color: #63a344;
+}
 /* Styles materialize tabs */
 .recipe-content .tabs .tab a {
-  color: rgba(25,49,13,0.7);
+  color: rgba(63,125,32,0.7);
 }
 .recipe-content .tabs .tab a:hover {
   font-weight: bold;
@@ -190,10 +203,9 @@ ul.user-dropdown li > a {
   color: #3F7D20;
   font-weight: bold;
   background-color: white;
-/*  background-color: rgba(25,49,13,0.15);*/
 }
 .recipe-content .tabs .indicator {
-  background-color: #3F7D20;
+  background-color: #8E4585;
 }
 /* Removes ordered list numbering so custom numbers can be displayed. */
 ol.collection {
@@ -226,7 +238,7 @@ ol.collection li.collection-item::before {
    recipe. */
 ol.collection li.collection-item:hover,
 ol.collection li.collection-item:target {
-  background-color: rgba(25,49,13,0.15);
+  background-color: rgba(63,125,32,0.15);
 }
 ol.collection li.collection-item:target::before
 {
@@ -236,6 +248,7 @@ ol.collection li.collection-item:target::before
 /*
 * Star rating element
 */
+/* Makes the star rating horizontal */
 .star-rating,
 .star-rating-ctl {
   display: inline-block;
@@ -243,16 +256,20 @@ ol.collection li.collection-item:target::before
   margin: 0;
   padding: 0;
 }
-.star i {
-  color: darkorange;
-}
 .star-rating > .rating-text,
 .star-rating > .star {
   float: left;
   white-space: nowrap;
 }
+/* In order for CSS hover and checked styles to apply to the correct stars
+   the order has to be visually reversed as the ~ sibling selector only works
+   forwards, but we need it to work backwards. */
 .star-rating-ctl > .star {
   float: right;
+}
+.star i,
+.rating-text {
+  color: #8E4585;
 }
 .star-rating > .star.off i::after,
 .star-rating-ctl > .star i::after {

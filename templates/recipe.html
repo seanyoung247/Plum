@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% from "star-rating.html" import generate_star_rating_display %}
+{% from "star-rating.html" import generate_star_rating_display,
+                                  generate_star_rating_control %}
 
 {% block content %}
   <div class="container vpad">
@@ -94,14 +95,43 @@
     <hr class="row recipe-divider">
 
     {# USER COMMENT FORM #}
-      {# User comment form #}
+    <div class="row recipe-comments">
+      <form class="col s12 recipe-comment-form" method="POST" action="">
+        <input id="recipeId" name="recipeId" type="hidden" value="{{ recipe._id }}">
+
+        <div class="row">
+          <span class="col s12">{{ session.user }}</span>
+        </div>
+
+        <div class="row">
+          <div class="col s12 recipe-rating-wrapper">
+            {{ generate_star_rating_control(recipe._id) }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Textarea</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <button type="submit" name="button" class="btn-small recipe-comment-btn">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
     {# END USER COMMENT FORM #}
 
     <hr class="row recipe-divider">
 
     {# COMMENTS #}
     {% for comment in recipe.comments %}
-      <div class="row recipe-content">
+      <div class="row recipe-comments">
         <div class="col s12">
           <p>{{ comment.author.name }}</p>
           <span>{{ generate_star_rating_display(comment.rating, false) }}</span>
