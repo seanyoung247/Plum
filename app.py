@@ -126,7 +126,7 @@ def logout():
 
 
 #
-# AJAX routes
+# AJAX/Update routes
 #
 
 

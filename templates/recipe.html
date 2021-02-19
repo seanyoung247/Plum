@@ -80,11 +80,12 @@
         {% if recipe.steps|length > 0 %}
           <ol class="collection">
             {% for step in recipe.steps %}
-              <a href="#step-{{ loop.index }}">
-                <li id="step-{{ loop.index }}" class="collection-item">
+              <input name="step-check" type="radio" id="step-{{ loop.index }}"></input>
+              <label for="step-{{ loop.index }}">
+                <li {#id="step-{{ loop.index }}"#} class="collection-item">
                   {{ step }}
                 </li>
-              </a>
+              </label>
             {% endfor %}
           </ol>
         {% endif %}

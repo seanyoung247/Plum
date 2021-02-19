@@ -237,10 +237,10 @@ ol.collection li.collection-item::before {
    so it's easier for the user to see their current position in the
    recipe. */
 ol.collection li.collection-item:hover,
-ol.collection li.collection-item:target {
+ol.collection input:checked + label li.collection-item {
   background-color: rgba(63,125,32,0.15);
 }
-ol.collection li.collection-item:target::before
+ol.collection input:checked + label li.collection-item::before
 {
   color: #F3FCF0;
   background-color: #8E4585;
