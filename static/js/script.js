@@ -16,18 +16,19 @@ $(document).ready(function(){
   */
 $( "#recipe_comment_form" ).submit(function(event) {
   event.preventDefault();
-  var formData = $(this).serializeArray();
 
-  var test = {
-    "recipeId": formData[0].value,
-    "rating": formData[1].value,
-    "comment": formData[2].value
-  };
+  var data = new FormData(this);
+  var serialised = {};
+  for (var key of data.keys()) {
+    serialised[key] = data.get(key);
+  }
 
   $.ajax({
     type : "POST",
     url : $(this).attr("action"),
     contentType : 'application/json;charset=UTF-8',
-    data : JSON.stringify(test)
+    data : JSON.stringify(serialised)
   });
+
+  return false;
 });

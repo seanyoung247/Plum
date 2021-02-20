@@ -33,6 +33,7 @@
         <i class="material-icons"></i>
       </label>
     {% endfor %}
+    {# Adds a hidden zero star checked by default so control will always return a value #}
     <input id="rating{{ i }}[{{ id }}]" type="radio" name="rating" value="0" checked>
   </div>
 {% endmacro %}
