@@ -29,7 +29,7 @@ def user_logged_in():
     else:
         return True
 
-#Registers logged in user into the session variable
+#Registers logged in user into the session cookie
 def log_user_in(user):
     session["user"] = user["name"]
     session["userid"] = str(user["_id"])
@@ -87,7 +87,10 @@ def register():
             "role": "user"
         }
         #register user and add them to the session cookie
-        log_user_in(mongo.db.users.insert_one(register))
+        mongo.db.users.insert_one(register)
+        registered_user = mongo.db.users.find_one(
+            {"name": request.form.get("username").lower()})
+        log_user_in(registered_user)
         flash("User " + session["user"] + " registered!", category="information")
         return redirect(url_for("home"))
 
