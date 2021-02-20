@@ -171,14 +171,6 @@ ul.user-dropdown li > a {
 .recipe-header-sub span {
   font-size: calc(20px + 0.5vw);
 }
-/* Indents content more on larger screens giving the
-   header more impact */
-.recipe-content {
-  padding: 0 2vw;
-}
-.recipe-comments {
-  padding: 0 5vw;
-}
 .recipe-description {}
 .recipe-rating-wrapper .star i {
   font-size: 3em;
@@ -191,20 +183,20 @@ ul.user-dropdown li > a {
   background-color: #63a344;
 }
 /* Styles materialize tabs */
-.recipe-content .tabs .tab a {
+.recipe-tabs .tab a {
   color: rgba(63,125,32,0.7);
 }
-.recipe-content .tabs .tab a:hover {
+.recipe-tabs .tab a:hover {
   font-weight: bold;
   color: #3F7D20;
 }
-.recipe-content .tabs .tab a.active,
-.recipe-content .tabs .tab a:focus.active {
+.recipe-tabs .tab a.active,
+.recipe-tabs .tab a:focus.active {
   color: #3F7D20;
   font-weight: bold;
   background-color: white;
 }
-.recipe-content .tabs .indicator {
+.recipe-tabs .indicator {
   background-color: #8E4585;
 }
 /* Removes ordered list numbering so custom numbers can be displayed. */
@@ -215,6 +207,7 @@ ol.collection {
 }
 ol.collection li.collection-item {
   counter-increment: list-counter;
+  font-size: 1rem;
   padding-left: 50px;
   color: #0D0A0B;
 }
@@ -233,9 +226,6 @@ ol.collection li.collection-item::before {
   height: 30px;
   width: 30px;
 }
-/* Uses hover and target pseudo classes to highlight the current step,
-   so it's easier for the user to see their current position in the
-   recipe. */
 ol.collection li.collection-item:hover,
 ol.collection input:checked + label li.collection-item {
   background-color: rgba(63,125,32,0.15);

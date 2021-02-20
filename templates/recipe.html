@@ -51,12 +51,12 @@
     <hr class="row recipe-divider">
 
     {# RECIPE CONTENT #}
-    <div class="row recipe-content">
+    <div class="row">
       <div class="col s12 recipe-description">{{ recipe.description }}</div>
     </div>
-    <div class="row recipe-content">
+    <div class="row">
       <div class="col s12">
-        <ul class="tabs">
+        <ul class="recipe-tabs tabs">
           <li class="tab col s6">
             <a href="#Recipe-Ingredients" class="active">Ingredients</a>
           </li>
@@ -96,8 +96,10 @@
     <hr class="row recipe-divider">
 
     {# USER COMMENT FORM #}
-    <div class="row recipe-comments">
-      <form class="col s12 recipe-comment-form" method="POST" action="">
+    <div class="row">
+      <form id="recipe_comment_form" class="col s12 recipe-comment-form"
+        method="POST" action="{{ url_for('post_comment') }}">
+
         <input id="recipeId" name="recipeId" type="hidden" value="{{ recipe._id }}">
 
         <div class="row">
@@ -111,9 +113,9 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Textarea</label>
+          <div class="col s12 input-field">
+            <textarea id="recipe-comment" name="comment" class="materialize-textarea"></textarea>
+            <label for="recipe-comment">Comment</label>
           </div>
         </div>
 
@@ -132,7 +134,7 @@
 
     {# COMMENTS #}
     {% for comment in recipe.comments %}
-      <div class="row recipe-comments">
+      <div class="row">
         <div class="col s12">
           <p>{{ comment.author.name }}</p>
           <span>{{ generate_star_rating_display(comment.rating, false) }}</span>
