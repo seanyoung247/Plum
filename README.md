@@ -83,13 +83,12 @@ Stores individual recipes
 | description | Short description of the recipe                              |
 | image       | Recipe Image URL string                                      |
 | cuisine     | Cuisine type                                                 |
-| prep_time   | Time token                                                   |
-| cook_time   | Time token                                                   |
+| time        | Time token                                                   |
 | servings    | Integer number of the number of servings this recipe provides |
 | rating      | List of values for how many of each star rating the recipe has received. |
 | ingredients | List of ingredients                                          |
 | steps       | List of strings of preparation steps                         |
-| comments    | List of comments                                             |
+| comments    | List of comment objects                                      |
 
 ###### User Token
 
@@ -118,11 +117,11 @@ Stores individual recipes
 
 ###### Comment List
 
-| Field Name | Description                           |
-| ---------- | ------------------------------------- |
-| user       | Name of the user who left the comment |
-| user_id    | User's record id                      |
-| comment    | String content of the comment         |
+| Field Name | Description                      |
+| ---------- | -------------------------------- |
+| user       | User token                       |
+| rating     | The rating they gave this recipe |
+| comment    | String content of the comment    |
 
 ##### User Collection
 

@@ -162,7 +162,7 @@ ul.user-dropdown li > a {
   text-align: center;
 }
 .recipe-header-sub:not(:last-child) {
-  border-right: 1px solid #0D0A0B;
+  border-right: 1px solid #3F7D20;
 }
 .recipe-header-sub h5 {
   color: #3F7D20;
