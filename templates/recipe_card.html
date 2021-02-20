@@ -9,14 +9,15 @@
         </a>
       </div>
       <div class="card-content">
-        <p class="card-title">
-          <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
+        <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
+          <span class="card-title" data-expand="{{ recipe.name }}">
             {{ recipe.name }}
-          </a>
-        </p>
+          </span>
+        </a>
         <span class="card-recipe-rating">
           {{ generate_star_rating_display(recipe.rating[0], true) }}
         </span>
+
       </div>
     </div>
   </div>

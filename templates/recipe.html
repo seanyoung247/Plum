@@ -10,26 +10,28 @@
       <div class="col s12 l6 recipe-header-img">
         <img src="{{ recipe.image }}" alt="{{ recipe.name }} header image">
       </div>
-      <div class="col s12 l6">
-        <h1 class="recipe-title">{{ recipe.name }}</h1>
-        <p class="recipe-author">by {{ recipe.author.name }}</p>
 
-        <div class="recipe-rating">
-          {{ generate_star_rating_display(recipe.rating[0], true) }}
-        </div>
+      <div class="col s12 l6">
         <div class="row">
-          <div class="recipe-header-sub col s6">
-            <h5>
-              <p><i class="material-icons">access_time</i></p>
-            </h5>
+          <div class="col s12">
+            <h1 class="recipe-title">{{ recipe.name }}</h1>
+            <p class="recipe-author">by {{ recipe.author.name }}</p>
+
+            <div class="recipe-rating">
+              {{ generate_star_rating_display(recipe.rating[0], true) }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row recipe-header-sub">
+          <div class="col s6">
+            <p><i class="material-icons">access_time</i></p>
             <span>
               {{ recipe.time.hours }}:{{ recipe.time.minutes }}
             </span>
           </div>
-          <div class="recipe-header-sub col s6">
-            <h5>
-              <p><i class="material-icons">restaurant</i></p>
-            </h5>
+          <div class="col s6">
+            <p><i class="material-icons">restaurant</i></p>
             <span>{{ recipe.servings }}</span>
           </div>
         </div>
