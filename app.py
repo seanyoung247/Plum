@@ -29,6 +29,16 @@ def user_logged_in():
     else:
         return True
 
+#Registers logged in user into the session variable
+def log_user_in(user):
+    session["user"] = user["name"]
+    session["userid"] = str(user["_id"])
+
+
+#Adds or updates a recipe's star rating
+def rate_recipe(recipe, user, rating):
+    return False;
+
 #random pageid pad = secrets.token_urlsafe(8)
 #01 formated number string: print(str(5).zfill(2))
 
@@ -76,9 +86,8 @@ def register():
             "password": generate_password_hash(request.form.get("password")),
             "role": "user"
         }
-        mongo.db.users.insert_one(register)
-        #put the new user into the session cookie
-        session["user"] = request.form.get("username").lower()
+        #register user and add them to the session cookie
+        log_user_in(mongo.db.users.insert_one(register))
         flash("User " + session["user"] + " registered!", category="information")
         return redirect(url_for("home"))
 
@@ -101,7 +110,7 @@ def login():
         if existing_user:
             #ensure password matches
             if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                log_user_in(existing_user)
                 flash("User " + session["user"] + " Logged in!", category="information")
                 return redirect(url_for("home"))
             else:
@@ -128,12 +137,16 @@ def logout():
 #
 # AJAX/Update routes
 #
+#Handles user/recipe interaction. Accepts comments and/or star ratings and
+#applies them to the database record.
 @app.route("/post_comment", methods=['GET','POST'])
 def post_comment():
     if request.method == "POST":
-        print(request.json['recipeId'])
-        print(request.json['rating'])
-        print(request.json['comment'])
+        #Is there a comment to log with this request?
+        if len(request.json['comment']) > 0:
+            print("there's a comment!")
+        else:
+            print("just a star rating!")
 
     return "Received!"
 #
