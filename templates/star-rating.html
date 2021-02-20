@@ -28,11 +28,11 @@
 {% macro generate_star_rating_control(id) %}
   <div class="star-rating-ctl" name="star-rating[{{ id }}]">
     {% for i in [5,4,3,2,1] %}
-      <input id="rating{{ i }}[{{ id }}]" type="radio"
-        name="star-rating-check" value="{{ i }}">
+      <input id="rating{{ i }}[{{ id }}]" type="radio" name="rating" value="{{ i }}">
       <label for="rating{{ i }}[{{ id }}]" class="star">
         <i class="material-icons"></i>
       </label>
     {% endfor %}
+    <input id="rating{{ i }}[{{ id }}]" type="radio" name="rating" value="0" checked>
   </div>
 {% endmacro %}
