@@ -128,8 +128,14 @@ def logout():
 #
 # AJAX/Update routes
 #
+@app.route("/post_comment", methods=['GET','POST'])
+def post_comment():
+    if request.method == "POST":
+        print(request.json['recipeId'])
+        print(request.json['rating'])
+        print(request.json['comment'])
 
-
+    return "Received!"
 #
 # Error Handling
 #
