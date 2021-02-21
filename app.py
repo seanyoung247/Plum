@@ -184,8 +184,7 @@ def ajax_rating():
                 "rating"    : int(request.json['rating'])
             }
             mongo.db.ratings.insert_one(interaction)
-
-
+    #TODO: More meaningful return response
     return "Recieved rating of {rating}".format(rating = request.json['rating'])
 
 
@@ -198,10 +197,19 @@ def ajax_comment():
             {
                 "$push": { "comments" : {
                     "author" : { "name" : session["user"], "user_id" : session["userid"] },
-                    "text"   : request.json['comment'] } }
+                    "text"   : request.json['comment']
+                }}
             })
     #TODO: More meaningful return response
     return "Comment Received!"
+
+
+#Checks if a username already exists
+@app.route("/ajax_checkuser")
+def ajax_checkuser():
+    return "NOT YET IMPLIMENTED"
+
+
 #
 # Error Handling
 #
