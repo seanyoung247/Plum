@@ -47,6 +47,9 @@ hr {
   height: 1px;
   background-image: linear-gradient(to right, rgba(142,69,133,0), rgba(142,69,133,1), rgba(142,69,133,0));
 }
+.section-header {
+  color: #3F7D20;
+}
 /*
  * Header and Navigation
  */
@@ -88,12 +91,6 @@ ul.user-dropdown li > a {
 .sidenav .collapsible-body {
   padding: 0 32px;
   background-color: transparent;
-}
-/*
- * Home Page
- */
-.home-section-header {
-  color: #3F7D20;
 }
 /*
  * Recipe cards
