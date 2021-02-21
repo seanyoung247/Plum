@@ -39,7 +39,7 @@ def log_user_in(user):
 def rate_recipe(recipe, user, rating):
     return False;
 
-#random pageid pad = secrets.token_urlsafe(8)
+#random pageid pad = token_urlsafe(8)
 #01 formated number string: print(str(5).zfill(2))
 
 
@@ -62,6 +62,7 @@ def recipe(pageid):
         return render_template("recipe.html", recipe=recipe)
     else:
         return abort(404)
+
 
 #User Registration
 @app.route("/register", methods=["GET", "POST"])
@@ -140,16 +141,18 @@ def logout():
 #
 # AJAX/Update routes
 #
-#Handles user/recipe interaction. Accepts comments and/or star ratings and
-#applies them to the database record.
+#Handles adding comments to recipes through AJAX requests
 @app.route("/post_comment", methods=['GET','POST'])
 def post_comment():
     if request.method == "POST":
         #Is there a comment to log with this request?
         if len(request.json['comment']) > 0:
-            print("there's a comment!")
-        else:
-            print("just a star rating!")
+            mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
+            {
+             "$push": { "comments" : {
+             "author" : { "name" : session["user"], "user_id" : session["userid"] },
+             "text"   : request.json['comment'] } }
+            })
 
     return "Received!"
 #

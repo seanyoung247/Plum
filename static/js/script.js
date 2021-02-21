@@ -23,7 +23,7 @@ $( "#recipe_comment_form" ).submit(function(event) {
   for (var key of data.keys()) {
     serialised[key] = data.get(key);
   }
-  
+
   $.ajax({
     type : "POST",
     url : $(this).attr("action"),

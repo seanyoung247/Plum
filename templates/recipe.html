@@ -82,11 +82,19 @@
         {% endif %}
       </div>
     </div>
+    <hr class="row recipe-divider">
     {# END RECIPE CONTENT #}
 
-    <hr class="row recipe-divider">
-
     {# USER COMMENT FORM #}
+    {# Only logged in users can comment on and rate recipes. #}
+    {% if session.user %}
+
+            {#<div class="row">
+              <div class="col s12 recipe-rating-wrapper">
+                {{ generate_star_rating_control(recipe._id) }}
+              </div>
+            </div>#}
+
     <div class="row">
       <form id="recipe_comment_form" class="col s12 recipe-comment-form"
         method="POST" action="{{ url_for('post_comment') }}">
@@ -97,11 +105,6 @@
           <span class="col s12">{{ session.user }}</span>
         </div>
 
-        <div class="row">
-          <div class="col s12 recipe-rating-wrapper">
-            {{ generate_star_rating_control(recipe._id) }}
-          </div>
-        </div>
 
         <div class="row">
           <div class="col s12 input-field">
@@ -119,16 +122,19 @@
         </div>
       </form>
     </div>
+    <hr class="row recipe-divider">
+    {% endif %}
     {# END USER COMMENT FORM #}
 
-    <hr class="row recipe-divider">
-
     {# COMMENTS #}
+    <div class="row">
+      <h4 class="col s12 section-header">Comments</h4>
+      <hr class="col s12"/>
+    </div>
     {% for comment in recipe.comments %}
       <div class="row">
         <div class="col s12">
           <p>{{ comment.author.name }}</p>
-          <span>{{ generate_star_rating_display(comment.rating, false) }}</span>
           <p>{{ comment.text }}</p>
         </div>
       </div>
