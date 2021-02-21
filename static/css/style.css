@@ -189,7 +189,7 @@ ul.user-dropdown li > a {
   font-size: calc(20px + 0.5vw);
 }
 .recipe-description {}
-.recipe-rating-wrapper .star i {
+.recipe-rating-form .star i {
   font-size: 3em;
 }
 .recipe-comment-btn {

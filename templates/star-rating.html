@@ -25,15 +25,21 @@
   </ul>
 {% endmacro %}
 
-{% macro generate_star_rating_control(id) %}
-  <div class="star-rating-ctl" name="star-rating[{{ id }}]">
+{% macro generate_star_rating_control(precheck) %}
+  <div class="star-rating-ctl">
     {% for i in [5,4,3,2,1] %}
-      <input id="rating{{ i }}[{{ id }}]" type="radio" name="rating" value="{{ i }}">
-      <label for="rating{{ i }}[{{ id }}]" class="star">
+      <input id="rating{{ i }}" type="radio" name="rating" value="{{ i }}"
+        {%- if precheck == i -%}
+          checked
+        {%- endif -%}>
+      <label for="rating{{ i }}" class="star">
         <i class="material-icons"></i>
       </label>
     {% endfor %}
     {# Adds a hidden zero star checked by default so control will always return a value #}
-    <input id="rating{{ i }}[{{ id }}]" type="radio" name="rating" value="0" checked>
+    <input id="rating{{ i }}[{{ id }}]" type="radio" name="rating" value="0"
+      {%- if precheck == 0 -%}
+        checked
+      {%- endif -%}>
   </div>
 {% endmacro %}
