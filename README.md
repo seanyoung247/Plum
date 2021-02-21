@@ -178,6 +178,11 @@ Enumerates cuisine types.
 
 #### Indexes
 
+**recipes:**
+
+1. pageid_1 - Regular index ensures pageid field is unique
+2. -Text indexes for searching-
+
 #### Queries
 
 **Returns the 8 newest recipes (for US001):**
@@ -197,11 +202,62 @@ plumdb.users.find_one({"name": "username"})
 plumdb.users.insert_one(user-record)
 ```
 
-**Finds a single recipe from it's pageid:**
+**Finds a single recipe from it's pageid (for showing a single recipe page):**
 
 ```Mongodb
 plumdb.recipes.find_one({"pageid": pageid})
 ```
+
+**Adds a rating vote to a recipe (for US002 and US008)**
+
+Updating the recipe record
+
+```mongodb
+plumdb.recipes.update_one({"_id"} : recipeId}
+{
+	"$set" : {
+		"rating.0" : avg_rating,
+		"rating.{vote}" : rating[vote] + 1
+	}
+})
+```
+
+Adding the rating record
+
+```mongodb
+plumdb.ratings.insert_one(rating)
+```
+
+**Updates a rating vote on a recipe (for US002 and US008)**
+
+Updating the recipe record
+
+```mongodb
+plumdb.recipes.update_one({"_id"} : recipeId}
+{
+	"$set" : {
+		"rating.0" : avg_rating,
+		"rating.{vote}" : rating[vote] + 1
+		"rating.{old_vote}" : rating[old_vote] - 1
+	}
+})
+```
+
+Updating the rating record
+
+**Adds a comment to a recipe (for US002 and US008)**
+
+```mongodb
+plumdb.recipes.update_one({"_id" : recipeId}
+{
+	"$push" : { "comments" : {
+		"author" : user_token,
+		"text" : comment		
+	}}
+})
+```
+
+
 
 ### Fonts
 
