@@ -38,11 +38,12 @@ $( "#recipe_comment_form" ).submit(function(event) {
 
   submitFormAJAX(event, commentSuccess);
 
-  //Make the form read only so we don't spam the server before it's
-  $( "input,textarea,button",this ).prop('readonly', true);
-  $( "button",this ).prop('disabled', true);
-  //Show spinner to indicate user's request is being
-  $( ".preloader-wrapper",this ).removeClass("hide");
+  /*Make the form read only so we don't spam the server before it's
+    finished dealing with the current request.*/
+  $( "input,textarea,button", this ).prop('readonly', true);
+  $( "button", this ).prop('disabled', true);
+  //Show spinner to indicate user's request is being dealt with
+  $( ".preloader-wrapper", this ).removeClass("hide");
 });
 
 function commentSuccess(response) {
@@ -50,13 +51,13 @@ function commentSuccess(response) {
   $( "input,textarea","#recipe_comment_form" ).prop('readonly', false);
   $( "button", "#recipe_comment_form").prop('disabled', false);
   $( "#recipe_comment_form" ).trigger("reset");
-  //Show spinner to indicate user's request is being
+  //Hide the spinner
   $( "#recipe_comment_form .preloader-wrapper" ).addClass("hide");
 
-  //Show the new comment at the top of the list
+  //Show the new comment at the top of the comment list
   commentHTML = "<div class='row'><div class='col s12'><p>"
     + response.author.name + "</p><p>" + response.text + "</p></div></div>";
-    $( "#recipe-comments-wrapper" ).prepend(commentHTML);
+  $( "#recipe-comments-wrapper" ).prepend(commentHTML);
 }
 
 /*
@@ -76,6 +77,6 @@ function submitFormAJAX(event, callbackSuccess) {
     url : $(event.target).attr("action"), //Get route from form action attribute
     contentType : 'application/json;charset=UTF-8',
     data : JSON.stringify(serialised),
-    success : commentSuccess
+    success : callbackSuccess
   });
 }

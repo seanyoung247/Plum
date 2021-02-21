@@ -69,8 +69,22 @@ def home():
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
+    print(recipe)
+    print(recipe['_id'])
+    user_rating = 0
     if recipe:
-        return render_template("recipe.html", recipe=recipe)
+        #if a user is logged in, get user/recipe interation (if any)
+        if session['user']:
+            interaction = mongo.db.ratings.find_one({
+                "user_id"   : session['userid'],
+                "recipe_id" : str(recipe['_id'])
+            })
+            #if user has rated this recipe already
+            if interaction:
+                user_rating = interaction['rating']
+                print(user_rating)
+
+        return render_template("recipe.html", recipe=recipe, user_rating=user_rating)
     else:
         return abort(404)
 
