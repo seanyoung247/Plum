@@ -213,7 +213,7 @@ plumdb.recipes.find_one({"pageid": pageid})
 Updating the recipe record
 
 ```mongodb
-plumdb.recipes.update_one({"_id"} : recipeId}
+plumdb.recipes.update_one({"_id" : recipeId}
 {
 	"$set" : {
 		"rating.0" : avg_rating,
@@ -225,7 +225,7 @@ plumdb.recipes.update_one({"_id"} : recipeId}
 Adding the rating record
 
 ```mongodb
-plumdb.ratings.insert_one(rating)
+plumdb.ratings.insert_one(interaction)
 ```
 
 **Updates a rating vote on a recipe (for US002 and US008)**
@@ -233,7 +233,7 @@ plumdb.ratings.insert_one(rating)
 Updating the recipe record
 
 ```mongodb
-plumdb.recipes.update_one({"_id"} : recipeId}
+plumdb.recipes.update_one({"_id" : recipeId}
 {
 	"$set" : {
 		"rating.0" : avg_rating,
@@ -244,6 +244,13 @@ plumdb.recipes.update_one({"_id"} : recipeId}
 ```
 
 Updating the rating record
+
+```mongodb
+plumdb.ratings.update_one({"_id" : interaction._id}, 
+{
+	"$set" : {"rating" : new_rating}
+})
+```
 
 **Adds a comment to a recipe (for US002 and US008)**
 
