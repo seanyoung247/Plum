@@ -25,6 +25,11 @@ Plum is a recipe sharing website designed to help users find recipes and share t
       - [Cuisine Collection](#Cuisine-Collection)
     - [Indexes](#Indexes)
     - [Queries](#Queries)
+      - [Browsing](#Browsing)
+      - [Users](#Users)
+      - [Searching](#Searching)
+      - [Uploading](#Uploading)
+      - [Administration](#Administration)
   - [Fonts](#Fonts)
   - [Colours](#Colours)
   - [Layout](#Layout)
@@ -185,11 +190,15 @@ Enumerates cuisine types.
 
 #### Queries
 
+##### Browsing
+
 **Returns the 8 newest recipes (for US001):**
 
 ```mongodb
 plumdb.recipes.find().sort("_id", -1).limit(8)
 ```
+
+##### Users
 
 **Returns a specific user account based on username:**
 
@@ -202,11 +211,15 @@ plumdb.users.find_one({"name": "username"})
 plumdb.users.insert_one(user-record)
 ```
 
+##### Searching
+
 **Finds a single recipe from it's pageid (for showing a single recipe page):**
 
 ```Mongodb
 plumdb.recipes.find_one({"pageid": pageid})
 ```
+
+##### Uploading
 
 **Adds a rating vote to a recipe (for US002 and US008)**
 
@@ -264,7 +277,9 @@ plumdb.recipes.update_one({"_id" : recipeId}
 })
 ```
 
+##### Administration
 
+TODO: Administration database queries here
 
 ### Fonts
 
