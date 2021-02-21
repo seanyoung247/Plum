@@ -23,7 +23,6 @@ $( "#recipe_rating_form" ).submit(function(event) {
 
 //Binds star rating change event to trigger form submission
 $( ".star-rating-ctl input[type=radio]" ).change(function() {
-  console.log("triggering submit!")
   $( "#recipe_rating_form" ).submit();
 });
 

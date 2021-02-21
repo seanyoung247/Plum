@@ -29,15 +29,24 @@ def user_logged_in():
     else:
         return True
 
+
 #Registers logged in user into the session cookie
 def log_user_in(user):
     session["user"] = user["name"]
     session["userid"] = str(user["_id"])
 
 
-#Adds or updates a recipe's star rating
-def rate_recipe(recipe, user, rating):
-    return False;
+#Calculates overall rating from rating array
+def calculate_rating(rating):
+    cumulative = 0
+    weight = 0
+    for i in range(1,6):
+        cumulative += rating[i] * i
+        weight += rating[i]
+    if weight > 0 and cumulative > 0:
+        rating[0] = cumulative / weight
+    else:
+        rating[0] = 0
 
 #random pageid pad = token_urlsafe(8)
 #01 formated number string: print(str(5).zfill(2))
@@ -82,10 +91,10 @@ def register():
             return redirect(url_for("login"))
 
         register = {
-            "name": request.form.get("username").lower(),
-            "email": request.form.get("email").lower(),
-            "password": generate_password_hash(request.form.get("password")),
-            "role": "user"
+            "name"     : request.form.get("username").lower(),
+            "email"    : request.form.get("email").lower(),
+            "password" : generate_password_hash(request.form.get("password")),
+            "role"     : "user"
         }
         #register user and add them to the session cookie
         mongo.db.users.insert_one(register)
@@ -144,20 +153,52 @@ def logout():
 #Adds a rating to a recipe document from AJAX requests
 @app.route("/ajax_rating", methods=['GET', 'POST'])
 def ajax_rating():
-    return "Nothing done here yet"
+    #Check whether this user has already rated this recipe
+    existing_interaction = mongo.db.ratings.find_one({
+        "user_id"   : session['userid'],
+        "recipe_id" : request.json['recipeId']
+    })
+    if existing_interaction:
+        print("We need to update an existing rating")
+    else:
+        #Get the recipe's current rating
+        recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        rating = recipe['rating']
+        #Update with the new vote and calculate the new average
+        rating[int(request.json['rating'])] += 1
+        calculate_rating(rating)
+        #Update the recipe document with the new rating
+        result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
+        {
+            "$set" : {
+                "rating.0" : rating[0],
+                "rating.{i}".format(i=request.json['rating']) :
+                    int(rating[int(request.json['rating'])])
+            }
+        })
+        #if the update was successful log the new interation
+        if result.matched_count > 0:
+            interaction = {
+                "user_id"   : session['userid'],
+                "recipe_id" : request.json['recipeId'],
+                "rating"    : int(request.json['rating'])
+            }
+            mongo.db.ratings.insert_one(interaction)
+
+
+    return "Recieved rating of {rating}".format(rating = request.json['rating'])
 
 
 #Adds a comment to a recipe document from AJAX requests
 @app.route("/ajax_comment", methods=['GET','POST'])
 def ajax_comment():
     if request.method == "POST":
-        #Is there a comment to log with this request?
         if len(request.json['comment']) > 0:
             mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
             {
-             "$push": { "comments" : {
-             "author" : { "name" : session["user"], "user_id" : session["userid"] },
-             "text"   : request.json['comment'] } }
+                "$push": { "comments" : {
+                    "author" : { "name" : session["user"], "user_id" : session["userid"] },
+                    "text"   : request.json['comment'] } }
             })
     #TODO: More meaningful return response
     return "Comment Received!"
