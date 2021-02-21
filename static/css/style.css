@@ -156,7 +156,6 @@ ul.user-dropdown li > a {
  */
 .recipe-header {
   background-color: rgba(63,125,32,0.15);
-  overflow-y: hidden;
 }
 .recipe-title {
   color: #8E4585;
@@ -340,6 +339,12 @@ footer {
 }
 /* Large screens and up */
 @media only screen and (min-width: 992px) {
+  /* Makes header content vertically centred when header
+     image and text are side-by side */
+  .recipe-header {
+      display: flex;
+      align-items: center;
+  }
   /* left aligned text looks better when the title is
      next to the header image */
   .recipe-title {
