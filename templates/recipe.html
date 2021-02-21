@@ -71,7 +71,7 @@
         {% if recipe.steps|length > 0 %}
           <ol class="collection">
             {% for step in recipe.steps %}
-              <input name="step-check" type="radio" id="step-{{ loop.index }}"></input>
+              <input name="step-check" type="radio" id="step-{{ loop.index }}">
               <label for="step-{{ loop.index }}">
                 <li {#id="step-{{ loop.index }}"#} class="collection-item">
                   {{ step }}
@@ -92,7 +92,9 @@
     <div class="row">
       <form id="recipe_rating_form" class="col s12 recipe-rating-form"
         method="POST" action="{{ url_for('ajax_rating') }}">
-        {{ generate_star_rating_control(0) }}
+
+        <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+        {{ generate_star_rating_control() }}
       </form>
     </div>
 
@@ -100,23 +102,24 @@
       <form id="recipe_comment_form" class="col s12 recipe-comment-form"
         method="POST" action="{{ url_for('ajax_comment') }}">
 
-        <input id="recipeId" name="recipeId" type="hidden" value="{{ recipe._id }}">
+        <input name="recipeId" type="hidden" value="{{ recipe._id }}">
 
         <div class="row">
           <span class="col s12">{{ session.user }}</span>
         </div>
 
-
         <div class="row">
           <div class="col s12 input-field">
-            <textarea id="recipe-comment" name="comment" class="materialize-textarea"></textarea>
+            <textarea id="recipe-comment" name="comment"
+              class="materialize-textarea" required></textarea>
             <label for="recipe-comment">Comment</label>
           </div>
         </div>
 
         <div class="row">
           <div class="col s12">
-            <button type="submit" name="button" class="btn-small recipe-comment-btn">
+            <button type="submit" name="button"
+              class="btn-small recipe-comment-btn">
               Submit
             </button>
           </div>
@@ -132,7 +135,8 @@
       <h4 class="col s12 section-header">Comments</h4>
       <hr class="col s12"/>
     </div>
-    {% for comment in recipe.comments %}
+    {# renders comments in reverse order (newest first) #}
+    {% for comment in recipe.comments|reverse %}
       <div class="row">
         <div class="col s12">
           <p>{{ comment.author.name }}</p>
