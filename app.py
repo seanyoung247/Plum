@@ -36,7 +36,9 @@ def log_user_in(user):
     session["userid"] = str(user["_id"])
 
 
-#Calculates overall rating from rating array
+#Calculates overall rating from rating array.
+#Uses a simple averaging formula. A refinement could be to replace this with
+#a weighted formula. For instance giving greater weight for more popular options.
 def calculate_rating(rating):
     cumulative = 0
     weight = 0
@@ -158,22 +160,50 @@ def ajax_rating():
         "user_id"   : session['userid'],
         "recipe_id" : request.json['recipeId']
     })
-    if existing_interaction:
-        print("We need to update an existing rating")
-    else:
+    new_rating = int(request.json['rating'])
+    if existing_interaction:    #User has rated this recipe before
+        #What is the current rating provided by the user?
+        print("updating")
+        old_rating = existing_interaction['rating']
+        #Get the recipe record
+        recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        rating = recipe['rating']
+        #Remove old rating vote and add the new one
+        rating[old_rating] -= 1
+        rating[new_rating] += 1
+        calculate_rating(rating)
+        print(rating)
+        #Update the recipe document with the new rating
+        result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
+        {
+            "$set" : {
+                "rating.0" : rating[0],
+                "rating.{i}".format(i=new_rating) : int(rating[new_rating]),
+                "rating.{i}".format(i=old_rating) : int(rating[old_rating])
+            }
+        })
+        #If update was successful, update interaction record
+        if result.matched_count > 0:
+            print("Updated recipe successfully")
+            existing_interaction['rating'] = new_rating
+            result = mongo.db.ratings.update_one({"_id" : existing_interaction['_id']},
+                {"$set" : {"rating" : new_rating}})
+            if result.matched_count > 0:
+                print("Updated interation successfully")
+
+    else:                       #User has not rated this recipe before
         #Get the recipe's current rating
         recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
         rating = recipe['rating']
         #Update with the new vote and calculate the new average
-        rating[int(request.json['rating'])] += 1
+        rating[new_rating] += 1
         calculate_rating(rating)
         #Update the recipe document with the new rating
         result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
         {
             "$set" : {
                 "rating.0" : rating[0],
-                "rating.{i}".format(i=request.json['rating']) :
-                    int(rating[int(request.json['rating'])])
+                "rating.{i}".format(i=new_rating) : int(rating[new_rating])
             }
         })
         #if the update was successful log the new interation
@@ -181,7 +211,7 @@ def ajax_rating():
             interaction = {
                 "user_id"   : session['userid'],
                 "recipe_id" : request.json['recipeId'],
-                "rating"    : int(request.json['rating'])
+                "rating"    : new_rating
             }
             mongo.db.ratings.insert_one(interaction)
     #TODO: More meaningful return response

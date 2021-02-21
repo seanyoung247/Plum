@@ -29,15 +29,17 @@
       <input id="rating{{ i }}" type="radio" name="rating" value="{{ i }}"
         {%- if precheck == i -%}
           checked
-        {%- endif -%}>
+        {%- endif -%} required>
       <label for="rating{{ i }}" class="star">
         <i class="material-icons"></i>
       </label>
     {% endfor %}
-    {# Adds a hidden zero star checked by default so control will always return a value #}
+    {# Adds a hidden zero star checked by default so control will always
+       return a value. This approach also makes it easy to expand the
+       control to have a "clear rating" option later. #}
     <input id="rating0" type="radio" name="rating" value="0"
       {%- if precheck == 0 -%}
         checked
-      {%- endif -%}>
+      {%- endif -%} required>
   </div>
 {% endmacro %}
