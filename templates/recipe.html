@@ -89,15 +89,16 @@
     {# Only logged in users can comment on and rate recipes. #}
     {% if session.user %}
 
-            {#<div class="row">
-              <div class="col s12 recipe-rating-wrapper">
-                {{ generate_star_rating_control(recipe._id) }}
-              </div>
-            </div>#}
+    <div class="row">
+      <form id="recipe_rating_form" class="col s12 recipe-rating-form"
+        method="POST" action="{{ url_for('ajax_rating') }}">
+        {{ generate_star_rating_control(0) }}
+      </form>
+    </div>
 
     <div class="row">
       <form id="recipe_comment_form" class="col s12 recipe-comment-form"
-        method="POST" action="{{ url_for('post_comment') }}">
+        method="POST" action="{{ url_for('ajax_comment') }}">
 
         <input id="recipeId" name="recipeId" type="hidden" value="{{ recipe._id }}">
 

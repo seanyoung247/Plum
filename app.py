@@ -141,9 +141,15 @@ def logout():
 #
 # AJAX/Update routes
 #
-#Handles adding comments to recipes through AJAX requests
-@app.route("/post_comment", methods=['GET','POST'])
-def post_comment():
+#Adds a rating to a recipe document from AJAX requests
+@app.route("/ajax_rating", methods=['GET', 'POST'])
+def ajax_rating():
+    return "Nothing done here yet"
+
+
+#Adds a comment to a recipe document from AJAX requests
+@app.route("/ajax_comment", methods=['GET','POST'])
+def ajax_comment():
     if request.method == "POST":
         #Is there a comment to log with this request?
         if len(request.json['comment']) > 0:
@@ -153,8 +159,8 @@ def post_comment():
              "author" : { "name" : session["user"], "user_id" : session["userid"] },
              "text"   : request.json['comment'] } }
             })
-
-    return "Received!"
+    #TODO: More meaningful return response
+    return "Comment Received!"
 #
 # Error Handling
 #
