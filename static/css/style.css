@@ -191,6 +191,17 @@ ul.user-dropdown li > a {
 .recipe-rating-form .star i {
   font-size: 3em;
 }
+#recipe_comment_form {
+  position: relative;
+}
+#recipe_comment_form .preloader-wrapper {
+  position: absolute;
+  top :0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
 .recipe-comment-btn,
 .recipe-comment-btn:focus {
   color: #F3FCF0;

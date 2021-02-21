@@ -223,20 +223,19 @@ def ajax_rating():
 def ajax_comment():
     if request.method == "POST":
         if len(request.json['comment']) > 0:
+            #Construct the new comment record:
+            comment = {
+                "author" : { "name" : session["user"], "user_id" : session["userid"] },
+                "text"   : request.json['comment']
+            }
             mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
-            {
-                "$push": { "comments" : {
-                    "author" : { "name" : session["user"], "user_id" : session["userid"] },
-                    "text"   : request.json['comment']
-                }}
-            })
-    #TODO: More meaningful return response
-    return "Comment Received!"
+                {"$push": { "comments" : comment }})
+    return comment
 
 
 #Checks if a username already exists
-@app.route("/ajax_checkuser")
-def ajax_checkuser():
+@app.route("/ajax_checkusername")
+def ajax_checkusername():
     return "NOT YET IMPLIMENTED"
 
 

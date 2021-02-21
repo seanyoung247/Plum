@@ -37,10 +37,26 @@ $( "#recipe_comment_form" ).submit(function(event) {
   event.preventDefault();
 
   submitFormAJAX(event, commentSuccess);
+
+  //Make the form read only so we don't spam the server before it's
+  $( "input,textarea,button",this ).prop('readonly', true);
+  $( "button",this ).prop('disabled', true);
+  //Show spinner to indicate user's request is being
+  $( ".preloader-wrapper",this ).removeClass("hide");
 });
 
 function commentSuccess(response) {
-  console.log(response);
+  //Reenable form and clear it's contents
+  $( "input,textarea","#recipe_comment_form" ).prop('readonly', false);
+  $( "button", "#recipe_comment_form").prop('disabled', false);
+  $( "#recipe_comment_form" ).trigger("reset");
+  //Show spinner to indicate user's request is being
+  $( "#recipe_comment_form .preloader-wrapper" ).addClass("hide");
+
+  //Show the new comment at the top of the list
+  commentHTML = "<div class='row'><div class='col s12'><p>"
+    + response.author.name + "</p><p>" + response.text + "</p></div></div>";
+    $( "#recipe-comments-wrapper" ).prepend(commentHTML);
 }
 
 /*

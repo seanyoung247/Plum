@@ -104,6 +104,18 @@
       <form id="recipe_comment_form" class="col s12 recipe-comment-form"
         method="POST" action="{{ url_for('ajax_comment') }}">
 
+        <div class="preloader-wrapper big active hide">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+
         <input name="recipeId" type="hidden" value="{{ recipe._id }}">
 
         <div class="row">
@@ -140,6 +152,7 @@
         <hr class="col s12"/>
       </div>
       {# renders comments in reverse order (newest first) #}
+      <div id="recipe-comments-wrapper">
       {% for comment in recipe.comments|reverse %}
         <div class="row">
           <div class="col s12">
@@ -148,6 +161,7 @@
           </div>
         </div>
       {% endfor %}
+    </div>
     {% endif %}
     {# END COMMENTS #}
 
