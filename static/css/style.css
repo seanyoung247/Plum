@@ -192,7 +192,8 @@ ul.user-dropdown li > a {
 .recipe-rating-form .star i {
   font-size: 3em;
 }
-.recipe-comment-btn {
+.recipe-comment-btn,
+.recipe-comment-btn:focus {
   color: #F3FCF0;
   background-color: #3F7D20;
 }

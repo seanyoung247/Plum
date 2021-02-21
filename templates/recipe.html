@@ -89,6 +89,9 @@
     {# Only logged in users can comment on and rate recipes. #}
     {% if session.user %}
     <div class="row">
+      <span class="col s12">{{ session.user }}</span>
+    </div>
+    <div class="row">
       <form id="recipe_rating_form" class="col s12 recipe-rating-form"
         method="POST" action="{{ url_for('ajax_rating') }}">
 
@@ -104,10 +107,6 @@
         <input name="recipeId" type="hidden" value="{{ recipe._id }}">
 
         <div class="row">
-          <span class="col s12">{{ session.user }}</span>
-        </div>
-
-        <div class="row">
           <div class="col s12 input-field">
             <textarea id="recipe-comment" name="comment"
               class="materialize-textarea" required></textarea>
@@ -117,9 +116,13 @@
 
         <div class="row">
           <div class="col s12">
-            <button type="submit" name="button"
+            <button id="submit_comment" type="submit" name="submit_comment"
               class="btn-small recipe-comment-btn">
               Submit
+            </button>
+            <button id="cancel_comment" type="reset" name="cancel_comment"
+              class="btn-small recipe-comment-btn">
+              Cancel
             </button>
           </div>
         </div>
