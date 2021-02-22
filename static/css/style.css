@@ -302,6 +302,11 @@ ol.collection input:checked + label li.collection-item::before
 .star-rating-ctl:not(:hover) > input[type="radio"]:checked ~ .star > i::after {
   content: "star";
 }
+.star-rating-ctl.disabled,
+.star-rating-ctl.disabled .star {
+  pointer-events: none;
+  opacity: 0.75;
+}
 /*
  * Login page
  */
