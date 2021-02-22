@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% from "star-rating.html" import generate_star_rating_display,
+                                  generate_star_rating_control %}
+
+{% block content %}
+  <div class="container vpad">
+
+    {# RECIPE HEADER #}
+    <div class="row recipe-header">
+      <div class="col s12 l6 recipe-header-img">
+        <img src="{{ recipe.image }}" alt="{{ recipe.name }} header image">
+      </div>
+
+      <div class="col s12 l6">
+        <div class="row">
+          <div class="col s12">
+            <h1 class="recipe-title">{{ recipe.name }}</h1>
+            <p class="recipe-author">by {{ recipe.author.name }}</p>
+
+            <div class="recipe-rating">
+              {{ generate_star_rating_display(recipe.rating[0], true) }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row recipe-header-sub">
+          <div class="col s6">
+            <p><i class="material-icons">access_time</i></p>
+            <span>
+              {{ recipe.time.hours }}:{{ recipe.time.minutes }}
+            </span>
+          </div>
+          <div class="col s6">
+            <p><i class="material-icons">restaurant</i></p>
+            <span>{{ recipe.servings }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {# END RECIPE HEADER #}
+
+    <hr class="row recipe-divider">
+
+    {# RECIPE CONTENT #}
+    <div class="row">
+      <div class="col s12 recipe-description">{{ recipe.description }}</div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <ul class="recipe-tabs tabs">
+          <li class="tab col s6">
+            <a href="#Recipe-Ingredients" class="active">Ingredients</a>
+          </li>
+          <li class="tab col s6">
+            <a href="#Recipe-Method">Method</a>
+          </li>
+        </ul>
+      </div>
+      <div id="Recipe-Ingredients" class="col s12">
+        {% if recipe.ingredients|length > 0 %}
+          <ul class="collection">
+            {% for ingredient in recipe.ingredients %}
+              <li class="collection-item">
+                {{ ingredient }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div id="Recipe-Method" class="col s12">
+        {% if recipe.steps|length > 0 %}
+          <ol class="collection">
+            {% for step in recipe.steps %}
+              <input name="step-check" type="radio" id="step-{{ loop.index }}">
+              <label for="step-{{ loop.index }}">
+                <li {#id="step-{{ loop.index }}"#} class="collection-item">
+                  {{ step }}
+                </li>
+              </label>
+            {% endfor %}
+          </ol>
+        {% endif %}
+      </div>
+    </div>
+    <hr class="row recipe-divider">
+    {# END RECIPE CONTENT #}
+
+    {# USER COMMENT FORM #}
+    {# Only logged in users can comment on and rate recipes. #}
+    {% if session.user %}
+    <div class="row">
+      <span class="col s12">{{ session.user }}</span>
+    </div>
+    <div class="row">
+      <form id="recipe_rating_form" class="col s12 recipe-rating-form"
+        method="POST" action="{{ url_for('ajax_rating') }}">
+
+        <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+        {{ generate_star_rating_control(user_rating) }}
+
+        <div class="preloader-wrapper small active hide">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="row">
+      <form id="recipe_comment_form" class="col s12 recipe-comment-form"
+        method="POST" action="{{ url_for('ajax_comment') }}">
+
+        <div class="preloader-wrapper big active hide">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+
+        <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+
+        <div class="row">
+          <div class="col s12 input-field">
+            <textarea id="recipe-comment" name="comment"
+              class="materialize-textarea" required></textarea>
+            <label for="recipe-comment">Comment</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <button id="submit_comment" type="submit" name="submit_comment"
+              class="btn-small recipe-comment-btn">
+              Submit
+            </button>
+            <button id="cancel_comment" type="reset" name="cancel_comment"
+              class="btn-small recipe-comment-btn">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr class="row recipe-divider">
+    {% endif %}
+    {# END USER COMMENT FORM #}
+
+    {# COMMENTS #}
+    {# Only show the comment section if there's some comments #}
+    {% if recipe.comments|length > 0 %}
+      <div class="row">
+        <h4 class="col s12 section-header">Comments</h4>
+        <hr class="col s12"/>
+      </div>
+      {# renders comments in reverse order (newest first) #}
+      <div id="recipe-comments-wrapper">
+      {% for comment in recipe.comments|reverse %}
+        <div class="row">
+          <div class="col s12">
+            <p>{{ comment.author.name }}</p>
+            <p>{{ comment.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {# END COMMENTS #}
+
+  </div>
+{% endblock %}

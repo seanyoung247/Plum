@@ -8,11 +8,14 @@
 
 /*
 Colours:
-  Main Brand Colour (Sap Green)  : #3F7D20
-  Accent Colour (Plum purple)    : #8E4585
-  Background Colour (Honeydew)   : #F3FCF0
-  Main text colour (Rich Black)  : #0D0A0B
+  Main Brand Colour (Sap Green)  : #3F7D20 : rgb(63,125,32)
+  Accent Colour (Plum purple)    : #8E4585 : rgb(142,69,133)
+  Background Colour (Honeydew)   : #F3FCF0 : rgb(243,252,240)
+  Main text colour (Rich Black)  : #0D0A0B : rgb(13,10,11)
 */
+/*
+ * Global styles
+ */
 body, html {
   background-color: #F3FCF0;
   color: #0D0A0B;
@@ -29,14 +32,24 @@ main {
   flex: 1 0 auto;
   flex-flow: column nowrap;
 }
+/* Ensures there's a little space between the content and the header and footer.
+   Scales to screen size so small screens don't have a lot of wasted space. */
+.vpad {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
 h1, h2, h3, h4, h5, h6 {
+  color: #0D0A0B;
   font-family: 'Open Sans', sans-serif;
 }
-.outline-text {
-  -webkit-text-stroke: 1px black;
-  -webkit-text-fill-color: white;
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(142,69,133,0), rgba(142,69,133,1), rgba(142,69,133,0));
 }
-
+.section-header {
+  color: #3F7D20;
+}
 /*
  * Header and Navigation
  */
@@ -92,63 +105,207 @@ ul.user-dropdown li > a {
   color: #3F7D20;
   font-family: 'Open Sans', sans-serif;
 }
-/*Forces card images to be square and have their final size on load.
-  This prevents layout changes as images load in.*/
-.card .card-image {
-  padding-top: 100%;
+/*The following styles force card and recipe header images to be square and have
+  their final size on load. This prevents layout changes as images load in.*/
+.card .card-image,
+.col.recipe-header-img {
+  position:relative;
+  padding: 0;
 }
-.card .card-image img {
+.card .card-image::after,
+.col.recipe-header-img::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+/*Makes the card-title only 2 lines high and hides any overflow*/
+.card-title {
+  position: relative;
+  line-height: 1em;
+  height: 2.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  color: #8E4585;
+}
+/*Shows any hidden title text on hover*/
+.card-title:hover {
+  overflow: visible;
+}
+.card-title:hover::after {
+  content: attr(data-expand);
   position: absolute;
+  background-color: #F3FCF0;
+  overflow: visible;
   top: 0;
   left: 0;
+}
+.card .card-image img,
+.recipe-header-img > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #8E4585;
+}
+.card-recipe-rating {
+  color: darkorange;
+}
+/*
+ * Recipe page
+ */
+.recipe-header {
+  background-color: rgba(63,125,32,0.15);
+}
+.recipe-title {
+  color: #8E4585;
+  margin: 20px 0;
+  /* Makes the title respond to viewport width to fill the space
+     better while preventing it from getting too big or small */
+  font-size: calc(20px + 2vw);
+  text-align: center;
+}
+.recipe-author {
+  color: #3F7D20;
+  text-align: center;
+}
+.recipe-rating {
+  margin: 0 0 10px 0;
+  color: darkorange;
+}
+.recipe-header-sub {
+  color: #3F7D20;
+  text-align: center;
+}
+.recipe-header-sub div:not(:last-child) {
+  border-right: 1px solid #3F7D20;
+}
+.recipe-header-sub p i {
+  color: #3F7D20;
+  font-size: 50px;
+}
+.recipe-header-sub span {
+  font-size: calc(20px + 0.5vw);
+}
+.recipe-description {}
+.recipe-rating-form .star i {
+  font-size: 3em;
+}
+#recipe_comment_form {
+  position: relative;
+}
+#recipe_comment_form .preloader-wrapper {
+  position: absolute;
+  top :0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.recipe-comment-btn,
+.recipe-comment-btn:focus {
+  color: #F3FCF0;
+  background-color: #3F7D20;
+}
+.recipe-comment-btn:hover {
+  background-color: #63a344;
+}
+/* Styles materialize tabs */
+.recipe-tabs .tab a {
+  color: rgba(63,125,32,0.7);
+}
+.recipe-tabs .tab a:hover {
+  font-weight: bold;
+  color: #3F7D20;
+}
+.recipe-tabs .tab a.active,
+.recipe-tabs .tab a:focus.active {
+  color: #3F7D20;
+  font-weight: bold;
+  background-color: white;
+}
+.recipe-tabs .indicator {
+  background-color: #8E4585;
+}
+/* Removes ordered list numbering so custom numbers can be displayed. */
+ol.collection {
+  list-style: none;
+  counter-reset: list-counter;
+  padding: 0;
+}
+ol.collection li.collection-item {
+  counter-increment: list-counter;
+  font-size: 1rem;
+  padding-left: 50px;
+  color: #0D0A0B;
+}
+/* Adds custom styled list numbers before the HTML content. */
+ol.collection li.collection-item::before {
+  content: counter(list-counter);
+  text-align: center;
+  color: #8E4585; /*#F3FCF0;*/
+  position: absolute;
+  left: 10px;
+  margin-top: -5px;
+  line-height: 30px;
+  background-color: white; /*#F3FCF0; /*#8E4585;*/
+  border: 1px solid #8E4585;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+ol.collection li.collection-item:hover,
+ol.collection input:checked + label li.collection-item {
+  background-color: rgba(63,125,32,0.15);
+}
+ol.collection input:checked + label li.collection-item::before
+{
+  color: #F3FCF0;
   background-color: #8E4585;
 }
 /*
 * Star rating element
 */
-.star-rating {
+/* Makes the star rating horizontal */
+.star-rating,
+.star-rating-ctl {
   display: inline-block;
-  vertical-align: bottom;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 125px;
-  height: 25px;
 }
-ul.star-rating > li {
+.star-rating > .rating-text,
+.star-rating > .star {
   float: left;
+  white-space: nowrap;
 }
-ul.star-rating > li > svg {
-  fill: none;
-  stroke: orange;
-  stroke-width: 1px;
-  width: 25px;
-  height: 25px;
+/* In order for CSS hover and checked styles to apply to the correct stars
+   the order has to be visually reversed as the ~ sibling selector only works
+   forwards, but we need it to work backwards. */
+.star-rating-ctl > .star {
+  float: right;
 }
-ul.star-rating > li.checked > svg {
-  fill: orange;
+.star i,
+.rating-text {
+  color: #8E4585;
 }
-ul.star-rating > li.check-half > svg {
-  fill: url('#star-half-gradient');
+.star-rating > .star.off i::after,
+.star-rating-ctl > .star i::after {
+  content: "star_border";
 }
-/*Star Gradient values*/
-.star-stop-fill {
-  stop-color: orange;
-  stop-opacity: 1;
+.star-rating > .star.half i::after {
+  content: "star_half";
 }
-.star-stop-empty {
-  stop-color: none;
-  stop-opacity: 0;
-}
-#rating-template {
-  visibility: hidden;
-  position: absolute;
-  width:0;
-  height:0;
+.star-rating > .star.on i::after,
+.star-rating-ctl > .star:hover > i::after,
+.star-rating-ctl > .star:hover ~ .star > i::after,
+.star-rating-ctl:not(:hover) > input[type="radio"]:checked ~ .star > i::after {
+  content: "star";
 }
 /*
  * Login page
  */
+/*Makes the login box centred vertically.*/
 .login-wrapper {
   display: flex;
   flex-flow: column nowrap;
@@ -181,13 +338,35 @@ footer {
   background-color: #3F7D20;
   color: #F3FCF0;
 }
-
 /*
  * Media Queries
  */
+/* Very small screens and down */
 @media only screen and (max-width: 274px) {
   /* Don't show brand title on really small screens */
   .brand-title {
     display: none;
+  }
+}
+/* Large screens and up */
+@media only screen and (min-width: 992px) {
+  /* Makes header content vertically centred when header
+     image and text are side-by side */
+  .recipe-header {
+      display: flex;
+      align-items: center;
+  }
+  /* left aligned text looks better when the title is
+     next to the header image */
+  .recipe-title {
+    text-align: left;
+  }
+  .recipe-author {
+    text-align: left;
+  }
+  /* prevents overflowing header when image
+     and title are side by side */
+  .recipe-header-sub {
+    margin: 0;
   }
 }

@@ -25,6 +25,11 @@ Plum is a recipe sharing website designed to help users find recipes and share t
       - [Cuisine Collection](#Cuisine-Collection)
     - [Indexes](#Indexes)
     - [Queries](#Queries)
+      - [Browsing](#Browsing)
+      - [Users](#Users)
+      - [Searching](#Searching)
+      - [Uploading](#Uploading)
+      - [Administration](#Administration)
   - [Fonts](#Fonts)
   - [Colours](#Colours)
   - [Layout](#Layout)
@@ -83,13 +88,12 @@ Stores individual recipes
 | description | Short description of the recipe                              |
 | image       | Recipe Image URL string                                      |
 | cuisine     | Cuisine type                                                 |
-| prep_time   | Time in seconds it takes to prepare the recipe               |
-| cook_time   | Time in seconds it takes to cook the recipe                  |
+| time        | Time token                                                   |
 | servings    | Integer number of the number of servings this recipe provides |
 | rating      | List of values for how many of each star rating the recipe has received. |
 | ingredients | List of ingredients                                          |
 | steps       | List of strings of preparation steps                         |
-| comments    | List of comments                                             |
+| comments    | List of comment objects                                      |
 
 ###### User Token
 
@@ -97,6 +101,14 @@ Stores individual recipes
 | ---------- | -------------- |
 | name       | User name      |
 | user_id    | User record id |
+
+###### User Token
+
+| Field Name | Description           |
+| ---------- | --------------------- |
+| total      | Total time in seconds |
+| hours      | Number of hours       |
+| minutes    | Number of minutes     |
 
 ###### Ingredient List
 
@@ -110,11 +122,11 @@ Stores individual recipes
 
 ###### Comment List
 
-| Field Name | Description                           |
-| ---------- | ------------------------------------- |
-| user       | Name of the user who left the comment |
-| user_id    | User's record id                      |
-| comment    | String content of the comment         |
+| Field Name | Description                      |
+| ---------- | -------------------------------- |
+| user       | User token                       |
+| rating     | The rating they gave this recipe |
+| comment    | String content of the comment    |
 
 ##### User Collection
 
@@ -171,13 +183,22 @@ Enumerates cuisine types.
 
 #### Indexes
 
+**recipes:**
+
+1. pageid_1 - Regular index ensures pageid field is unique
+2. -Text indexes for searching-
+
 #### Queries
+
+##### Browsing
 
 **Returns the 8 newest recipes (for US001):**
 
 ```mongodb
 plumdb.recipes.find().sort("_id", -1).limit(8)
 ```
+
+##### Users
 
 **Returns a specific user account based on username:**
 
@@ -190,7 +211,75 @@ plumdb.users.find_one({"name": "username"})
 plumdb.users.insert_one(user-record)
 ```
 
+##### Searching
 
+**Finds a single recipe from it's pageid (for showing a single recipe page):**
+
+```Mongodb
+plumdb.recipes.find_one({"pageid": pageid})
+```
+
+##### Uploading
+
+**Adds a rating vote to a recipe (for US002 and US008)**
+
+Updating the recipe record
+
+```mongodb
+plumdb.recipes.update_one({"_id" : recipeId}
+{
+	"$set" : {
+		"rating.0" : avg_rating,
+		"rating.{vote}" : rating[vote] + 1
+	}
+})
+```
+
+Adding the rating record
+
+```mongodb
+plumdb.ratings.insert_one(interaction)
+```
+
+**Updates a rating vote on a recipe (for US002 and US008)**
+
+Updating the recipe record
+
+```mongodb
+plumdb.recipes.update_one({"_id" : recipeId}
+{
+	"$set" : {
+		"rating.0" : avg_rating,
+		"rating.{vote}" : rating[vote] + 1
+		"rating.{old_vote}" : rating[old_vote] - 1
+	}
+})
+```
+
+Updating the rating record
+
+```mongodb
+plumdb.ratings.update_one({"_id" : interaction._id}, 
+{
+	"$set" : {"rating" : new_rating}
+})
+```
+
+**Adds a comment to a recipe (for US002 and US008)**
+
+```mongodb
+plumdb.recipes.update_one({"_id" : recipeId}
+{
+	"$push" : { "comments" : {
+		"author" : user_token,
+		"text" : comment		
+	}}
+})
+```
+
+##### Administration
+
+TODO: Administration database queries here
 
 ### Fonts
 

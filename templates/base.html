@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
   <link rel="shortcut icon" type="image/icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 
   <title>Plum Recipes</title>
@@ -17,6 +16,8 @@
   {% endblock %}
 
   <header>
+    <div class="navbar-fixed">
+
     <nav>
       <div class="nav-wrapper">
         <a href="{{ url_for('home') }}" class="brand-logo">
@@ -42,6 +43,8 @@
         </ul>
       </div>
     </nav>
+
+    </div>
 
     <ul id="user-dropdown" class="user-dropdown dropdown-content">
       <li><a href="#!">profile</a></li>
