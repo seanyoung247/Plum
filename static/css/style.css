@@ -316,6 +316,9 @@ ol.collection input:checked + label li.collection-item::before
   flex-flow: column nowrap;
   flex: 1;
 }
+.login-wrapper > .valign-wrapper {
+  flex: 1;
+}
 .login-box {
   max-width: 750px;
 }
