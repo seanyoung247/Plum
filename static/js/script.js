@@ -19,6 +19,11 @@ $( "#recipe_rating_form" ).submit(function(event) {
   event.preventDefault();
 
   submitFormAJAX(event, ratingSuccess);
+
+  //Stop reading star rating while server deals with request
+  $( "input", this ).prop('disabled', true);
+  //Show spinner to indicate users request is being dealt with
+  $( ".preloader-wrapper", this ).removeClass("hide");
 });
 
 //Binds star rating change event to trigger form submission
@@ -27,7 +32,10 @@ $( ".star-rating-ctl input[type=radio]" ).change(function() {
 });
 
 function ratingSuccess(response) {
-  console.log(response);
+  //Stop reading star rating while server deals with request
+  $( "input", "#recipe_rating_form" ).prop('disabled', false);
+  //Show spinner to indicate users request is being dealt with
+  $( ".preloader-wrapper", "#recipe_rating_form" ).addClass("hide");
 }
 
 /*

@@ -69,8 +69,6 @@ def home():
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
-    print(recipe)
-    print(recipe['_id'])
     user_rating = 0
     if recipe:
         #if a user is logged in, get user/recipe interation (if any)
@@ -82,7 +80,6 @@ def recipe(pageid):
             #if user has rated this recipe already
             if interaction:
                 user_rating = interaction['rating']
-                print(user_rating)
 
         return render_template("recipe.html", recipe=recipe, user_rating=user_rating)
     else:
@@ -228,8 +225,8 @@ def ajax_rating():
                 "rating"    : new_rating
             }
             mongo.db.ratings.insert_one(interaction)
-    #TODO: More meaningful return response
-    return "Recieved rating of {rating}".format(rating = request.json['rating'])
+
+    return {"new_rating" : new_rating}
 
 
 #Adds a comment to a recipe document from AJAX requests

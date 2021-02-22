@@ -97,6 +97,19 @@
 
         <input name="recipeId" type="hidden" value="{{ recipe._id }}">
         {{ generate_star_rating_control(user_rating) }}
+
+        <div class="preloader-wrapper small active hide">
+          <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+
       </form>
     </div>
 
