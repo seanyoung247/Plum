@@ -1,6 +1,6 @@
 $(document).ready(function(){
   /*
-   * Materialise components initialisation
+   * Materialise component initialisation
    */
   $('.sidenav').sidenav();
   $('.dropdown-trigger').dropdown({
@@ -19,9 +19,10 @@ $( "#recipe_rating_form" ).submit(function(event) {
   event.preventDefault();
 
   submitFormAJAX(event, ratingSuccess);
-
+console.log("here");
   //Stop reading star rating while server deals with request
   $( "input", this ).prop('disabled', true);
+  $( ".star-rating-ctl", this ).addClass('disabled')
   //Show spinner to indicate users request is being dealt with
   $( ".preloader-wrapper", this ).removeClass("hide");
 });
@@ -34,8 +35,10 @@ $( ".star-rating-ctl input[type=radio]" ).change(function() {
 function ratingSuccess(response) {
   //Stop reading star rating while server deals with request
   $( "input", "#recipe_rating_form" ).prop('disabled', false);
+  $( ".star-rating-ctl", "#recipe_rating_form" ).removeClass('disabled')
   //Show spinner to indicate users request is being dealt with
   $( ".preloader-wrapper", "#recipe_rating_form" ).addClass("hide");
+  //TODO: Update rating display element
 }
 
 /*
@@ -51,7 +54,7 @@ $( "#recipe_comment_form" ).submit(function(event) {
   $( "input,textarea,button", this ).prop('readonly', true);
   $( "button", this ).prop('disabled', true);
   //Show spinner to indicate user's request is being dealt with
-  $( ".preloader-wrapper", this ).removeClass("hide");
+  $( ".preloader-wrapper", this ).removeClass('hide');
 });
 
 function commentSuccess(response) {

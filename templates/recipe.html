@@ -96,7 +96,7 @@
         method="POST" action="{{ url_for('ajax_rating') }}">
 
         <input name="recipeId" type="hidden" value="{{ recipe._id }}">
-        {{ generate_star_rating_control(user_rating) }}
+        {{ generate_star_rating_control(interaction.rating) }}
 
         <div class="preloader-wrapper small active hide">
           <div class="spinner-layer spinner-green-only">
