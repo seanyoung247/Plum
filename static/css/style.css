@@ -243,12 +243,12 @@ ol.collection li.collection-item {
 ol.collection li.collection-item::before {
   content: counter(list-counter);
   text-align: center;
-  color: #8E4585; /*#F3FCF0;*/
+  color: #8E4585;
   position: absolute;
   left: 10px;
   margin-top: -5px;
   line-height: 30px;
-  background-color: white; /*#F3FCF0; /*#8E4585;*/
+  background-color: white;
   border: 1px solid #8E4585;
   border-radius: 50%;
   height: 30px;

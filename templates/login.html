@@ -9,7 +9,9 @@
         <div class="login-box">
           <ul class="collapsible">
             <li class="active">
-              <div class="login-header collapsible-header"><h5>Login</h5></div>
+              <div class="login-header collapsible-header">
+                <h5><i class="material-icons">login</i>Login</h5>
+              </div>
               <div class="login-body collapsible-body">
 
                 <form method="POST" action="{{ url_for('login') }}">
@@ -31,7 +33,7 @@
 
                   <div class="row">
                     <button type="submit" name="button"
-                      class="col s12 l6 offset-l6 btn-large text-shadow login-btn">
+                      class="col s12 l6 offset-l3 btn-large text-shadow login-btn">
                       Log In
                     </button>
                   </div>
@@ -40,7 +42,9 @@
               </div>
             </li>
             <li>
-              <div class="login-header collapsible-header"><h5>Register</h5></div>
+              <div class="login-header collapsible-header">
+                <h5><i class="material-icons">person_add</i>Register</h5>
+              </div>
               <div class="login-body collapsible-body">
                 <form method="POST" action="{{ url_for('register') }}">
 
@@ -77,7 +81,7 @@
                   </div>
                   <div class="row">
                     <button type="submit" name="button"
-                      class="col s12 l6 offset-l6 btn-large text-shadow login-btn">
+                      class="col s12 l6 offset-l3 btn-large text-shadow login-btn">
                       Register
                     </button>
                   </div>
