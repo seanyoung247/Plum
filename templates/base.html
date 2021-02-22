@@ -12,9 +12,6 @@
   <title>Plum Recipes</title>
 </head>
 <body>
-  {% block templates %}
-  {% endblock %}
-
   <header>
     <div class="navbar-fixed">
 
@@ -30,7 +27,7 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="#">Search</a></li>
           {% if session.user %}
-            <li><a href="#">Add Recipe</a></li>
+            <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
             <li>
               <a class="dropdown-trigger" href="#" data-target="user-dropdown">
                 {{ session.user }}
@@ -54,7 +51,7 @@
     <ul class="sidenav" id="mobile-demo">
       <li><a href="#">Search</a></li>
       {% if session.user %}
-        <li><a href="#">Add Recipe</a></li>
+        <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
         <li>
           <ul class="collapsible">
             <li>

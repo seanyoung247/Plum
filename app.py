@@ -84,6 +84,11 @@ def recipe(pageid):
         return abort(404)
 
 
+#New recipe page
+@app.route("/add_recipe")
+def add_recipe():
+    return render_template("edit_recipe.html")
+
 #User Registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
