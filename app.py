@@ -45,6 +45,7 @@ def calculate_rating(rating):
     for i in range(1,6):
         cumulative += rating[i] * i
         weight += rating[i]
+
     if weight > 0 and cumulative > 0:
         rating[0] = cumulative / weight
     else:
@@ -69,19 +70,16 @@ def home():
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
-    user_rating = 0
+    interaction = {"rating" : 0}
     if recipe:
         #if a user is logged in, get user/recipe interation (if any)
-        if session['user']:
+        if user_logged_in():
             interaction = mongo.db.ratings.find_one({
                 "user_id"   : session['userid'],
                 "recipe_id" : str(recipe['_id'])
             })
-            #if user has rated this recipe already
-            if interaction:
-                user_rating = interaction['rating']
 
-        return render_template("recipe.html", recipe=recipe, user_rating=user_rating)
+        return render_template("recipe.html", recipe=recipe, interaction=interaction)
     else:
         return abort(404)
 
