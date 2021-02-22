@@ -82,6 +82,7 @@ Stores individual recipes
 | Field name  | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
 | _id         | Record id                                                    |
+| pageid      | Unique string url path for this recipe                       |
 | name        | Recipe name                                                  |
 | author      | User token for recipe author                                 |
 | date        | The date this recipe was added                               |
@@ -185,8 +186,12 @@ Enumerates cuisine types.
 
 **recipes:**
 
-1. pageid_1 - Regular index ensures pageid field is unique
+1. Unique index on page_id - Regular index ensures pageid field is unique
 2. -Text indexes for searching-
+
+**ratings:**
+
+1. Unique compound index on user_id and recipe_id - Ensures only one interaction between one recipe and user.
 
 #### Queries
 
@@ -196,6 +201,12 @@ Enumerates cuisine types.
 
 ```mongodb
 plumdb.recipes.find().sort("_id", -1).limit(8)
+```
+
+**Returns a specific Recipe/User interaction (for US002, US008):**
+
+```Mongodb
+plumdb.ratings.find_one({"user_id"   : user['userid'], "recipe_id" : recipe['_id']})
 ```
 
 ##### Users
