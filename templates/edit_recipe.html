@@ -4,8 +4,21 @@
   <div class="container vpad">
     <div class="row">
       <h4 class="col s12 section-header">
-        Add Recipe      
+        {# Are we adding a new recipe or editing an existing one? #}
+        {% if recipe is defined %}
+          Edit Recipe
+        {% else %}
+          Add Recipe
+        {% endif %}
       </h4>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        {# |replace(' ', '-') #}
+        {% for cuisine in cuisines %}
+          <p>{{ cuisine.name }}</p>
+        {% endfor %}
+      </div>
     </div>
   </div>
 {% endblock %}

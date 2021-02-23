@@ -85,9 +85,15 @@ def recipe(pageid):
 
 
 #New recipe page
-@app.route("/add_recipe")
+@app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    return render_template("edit_recipe.html")
+    cuisines = mongo.db.cuisines.find().sort("name", 1)
+    print(cuisines)
+    return render_template("edit_recipe.html", cuisines=cuisines)
+
+@app.route("/edit_recipe", methods=["GET", "POST"])
+def edit_recipe():
+    return render_template("edit_recipe.html", cuisines=cuisines)
 
 #User Registration
 @app.route("/register", methods=["GET", "POST"])
