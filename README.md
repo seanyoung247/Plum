@@ -36,6 +36,9 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Features](#Features)
   - [Technologies](#Technologies)
   - [Testing](#Testing)
+  - [Source Control](#Source-Control)
+    - [Branches](#Branches)
+    - [Github Desktop](#Github-Desktop)
   - [Deployment](#Deployment)
   - [Credits](#Credits)
     - [Media](#Media)
@@ -326,6 +329,59 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 ## Technologies
 
 ## Testing
+
+## Source Control
+
+The website was developed using the Atom editor with github for version control. Github Desktop was used to simplify the process of compiling pushing commits to the remote repository.
+
+### Branches
+
+Branches were used to add new features for testing without affecting the main branch and deployed application. 
+
+#### Creating a branch
+
+Selecting a branch
+
+Merging a branch
+
+Deleting a branch
+
+### Github Desktop
+
+#### Github Accounts
+
+Once installed Github Desktop can be linked to an existing user account by:
+
+1. Selecting File->Options from the Github Desktop menu.
+2. Selecting sign in in the Accounts section of the dialog.
+3. Enter github user account and password.
+
+#### Cloning Repositories
+
+Adding an existing github repository to the local machine and Github Desktop can be achieved by:
+
+1. Selecting File->Clone repository... from the Github Desktop menu.
+2. Selecting the repository from the list in the dialog.
+3. Selecting where the repository should be cloned to on the local machine
+4. Clicking the clone button
+5. Github Desktop will automatically clone the repository.
+
+#### Selecting current Repository
+
+Github Desktop will automatically track any changes to the current local repository from the github repository.
+
+1. Click the "current repository" button
+2. Select the required repository from the menu
+
+#### Updating Github
+
+Github desktop will automatically flag unmerged changes in the current repository. These can be merged by:
+
+1. Deselect any changes to be excluded from the next commit in the changes list. (Github desktop automatically selects all available commits.)
+2. Add commit summary.
+3. Add commit description (if any).
+4. Click "commit to master".
+5. Select Push Origin from the pane on the right.
 
 ## Deployment
 
