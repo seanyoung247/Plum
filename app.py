@@ -87,13 +87,20 @@ def recipe(pageid):
 #New recipe page
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
-    print(cuisines)
     return render_template("edit_recipe.html", cuisines=cuisines)
 
+
+#Edit existing recipe
 @app.route("/edit_recipe", methods=["GET", "POST"])
 def edit_recipe():
-    return render_template("edit_recipe.html", cuisines=cuisines)
+    #Get the cuisines list (to populate the cuisines selector)
+    cuisines = mongo.db.cuisines.find().sort("name", 1)
+    #Get the recipe to be edited
+    recipe = mongo.db.recipes.find_one({"pageid": pageid})
+    return render_template("edit_recipe.html", recipe=recipe, cuisines=cuisines)
+
 
 #User Registration
 @app.route("/register", methods=["GET", "POST"])
