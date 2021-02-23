@@ -33,16 +33,16 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Fonts](#Fonts)
   - [Colours](#Colours)
   - [Layout](#Layout)
-  - [Features](#Features)
-  - [Technologies](#Technologies)
-  - [Testing](#Testing)
-  - [Source Control](#Source-Control)
-    - [Branches](#Branches)
-    - [Github Desktop](#Github-Desktop)
-  - [Deployment](#Deployment)
-  - [Credits](#Credits)
-    - [Media](#Media)
-    - [Acknowledgements](#Acknowledgements)
+- [Features](#Features)
+- [Technologies](#Technologies)
+- [Testing](#Testing)
+- [Source Control](#Source-Control)
+  - [Branches](#Branches)
+  - [Github Desktop](#Github-Desktop)
+- [Deployment](#Deployment)
+- [Credits](#Credits)
+  - [Media](#Media)
+  - [Acknowledgements](#Acknowledgements)
 
 ## User Experience
 
@@ -411,5 +411,13 @@ The cuisine category images were obtained from [unsplash](https://unsplash.com/)
 - [Thai](https://unsplash.com/photos/YmyFBvW7oG8) - photograph by [Nick Karvounis](https://unsplash.com/@nickkarvounis)
 - [Turkish](https://unsplash.com/photos/fg5DDCrybjA) - photograph by [Louis Hansel](https://unsplash.com/@louishansel)
 - [Vietnamese](https://unsplash.com/photos/B3Zq_3cu0Ug) - photograph by [Huong Pham](https://unsplash.com/@huongthu98)
+
+Recipes:
+
+- Parmesan Crusted Chicken image and recipe from [gimmedelicious](https://gimmedelicious.com/crispy-parmesan-crusted-chicken/).
+
+General:
+
+- [New Recipe image](https://unsplash.com/photos/x5SRhkFajrA) - photograph by [Todd Quackenbush](https://unsplash.com/@toddquackenbush)
 
 ### Acknowledgements
