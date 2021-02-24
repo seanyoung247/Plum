@@ -7,7 +7,11 @@ $(document).ready(function(){
     //Prevents the dropdown menu covering the trigger item
     coverTrigger: false
   });
+  $('.timepicker').timepicker({
+    twelveHour: false
+  });
   $('.collapsible').collapsible();
+  $('select').formSelect();
   $('.tabs').tabs();
 });
 
@@ -19,7 +23,7 @@ $( "#recipe_rating_form" ).submit(function(event) {
   event.preventDefault();
 
   submitFormAJAX(event, ratingSuccess);
-console.log("here");
+
   //Stop reading star rating while server deals with request
   $( "input", this ).prop('disabled', true);
   $( ".star-rating-ctl", this ).addClass('disabled')

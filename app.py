@@ -87,19 +87,40 @@ def recipe(pageid):
 #New recipe page
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    #Page specific variables
+    page = {
+        "name" : "Add Recipe",
+        "route": url_for("add_recipe")
+    }
+    #Dummy recipe values
+    recipe = {
+        "_id" : "none",
+        "name" : "",
+        "description" : "",
+        "image" : url_for('static', filename="images/categories/new-recipe.jpg"),
+        "time"  : {"hours" : "00", "minutes" : "00"},
+        "servings" : "0",
+        "ingredients" : [],
+        "steps" : []
+    }
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
-    return render_template("edit_recipe.html", cuisines=cuisines)
+    return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 
 #Edit existing recipe
 @app.route("/edit_recipe", methods=["GET", "POST"])
 def edit_recipe():
+    #Page specific variables
+    page = {
+        "name" : "Edit Recipe",
+        "route": url_for("edit_recipe")
+    }
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
     #Get the recipe to be edited
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
-    return render_template("edit_recipe.html", recipe=recipe, cuisines=cuisines)
+    return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 
 #User Registration

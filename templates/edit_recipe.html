@@ -4,21 +4,95 @@
   <div class="container vpad">
     <div class="row">
       <h4 class="col s12 section-header">
-        {# Are we adding a new recipe or editing an existing one? #}
-        {% if recipe is defined %}
-          Edit Recipe
-        {% else %}
-          Add Recipe
-        {% endif %}
+        {{ page.name }}
       </h4>
     </div>
     <div class="row">
-      <div class="col s12">
-        {# |replace(' ', '-') #}
-        {% for cuisine in cuisines %}
-          <p>{{ cuisine.name }}</p>
-        {% endfor %}
-      </div>
+      <form class="col s12" method="POST" action="{{ page.route }}">
+        <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+
+        <div class="row">
+
+          <div class="col s12 l6 recipe-header-img">
+            <img src="{{ recipe.image }}" alt="recipe header image">
+            <div class="input-field col s12">
+              <input type="text" id="recipe_image" value="{{ recipe.image }}">
+              <label for="recipe_image">Image URL</label>
+            </div>
+          </div>
+
+          <div class="col s12 l6">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" id="recipe_title" value="{{ recipe.name }}" required>
+                <label for="recipe_title">Title</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">access_time</i>
+                <input id="recipe_time" type="text" class="timepicker"
+                  value="{{ recipe.time.hours }}:{{ recipe.time.minutes }}">
+                <label for="recipe_time">test</label>
+              </div>
+
+              <div class="input-field col s6">
+                <i class="material-icons prefix">restaurant</i>
+                <input type="number" id="recipe_servings" required>
+                <label for="recipe_servings">Servings</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <select>
+                  {% for cuisine in cuisines %}
+                    <option value="{{ cuisine.name }}">
+                      {{- cuisine.name|capitalize -}}
+                    </option>
+                  {% endfor %}
+                </select>
+                <label>Cuisine type</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="Recipe_Description" class="materialize-textarea"></textarea>
+            <label for="Recipe_Description">Description</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <h5 class="col s12 section-header">Ingredients</h5>
+          <div class="col s12">
+            <ul>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h5 class="col s12 section-header">Method</h5>
+          <div class="col s12">
+            <ul>
+              
+            </ul>
+          </div>
+        </div>
+
+      </form>
     </div>
   </div>
 {% endblock %}
+
+{#
+  |replace(' ', '-')
+{% for cuisine in cuisines %}
+  <p>{{ cuisine.name }}</p>
+{% endfor %}
+#}

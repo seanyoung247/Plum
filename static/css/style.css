@@ -308,6 +308,12 @@ ol.collection input:checked + label li.collection-item::before
   opacity: 0.75;
 }
 /*
+ * Add/Edit recipe page
+ */
+input#recipe_image {
+  background-color: rgba(243,252,240,0.9); /*#F3FCF0;*/
+}
+/*
  * Login page
  */
 /*Makes the login box centred vertically.*/
