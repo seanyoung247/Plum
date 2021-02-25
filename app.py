@@ -109,12 +109,12 @@ def add_recipe():
 
 
 #Edit existing recipe
-@app.route("/edit_recipe", methods=["GET", "POST"])
-def edit_recipe():
+@app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
+def edit_recipe(pageid):
     #Page specific variables
     page = {
         "name" : "Edit Recipe",
-        "route": url_for("edit_recipe")
+        "route": url_for("edit_recipe", pageid=pageid)
     }
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
