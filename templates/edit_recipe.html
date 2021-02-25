@@ -17,15 +17,16 @@
           <div class="col s12 l6 recipe-header-img">
             <img src="{{ recipe.image }}" alt="recipe header image">
             <div class="input-field col s12">
-              <input type="text" id="recipe_image" value="{{ recipe.image }}">
-              <label for="recipe_image">Image URL</label>
+              <input name="image" type="text" id="recipe_image"
+                value="{{ recipe.image }}">
             </div>
           </div>
 
           <div class="col s12 l6">
             <div class="row">
               <div class="input-field col s12">
-                <input type="text" id="recipe_title" value="{{ recipe.name }}" required>
+                <input name="title" type="text" id="recipe_title"
+                  value="{{ recipe.name }}" required>
                 <label for="recipe_title">Title</label>
               </div>
             </div>
@@ -33,14 +34,14 @@
             <div class="row">
               <div class="input-field col s6">
                 <i class="material-icons prefix">access_time</i>
-                <input id="recipe_time" type="text" class="timepicker"
+                <input name="time" id="recipe_time" type="text" class="timepicker"
                   value="{{ recipe.time.hours }}:{{ recipe.time.minutes }}">
                 <label for="recipe_time">Time</label>
               </div>
 
               <div class="input-field col s6">
                 <i class="material-icons prefix">restaurant</i>
-                <input type="number" id="recipe_servings"
+                <input name="servings" type="number" id="recipe_servings"
                   value="{{ recipe.servings }}" required>
                 <label for="recipe_servings">Servings</label>
               </div>
@@ -50,7 +51,7 @@
               <div class="input-field col s12">
                 <select>
                   {% for cuisine in cuisines %}
-                    <option value="{{ cuisine.name }}"
+                    <option name="cuisine" value="{{ cuisine.name }}"
                       {%- if recipe.cuisine == cuisine.name -%}
                         selected
                       {%- endif -%}>
@@ -67,32 +68,45 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="Recipe_Description" class="materialize-textarea">
+            <textarea name="description" id="recipe_description" class="materialize-textarea">
               {{- recipe.description -}}
             </textarea>
-            <label for="Recipe_Description">Description</label>
+            <label for="recipe_description">Description</label>
           </div>
         </div>
 
         <div class="row">
           <h5 class="col s12 section-header">Ingredients</h5>
           <div class="col s12">
-            <ul>
+
+            <ul id="ingredients" class="collection">
               {% for ingredient in recipe.ingredients %}
-                <li>{{ ingredient }}</li>
+                <li class="collection-item">
+                  <div class="input-field">
+                    <input name="ingredients" type="text" value="{{ ingredient }}" required>
+                  </div>
+                  <a class="remove-list-item"><i class="material-icons">clear</i></a>
+                </li>
               {% endfor %}
+              <li class="collection-item">
+                <a class="btn-floating btn-small add-list-item">
+                  <i class="material-icons">add</i>
+                </a>
+              </li>
             </ul>
+
           </div>
         </div>
 
         <div class="row">
           <h5 class="col s12 section-header">Method</h5>
           <div class="col s12">
+
             <ul id="steps" class="collection">
               {% for step in recipe.steps %}
                 <li class="collection-item">
-                  <div name="steps" class="input-field">
-                    <textarea class="materialize-textarea" required>
+                  <div class="input-field">
+                    <textarea name="steps" class="materialize-textarea" required>
                       {{- step -}}
                     </textarea>
                   </div>
@@ -105,8 +119,13 @@
                 </a>
               </li>
             </ul>
+
           </div>
         </div>
+
+        <button id="submit_recipe" type="submit" class="btn-large">
+          Submit
+        </button>
 
       </form>
     </div>

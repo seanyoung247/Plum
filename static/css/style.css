@@ -316,7 +316,8 @@ ol.collection input:checked + label li.collection-item::before
 input#recipe_image {
   background-color: rgba(243,252,240,0.9); /*#F3FCF0;*/
 }
-#steps .collection-item {
+#steps .collection-item,
+#ingredients .collection-item {
   position: relative;
 }
 .remove-list-item {
@@ -330,8 +331,8 @@ input#recipe_image {
   cursor: pointer;
 }
 .remove-list-item:hover {
-  background-color: red;
-  color: white;
+  background-color: #8E4585;
+  color: #F3FCF0;
 }
 /*
  * Login page

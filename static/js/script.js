@@ -15,13 +15,28 @@ $(document).ready(function(){
   $('.tabs').tabs();
 });
 
-$( "#steps" ).on("click", ".remove-list-item", function(event) {
+/*
+ * Edit/Add Recipe page
+ */
+//Removes a list item from the method or ingredients lists
+$( "#steps, #ingredients").on("click", ".remove-list-item", function(event) {
   $( this ).parent().remove();
 });
+//Adds a list item to the ingredients list
+$( "#ingredients .add-list-item" ).click(function(event) {
+  let listItem = "<li class='collection-item'>" +
+                    "<div class='input-field'>" +
+                      "<input name='ingredients' type='text' required>" +
+                    "</div>" +
+                    "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
+                  "</li>";
+  $( this ).parent().before(listItem);
+});
+//Adds a list item to the method list
 $( "#steps .add-list-item" ).click(function(event) {
-  listItem =  "<li class='collection-item'>" +
+  let listItem =  "<li class='collection-item'>" +
                 "<div class='input-field'>" +
-                  "<textarea class='materialize-textarea' required>" +
+                  "<textarea name='steps' class='materialize-textarea' required>" +
                   "</textarea>" +
                 "</div>" +
                 "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
@@ -84,7 +99,7 @@ function commentSuccess(response) {
   $( "#recipe_comment_form .preloader-wrapper" ).addClass("hide");
 
   //Show the new comment at the top of the comment list
-  commentHTML = "<div class='row'><div class='col s12'><p>"
+  let commentHTML = "<div class='row'><div class='col s12'><p>"
     + response.author.name + "</p><p>" + response.text + "</p></div></div>";
   $( "#recipe-comments-wrapper" ).prepend(commentHTML);
 }
