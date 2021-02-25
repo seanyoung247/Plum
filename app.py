@@ -53,7 +53,60 @@ def calculate_rating(rating):
     else:
         rating[0] = 0
 
-#01 formated number string: print(str(5).zfill(2))
+
+#Creates a recipe record object from form data
+def create_recipe_record(form_data, recipe = {}, new_pageid = True):
+    #Generate pageid field
+    if new_pageid or recipe == {}:
+        pageid = urlparse(
+            (form_data.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
+        ).path
+    else:
+        pageid = recipe['pageid']
+
+    #carry over any existing values that shouldn't be reset
+    if recipe == {}:
+        rating = [0.0,0,0,0,0,0]
+        comments = []
+        recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
+    else:
+        rating = recipe['rating']
+        comments = recipe['comments']
+        recipe_date = recipe['date']
+
+    print(form_data.get('cuisine'))
+    #construct new recipe record
+    time = form_data.get("time").split(":")
+    recipe = {
+        "pageid" : pageid,
+        "title" : form_data.get('title'),
+        "author" : {"name" : session['user'], "user_id" : session['userid']},
+        "date" : recipe_date,
+        "description" : form_data.get('description'),
+        "image" : form_data.get('image'),
+        "cuisine" : form_data.get('cuisine'),
+        "time" : {
+            "total" : ( (int(time[0]) * 3600) + (int(time[1]) * 60) ),
+            "hours" : time[0],
+            "minutes" : time[1]
+        },
+        "servings" : form_data.get('servings'),
+        "rating" : rating,
+        "ingredients" : [],
+        "steps" : [],
+        "comments" : comments
+    }
+
+    #insert recipe ingredients
+    for ingredient in form_data.getlist('ingredients'):
+        recipe['ingredients'].append(ingredient)
+
+    #insert recipe steps
+    for step in form_data.getlist('steps'):
+        recipe['steps'].append(step)
+
+    return recipe
+
 
 #
 # App routes
@@ -93,43 +146,10 @@ def add_recipe():
         return redirect(url_for("home"))
 
     if request.method == "POST":
-        #Generate pageid field
-        pageid = urlparse(
-            (request.form.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
-        ).path
-
         #construct new recipe record
-        time = request.form.get("time").split(":")
-        recipe = {
-            "pageid" : pageid,
-            "title" : request.form.get('title'),
-            "author" : {"name" : session['user'], "user_id" : session['userid']},
-            "date" : datetime.strftime(date.today(),'%d/%m/%Y'),
-            "description" : request.form.get('description'),
-            "image" : request.form.get('image'),
-            "cuisine" : request.form.get('cuisine'),
-            "time" : {
-                "total" : ( (int(time[0]) * 3600) + (int(time[1]) * 60) ),
-                "hours" : time[0],
-                "minutes" : time[1]
-            },
-            "servings" : request.form.get('servings'),
-            "rating" : [0,0,0,0,0,0],
-            "ingredients" : [],
-            "steps" : [],
-            "comments" : []
-        }
-        #insert recipe ingredients
-        for ingredient in request.form.getlist('ingredients'):
-            recipe['ingredients'].append(ingredient)
-
-        #insert recipe steps
-        for step in request.form.getlist('steps'):
-            recipe['steps'].append(step)
-
+        recipe = create_recipe_record(request.form)
         mongo.db.recipes.insert_one(recipe)
-
-        return redirect(url_for("recipe", pageid=pageid))
+        return redirect(url_for("recipe", pageid=recipe['pageid']))
 
     #Page specific variables
     page = {
@@ -161,9 +181,18 @@ def edit_recipe(pageid):
         return redirect(url_for("home"))
     #Check the currently logged in user has rights to edit this recipe
 
+    #Get the recipe to be edited
+    recipe = mongo.db.recipes.find_one({"pageid": pageid})
+    #If the recipe can't be found, raise not found error
+    if not recipe:
+        abort(404)
+
     if request.method == "POST":
-        #Database edit goes here
-        return redirect(url_for("recipe", pageid=pageid))
+        #Update the recipe record
+        recipe = create_recipe_record(request.form, recipe,
+            ( recipe['title'] != request.form.get('title') ))
+        mongo.db.recipes.replace_one({"pageid" : pageid}, recipe)
+        return redirect(url_for("recipe", pageid=recipe['pageid']))
 
     #Page specific variables
     page = {
@@ -172,8 +201,6 @@ def edit_recipe(pageid):
     }
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
-    #Get the recipe to be edited
-    recipe = mongo.db.recipes.find_one({"pageid": pageid})
     return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 

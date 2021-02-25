@@ -10,8 +10,6 @@
     </div>
     <div class="row">
       <form class="col s12" method="POST" action="{{ page.route }}">
-        {#<input name="recipeId" type="hidden" value="{{ recipe._id }}">#}
-
         <div class="row recipe-header">
 
           <div class="col s12 l6 recipe-header-img">
@@ -42,16 +40,16 @@
               <div class="input-field col s6">
                 <i class="material-icons prefix">restaurant</i>
                 <input name="servings" type="number" id="recipe_servings"
-                  value="{{ recipe.servings }}" required>
+                  min="0" value="{{ recipe.servings }}" required>
                 <label for="recipe_servings">Servings</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <select>
+                <select name="cuisine" required>
                   {% for cuisine in cuisines %}
-                    <option name="cuisine" value="{{ cuisine.name }}"
+                    <option value="{{ cuisine.name }}"
                       {%- if recipe.cuisine == cuisine.name -%}
                         selected
                       {%- endif -%}>
