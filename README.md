@@ -309,7 +309,9 @@ plumdb.recipes.insert_one(recipe-record)
 
 **Edits an existing recipe (for US009):**
 
-
+```Mongodb
+mongo.db.recipes.replace_one({"pageid" : pageid}, recipe-record)
+```
 
 ##### Administration
 
