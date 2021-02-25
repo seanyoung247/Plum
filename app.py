@@ -5,6 +5,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from secrets import token_urlsafe
+from urllib.parse import urlparse
+from datetime import date, datetime
 if os.path.exists("env.py"):
     import env
 
@@ -51,9 +53,7 @@ def calculate_rating(rating):
     else:
         rating[0] = 0
 
-#random pageid pad = token_urlsafe(8)
 #01 formated number string: print(str(5).zfill(2))
-
 
 #
 # App routes
@@ -87,12 +87,48 @@ def recipe(pageid):
 #New recipe page
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    #Only logged in users can
     if not user_logged_in():
         flash("You need to be logged in to add recipes!", category="error")
         return redirect(url_for("home"))
 
     if request.method == "POST":
-        #Database insertion goes here!
+        #Generate pageid field
+        pageid = urlparse(
+            (request.form.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
+        ).path
+
+        #construct new recipe record
+        time = request.form.get("time").split(":")
+        recipe = {
+            "pageid" : pageid,
+            "title" : request.form.get('title'),
+            "author" : {"name" : session['user'], "user_id" : session['userid']},
+            "date" : datetime.strftime(date.today(),'%d/%m/%Y'),
+            "description" : request.form.get('description'),
+            "image" : request.form.get('image'),
+            "cuisine" : request.form.get('cuisine'),
+            "time" : {
+                "total" : ( (int(time[0]) * 3600) + (int(time[1]) * 60) ),
+                "hours" : time[0],
+                "minutes" : time[1]
+            },
+            "servings" : request.form.get('servings'),
+            "rating" : [0,0,0,0,0,0],
+            "ingredients" : [],
+            "steps" : [],
+            "comments" : []
+        }
+        #insert recipe ingredients
+        for ingredient in request.form.getlist('ingredients'):
+            recipe['ingredients'].append(ingredient)
+
+        #insert recipe steps
+        for step in request.form.getlist('steps'):
+            recipe['steps'].append(step)
+
+        mongo.db.recipes.insert_one(recipe)
+
         return redirect(url_for("recipe", pageid=pageid))
 
     #Page specific variables
@@ -103,7 +139,7 @@ def add_recipe():
     #Dummy recipe values
     recipe = {
         "_id" : "none",
-        "name" : "",
+        "title" : "",
         "description" : "",
         "image" : url_for('static', filename="images/categories/new-recipe.jpg"),
         "time"  : {"hours" : "00", "minutes" : "00"},
@@ -119,9 +155,11 @@ def add_recipe():
 #Edit existing recipe
 @app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
 def edit_recipe(pageid):
+    #Only logged in users can edit recipes
     if not user_logged_in():
         flash("You need to be logged in to edit recipes!", category="error")
         return redirect(url_for("home"))
+    #Check the currently logged in user has rights to edit this recipe
 
     if request.method == "POST":
         #Database edit goes here
@@ -294,7 +332,8 @@ def ajax_comment():
             }
             mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
                 {"$push": { "comments" : comment }})
-    return comment
+            return comment
+    return "Badly formed request!"
 
 
 #Checks if a username already exists
