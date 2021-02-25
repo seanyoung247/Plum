@@ -153,10 +153,10 @@ Holds information on each registered user
 
 ###### Recipe Token
 
-| Field Name | Description      |
-| ---------- | ---------------- |
-| name       | Recipe name      |
-| recipe_id  | Recipe record id |
+| Field Name | Description                            |
+| ---------- | -------------------------------------- |
+| name       | Recipe name                            |
+| pageid     | Unique string url path for this recipe |
 
 ##### Rating Collection
 
