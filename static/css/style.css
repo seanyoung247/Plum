@@ -50,6 +50,17 @@ hr {
 .section-header {
   color: #3F7D20;
 }
+.btn-small,
+.btn-large,
+.btn-small:focus,
+.btn-large:focus {
+  color: #F3FCF0;
+  background-color: #3F7D20;
+}
+.btn-small:hover,
+.btn-large:hover {
+  background-color: #63a344;
+}
 /*
  * Header and Navigation
  */
@@ -202,14 +213,6 @@ ul.user-dropdown li > a {
   bottom: 0;
   margin: auto;
 }
-.recipe-comment-btn,
-.recipe-comment-btn:focus {
-  color: #F3FCF0;
-  background-color: #3F7D20;
-}
-.recipe-comment-btn:hover {
-  background-color: #63a344;
-}
 /* Styles materialize tabs */
 .recipe-tabs .tab a {
   color: rgba(63,125,32,0.7);
@@ -313,6 +316,7 @@ ol.collection input:checked + label li.collection-item::before
 input#recipe_image {
   background-color: rgba(243,252,240,0.9); /*#F3FCF0;*/
 }
+
 /*
  * Login page
  */
@@ -340,10 +344,6 @@ li:not(.active) > .login-header {
 }
 .login-body {
   border-bottom: 2px solid #8E4585;
-}
-.login-btn {
-  background-color: #3F7D20;
-  color: #F3FCF0;
 }
 /*
  * Footer
