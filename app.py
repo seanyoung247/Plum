@@ -36,6 +36,7 @@ def user_logged_in():
 def log_user_in(user):
     session["user"] = user["name"]
     session["userid"] = str(user["_id"])
+    session["userrole"] = user["role"]
 
 
 #Calculates overall rating from rating array.
@@ -56,16 +57,9 @@ def calculate_rating(rating):
 
 #Creates a recipe record object from form data
 def create_recipe_record(form_data, recipe = {}, new_pageid = True):
-    #Generate pageid field
-    if new_pageid or recipe == {}:
-        pageid = urlparse(
-            (form_data.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
-        ).path
-    else:
-        pageid = recipe['pageid']
-
     #carry over any existing values that shouldn't be reset
     if recipe == {}:
+        new_pageid = True
         rating = [0.0,0,0,0,0,0]
         comments = []
         recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
@@ -73,6 +67,14 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         rating = recipe['rating']
         comments = recipe['comments']
         recipe_date = recipe['date']
+
+    #Generate pageid field
+    if new_pageid:
+        pageid = urlparse(
+            (form_data.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
+        ).path
+    else:
+        pageid = recipe['pageid']
 
     print(form_data.get('cuisine'))
     #construct new recipe record
@@ -179,13 +181,17 @@ def edit_recipe(pageid):
     if not user_logged_in():
         flash("You need to be logged in to edit recipes!", category="error")
         return redirect(url_for("home"))
-    #Check the currently logged in user has rights to edit this recipe
 
     #Get the recipe to be edited
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
     #If the recipe can't be found, raise not found error
     if not recipe:
         abort(404)
+
+    #Check the currently logged in user has rights to edit this recipe
+    if (session['userid'] != recipe['author']['user_id'] and session['userrole'] != "admin"):
+        flash("You don't have authorisation to edit this recipe", category="error")
+        return redirect(url_for("home"))
 
     if request.method == "POST":
         #Update the recipe record
