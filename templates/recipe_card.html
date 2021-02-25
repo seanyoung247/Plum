@@ -5,13 +5,13 @@
     <div class="card">
       <div class="card-image">
         <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
-          <img src="{{ recipe.image }}" alt="{{ recipe.name }} header image">
+          <img src="{{ recipe.image }}" alt="{{ recipe.title }} header image">
         </a>
       </div>
       <div class="card-content">
         <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
-          <span class="card-title" data-expand="{{ recipe.name }}">
-            {{ recipe.name }}
+          <span class="card-title" data-expand="{{ recipe.title }}">
+            {{ recipe.title }}
           </span>
         </a>
         <span class="card-recipe-rating">
