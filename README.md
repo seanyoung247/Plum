@@ -93,7 +93,7 @@ Stores individual recipes
 | ----------- | ------------------------------------------------------------ |
 | _id         | Record id                                                    |
 | pageid      | Unique string url path for this recipe                       |
-| name        | Recipe name                                                  |
+| title       | Recipe name                                                  |
 | author      | User token for recipe author                                 |
 | date        | The date this recipe was added                               |
 | description | Short description of the recipe                              |
@@ -245,7 +245,7 @@ plumdb.recipes.find_one({"pageid": pageid})
 
 ##### Uploading
 
-**Adds a rating vote to a recipe (for US002 and US008)**
+**Adds a rating vote to a recipe (for US002 and US008)**:
 
 Updating the recipe record
 
@@ -262,10 +262,10 @@ plumdb.recipes.update_one({"_id" : recipeId}
 Adding the rating record
 
 ```mongodb
-plumdb.ratings.insert_one(interaction)
+plumdb.ratings.insert_one(interaction-record)
 ```
 
-**Updates a rating vote on a recipe (for US002 and US008)**
+**Updates a rating vote on a recipe (for US002 and US008)**:
 
 Updating the recipe record
 
@@ -289,7 +289,7 @@ plumdb.ratings.update_one({"_id" : interaction._id},
 })
 ```
 
-**Adds a comment to a recipe (for US002 and US008)**
+**Adds a comment to a recipe (for US002 and US008)**:
 
 ```mongodb
 plumdb.recipes.update_one({"_id" : recipeId}
@@ -300,6 +300,16 @@ plumdb.recipes.update_one({"_id" : recipeId}
 	}}
 })
 ```
+
+**Adds a new recipe (for US007):**
+
+```mongodb
+plumdb.recipes.insert_one(recipe-record)
+```
+
+**Edits an existing recipe (for US009):**
+
+
 
 ##### Administration
 
