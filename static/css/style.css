@@ -316,7 +316,23 @@ ol.collection input:checked + label li.collection-item::before
 input#recipe_image {
   background-color: rgba(243,252,240,0.9); /*#F3FCF0;*/
 }
-
+#steps .collection-item {
+  position: relative;
+}
+.remove-list-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  color: #0D0A0B;
+  cursor: pointer;
+}
+.remove-list-item:hover {
+  background-color: red;
+  color: white;
+}
 /*
  * Login page
  */

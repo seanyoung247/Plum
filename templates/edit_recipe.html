@@ -4,14 +4,15 @@
   <div class="container vpad">
     <div class="row">
       <h4 class="col s12 section-header">
+        <i class="material-icons prefix">edit</i>
         {{ page.name }}
       </h4>
     </div>
     <div class="row">
       <form class="col s12" method="POST" action="{{ page.route }}">
-        <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+        {#<input name="recipeId" type="hidden" value="{{ recipe._id }}">#}
 
-        <div class="row">
+        <div class="row recipe-header">
 
           <div class="col s12 l6 recipe-header-img">
             <img src="{{ recipe.image }}" alt="recipe header image">
@@ -34,12 +35,13 @@
                 <i class="material-icons prefix">access_time</i>
                 <input id="recipe_time" type="text" class="timepicker"
                   value="{{ recipe.time.hours }}:{{ recipe.time.minutes }}">
-                <label for="recipe_time">test</label>
+                <label for="recipe_time">Time</label>
               </div>
 
               <div class="input-field col s6">
                 <i class="material-icons prefix">restaurant</i>
-                <input type="number" id="recipe_servings" required>
+                <input type="number" id="recipe_servings"
+                  value="{{ recipe.servings }}" required>
                 <label for="recipe_servings">Servings</label>
               </div>
             </div>
@@ -48,7 +50,10 @@
               <div class="input-field col s12">
                 <select>
                   {% for cuisine in cuisines %}
-                    <option value="{{ cuisine.name }}">
+                    <option value="{{ cuisine.name }}"
+                      {%- if recipe.cuisine == cuisine.name -%}
+                        selected
+                      {%- endif -%}>
                       {{- cuisine.name|capitalize -}}
                     </option>
                   {% endfor %}
@@ -62,7 +67,9 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="Recipe_Description" class="materialize-textarea"></textarea>
+            <textarea id="Recipe_Description" class="materialize-textarea">
+              {{- recipe.description -}}
+            </textarea>
             <label for="Recipe_Description">Description</label>
           </div>
         </div>
@@ -71,7 +78,9 @@
           <h5 class="col s12 section-header">Ingredients</h5>
           <div class="col s12">
             <ul>
-
+              {% for ingredient in recipe.ingredients %}
+                <li>{{ ingredient }}</li>
+              {% endfor %}
             </ul>
           </div>
         </div>
@@ -79,8 +88,22 @@
         <div class="row">
           <h5 class="col s12 section-header">Method</h5>
           <div class="col s12">
-            <ul>
-              
+            <ul id="steps" class="collection">
+              {% for step in recipe.steps %}
+                <li class="collection-item">
+                  <div name="steps" class="input-field">
+                    <textarea class="materialize-textarea" required>
+                      {{- step -}}
+                    </textarea>
+                  </div>
+                  <a class="remove-list-item"><i class="material-icons">clear</i></a>
+                </li>
+              {% endfor %}
+              <li class="collection-item">
+                <a class="btn-floating btn-small add-list-item">
+                  <i class="material-icons">add</i>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -90,9 +113,8 @@
   </div>
 {% endblock %}
 
-{#
-  |replace(' ', '-')
-{% for cuisine in cuisines %}
-  <p>{{ cuisine.name }}</p>
-{% endfor %}
-#}
+<div class="prefix">
+  <a class="btn-floating btn-small">
+    <i class="material-icons">remove</i>
+  </a>
+</div>

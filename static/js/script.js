@@ -15,6 +15,20 @@ $(document).ready(function(){
   $('.tabs').tabs();
 });
 
+$( "#steps" ).on("click", ".remove-list-item", function(event) {
+  $( this ).parent().remove();
+});
+$( "#steps .add-list-item" ).click(function(event) {
+  listItem =  "<li class='collection-item'>" +
+                "<div class='input-field'>" +
+                  "<textarea class='materialize-textarea' required>" +
+                  "</textarea>" +
+                "</div>" +
+                "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
+              "</li>";
+  $( this ).parent().before(listItem);
+});
+
 /*
  * Submits ratings for recipes via AJAX
  */
