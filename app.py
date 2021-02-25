@@ -87,6 +87,14 @@ def recipe(pageid):
 #New recipe page
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    if not user_logged_in():
+        flash("You need to be logged in to add recipes!", category="error")
+        return redirect(url_for("home"))
+
+    if request.method == "POST":
+        #Database insertion goes here!
+        return redirect(url_for("recipe", pageid=pageid))
+
     #Page specific variables
     page = {
         "name" : "Add Recipe",
@@ -111,6 +119,14 @@ def add_recipe():
 #Edit existing recipe
 @app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
 def edit_recipe(pageid):
+    if not user_logged_in():
+        flash("You need to be logged in to edit recipes!", category="error")
+        return redirect(url_for("home"))
+
+    if request.method == "POST":
+        #Database edit goes here
+        return redirect(url_for("recipe", pageid=pageid))
+
     #Page specific variables
     page = {
         "name" : "Edit Recipe",
