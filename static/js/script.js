@@ -26,6 +26,7 @@ $(document).ready(function(){
 $( "#steps, #ingredients").on("click", ".remove-list-item", function(event) {
   $( this ).parent().remove();
 });
+
 //Adds a list item to the ingredients list
 $( "#ingredients .add-list-item" ).click(function(event) {
   let listItem = "<li class='collection-item'>" +
@@ -36,6 +37,7 @@ $( "#ingredients .add-list-item" ).click(function(event) {
                   "</li>";
   $( this ).parent().before(listItem);
 });
+
 //Adds a list item to the method list
 $( "#steps .add-list-item" ).click(function(event) {
   let listItem =  "<li class='collection-item'>" +
@@ -46,6 +48,11 @@ $( "#steps .add-list-item" ).click(function(event) {
                     "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
                   "</li>";
   $( this ).parent().before(listItem);
+});
+
+//Shows the current selected image in the image box
+$( "#recipe_image" ).on('change', function(event){
+  $( '#recipe_header_image' ).attr("src", $( this ).val());
 });
 
 /*
