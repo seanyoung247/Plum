@@ -67,7 +67,7 @@ hr {
   background-color: #8E4585;
 }
 .btn-plum:hover {
-  background-color: #844d76;
+  background-color: #9F54B0;/*#9D876E;/*#844d76;*/
 }
 /*
  * Header and Navigation
@@ -173,10 +173,6 @@ ul.user-dropdown li > a {
 /*
  * Recipe page
  */
-#recipe-toolbar {
-  position: absolute;
-  margin: 5px;
-}
 .recipe-header {
   background-color: rgba(63,125,32,0.15);
 }
@@ -277,6 +273,22 @@ ol.collection input:checked + label li.collection-item::before
 {
   color: #F3FCF0;
   background-color: #8E4585;
+}
+/*
+ * Recipe toolbar and favorite element
+ */
+#recipe_toolbar {
+  position: absolute;
+  margin: 5px;
+}
+#recipe_favorite_form {
+  display: inline-block;
+}
+#recipe_favorite > input[type="checkbox"] ~ .material-icons::after {
+  content: "favorite_border";
+}
+#recipe_favorite > input[type="checkbox"]:checked ~ .material-icons::after {
+  content: "favorite";
 }
 /*
 * Star rating element
