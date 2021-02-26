@@ -180,7 +180,7 @@ def edit_recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
     #If the recipe can't be found, raise not found error
     if not recipe:
-        abort(404)
+        return abort(404)
 
     #Check the currently logged in user has rights to edit this recipe
     if (session['userid'] != recipe['author']['user_id'] and session['userrole'] != "admin"):
@@ -202,6 +202,18 @@ def edit_recipe(pageid):
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
     return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
+
+
+#User profile page
+@app.route("/profile/<username>")
+def profile(username):
+    user = mongo.db.users.find_one({"name" : username})
+    print(username)
+    print(user)
+    if user:
+        return render_template("user_profile.html", user=user)
+    else:
+        return abort(404)
 
 
 #User Registration

@@ -67,7 +67,7 @@ hr {
   background-color: #8E4585;
 }
 .btn-plum:hover {
-  background-color: #9F54B0;/*#9D876E;/*#844d76;*/
+  background-color: #9F54B0;
 }
 /*
  * Header and Navigation
@@ -188,9 +188,19 @@ ul.user-dropdown li > a {
   color: #3F7D20;
   text-align: center;
 }
+.recipe-author a {
+  color: #8E4585;
+}
+.recipe-author a:hover {
+  color: #9F54B0;
+}
 .recipe-rating {
-  margin: 0 0 10px 0;
+  margin: 10px 0;
   color: darkorange;
+  text-align: center;
+}
+.recipe-rating .star i {
+  font-size: 35px;
 }
 .recipe-header-sub {
   color: #3F7D20;
@@ -316,19 +326,24 @@ ol.collection input:checked + label li.collection-item::before
 .rating-text {
   color: #8E4585;
 }
+/* Makes unchecked stars display an empty star icon */
 .star-rating > .star.off i::after,
 .star-rating-ctl > .star i::after {
   content: "star_border";
 }
+/* Stars set to half show a half filled star */
 .star-rating > .star.half i::after {
   content: "star_half";
 }
+/* Shows a fully checked star if a star is set on, or when a star is hovered,
+   a following sibling is hovered or a following checkbox is checked */
 .star-rating > .star.on i::after,
 .star-rating-ctl > .star:hover > i::after,
 .star-rating-ctl > .star:hover ~ .star > i::after,
 .star-rating-ctl:not(:hover) > input[type="radio"]:checked ~ .star > i::after {
   content: "star";
 }
+/* Prevents the star control recieving hover events if it's set to disabled */
 .star-rating-ctl.disabled,
 .star-rating-ctl.disabled .star {
   pointer-events: none;
@@ -338,7 +353,7 @@ ol.collection input:checked + label li.collection-item::before
  * Add/Edit recipe page
  */
 input#recipe_image {
-  background-color: rgba(243,252,240,0.9); /*#F3FCF0;*/
+  background-color: rgba(243,252,240,0.9);
 }
 #steps .collection-item,
 #ingredients .collection-item {
@@ -410,14 +425,6 @@ footer {
   .recipe-header {
       display: flex;
       align-items: center;
-  }
-  /* left aligned text looks better when the title is
-     next to the header image */
-  .recipe-title {
-    text-align: left;
-  }
-  .recipe-author {
-    text-align: left;
   }
   /* prevents overflowing header when image
      and title are side by side */
