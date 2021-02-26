@@ -26,6 +26,7 @@ $(document).ready(function(){
 $( "#steps, #ingredients").on("click", ".remove-list-item", function(event) {
   $( this ).parent().remove();
 });
+
 //Adds a list item to the ingredients list
 $( "#ingredients .add-list-item" ).click(function(event) {
   let listItem = "<li class='collection-item'>" +
@@ -36,6 +37,7 @@ $( "#ingredients .add-list-item" ).click(function(event) {
                   "</li>";
   $( this ).parent().before(listItem);
 });
+
 //Adds a list item to the method list
 $( "#steps .add-list-item" ).click(function(event) {
   let listItem =  "<li class='collection-item'>" +
@@ -50,6 +52,11 @@ $( "#steps .add-list-item" ).click(function(event) {
 //Shows the current selected image in the image box
 $( "#recipe_image" ).on('change', function(event){
   $( '#recipe_header_image' ).attr("src", $( this ).val())
+});
+
+//Shows the current selected image in the image box
+$( "#recipe_image" ).on('change', function(event){
+  $( '#recipe_header_image' ).prop("src", $( this ).val());
 });
 
 /*
@@ -83,6 +90,19 @@ function ratingSuccess(response) {
 }
 
 /*
+ * Recipe favoriting
+ */
+$( "#recipe_favorite_form" ).submit(function(event) {
+  event.preventDefault();
+  //There's no real need for a callback here
+  submitFormAJAX(event, null);
+});
+
+$( "#recipe_favorite input[type=checkbox]" ).on('change', function(event) {
+  $( '#recipe_favorite_form' ).submit();
+});
+
+/*
  * Submits new comments for recipes via AJAX
  */
 $( "#recipe_comment_form" ).submit(function(event) {
@@ -109,7 +129,7 @@ function commentSuccess(response) {
   //Show the new comment at the top of the comment list
   let commentHTML = "<div class='row'><div class='col s12'><p>"
     + response.author.name + "</p><p>" + response.text + "</p></div></div>";
-  $( "#recipe-comments-wrapper" ).prepend(commentHTML);
+  $( "#recipe_comments_wrapper" ).prepend(commentHTML);
 }
 
 /*
@@ -126,7 +146,7 @@ function submitFormAJAX(event, callbackSuccess) {
   //Make AJAX request
   $.ajax({
     type : "POST",
-    url : $(event.target).attr("action"), //Get route from form action attribute
+    url : $(event.target).prop("action"), //Get route from form action attribute
     contentType : 'application/json;charset=UTF-8',
     data : JSON.stringify(serialised),
     success : callbackSuccess

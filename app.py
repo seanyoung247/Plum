@@ -116,7 +116,7 @@ def home():
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
-    interaction = {"rating" : 0}
+
     if recipe:
         #if a user is logged in, get user/recipe interation (if any)
         if user_logged_in():
@@ -124,6 +124,9 @@ def recipe(pageid):
                 "user_id"   : session['userid'],
                 "recipe_id" : str(recipe['_id'])
             })
+
+        if not interaction:
+            interaction = {"rating" : 0, "favorited" : False}
 
         return render_template("recipe.html", recipe=recipe, interaction=interaction)
     else:
@@ -279,8 +282,12 @@ def logout():
 # AJAX/Update routes
 #
 #Adds a rating to a recipe document from AJAX requests
-@app.route("/ajax_rating", methods=['GET', 'POST'])
+@app.route("/ajax_rating", methods=['POST'])
 def ajax_rating():
+    if not user_logged_in():
+        flash("You need to be logged in to rate recipes!", category="error")
+        return redirect(url_for("home"))
+
     #Check whether this user has already rated this recipe
     existing_interaction = mongo.db.ratings.find_one({
         "user_id"   : session['userid'],
@@ -289,7 +296,6 @@ def ajax_rating():
     new_rating = int(request.json['rating'])
     if existing_interaction:    #User has rated this recipe before
         #What is the current rating provided by the user?
-        print("updating")
         old_rating = existing_interaction['rating']
         #Get the recipe record
         recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
@@ -298,7 +304,6 @@ def ajax_rating():
         rating[old_rating] -= 1
         rating[new_rating] += 1
         calculate_rating(rating)
-        print(rating)
         #Update the recipe document with the new rating
         result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
         {
@@ -310,12 +315,9 @@ def ajax_rating():
         })
         #If update was successful, update interaction record
         if result.matched_count > 0:
-            print("Updated recipe successfully")
             existing_interaction['rating'] = new_rating
             result = mongo.db.ratings.update_one({"_id" : existing_interaction['_id']},
                 {"$set" : {"rating" : new_rating}})
-            if result.matched_count > 0:
-                print("Updated interation successfully")
 
     else:                       #User has not rated this recipe before
         #Get the recipe's current rating
@@ -337,27 +339,63 @@ def ajax_rating():
             interaction = {
                 "user_id"   : session['userid'],
                 "recipe_id" : request.json['recipeId'],
-                "rating"    : new_rating
+                "rating"    : new_rating,
+                "favorited" : False
             }
             mongo.db.ratings.insert_one(interaction)
 
     return {"new_rating" : new_rating}
 
 
+#Toggles user favoriting for this recipe
+@app.route("/ajax_favorite", methods=['POST'])
+def ajax_favorite():
+    if not user_logged_in():
+        flash("You need to be logged in to favorite recipes!", category="error")
+        return redirect(url_for("home"))
+
+    #Checkboxes aren't included in the form data if unchecked.
+    #So if the key is in the data favorite is true, otherwise false
+    favorite = ('favorite' in request.json)
+
+    #Has the user already rated or favorited this recipe?
+    existing_interaction = mongo.db.ratings.find_one({
+        "user_id"   : session['userid'],
+        "recipe_id" : request.json['recipeId']
+    })
+    #Update existing record
+    if existing_interaction:
+        mongo.db.ratings.update_one({"_id" : existing_interaction['_id']},
+            {"$set" : {"favorited" : favorite}})
+    else:
+        #Create a new interaction
+        interaction = {
+            "user_id"   : session['userid'],
+            "recipe_id" : request.json['recipeId'],
+            "rating"    : 0,
+            "favorited" : favorite
+        }
+        mongo.db.ratings.insert_one(interaction)
+
+    return {'favorite' : favorite}
+
+
 #Adds a comment to a recipe document from AJAX requests
-@app.route("/ajax_comment", methods=['GET','POST'])
+@app.route("/ajax_comment", methods=['POST'])
 def ajax_comment():
-    if request.method == "POST":
-        if len(request.json['comment']) > 0:
-            #Construct the new comment record:
-            comment = {
-                "author" : { "name" : session["user"], "user_id" : session["userid"] },
-                "text"   : request.json['comment']
-            }
-            mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
-                {"$push": { "comments" : comment }})
-            return comment
-    return "Badly formed request!"
+    if not user_logged_in():
+        flash("You need to be logged in to comment on recipes!", category="error")
+        return redirect(url_for("home"))
+
+    if len(request.json['comment']) > 0:
+        #Construct the new comment record:
+        comment = {
+            "author" : { "name" : session["user"], "user_id" : session["userid"] },
+            "text"   : request.json['comment']
+        }
+        mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
+            {"$push": { "comments" : comment }})
+        return comment
 
 
 #Checks if a username already exists
