@@ -3,7 +3,7 @@
 /*font-family: 'Roboto', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 /*font-family: 'Open Sans', sans-serif;*/
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');*/
 /*font-family: 'Oswald', sans-serif;*/
 
 /*
@@ -49,6 +49,25 @@ hr {
 }
 .section-header {
   color: #3F7D20;
+}
+.btn-small,
+.btn-large,
+.btn-small:focus,
+.btn-large:focus {
+  color: #F3FCF0;
+  background-color: #3F7D20;
+}
+.btn-small:hover,
+.btn-large:hover {
+  background-color: #63A344;
+}
+.btn-plum,
+.btn-plum:focus {
+  color: #F3FCF0;
+  background-color: #8E4585;
+}
+.btn-plum:hover {
+  background-color: #844d76;
 }
 /*
  * Header and Navigation
@@ -118,6 +137,14 @@ ul.user-dropdown li > a {
   display: block;
   padding-bottom: 100%;
 }
+.card .card-image img,
+.recipe-header-img > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #8E4585;
+}
 /*Makes the card-title only 2 lines high and hides any overflow*/
 .card-title {
   position: relative;
@@ -140,20 +167,16 @@ ul.user-dropdown li > a {
   top: 0;
   left: 0;
 }
-.card .card-image img,
-.recipe-header-img > img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-color: #8E4585;
-}
 .card-recipe-rating {
   color: darkorange;
 }
 /*
  * Recipe page
  */
+#recipe-toolbar {
+  position: absolute;
+  margin: 5px;
+}
 .recipe-header {
   background-color: rgba(63,125,32,0.15);
 }
@@ -201,14 +224,6 @@ ul.user-dropdown li > a {
   right: 0;
   bottom: 0;
   margin: auto;
-}
-.recipe-comment-btn,
-.recipe-comment-btn:focus {
-  color: #F3FCF0;
-  background-color: #3F7D20;
-}
-.recipe-comment-btn:hover {
-  background-color: #63a344;
 }
 /* Styles materialize tabs */
 .recipe-tabs .tab a {
@@ -308,12 +323,39 @@ ol.collection input:checked + label li.collection-item::before
   opacity: 0.75;
 }
 /*
+ * Add/Edit recipe page
+ */
+input#recipe_image {
+  background-color: rgba(243,252,240,0.9); /*#F3FCF0;*/
+}
+#steps .collection-item,
+#ingredients .collection-item {
+  position: relative;
+}
+.remove-list-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  color: #0D0A0B;
+  cursor: pointer;
+}
+.remove-list-item:hover {
+  background-color: #8E4585;
+  color: #F3FCF0;
+}
+/*
  * Login page
  */
 /*Makes the login box centred vertically.*/
 .login-wrapper {
   display: flex;
   flex-flow: column nowrap;
+  flex: 1;
+}
+.login-wrapper > .valign-wrapper {
   flex: 1;
 }
 .login-box {
@@ -331,10 +373,6 @@ li:not(.active) > .login-header {
 }
 .login-body {
   border-bottom: 2px solid #8E4585;
-}
-.login-btn {
-  background-color: #3F7D20;
-  color: #F3FCF0;
 }
 /*
  * Footer

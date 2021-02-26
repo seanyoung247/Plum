@@ -7,8 +7,45 @@ $(document).ready(function(){
     //Prevents the dropdown menu covering the trigger item
     coverTrigger: false
   });
+  $('.timepicker').timepicker({
+    twelveHour: false
+  });
+  $('.fixed-action-btn').floatingActionButton({
+    direction: 'bottom',
+    hoverEnabled: false
+  });
   $('.collapsible').collapsible();
+  $('select').formSelect();
   $('.tabs').tabs();
+});
+
+/*
+ * Edit/Add Recipe page
+ */
+//Removes a list item from the method or ingredients lists
+$( "#steps, #ingredients").on("click", ".remove-list-item", function(event) {
+  $( this ).parent().remove();
+});
+//Adds a list item to the ingredients list
+$( "#ingredients .add-list-item" ).click(function(event) {
+  let listItem = "<li class='collection-item'>" +
+                    "<div class='input-field'>" +
+                      "<input name='ingredients' type='text' required>" +
+                    "</div>" +
+                    "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
+                  "</li>";
+  $( this ).parent().before(listItem);
+});
+//Adds a list item to the method list
+$( "#steps .add-list-item" ).click(function(event) {
+  let listItem =  "<li class='collection-item'>" +
+                    "<div class='input-field'>" +
+                      "<textarea name='steps' class='materialize-textarea' required>" +
+                      "</textarea>" +
+                    "</div>" +
+                    "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
+                  "</li>";
+  $( this ).parent().before(listItem);
 });
 
 /*
@@ -19,7 +56,7 @@ $( "#recipe_rating_form" ).submit(function(event) {
   event.preventDefault();
 
   submitFormAJAX(event, ratingSuccess);
-console.log("here");
+
   //Stop reading star rating while server deals with request
   $( "input", this ).prop('disabled', true);
   $( ".star-rating-ctl", this ).addClass('disabled')
@@ -66,7 +103,7 @@ function commentSuccess(response) {
   $( "#recipe_comment_form .preloader-wrapper" ).addClass("hide");
 
   //Show the new comment at the top of the comment list
-  commentHTML = "<div class='row'><div class='col s12'><p>"
+  let commentHTML = "<div class='row'><div class='col s12'><p>"
     + response.author.name + "</p><p>" + response.text + "</p></div></div>";
   $( "#recipe-comments-wrapper" ).prepend(commentHTML);
 }

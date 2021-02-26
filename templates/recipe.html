@@ -2,8 +2,24 @@
 {% from "star-rating.html" import generate_star_rating_display,
                                   generate_star_rating_control %}
 
+
 {% block content %}
   <div class="container vpad">
+    {# RECIPE TOOLBAR #}
+      {% if session.user %}
+        <div id="recipe-toolbar">
+          <a id="recipe-favorite" class="btn-floating btn-small btn-plum">
+            <i class="material-icons">favorite_border</i>
+          </a>
+          {% if ( (session.userid == recipe.author.user_id) or (session.userrole == 'admin')) %}
+            <a id="recipe-edit" href="{{ url_for('edit_recipe', pageid=recipe.pageid) }}"
+              class="btn-floating btn-small btn-plum">
+              <i class="material-icons">edit</i>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {# END RECIPE TOOLBAR #}
 
     {# RECIPE HEADER #}
     <div class="row recipe-header">
@@ -14,7 +30,7 @@
       <div class="col s12 l6">
         <div class="row">
           <div class="col s12">
-            <h1 class="recipe-title">{{ recipe.name }}</h1>
+            <h1 class="recipe-title">{{ recipe.title }}</h1>
             <p class="recipe-author">by {{ recipe.author.name }}</p>
 
             <div class="recipe-rating">
@@ -142,11 +158,11 @@
         <div class="row">
           <div class="col s12">
             <button id="submit_comment" type="submit" name="submit_comment"
-              class="btn-small recipe-comment-btn">
+              class="btn-small">
               Submit
             </button>
             <button id="cancel_comment" type="reset" name="cancel_comment"
-              class="btn-small recipe-comment-btn">
+              class="btn-small">
               Cancel
             </button>
           </div>
@@ -158,24 +174,21 @@
     {# END USER COMMENT FORM #}
 
     {# COMMENTS #}
-    {# Only show the comment section if there's some comments #}
-    {% if recipe.comments|length > 0 %}
-      <div class="row">
-        <h4 class="col s12 section-header">Comments</h4>
-        <hr class="col s12"/>
-      </div>
-      {# renders comments in reverse order (newest first) #}
-      <div id="recipe-comments-wrapper">
-      {% for comment in recipe.comments|reverse %}
-        <div class="row">
-          <div class="col s12">
-            <p>{{ comment.author.name }}</p>
-            <p>{{ comment.text }}</p>
-          </div>
-        </div>
-      {% endfor %}
+    <div class="row">
+      <h4 class="col s12 section-header">Comments</h4>
+      <hr class="col s12"/>
     </div>
-    {% endif %}
+    {# renders comments in reverse order (newest first) #}
+    <div id="recipe-comments-wrapper">
+    {% for comment in recipe.comments|reverse %}
+      <div class="row">
+        <div class="col s12">
+          <p>{{ comment.author.name }}</p>
+          <p>{{ comment.text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
     {# END COMMENTS #}
 
   </div>

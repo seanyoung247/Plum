@@ -5,6 +5,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from secrets import token_urlsafe
+from urllib.parse import urlparse
+from datetime import date, datetime
 if os.path.exists("env.py"):
     import env
 
@@ -34,6 +36,7 @@ def user_logged_in():
 def log_user_in(user):
     session["user"] = user["name"]
     session["userid"] = str(user["_id"])
+    session["userrole"] = user["role"]
 
 
 #Calculates overall rating from rating array.
@@ -51,8 +54,51 @@ def calculate_rating(rating):
     else:
         rating[0] = 0
 
-#random pageid pad = token_urlsafe(8)
-#01 formated number string: print(str(5).zfill(2))
+
+#Creates a recipe record object from form data
+def create_recipe_record(form_data, recipe = {}, new_pageid = True):
+    #carry over any existing values that shouldn't be reset
+    if recipe == {}:
+        new_pageid = True
+        rating = [0.0,0,0,0,0,0]
+        comments = []
+        recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
+    else:
+        rating = recipe['rating']
+        comments = recipe['comments']
+        recipe_date = recipe['date']
+
+    #Generate pageid field
+    if new_pageid:
+        pageid = urlparse(
+            (form_data.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
+        ).path
+    else:
+        pageid = recipe['pageid']
+
+    #construct new recipe record
+    time = form_data.get("time").split(":")
+    recipe = {
+        "pageid" : pageid,
+        "title" : form_data.get('title'),
+        "author" : {"name" : session['user'], "user_id" : session['userid']},
+        "date" : recipe_date,
+        "description" : form_data.get('description'),
+        "image" : form_data.get('image'),
+        "cuisine" : form_data.get('cuisine'),
+        "time" : {
+            "total" : ( (int(time[0]) * 3600) + (int(time[1]) * 60) ),
+            "hours" : time[0],
+            "minutes" : time[1]
+        },
+        "servings" : form_data.get('servings'),
+        "rating" : rating,
+        "ingredients" : form_data.getlist('ingredients'),
+        "steps" : form_data.getlist('steps'),
+        "comments" : comments
+    }
+
+    return recipe
 
 
 #
@@ -82,6 +128,77 @@ def recipe(pageid):
         return render_template("recipe.html", recipe=recipe, interaction=interaction)
     else:
         return abort(404)
+
+
+#New recipe page
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    #Only logged in users can
+    if not user_logged_in():
+        flash("You need to be logged in to add recipes!", category="error")
+        return redirect(url_for("home"))
+
+    if request.method == "POST":
+        #construct new recipe record
+        recipe = create_recipe_record(request.form)
+        mongo.db.recipes.insert_one(recipe)
+        return redirect(url_for("recipe", pageid=recipe['pageid']))
+
+    #Page specific variables
+    page = {
+        "name" : "Add Recipe",
+        "route": url_for("add_recipe")
+    }
+    #Dummy recipe values
+    recipe = {
+        "_id" : "none",
+        "title" : "",
+        "description" : "",
+        "image" : url_for('static', filename="images/categories/new-recipe.jpg"),
+        "time"  : {"hours" : "00", "minutes" : "00"},
+        "servings" : "0",
+        "ingredients" : [],
+        "steps" : []
+    }
+    #Get the cuisines list (to populate the cuisines selector)
+    cuisines = mongo.db.cuisines.find().sort("name", 1)
+    return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
+
+
+#Edit existing recipe
+@app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
+def edit_recipe(pageid):
+    #Only logged in users can edit recipes
+    if not user_logged_in():
+        flash("You need to be logged in to edit recipes!", category="error")
+        return redirect(url_for("home"))
+
+    #Get the recipe to be edited
+    recipe = mongo.db.recipes.find_one({"pageid": pageid})
+    #If the recipe can't be found, raise not found error
+    if not recipe:
+        abort(404)
+
+    #Check the currently logged in user has rights to edit this recipe
+    if (session['userid'] != recipe['author']['user_id'] and session['userrole'] != "admin"):
+        flash("You don't have authorisation to edit this recipe", category="error")
+        return redirect(url_for("home"))
+
+    if request.method == "POST":
+        #Update the recipe record
+        recipe = create_recipe_record(request.form, recipe,
+            ( recipe['title'] != request.form.get('title') ))
+        mongo.db.recipes.replace_one({"pageid" : pageid}, recipe)
+        return redirect(url_for("recipe", pageid=recipe['pageid']))
+
+    #Page specific variables
+    page = {
+        "name" : "Edit Recipe",
+        "route": url_for("edit_recipe", pageid=pageid)
+    }
+    #Get the cuisines list (to populate the cuisines selector)
+    cuisines = mongo.db.cuisines.find().sort("name", 1)
+    return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 
 #User Registration
@@ -239,7 +356,8 @@ def ajax_comment():
             }
             mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
                 {"$push": { "comments" : comment }})
-    return comment
+            return comment
+    return "Badly formed request!"
 
 
 #Checks if a username already exists

@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container vpad">
+    <div class="row">
+      <h4 class="col s12 section-header">
+        <i class="material-icons prefix">edit</i>
+        {{ page.name }}
+      </h4>
+    </div>
+    <div class="row">
+      <form class="col s12" method="POST" action="{{ page.route }}">
+        <div class="row recipe-header">
+
+          <div class="col s12 l6 recipe-header-img">
+            <img src="{{ recipe.image }}" alt="recipe header image">
+            <div class="input-field col s12">
+              <input name="image" type="text" id="recipe_image"
+                value="{{ recipe.image }}">
+            </div>
+          </div>
+
+          <div class="col s12 l6">
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="title" type="text" id="recipe_title"
+                  value="{{ recipe.title }}" required>
+                <label for="recipe_title">Title</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">access_time</i>
+                <input name="time" id="recipe_time" type="text" class="timepicker"
+                  value="{{ recipe.time.hours }}:{{ recipe.time.minutes }}">
+                <label for="recipe_time">Time</label>
+              </div>
+
+              <div class="input-field col s6">
+                <i class="material-icons prefix">restaurant</i>
+                <input name="servings" type="number" id="recipe_servings"
+                  min="0" value="{{ recipe.servings }}" required>
+                <label for="recipe_servings">Servings</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <select name="cuisine" required>
+                  {% for cuisine in cuisines %}
+                    <option value="{{ cuisine.name }}"
+                      {%- if recipe.cuisine == cuisine.name -%}
+                        selected
+                      {%- endif -%}>
+                      {{- cuisine.name|capitalize -}}
+                    </option>
+                  {% endfor %}
+                </select>
+                <label>Cuisine type</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="description" id="recipe_description" class="materialize-textarea">
+              {{- recipe.description -}}
+            </textarea>
+            <label for="recipe_description">Description</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <h5 class="col s12 section-header">Ingredients</h5>
+          <div class="col s12">
+
+            <ul id="ingredients" class="collection">
+              {% for ingredient in recipe.ingredients %}
+                <li class="collection-item">
+                  <div class="input-field">
+                    <input name="ingredients" type="text" value="{{ ingredient }}" required>
+                  </div>
+                  <a class="remove-list-item"><i class="material-icons">clear</i></a>
+                </li>
+              {% endfor %}
+              <li class="collection-item">
+                <a class="btn-floating btn-small add-list-item">
+                  <i class="material-icons">add</i>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <h5 class="col s12 section-header">Method</h5>
+          <div class="col s12">
+
+            <ul id="steps" class="collection">
+              {% for step in recipe.steps %}
+                <li class="collection-item">
+                  <div class="input-field">
+                    <textarea name="steps" class="materialize-textarea" required>
+                      {{- step -}}
+                    </textarea>
+                  </div>
+                  <a class="remove-list-item"><i class="material-icons">clear</i></a>
+                </li>
+              {% endfor %}
+              <li class="collection-item">
+                <a class="btn-floating btn-small add-list-item">
+                  <i class="material-icons">add</i>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <button id="submit_recipe" type="submit" class="btn-large">
+          Submit
+        </button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+<div class="prefix">
+  <a class="btn-floating btn-small">
+    <i class="material-icons">remove</i>
+  </a>
+</div>

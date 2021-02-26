@@ -33,6 +33,16 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Fonts](#Fonts)
   - [Colours](#Colours)
   - [Layout](#Layout)
+- [Features](#Features)
+- [Technologies](#Technologies)
+- [Testing](#Testing)
+- [Source Control](#Source-Control)
+  - [Branches](#Branches)
+  - [Github Desktop](#Github-Desktop)
+- [Deployment](#Deployment)
+- [Credits](#Credits)
+  - [Media](#Media)
+  - [Acknowledgements](#Acknowledgements)
 
 ## User Experience
 
@@ -83,7 +93,7 @@ Stores individual recipes
 | ----------- | ------------------------------------------------------------ |
 | _id         | Record id                                                    |
 | pageid      | Unique string url path for this recipe                       |
-| name        | Recipe name                                                  |
+| title       | Recipe name                                                  |
 | author      | User token for recipe author                                 |
 | date        | The date this recipe was added                               |
 | description | Short description of the recipe                              |
@@ -123,11 +133,10 @@ Stores individual recipes
 
 ###### Comment List
 
-| Field Name | Description                      |
-| ---------- | -------------------------------- |
-| user       | User token                       |
-| rating     | The rating they gave this recipe |
-| comment    | String content of the comment    |
+| Field Name | Description                   |
+| ---------- | ----------------------------- |
+| user       | User token                    |
+| comment    | String content of the comment |
 
 ##### User Collection
 
@@ -144,10 +153,10 @@ Holds information on each registered user
 
 ###### Recipe Token
 
-| Field Name | Description      |
-| ---------- | ---------------- |
-| name       | Recipe name      |
-| recipe_id  | Recipe record id |
+| Field Name | Description                            |
+| ---------- | -------------------------------------- |
+| name       | Recipe name                            |
+| pageid     | Unique string url path for this recipe |
 
 ##### Rating Collection
 
@@ -193,6 +202,10 @@ Enumerates cuisine types.
 
 1. Unique compound index on user_id and recipe_id - Ensures only one interaction between one recipe and user.
 
+**cuisines:**
+
+1. Unique index on name - ensures each cuisine type only appears once.
+
 #### Queries
 
 ##### Browsing
@@ -232,7 +245,7 @@ plumdb.recipes.find_one({"pageid": pageid})
 
 ##### Uploading
 
-**Adds a rating vote to a recipe (for US002 and US008)**
+**Adds a rating vote to a recipe (for US002 and US008)**:
 
 Updating the recipe record
 
@@ -249,10 +262,10 @@ plumdb.recipes.update_one({"_id" : recipeId}
 Adding the rating record
 
 ```mongodb
-plumdb.ratings.insert_one(interaction)
+plumdb.ratings.insert_one(interaction-record)
 ```
 
-**Updates a rating vote on a recipe (for US002 and US008)**
+**Updates a rating vote on a recipe (for US002 and US008)**:
 
 Updating the recipe record
 
@@ -276,7 +289,7 @@ plumdb.ratings.update_one({"_id" : interaction._id},
 })
 ```
 
-**Adds a comment to a recipe (for US002 and US008)**
+**Adds a comment to a recipe (for US002 and US008)**:
 
 ```mongodb
 plumdb.recipes.update_one({"_id" : recipeId}
@@ -286,6 +299,18 @@ plumdb.recipes.update_one({"_id" : recipeId}
 		"text" : comment		
 	}}
 })
+```
+
+**Adds a new recipe (for US007):**
+
+```mongodb
+plumdb.recipes.insert_one(recipe-record)
+```
+
+**Edits an existing recipe (for US009):**
+
+```Mongodb
+mongo.db.recipes.replace_one({"pageid" : pageid}, recipe-record)
 ```
 
 ##### Administration
@@ -311,5 +336,100 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 
 [Wireframes](dev/mockups/wireframes.pdf)
 
+## Features
 
+## Technologies
 
+## Testing
+
+## Source Control
+
+The website was developed using the Atom editor with github for version control. Github Desktop was used to simplify the process of compiling pushing commits to the remote repository.
+
+### Branches
+
+Branches were used to add new features for testing without affecting the main branch and deployed application. 
+
+#### Creating a branch
+
+Selecting a branch
+
+Merging a branch
+
+Deleting a branch
+
+### Github Desktop
+
+#### Github Accounts
+
+Once installed Github Desktop can be linked to an existing user account by:
+
+1. Selecting File->Options from the Github Desktop menu.
+2. Selecting sign in in the Accounts section of the dialog.
+3. Enter github user account and password.
+
+#### Cloning Repositories
+
+Adding an existing github repository to the local machine and Github Desktop can be achieved by:
+
+1. Selecting File->Clone repository... from the Github Desktop menu.
+2. Selecting the repository from the list in the dialog.
+3. Selecting where the repository should be cloned to on the local machine
+4. Clicking the clone button
+5. Github Desktop will automatically clone the repository.
+
+#### Selecting current Repository
+
+Github Desktop will automatically track any changes to the current local repository from the github repository.
+
+1. Click the "current repository" button
+2. Select the required repository from the menu
+
+#### Updating Github
+
+Github desktop will automatically flag unmerged changes in the current repository. These can be merged by:
+
+1. Deselect any changes to be excluded from the next commit in the changes list. (Github desktop automatically selects all available commits.)
+2. Add commit summary.
+3. Add commit description (if any).
+4. Click "commit to master".
+5. Select Push Origin from the pane on the right.
+
+## Deployment
+
+## Credits
+
+### Media
+
+The cuisine category images were obtained from [unsplash](https://unsplash.com/) and edited by Sean Young.
+
+- [African](https://unsplash.com/photos/k2ZCm7LCj8E) - photograph by [Louis Hansel](https://unsplash.com/@louishansel)
+- [American](https://unsplash.com/photos/MH_lBTvkvPM) - photograph by [Kelly Visel](https://unsplash.com/@kellyvisel)
+- [Asian](https://unsplash.com/photos/L1ZhjK-R6uc) - photograph by [Sharon Chen](https://unsplash.com/@sharonchen)
+- [British](https://unsplash.com/photos/CRoAeTh5S_I) - photograph by [Sebastian Coman](https://unsplash.com/@sebastiancoman)
+- [Cajun](rBPtiHOY7nI) - photograph by [Sidney Pearce](https://unsplash.com/@sid_pearce)
+- [Chinese](https://unsplash.com/photos/jFu2L04tMBc) - photograph by [Drew Taylor](https://unsplash.com/@replicantman)
+- [European](https://unsplash.com/photos/r7RfMR_NzYY) - photograph by [Massimo Rinaldi](https://unsplash.com/@massimorinaldi27)
+- [French](https://unsplash.com/photos/-czl8QNCVKY) - photograph by [Julian Dik](https://unsplash.com/@juliandik)
+- [Greek](https://unsplash.com/photos/kQloRmVQYIs) - photograph by [Mor Shani](https://unsplash.com/@morsha)
+- [Indian](https://unsplash.com/photos/eEWlcfydzQ4) - photograph by [Sanket Shah](https://unsplash.com/@sanketshah)
+- [Irish](https://unsplash.com/photos/3hi4Ckm-0v0) - photograph by [Mick Haupt](https://unsplash.com/@rocinante_11)
+- [Italian](https://unsplash.com/photos/_TbB9rX9VSA) - photograph by [Logan Jeffrey](https://unsplash.com/@foodjetsexpress) 
+- [Japanese](https://unsplash.com/photos/iOHJKJqO6E0) - photograph by [Jakub Dziubak](https://unsplash.com/@jckbck)
+- [Mexican](https://unsplash.com/photos/7sStoaxfJh0) - photograph by [Natasha Bhogal](https://unsplash.com/@natashabhogal)
+- [Middle Eastern](https://unsplash.com/photos/P1AG2Y0mC-o) - photograph by [Sam Moqadam](https://unsplash.com/@itssammoqadam)
+- [Spanish](https://unsplash.com/photos/JBYunbDGcUo) - photograph by [Olivier Collet](https://unsplash.com/@ocollet)
+- [Tex-Mex](https://unsplash.com/photos/WYnj4atCRFY) - photograph by [Nadine Primeau](https://unsplash.com/@nadineprimeau)
+- [Thai](https://unsplash.com/photos/YmyFBvW7oG8) - photograph by [Nick Karvounis](https://unsplash.com/@nickkarvounis)
+- [Turkish](https://unsplash.com/photos/fg5DDCrybjA) - photograph by [Louis Hansel](https://unsplash.com/@louishansel)
+- [Vietnamese](https://unsplash.com/photos/B3Zq_3cu0Ug) - photograph by [Huong Pham](https://unsplash.com/@huongthu98)
+
+Recipes:
+
+- Parmesan Crusted Chicken image and recipe from [gimmedelicious](https://gimmedelicious.com/crispy-parmesan-crusted-chicken/).
+
+General:
+
+- [New Recipe image](https://unsplash.com/photos/x5SRhkFajrA) - photograph by [Todd Quackenbush](https://unsplash.com/@toddquackenbush)
+
+### Acknowledgements
