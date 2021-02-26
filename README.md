@@ -195,12 +195,16 @@ Enumerates cuisine types.
 
 **recipes:**
 
-1. Unique index on page_id - Regular index ensures pageid field is unique
+1. Unique index on page_id - Ensures pageid field is unique.
 2. -Text indexes for searching-
+
+**users:**
+
+1. Unique index on name - Ensures two users can't share a username.
 
 **ratings:**
 
-1. Unique compound index on user_id and recipe_id - Ensures only one interaction between one recipe and user.
+1. Unique compound index on user_id and recipe_id - Ensures only one interaction record between one recipe and user.
 
 **cuisines:**
 
