@@ -10,6 +10,10 @@ $(document).ready(function(){
   $('.timepicker').timepicker({
     twelveHour: false
   });
+  $('.fixed-action-btn').floatingActionButton({
+    direction: 'bottom',
+    hoverEnabled: false
+  });
   $('.collapsible').collapsible();
   $('select').formSelect();
   $('.tabs').tabs();

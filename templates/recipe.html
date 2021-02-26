@@ -2,8 +2,24 @@
 {% from "star-rating.html" import generate_star_rating_display,
                                   generate_star_rating_control %}
 
+
 {% block content %}
   <div class="container vpad">
+    {# RECIPE TOOLBAR #}
+      {% if session.user %}
+        <div id="recipe-toolbar">
+          <a id="recipe-favorite" class="btn-floating btn-small btn-plum">
+            <i class="material-icons">favorite_border</i>
+          </a>
+          {% if ( (session.userid == recipe.author.user_id) or (session.userrole == 'admin')) %}
+            <a id="recipe-edit" href="{{ url_for('edit_recipe', pageid=recipe.pageid) }}"
+              class="btn-floating btn-small btn-plum">
+              <i class="material-icons">edit</i>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {# END RECIPE TOOLBAR #}
 
     {# RECIPE HEADER #}
     <div class="row recipe-header">
