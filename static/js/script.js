@@ -47,6 +47,10 @@ $( "#steps .add-list-item" ).click(function(event) {
                   "</li>";
   $( this ).parent().before(listItem);
 });
+//Shows the current selected image in the image box
+$( "#recipe_image" ).on('change', function(event){
+  $( '#recipe_header_image' ).attr("src", $( this ).val())
+});
 
 /*
  * Submits ratings for recipes via AJAX
