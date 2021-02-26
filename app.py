@@ -344,6 +344,12 @@ def ajax_rating():
     return {"new_rating" : new_rating}
 
 
+#Toggles user favoriting for this recipe
+@app.route("/ajax_favorite", methods=['POST'])
+def ajax_favorite():
+    return False
+
+
 #Adds a comment to a recipe document from AJAX requests
 @app.route("/ajax_comment", methods=['GET','POST'])
 def ajax_comment():
