@@ -76,7 +76,6 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
     else:
         pageid = recipe['pageid']
 
-    print(form_data.get('cuisine'))
     #construct new recipe record
     time = form_data.get("time").split(":")
     recipe = {
@@ -94,18 +93,10 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         },
         "servings" : form_data.get('servings'),
         "rating" : rating,
-        "ingredients" : [],
-        "steps" : [],
+        "ingredients" : form_data.getlist('ingredients'),
+        "steps" : form_data.getlist('steps'),
         "comments" : comments
     }
-
-    #insert recipe ingredients
-    for ingredient in form_data.getlist('ingredients'):
-        recipe['ingredients'].append(ingredient)
-
-    #insert recipe steps
-    for step in form_data.getlist('steps'):
-        recipe['steps'].append(step)
 
     return recipe
 
