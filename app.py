@@ -45,6 +45,7 @@ def log_user_out():
     session.pop("userid")
     session.pop("userrole")
 
+
 #Calculates overall rating from rating array.
 #Uses a simple averaging formula. A refinement could be to replace this with
 #a weighted formula. For instance giving greater weight for more popular options.
@@ -105,7 +106,6 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         "steps" : form_data.getlist('steps'),
         "comments" : comments
     }
-
     return recipe
 
 

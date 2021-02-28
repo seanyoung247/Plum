@@ -21,9 +21,6 @@ body, html {
   color: #0D0A0B;
   font-family: 'Roboto', sans-serif;
 }
-html {
-  scroll-behavior: smooth;
-}
  /*Forces body to full height so footer can be positioned to bottom*/
 body {
   display: flex;
