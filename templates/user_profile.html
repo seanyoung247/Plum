@@ -10,8 +10,8 @@
     </div>
     <hr class="row recipe-divider">
     <div class="row">
-      {% for i in range(1,5) %}
-        {{ generate_mini_recipe_card(1) }}
+      {% for recipe in user.recipes %}
+        {{ generate_mini_recipe_card(recipe) }}
       {% endfor %}
     </div>
     <div class="row">
