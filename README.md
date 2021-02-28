@@ -142,14 +142,15 @@ Stores individual recipes
 
 Holds information on each registered user
 
-| Field Name | Description              |
-| ---------- | ------------------------ |
-| _id        | Record id                |
-| name       | User Name                |
-| password   | User's password hash     |
-| email      | User's email address     |
-| role       | User role, user or admin |
-| recipes    | List of recipe tokens    |
+| Field Name | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| _id        | Record id                                                |
+| name       | User Name                                                |
+| password   | User's password hash                                     |
+| email      | User's email address                                     |
+| role       | User role, user or admin                                 |
+| recipes    | List of recipe tokens for recipes the user uploaded      |
+| favorites  | List of recipe tokens for recipes the user has favorited |
 
 ###### Recipe Token
 
@@ -169,18 +170,6 @@ Holds individual user-recipe rating interactions. Indexed on user_id and recipe_
 | recipe_id  | Record id of the recipe being rated         |
 | rating     | Number 1-5 indicating the star rating given |
 | favourited | Did the user favourite the recipe?          |
-
-##### Units Collection
-
-Enumerates unit types for use in recipe ingredient lists.
-
-| Field Name | Description               |
-| ---------- | ------------------------- |
-| _id        | Record id                 |
-| name       | Name of the unit type     |
-| display    | Display name for the unit |
-
-Note: Can be expanded to allow unit conversion later
 
 ##### Cuisine Collection 
 
