@@ -156,8 +156,9 @@ Holds information on each registered user
 
 | Field Name | Description                            |
 | ---------- | -------------------------------------- |
-| name       | Recipe name                            |
-| pageid     | Unique string url path for this recipe |
+| title      | Recipe name                            |
+| pageid     | Unique string URL path for this recipe |
+| image      | URL to this recipe's image             |
 
 ##### Rating Collection
 
@@ -212,7 +213,7 @@ plumdb.recipes.find().sort("_id", -1).limit(8)
 **Returns a specific Recipe/User interaction (for US002, US008):**
 
 ```Mongodb
-plumdb.ratings.find_one({"user_id"   : user['userid'], "recipe_id" : recipe['_id']})
+plumdb.ratings.find_one({"user_id" : user['userid'], "recipe_id" : recipe['_id']})
 ```
 
 ##### Users
@@ -247,7 +248,7 @@ plumdb.recipes.update_one({"_id" : recipeId}
 {
 	"$set" : {
 		"rating.0" : avg_rating,
-		"rating.{vote}" : rating[vote] + 1
+		"rating.<vote>" : rating[vote] + 1
 	}
 })
 ```
@@ -280,6 +281,29 @@ plumdb.ratings.update_one({"_id" : interaction._id},
 {
 	"$set" : {"rating" : new_rating}
 })
+```
+
+**Favoriting a recipe (for US006):**
+
+Adding a favorite
+
+```mongodb
+plumdb.users.update_one({"_id" : user_id},
+	{"$push" : {"favorites": recipe_token}})
+```
+
+Removing a favorite
+
+```mongodb
+plumdb.users.update_one{"_id" : user_id},
+	{"$pull" : {"_id" : recipe_id}})
+```
+
+Updating the interaction record:
+
+```mongodb
+plumdb.ratings.update_one({"_id" : existing_interaction['_id']},
+	{"$set" : {"favorited" : favorite}})
 ```
 
 **Adds a comment to a recipe (for US002 and US008)**:
