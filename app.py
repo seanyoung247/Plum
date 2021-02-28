@@ -63,10 +63,12 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         rating = [0.0,0,0,0,0,0]
         comments = []
         recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
+        author = {"name" : session['user'], "user_id" : session['userid']}
     else:
         rating = recipe['rating']
         comments = recipe['comments']
         recipe_date = recipe['date']
+        author = recipe['author']
 
     #Generate pageid field
     if new_pageid:
@@ -81,7 +83,7 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
     recipe = {
         "pageid" : pageid,
         "title" : form_data.get('title'),
-        "author" : {"name" : session['user'], "user_id" : session['userid']},
+        "author" : author,
         "date" : recipe_date,
         "description" : form_data.get('description'),
         "image" : form_data.get('image'),
@@ -208,8 +210,6 @@ def edit_recipe(pageid):
 @app.route("/profile/<username>")
 def profile(username):
     user = mongo.db.users.find_one({"name" : username})
-    print(username)
-    print(user)
     if user:
         return render_template("user_profile.html", user=user)
     else:
