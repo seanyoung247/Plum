@@ -21,6 +21,9 @@ body, html {
   color: #0D0A0B;
   font-family: 'Roboto', sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
  /*Forces body to full height so footer can be positioned to bottom*/
 body {
   display: flex;
@@ -127,17 +130,20 @@ ul.user-dropdown li > a {
 /*The following styles force card and recipe header images to be square and have
   their final size on load. This prevents layout changes as images load in.*/
 .card .card-image,
+.card-panel.card-image,
 .col.recipe-header-img {
-  position:relative;
+  position: relative;
   padding: 0;
 }
 .card .card-image::after,
+.card-panel.card-image::after,
 .col.recipe-header-img::after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
 .card .card-image img,
+.card-panel.card-image > img,
 .recipe-header-img > img {
   position: absolute;
   width: 100%;

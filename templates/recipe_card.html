@@ -22,3 +22,10 @@
     </div>
   </div>
 {% endmacro %}
+
+{% macro generate_mini_recipe_card(recipe) %}
+    <div class="card-panel card-image">
+      <img src="{{ url_for('static', filename='/images/categories/new-recipe.jpg') }}">
+
+    </div>
+{% endmacro %}
