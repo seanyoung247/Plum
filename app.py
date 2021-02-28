@@ -32,12 +32,18 @@ def user_logged_in():
         return True
 
 
-#Registers logged in user into the session cookie
+#Registers logged in user into the session
 def log_user_in(user):
     session["user"] = user["name"]
     session["userid"] = str(user["_id"])
     session["userrole"] = user["role"]
 
+
+#Removes user from the session
+def log_user_out():
+    session.pop("user")
+    session.pop("userid")
+    session.pop("userrole")
 
 #Calculates overall rating from rating array.
 #Uses a simple averaging formula. A refinement could be to replace this with
@@ -119,19 +125,21 @@ def home():
 def recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
 
-    if recipe:
+    if recipe: #Valid recipe found
         #if a user is logged in, get user/recipe interation (if any)
+        interaction = {}
         if user_logged_in():
             interaction = mongo.db.ratings.find_one({
                 "user_id"   : session['userid'],
                 "recipe_id" : str(recipe['_id'])
             })
-
+        #if the user hasn't interacted with this recipe yet, provide a dummy
+        #interaction to populate favorite and rating with default values
         if not interaction:
             interaction = {"rating" : 0, "favorited" : False}
 
         return render_template("recipe.html", recipe=recipe, interaction=interaction)
-    else:
+    else: #No recipe found
         return abort(404)
 
 
@@ -220,7 +228,6 @@ def edit_recipe(pageid):
 def profile(username):
     user = mongo.db.users.find_one({"name" : username})
     if user:
-        #Get recipes
         return render_template("user_profile.html", user=user)
     else:
         return abort(404)
@@ -294,8 +301,8 @@ def login():
 def logout():
     if user_logged_in():
         flash("User " + session["user"] + " Logged out", category="information")
-        #remove user from session cookies
-        session.pop("user")
+        #remove user from session
+        log_user_out()
 
     return redirect(url_for("home"))
 
@@ -408,6 +415,7 @@ def ajax_favorite():
             "pageid" : recipe["pageid"],
             "image"  : recipe["image"]
         }
+        #Add the recipe to the favorites list
         mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
             {"$push" : {"favorites" : recipe_token}})
     else:
