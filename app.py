@@ -211,6 +211,7 @@ def edit_recipe(pageid):
 def profile(username):
     user = mongo.db.users.find_one({"name" : username})
     if user:
+        #Get recipes
         return render_template("user_profile.html", user=user)
     else:
         return abort(404)
@@ -388,6 +389,22 @@ def ajax_favorite():
             "favorited" : favorite
         }
         mongo.db.ratings.insert_one(interaction)
+
+    if favorite: #If the user has just favorited the recipe, add it to the user record
+        #Get the recipe record
+        recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        recipe_token = {
+            "_id"    : str(recipe["_id"]),
+            "title"  : recipe["title"],
+            "pageid" : recipe["pageid"],
+            "image"  : recipe["image"]
+        }
+        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
+            {"$push" : {"favorites" : recipe_token}})
+    else:
+        #User has unfavorited the recipe, so remove it from the user record
+        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
+            {"$pull" : { "favorites" : {"_id" : request.json['recipeId']} } })
 
     return {'favorite' : favorite}
 
