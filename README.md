@@ -296,7 +296,7 @@ Removing a favorite
 
 ```mongodb
 plumdb.users.update_one{"_id" : user_id},
-	{"$pull" : {"_id" : recipe_id}})
+	{"$pull" : {"favorites" : {"_id" : recipe_id}}})
 ```
 
 Updating the interaction record:
@@ -320,8 +320,17 @@ plumdb.recipes.update_one({"_id" : recipeId}
 
 **Adds a new recipe (for US007):**
 
+Adds the recipe to the database
+
 ```mongodb
 plumdb.recipes.insert_one(recipe-record)
+```
+
+Adds the recipe to the users list
+
+```mongodb
+plumdb.users.update_one({"_uid" : userid},
+	{"$push" : {"recipes" : recipe_token}})
 ```
 
 **Edits an existing recipe (for US009):**
