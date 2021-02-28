@@ -1,7 +1,23 @@
 {% extends "base.html" %}
+{% from "recipe_card.html" import generate_mini_recipe_card %}
 
 {% block content %}
   <div class="container vpad">
-
+    <div class="row">
+      <h4 class="section-header col s12">
+        {{ user.name|capitalize }}'s recipes
+      </h4>
+    </div>
+    <hr class="row recipe-divider">
+    <div class="row">
+      {% for i in range(1,5) %}
+        {{ generate_mini_recipe_card(1) }}
+      {% endfor %}
+    </div>
+    <div class="row">
+      <h4 class="section-header col s12">
+        favorites
+      </h4>
+    </div>
   </div>
 {% endblock %}
