@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "recipe_card.html" import generate_recipe_icon %}
 
 {% block content %}
   <div class="container vpad">
@@ -12,12 +13,16 @@
       <hr class="row recipe-divider">
       <div class="row">
         <div class="scroller col s12">
-          <button class="scroll-left btn-floating btn-large"><i class="material-icons">chevron_left</i></button>
-          <button class="scroll-right btn-floating btn-large"><i class="material-icons">chevron_right</i></button>
+          <button class="scroll-left btn-floating btn-large btn-plum">
+            <i class="material-icons">chevron_left</i>
+          </button>
+          <button class="scroll-right btn-floating btn-large btn-plum">
+            <i class="material-icons">chevron_right</i>
+          </button>
           <ul class="scroller-items" data-position="0">
             {% for recipe in user.recipes %}
               <li class="scroll-item">
-                <div style="width:100%; height:100%; background-color:red;"></div>
+                {{ generate_recipe_icon(recipe) }}
               </li>
             {% endfor %}
           </ul>
@@ -28,18 +33,22 @@
     {% if user.favorites|length > 0 %}
       <div class="row">
         <h4 class="section-header col s12">
-          favorites
+          {{ user.name|capitalize }}'s favorites
         </h4>
       </div>
       <hr class="row recipe-divider">
       <div class="row">
         <div class="scroller col s12">
-          <button class="scroll-left btn-floating btn-large"><i class="material-icons">chevron_left</i></button>
-          <button class="scroll-right btn-floating btn-large"><i class="material-icons">chevron_right</i></button>
+          <button class="scroll-left btn-floating btn-large btn-plum">
+            <i class="material-icons">chevron_left</i>
+          </button>
+          <button class="scroll-right btn-floating btn-large btn-plum">
+            <i class="material-icons">chevron_right</i>
+          </button>
           <ul class="scroller-items" data-position="0">
             {% for recipe in user.favorites %}
               <li class="scroll-item">
-                <div style="width:100%; height:100%; background-color:red;"></div>
+                {{ generate_recipe_icon(recipe) }}
               </li>
             {% endfor %}
           </ul>

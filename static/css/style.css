@@ -170,8 +170,43 @@ ul.user-dropdown li > a {
   top: 0;
   left: 0;
 }
-.card-recipe-rating {
-  color: darkorange;
+/*
+ * Mini recipe icons
+ */
+.recipe-icon {
+  box-shadow: 1px 1px 5px #0D0A0B;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+.test-cls {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+/* Adds a dark gradient to the bottom of the
+   icon to make the title easier to read */
+.recipe-icon::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  z-index: 0;
+  background-image: linear-gradient(rgba(13,10,11,0.0), #0D0A0B);
+}
+.recipe-icon-title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  color: #F3FCF0;
+  font-size: 20px;
+  padding: 10px;
+  white-space: normal;
 }
 /*
  * Recipe page
@@ -446,8 +481,7 @@ li.scroll-item {
   font-size: 1rem;
   display: inline-block;
   text-align: center;
-  width: 200px;
-  height: 200px;
+
   padding: 10px;
 }
 .scroller .scroll-left {
