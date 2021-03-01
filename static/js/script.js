@@ -148,3 +148,52 @@ function submitFormAJAX(event, callbackSuccess) {
     success : callbackSuccess
   });
 }
+
+/*
+ * Horizontal scroller component
+ */
+
+//CODE TO INITIALISE AND RESIZE COMPONENT GOES HERE!
+
+//Scrolls one "page" left (backwards)
+$( ".scroller .scroll-left" ).click(function(event) {
+  let scroller = $( this ).siblings(".scroller-items");
+  let scrollItem = scroller.children(".scroll-item");
+  //Next page position = current page position - items in a page (scroll backwards)
+  let itemPosition = parseInt(scroller.attr("data-position"))
+  //If we're at the beginning of the list wrap around to the end
+  if (itemPosition <= 0) itemPosition = scrollItem.length;
+  else itemPosition -= Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
+  //Update data position so we know where we are in the list
+  scroller.attr("data-position", itemPosition);
+  //Animate the scroll
+  scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
+});
+
+//Scrolls one "page" right (forwards)
+$( ".scroller .scroll-right" ).click(function(event) {
+  let scroller = $( this ).siblings(".scroller-items");
+  let scrollItem = scroller.children(".scroll-item");
+  //Next page position = current page position + items in a page (scroll forwards)
+  let itemPosition = parseInt(scroller.attr("data-position")) +
+    Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
+  //If we're at the end of the list wrap around to the beginning
+  if (itemPosition >= scrollItem.length) itemPosition = 0;
+  //Update data position so we know where we are in the list
+  scroller.attr("data-position", itemPosition);
+  //Animate the scroll
+  scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
+});
+
+//Updates scroller position when scrolling has finished
+$( ".scroller .scroller-items" ).scroll(function() {
+  clearTimeout($(this).data("scroller-scrollTimer"));
+  //Scroll event has ended
+  $( this ).data("scroller-scrollTimer", setTimeout(() => {
+    //Get the first full item shown in the scroller
+    itemPosition = Math.round($( this ).scrollLeft() /
+      $( this ).children(".scroll-item").outerWidth());
+    //Update the scroll position
+    $( this ).attr("data-position", itemPosition);
+  }, 250));
+});
