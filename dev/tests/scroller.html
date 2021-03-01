@@ -24,6 +24,8 @@
         scrollbar-width: none;
         /* Removes scrollbars in IE 10+ */
         -ms-overflow-style: none;
+
+        counter-reset: list-counter;
       }
       /* Removes scrollbars in webkit */
       ul.scroller-items::-webkit-scrollbar {
@@ -34,16 +36,25 @@
         display: inline-block;
         color: #F3FCF0;
         text-align: center;
-        /*background-color: #3F7D20;*/
         width: 200px;
         height: 200px;
-
         padding: 10px;
+
+        counter-increment: list-counter;
       }
       .scroll-item div {
         background-color: #3F7D20;
         width: 100%;
         height: 100%;
+      }
+      .scroll-item div::before {
+        content: counter(list-counter) " - ";
+      }
+      .scroll-item:first-child div::after {
+        content: " first!";
+      }
+      .scroll-item:last-child div::after {
+        content: " Last!";
       }
       /*.scroll-item:nth-child(even) {
         background-color: red;
@@ -80,70 +91,48 @@
       <button class="scroll-left btn-floating btn-large"><i class="material-icons">chevron_left</i></button>
       <button class="scroll-right btn-floating btn-large"><i class="material-icons">chevron_right</i></button>
       <ul class="scroller-items" data-position="0">
-        <li class="scroll-item"><div>Test 1</div></li>
-        <li class="scroll-item"><div>Test 2</div></li>
-        <li class="scroll-item">Test 3</li>
-        <li class="scroll-item">Test 4</li>
-        <li class="scroll-item">Test 5</li>
-        <li class="scroll-item">Test 6</li>
-        <li class="scroll-item">Test 7</li>
-        <li class="scroll-item">Test 8</li>
-        <li class="scroll-item">Test 9</li>
-        <li class="scroll-item">Test 10</li>
-        <li class="scroll-item">Test 11</li>
-        <li class="scroll-item">Test 12</li>
-        <li class="scroll-item">Test 13</li>
-        <li class="scroll-item">Test 14</li>
-        <li class="scroll-item">Test 15</li>
-        <li class="scroll-item">Test 16</li>
-        <li class="scroll-item">Test 17</li>
-        <li class="scroll-item">Test 18</li>
-        <li class="scroll-item">Test 19</li>
-        <li class="scroll-item">Test 20</li>
-        <li class="scroll-item">Test 21</li>
-        <li class="scroll-item">Test 22</li>
-        <li class="scroll-item">Test 23</li>
-        <li class="scroll-item">Test 24</li>
-        <li class="scroll-item">Test 25</li>
-        <li class="scroll-item">Test 26</li>
-        <li class="scroll-item">Test 27</li>
-        <li class="scroll-item">Test 28</li>
-        <li class="scroll-item">Test 29</li>
-        <li class="scroll-item">Test 30</li>
-        <li class="scroll-item">Test 31</li>
-        <li class="scroll-item">Test 32</li>
-        <li class="scroll-item">Test 33</li>
-        <li class="scroll-item">Test 34</li>
-        <li class="scroll-item">Test 35</li>
-        <li class="scroll-item">Test 36</li>
-        <li class="scroll-item">Test 37</li>
-        <li class="scroll-item">Test 38</li>
-        <li class="scroll-item">Test 49</li>
-        <li class="scroll-item">Test 40</li>
-        <li class="scroll-item">Test 41</li>
-        <li class="scroll-item">Test 42</li>
-        <li class="scroll-item">Test 43</li>
-        <li class="scroll-item">Test 44</li>
-        <li class="scroll-item">Test 45</li>
-        <li class="scroll-item">Test 46</li>
-        <li class="scroll-item">Test 47</li>
-        <li class="scroll-item">Test 48</li>
-        <li class="scroll-item">Test 49</li>
-        <li class="scroll-item">Test 50</li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
       </ul>
     </li>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
-      $(document).ready(function(){
-        $( ".scroller .scroller-items" )
+      $( document ).ready(function() {
+        //setScrollerSize();
       });
 
-      //Updates the scroll location if the scroller is resized
-      $( ".scroller" ).resize(function() {
-
-      });
+      /*function setScrollerSize() {
+        let scroller = $( ".scroller" );
+        console.log(scroller.width())
+        scroller.children( ".scroller-items" ).children( ".scroll-item" ).each(function() {
+          $( this ).outerWidth($( ".scroller" ).width() / 4);
+          console.log($( ".scroller" ).outerWidth() / 4);
+        });
+      }*/
 
       //Scrolls one "page" left (backwards)
       $( ".scroller .scroll-left" ).click(function(event) {
@@ -151,13 +140,13 @@
         let scrollItem = scroller.children(".scroll-item");
         //Next page position = current page position - items in a page (scroll backwards)
         let itemPosition = parseInt(scroller.attr("data-position")) -
-          Math.floor(scroller.width() / scrollItem.width());
+          Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
         //If we're at the beginning of the list wrap around to the end
         if (itemPosition < 0) itemPosition = scrollItem.length;
         //Update data position so we know where we are in the list
         scroller.attr("data-position", itemPosition);
         //Animate the scroll
-        scroller.animate({scrollLeft: (itemPosition * scrollItem.width())}, 500);
+        scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
       });
 
       //Scrolls one "page" right (forwards)
@@ -166,13 +155,13 @@
         let scrollItem = scroller.children(".scroll-item");
         //Next page position = current page position + items in a page (scroll forwards)
         let itemPosition = parseInt(scroller.attr("data-position")) +
-          Math.floor(scroller.width() / scrollItem.width());
+          Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
         //If we're at the end of the list wrap around to the beginning
         if (itemPosition >= scrollItem.length) itemPosition = 0;
         //Update data position so we know where we are in the list
         scroller.attr("data-position", itemPosition);
         //Animate the scroll
-        scroller.animate({scrollLeft: (itemPosition * scrollItem.width())}, 500);
+        scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
       });
 
       //Updates scroller position when scrolling has finished
@@ -182,7 +171,7 @@
         $( this ).data("scroller-scrollTimer", setTimeout(() => {
           //Get the first full item shown in the scroller
           itemPosition = Math.round($( this ).scrollLeft() /
-            $( this ).children(".scroll-item").width());
+            $( this ).children(".scroll-item").outerWidth());
           //Update the scroll position
           $( this ).attr("data-position", itemPosition);
         }, 250));
