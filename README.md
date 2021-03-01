@@ -94,71 +94,36 @@ Stores individual recipes
 | _id         | Record id                                                    |
 | pageid      | Unique string url path for this recipe                       |
 | title       | Recipe name                                                  |
-| author      | User token for recipe author                                 |
+| author      | Username of the user who uploaded this recipe                |
 | date        | The date this recipe was added                               |
 | description | Short description of the recipe                              |
 | image       | Recipe Image URL string                                      |
 | cuisine     | Cuisine type                                                 |
-| time        | Time token                                                   |
+| time        | time this recipe takes to prepare in minutes                 |
 | servings    | Integer number of the number of servings this recipe provides |
 | rating      | List of values for how many of each star rating the recipe has received. |
 | ingredients | List of ingredients                                          |
 | steps       | List of strings of preparation steps                         |
 | comments    | List of comment objects                                      |
 
-###### User Token
-
-| Field Name | Description    |
-| ---------- | -------------- |
-| name       | User name      |
-| user_id    | User record id |
-
-###### User Token
-
-| Field Name | Description           |
-| ---------- | --------------------- |
-| total      | Total time in seconds |
-| hours      | Number of hours       |
-| minutes    | Number of minutes     |
-
-###### Ingredient List
-
-| Field Name | Description                                                |
-| ---------- | ---------------------------------------------------------- |
-| name       | Ingredient name                                            |
-| recipe_id  | If this ingredient is also a recipe this is it's record id |
-| amount     | How many units to use for this ingredient                  |
-| unit       | Name of the unit                                           |
-| unit_id    | Id for the unit in the unit collection                     |
-
 ###### Comment List
 
 | Field Name | Description                   |
 | ---------- | ----------------------------- |
-| user       | User token                    |
+| user       | Username                      |
 | comment    | String content of the comment |
 
 ##### User Collection
 
 Holds information on each registered user
 
-| Field Name | Description                                              |
-| ---------- | -------------------------------------------------------- |
-| _id        | Record id                                                |
-| name       | User Name                                                |
-| password   | User's password hash                                     |
-| email      | User's email address                                     |
-| role       | User role, user or admin                                 |
-| recipes    | List of recipe tokens for recipes the user uploaded      |
-| favorites  | List of recipe tokens for recipes the user has favorited |
-
-###### Recipe Token
-
-| Field Name | Description                            |
-| ---------- | -------------------------------------- |
-| title      | Recipe name                            |
-| pageid     | Unique string URL path for this recipe |
-| image      | URL to this recipe's image             |
+| Field Name | Description              |
+| ---------- | ------------------------ |
+| _id        | Record id                |
+| name       | User Name                |
+| password   | User's password hash     |
+| email      | User's email address     |
+| role       | User role, user or admin |
 
 ##### Rating Collection
 
