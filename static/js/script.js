@@ -168,7 +168,7 @@ $( ".scroller .scroll-left" ).click(function(event) {
   let itemPosition = parseInt(scroller.attr("data-position"))
   // If we're at the beginning of the list wrap around to the end
   if (itemPosition <= 0) itemPosition = scrollItem.length;
-  else itemPosition -= Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
+  else itemPosition -= Math.floor(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
   // Update data position so we know where we are in the list
   scroller.attr("data-position", itemPosition);
   // Animate the scroll
@@ -181,7 +181,7 @@ $( ".scroller .scroll-right" ).click(function(event) {
   let scrollItem = scroller.children(".scroll-item");
   // Next page position = current page position + items in a page (scroll forwards)
   let itemPosition = parseInt(scroller.attr("data-position")) +
-    Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
+    Math.floor(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
   // If we're at the end of the list wrap around to the beginning
   if (itemPosition >= scrollItem.length) itemPosition = 0;
   // Update data position so we know where we are in the list
@@ -193,7 +193,6 @@ $( ".scroller .scroll-right" ).click(function(event) {
 // Updates scroller position when scrolling has finished
 $( ".scroller .scroller-items" ).scroll(function() {
   clearTimeout($(this).data("scroller-scrollTimer"));
-  console.log("test");
   // Scroll event has ended
   $( this ).data("scroller-scrollTimer", setTimeout(() => {
     // Get the first full item shown in the scroller
