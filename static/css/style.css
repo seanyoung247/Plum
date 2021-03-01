@@ -278,6 +278,8 @@ ol.collection li.collection-item::before {
   height: 30px;
   width: 30px;
 }
+/* Gives a highlight effect on a selected step so the user can highlight
+   the current step they're following. */ 
 ol.collection li.collection-item:hover,
 ol.collection input:checked + label li.collection-item {
   background-color: rgba(63,125,32,0.15);
