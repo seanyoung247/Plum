@@ -7,16 +7,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from secrets import token_urlsafe
 from urllib.parse import urlparse
 from datetime import date, datetime
+
 if os.path.exists("env.py"):
     import env
-
-DEBUGGING = True
 
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+DEBUGGING = (os.environ.get("DEBUGGING").lower() == "true")
 
 mongo = PyMongo(app)
 
@@ -24,32 +24,32 @@ mongo = PyMongo(app)
 #
 # Helper functions
 #
-#Returns whether a user is currently logged in
 def user_logged_in():
+    """Returns whether a user is currently logged in"""
     if session.get("user") is None:
         return False
     else:
         return True
 
 
-#Registers logged in user into the session
 def log_user_in(user):
+    """Registers logged in user into the session"""
     session["user"] = user["name"]
     session["userid"] = str(user["_id"])
     session["userrole"] = user["role"]
 
 
-#Removes user from the session
 def log_user_out():
+    """Removes the current user from the session"""
     session.pop("user")
     session.pop("userid")
     session.pop("userrole")
 
 
-#Calculates overall rating from rating array.
-#Uses a simple averaging formula. A refinement could be to replace this with
-#a weighted formula. For instance giving greater weight for more popular options.
 def calculate_rating(rating):
+    """Calculates overall rating from rating array."""
+    #Uses a simple averaging formula. A refinement could be to replace this with
+    #a weighted formula. For instance giving greater weight for more popular options.
     cumulative = 0
     weight = 0
     for i in range(1,6):
@@ -57,13 +57,13 @@ def calculate_rating(rating):
         weight += rating[i]
 
     if weight > 0 and cumulative > 0:
-        rating[0] = cumulative / weight
+        return cumulative / weight
     else:
-        rating[0] = 0
+        return 0
 
 
-#Creates a recipe record object from form data
 def create_recipe_record(form_data, recipe = {}, new_pageid = True):
+    """Creates a new recipe record from formdata and any existing recipe document"""
     #carry over any existing values that shouldn't be reset
     if recipe == {}:
         new_pageid = True
@@ -112,9 +112,9 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
 #
 # App routes
 #
-#Home page
 @app.route("/")
 def home():
+    """Shows the home page"""
     #Finds the newest eight Recipes
     recipes = mongo.db.recipes.find().sort("_id", -1).limit(8)
     return render_template("home.html", recipes=recipes)
@@ -123,6 +123,7 @@ def home():
 #Recipe page
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
+    """Shows the recipe page for the pageid passed."""
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
 
     if recipe: #Valid recipe found
@@ -143,9 +144,9 @@ def recipe(pageid):
         return abort(404)
 
 
-#New recipe page
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    """Shows the add recipe form and adds new recipe documents to the database."""
     #Only logged in users can
     if not user_logged_in():
         flash("You need to be logged in to add recipes!", category="error")
@@ -187,9 +188,9 @@ def add_recipe():
     return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 
-#Edit existing recipe
 @app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
 def edit_recipe(pageid):
+    """Shows the edit recipe form and adds changes to existing recipe document."""
     #Only logged in users can edit recipes
     if not user_logged_in():
         flash("You need to be logged in to edit recipes!", category="error")
@@ -223,9 +224,9 @@ def edit_recipe(pageid):
     return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 
-#User profile page
 @app.route("/profile/<username>")
 def profile(username):
+    """Checks if user exists and returns their profile page."""
     user = mongo.db.users.find_one({"name" : username})
     if user:
         return render_template("user_profile.html", user=user)
@@ -233,9 +234,9 @@ def profile(username):
         return abort(404)
 
 
-#User Registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """Shows the register user page and adds a new user to the database."""
     #Don't need to log in if user is already logged in..
     if user_logged_in():
         flash("User already logged in!", category="information")
@@ -267,9 +268,9 @@ def register():
     return render_template("login.html")
 
 
-#User login
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """Shows the user login page and logs an existing user in."""
     #Don't need to log in if user is already logged in..
     if user_logged_in():
         flash("User already logged in!", category="information")
@@ -296,9 +297,9 @@ def login():
     return render_template("login.html")
 
 
-#User logout
 @app.route("/logout")
 def logout():
+    """Logs the current user out."""
     if user_logged_in():
         flash("User " + session["user"] + " Logged out", category="information")
         #remove user from session
@@ -310,9 +311,9 @@ def logout():
 #
 # AJAX/Update routes
 #
-#Adds a rating to a recipe document from AJAX requests
 @app.route("/ajax_rating", methods=['POST'])
 def ajax_rating():
+    """Accepts an AJAX request for a recipe rating and updates the recipe document."""
     if not user_logged_in():
         flash("You need to be logged in to rate recipes!", category="error")
         return redirect(url_for("home"))
@@ -332,7 +333,7 @@ def ajax_rating():
         #Remove old rating vote and add the new one
         rating[old_rating] -= 1
         rating[new_rating] += 1
-        calculate_rating(rating)
+        rating[0] = calculate_rating(rating)
         #Update the recipe document with the new rating
         result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
         {
@@ -354,7 +355,7 @@ def ajax_rating():
         rating = recipe['rating']
         #Update with the new vote and calculate the new average
         rating[new_rating] += 1
-        calculate_rating(rating)
+        rating[0] = calculate_rating(rating)
         #Update the recipe document with the new rating
         result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
         {
@@ -376,9 +377,9 @@ def ajax_rating():
     return {"new_rating" : new_rating}
 
 
-#Toggles user favoriting for this recipe
 @app.route("/ajax_favorite", methods=['POST'])
 def ajax_favorite():
+    """Accepts AJAX requests for a favorite toggle and updates the database."""
     if not user_logged_in():
         flash("You need to be logged in to favorite recipes!", category="error")
         return redirect(url_for("home"))
@@ -426,9 +427,9 @@ def ajax_favorite():
     return {'favorite' : favorite}
 
 
-#Adds a comment to a recipe document from AJAX requests
 @app.route("/ajax_comment", methods=['POST'])
 def ajax_comment():
+    """Adds a comment to a recipe document from AJAX requests"""
     if not user_logged_in():
         flash("You need to be logged in to comment on recipes!", category="error")
         return redirect(url_for("home"))
@@ -444,18 +445,18 @@ def ajax_comment():
         return comment
 
 
-#Checks if a username already exists
 @app.route("/ajax_checkusername")
 def ajax_checkusername():
+    """Checks if a username already exists in the database."""
     return "NOT YET IMPLIMENTED"
 
 
 #
 # Error Handling
 #
-#Not found. Raised by app when requested data not found in database
 @app.errorhandler(404)
 def not_found_error(error):
+    """Called when a page can't be found."""
     #temporary error handling - just returns to home page with flash message
     flash("Page not found: 404", category="error")
     return redirect(url_for("home"))
