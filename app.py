@@ -32,11 +32,18 @@ def user_logged_in():
         return True
 
 
-#Registers logged in user into the session cookie
+#Registers logged in user into the session
 def log_user_in(user):
     session["user"] = user["name"]
     session["userid"] = str(user["_id"])
     session["userrole"] = user["role"]
+
+
+#Removes user from the session
+def log_user_out():
+    session.pop("user")
+    session.pop("userid")
+    session.pop("userrole")
 
 
 #Calculates overall rating from rating array.
@@ -63,10 +70,12 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         rating = [0.0,0,0,0,0,0]
         comments = []
         recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
+        author = {"name" : session['user'], "user_id" : session['userid']}
     else:
         rating = recipe['rating']
         comments = recipe['comments']
         recipe_date = recipe['date']
+        author = recipe['author']
 
     #Generate pageid field
     if new_pageid:
@@ -81,7 +90,7 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
     recipe = {
         "pageid" : pageid,
         "title" : form_data.get('title'),
-        "author" : {"name" : session['user'], "user_id" : session['userid']},
+        "author" : author,
         "date" : recipe_date,
         "description" : form_data.get('description'),
         "image" : form_data.get('image'),
@@ -97,7 +106,6 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         "steps" : form_data.getlist('steps'),
         "comments" : comments
     }
-
     return recipe
 
 
@@ -117,19 +125,21 @@ def home():
 def recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
 
-    if recipe:
+    if recipe: #Valid recipe found
         #if a user is logged in, get user/recipe interation (if any)
+        interaction = {}
         if user_logged_in():
             interaction = mongo.db.ratings.find_one({
                 "user_id"   : session['userid'],
                 "recipe_id" : str(recipe['_id'])
             })
-
+        #if the user hasn't interacted with this recipe yet, provide a dummy
+        #interaction to populate favorite and rating with default values
         if not interaction:
             interaction = {"rating" : 0, "favorited" : False}
 
         return render_template("recipe.html", recipe=recipe, interaction=interaction)
-    else:
+    else: #No recipe found
         return abort(404)
 
 
@@ -144,7 +154,16 @@ def add_recipe():
     if request.method == "POST":
         #construct new recipe record
         recipe = create_recipe_record(request.form)
-        mongo.db.recipes.insert_one(recipe)
+        result = mongo.db.recipes.insert_one(recipe)
+        #Add new recipe to user record
+        recipe_token = {
+            "_id"    : str(result.inserted_id),
+            "title"  : recipe['title'],
+            "pageid" : recipe['pageid'],
+            "image"  : recipe['image']
+        }
+        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
+            {"$push" : {"recipes" : recipe_token}})
         return redirect(url_for("recipe", pageid=recipe['pageid']))
 
     #Page specific variables
@@ -180,7 +199,7 @@ def edit_recipe(pageid):
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
     #If the recipe can't be found, raise not found error
     if not recipe:
-        abort(404)
+        return abort(404)
 
     #Check the currently logged in user has rights to edit this recipe
     if (session['userid'] != recipe['author']['user_id'] and session['userrole'] != "admin"):
@@ -202,6 +221,16 @@ def edit_recipe(pageid):
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
     return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
+
+
+#User profile page
+@app.route("/profile/<username>")
+def profile(username):
+    user = mongo.db.users.find_one({"name" : username})
+    if user:
+        return render_template("user_profile.html", user=user)
+    else:
+        return abort(404)
 
 
 #User Registration
@@ -272,8 +301,8 @@ def login():
 def logout():
     if user_logged_in():
         flash("User " + session["user"] + " Logged out", category="information")
-        #remove user from session cookies
-        session.pop("user")
+        #remove user from session
+        log_user_out()
 
     return redirect(url_for("home"))
 
@@ -376,6 +405,23 @@ def ajax_favorite():
             "favorited" : favorite
         }
         mongo.db.ratings.insert_one(interaction)
+
+    if favorite: #If the user has just favorited the recipe, add it to the user record
+        #Get the recipe record
+        recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        recipe_token = {
+            "_id"    : str(recipe["_id"]),
+            "title"  : recipe["title"],
+            "pageid" : recipe["pageid"],
+            "image"  : recipe["image"]
+        }
+        #Add the recipe to the favorites list
+        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
+            {"$push" : {"favorites" : recipe_token}})
+    else:
+        #User has unfavorited the recipe, so remove it from the user record
+        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
+            {"$pull" : { "favorites" : {"_id" : request.json['recipeId']} } })
 
     return {'favorite' : favorite}
 

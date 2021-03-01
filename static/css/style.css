@@ -67,7 +67,7 @@ hr {
   background-color: #8E4585;
 }
 .btn-plum:hover {
-  background-color: #9F54B0;/*#9D876E;/*#844d76;*/
+  background-color: #9F54B0;
 }
 /*
  * Header and Navigation
@@ -127,17 +127,20 @@ ul.user-dropdown li > a {
 /*The following styles force card and recipe header images to be square and have
   their final size on load. This prevents layout changes as images load in.*/
 .card .card-image,
+.card-panel.card-image,
 .col.recipe-header-img {
-  position:relative;
+  position: relative;
   padding: 0;
 }
 .card .card-image::after,
+.card-panel.card-image::after,
 .col.recipe-header-img::after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
 .card .card-image img,
+.card-panel.card-image > img,
 .recipe-header-img > img {
   position: absolute;
   width: 100%;
@@ -167,8 +170,43 @@ ul.user-dropdown li > a {
   top: 0;
   left: 0;
 }
-.card-recipe-rating {
-  color: darkorange;
+/*
+ * Mini recipe icons
+ */
+.recipe-icon {
+  box-shadow: 1px 1px 5px #0D0A0B;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+.test-cls {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+/* Adds a dark gradient to the bottom of the
+   icon to make the title easier to read */
+.recipe-icon::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  z-index: 0;
+  background-image: linear-gradient(rgba(13,10,11,0.0), #0D0A0B);
+}
+.recipe-icon-title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  color: #F3FCF0;
+  font-size: 20px;
+  padding: 10px;
+  white-space: normal;
 }
 /*
  * Recipe page
@@ -188,9 +226,19 @@ ul.user-dropdown li > a {
   color: #3F7D20;
   text-align: center;
 }
+.recipe-author a {
+  color: #8E4585;
+}
+.recipe-author a:hover {
+  color: #9F54B0;
+}
 .recipe-rating {
-  margin: 0 0 10px 0;
+  margin: 10px 0;
   color: darkorange;
+  text-align: center;
+}
+.recipe-rating .star i {
+  font-size: 35px;
 }
 .recipe-header-sub {
   color: #3F7D20;
@@ -265,6 +313,8 @@ ol.collection li.collection-item::before {
   height: 30px;
   width: 30px;
 }
+/* Gives a highlight effect on a selected step so the user can highlight
+   the current step they're following. */
 ol.collection li.collection-item:hover,
 ol.collection input:checked + label li.collection-item {
   background-color: rgba(63,125,32,0.15);
@@ -291,54 +341,10 @@ ol.collection input:checked + label li.collection-item::before
   content: "favorite";
 }
 /*
-* Star rating element
-*/
-/* Makes the star rating horizontal */
-.star-rating,
-.star-rating-ctl {
-  display: inline-block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.star-rating > .rating-text,
-.star-rating > .star {
-  float: left;
-  white-space: nowrap;
-}
-/* In order for CSS hover and checked styles to apply to the correct stars
-   the order has to be visually reversed as the ~ sibling selector only works
-   forwards, but we need it to work backwards. */
-.star-rating-ctl > .star {
-  float: right;
-}
-.star i,
-.rating-text {
-  color: #8E4585;
-}
-.star-rating > .star.off i::after,
-.star-rating-ctl > .star i::after {
-  content: "star_border";
-}
-.star-rating > .star.half i::after {
-  content: "star_half";
-}
-.star-rating > .star.on i::after,
-.star-rating-ctl > .star:hover > i::after,
-.star-rating-ctl > .star:hover ~ .star > i::after,
-.star-rating-ctl:not(:hover) > input[type="radio"]:checked ~ .star > i::after {
-  content: "star";
-}
-.star-rating-ctl.disabled,
-.star-rating-ctl.disabled .star {
-  pointer-events: none;
-  opacity: 0.75;
-}
-/*
  * Add/Edit recipe page
  */
 input#recipe_image {
-  background-color: rgba(243,252,240,0.9); /*#F3FCF0;*/
+  background-color: rgba(243,252,240,0.9);
 }
 #steps .collection-item,
 #ingredients .collection-item {
@@ -394,6 +400,103 @@ footer {
   color: #F3FCF0;
 }
 /*
+ * Custom controls
+ */
+/*
+ * Star rating
+ */
+/* Makes the star rating horizontal */
+.star-rating,
+.star-rating-ctl {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.star-rating > .rating-text,
+.star-rating > .star {
+  float: left;
+  white-space: nowrap;
+}
+/* In order for CSS hover and checked styles to apply to the correct stars
+   the order has to be visually reversed as the ~ sibling selector only works
+   forwards, but we need it to work backwards. */
+.star-rating-ctl > .star {
+  float: right;
+}
+.star i,
+.rating-text {
+  color: #8E4585;
+}
+/* Makes unchecked stars display an empty star icon */
+.star-rating > .star.off i::after,
+.star-rating-ctl > .star i::after {
+  content: "star_border";
+}
+/* Stars set to half show a half filled star */
+.star-rating > .star.half i::after {
+  content: "star_half";
+}
+/* Shows a fully checked star if a star is set on, or when a star is hovered,
+  a following sibling is hovered or a following checkbox is checked */
+.star-rating > .star.on i::after,
+.star-rating-ctl > .star:hover > i::after,
+.star-rating-ctl > .star:hover ~ .star > i::after,
+.star-rating-ctl:not(:hover) > input[type="radio"]:checked ~ .star > i::after {
+  content: "star";
+}
+/* Prevents the star control recieving hover events if it's set to disabled */
+.star-rating-ctl.disabled,
+.star-rating-ctl.disabled .star {
+  pointer-events: none;
+  opacity: 0.75;
+}
+/*
+ * Horizontal item scroller
+ */
+.scroller,
+.col.scroller {
+  position: relative;
+  overflow: hidden;
+  padding: 0 25px;
+}
+/* overflow set to scroll allowing touch scrolling,
+   but with scrollbars hidden */
+ul.scroller-items {
+  list-style-type: none;
+  overflow: scroll;
+  white-space: nowrap;
+  font-size: 0;
+  padding: 0;
+  /* Removes scrollbars in firefox */
+  scrollbar-width: none;
+  /* Removes scrollbars in IE 10+ */
+  -ms-overflow-style: none;
+}
+/* Removes scrollbars in webkit browsers */
+ul.scroller-items::-webkit-scrollbar {
+  display: none;
+}
+li.scroll-item {
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+
+  padding: 10px;
+}
+.scroller .scroll-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.scroller .scroll-right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+/*
  * Media Queries
  */
 /* Very small screens and down */
@@ -410,14 +513,6 @@ footer {
   .recipe-header {
       display: flex;
       align-items: center;
-  }
-  /* left aligned text looks better when the title is
-     next to the header image */
-  .recipe-title {
-    text-align: left;
-  }
-  .recipe-author {
-    text-align: left;
   }
   /* prevents overflowing header when image
      and title are side by side */

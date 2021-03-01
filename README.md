@@ -142,21 +142,23 @@ Stores individual recipes
 
 Holds information on each registered user
 
-| Field Name | Description              |
-| ---------- | ------------------------ |
-| _id        | Record id                |
-| name       | User Name                |
-| password   | User's password hash     |
-| email      | User's email address     |
-| role       | User role, user or admin |
-| recipes    | List of recipe tokens    |
+| Field Name | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| _id        | Record id                                                |
+| name       | User Name                                                |
+| password   | User's password hash                                     |
+| email      | User's email address                                     |
+| role       | User role, user or admin                                 |
+| recipes    | List of recipe tokens for recipes the user uploaded      |
+| favorites  | List of recipe tokens for recipes the user has favorited |
 
 ###### Recipe Token
 
 | Field Name | Description                            |
 | ---------- | -------------------------------------- |
-| name       | Recipe name                            |
-| pageid     | Unique string url path for this recipe |
+| title      | Recipe name                            |
+| pageid     | Unique string URL path for this recipe |
+| image      | URL to this recipe's image             |
 
 ##### Rating Collection
 
@@ -169,18 +171,6 @@ Holds individual user-recipe rating interactions. Indexed on user_id and recipe_
 | recipe_id  | Record id of the recipe being rated         |
 | rating     | Number 1-5 indicating the star rating given |
 | favourited | Did the user favourite the recipe?          |
-
-##### Units Collection
-
-Enumerates unit types for use in recipe ingredient lists.
-
-| Field Name | Description               |
-| ---------- | ------------------------- |
-| _id        | Record id                 |
-| name       | Name of the unit type     |
-| display    | Display name for the unit |
-
-Note: Can be expanded to allow unit conversion later
 
 ##### Cuisine Collection 
 
@@ -195,12 +185,16 @@ Enumerates cuisine types.
 
 **recipes:**
 
-1. Unique index on page_id - Regular index ensures pageid field is unique
+1. Unique index on page_id - Ensures pageid field is unique.
 2. -Text indexes for searching-
+
+**users:**
+
+1. Unique index on name - Ensures two users can't share a username.
 
 **ratings:**
 
-1. Unique compound index on user_id and recipe_id - Ensures only one interaction between one recipe and user.
+1. Unique compound index on user_id and recipe_id - Ensures only one interaction record between one recipe and user.
 
 **cuisines:**
 
@@ -219,7 +213,7 @@ plumdb.recipes.find().sort("_id", -1).limit(8)
 **Returns a specific Recipe/User interaction (for US002, US008):**
 
 ```Mongodb
-plumdb.ratings.find_one({"user_id"   : user['userid'], "recipe_id" : recipe['_id']})
+plumdb.ratings.find_one({"user_id" : user['userid'], "recipe_id" : recipe['_id']})
 ```
 
 ##### Users
@@ -254,7 +248,7 @@ plumdb.recipes.update_one({"_id" : recipeId}
 {
 	"$set" : {
 		"rating.0" : avg_rating,
-		"rating.{vote}" : rating[vote] + 1
+		"rating.<vote>" : rating[vote] + 1
 	}
 })
 ```
@@ -289,6 +283,29 @@ plumdb.ratings.update_one({"_id" : interaction._id},
 })
 ```
 
+**Favoriting a recipe (for US006):**
+
+Adding a favorite
+
+```mongodb
+plumdb.users.update_one({"_id" : user_id},
+	{"$push" : {"favorites": recipe_token}})
+```
+
+Removing a favorite
+
+```mongodb
+plumdb.users.update_one{"_id" : user_id},
+	{"$pull" : {"favorites" : {"_id" : recipe_id}}})
+```
+
+Updating the interaction record:
+
+```mongodb
+plumdb.ratings.update_one({"_id" : existing_interaction['_id']},
+	{"$set" : {"favorited" : favorite}})
+```
+
 **Adds a comment to a recipe (for US002 and US008)**:
 
 ```mongodb
@@ -303,8 +320,17 @@ plumdb.recipes.update_one({"_id" : recipeId}
 
 **Adds a new recipe (for US007):**
 
+Adds the recipe to the database
+
 ```mongodb
 plumdb.recipes.insert_one(recipe-record)
+```
+
+Adds the recipe to the users list
+
+```mongodb
+plumdb.users.update_one({"_uid" : userid},
+	{"$push" : {"recipes" : recipe_token}})
 ```
 
 **Edits an existing recipe (for US009):**

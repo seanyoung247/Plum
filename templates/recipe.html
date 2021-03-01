@@ -14,9 +14,9 @@
             <label id="recipe_favorite" data-path="url_for('ajax_favorite')"
               class="btn-floating btn-large btn-plum">
               <input name="favorite" type="checkbox"
-                {%- if  interaction.favorited -%}
+                {%- if interaction.favorited -%}
                   checked
-                {% endif %}/>
+                {%- endif -%}/>
               <i class="material-icons"></i>
             </label>
           </form>
@@ -40,10 +40,13 @@
         <div class="row">
           <div class="col s12">
             <h1 class="recipe-title">{{ recipe.title }}</h1>
-            <p class="recipe-author">by {{ recipe.author.name }}</p>
-
+            <div class="recipe-author">
+              <a href="{{ url_for('profile', username=recipe.author.name) }}">
+                {{ recipe.author.name }}
+              </a>
+            </div>
             <div class="recipe-rating">
-              {{ generate_star_rating_display(recipe.rating[0], true) }}
+              {{ generate_star_rating_display(recipe.rating[0], false) }}
             </div>
           </div>
         </div>
@@ -74,10 +77,10 @@
       <div class="col s12">
         <ul class="recipe-tabs tabs">
           <li class="tab col s6">
-            <a href="#Recipe-Ingredients" class="active">Ingredients</a>
+            <a href="#Recipe_Ingredients" class="active">Ingredients</a>
           </li>
           <li class="tab col s6">
-            <a href="#Recipe-Method">Method</a>
+            <a href="#Recipe_Method">Method</a>
           </li>
         </ul>
       </div>
