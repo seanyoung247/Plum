@@ -4,7 +4,7 @@ $(document).ready(function(){
    */
   $('.sidenav').sidenav();
   $('.dropdown-trigger').dropdown({
-    //Prevents the dropdown menu covering the trigger item
+    // Prevents the dropdown menu covering the trigger item
     coverTrigger: false
   });
   $('.timepicker').timepicker({
@@ -22,35 +22,35 @@ $(document).ready(function(){
 /*
  * Edit/Add Recipe page
  */
-//Removes a list item from the method or ingredients lists
+// Removes a list item from the method or ingredients lists
 $( "#steps, #ingredients").on("click", ".remove-list-item", function(event) {
   $( this ).parent().remove();
 });
 
-//Adds a list item to the ingredients list
+// Adds a list item to the ingredients list
 $( "#ingredients .add-list-item" ).click(function(event) {
-  let listItem = "<li class='collection-item'>" +
-                    "<div class='input-field'>" +
-                      "<input name='ingredients' type='text' required>" +
-                    "</div>" +
-                    "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
-                  "</li>";
+  let listItem = `<li class='collection-item'>
+                    <div class='input-field'>
+                      <input name='ingredients' type='text' required>
+                    </div>
+                    <a class='remove-list-item'><i class='material-icons'>clear</i></a>
+                  </li>`;
   $( this ).parent().before(listItem);
 });
 
-//Adds a list item to the method list
+// Adds a list item to the method list
 $( "#steps .add-list-item" ).click(function(event) {
-  let listItem =  "<li class='collection-item'>" +
-                    "<div class='input-field'>" +
-                      "<textarea name='steps' class='materialize-textarea' required>" +
-                      "</textarea>" +
-                    "</div>" +
-                    "<a class='remove-list-item'><i class='material-icons'>clear</i></a>" +
-                  "</li>";
+  let listItem =  `<li class='collection-item'>
+                    <div class='input-field'>
+                      <textarea name='steps' class='materialize-textarea' required>
+                      </textarea>
+                    </div>
+                    <a class='remove-list-item'><i class='material-icons'>clear</i></a>
+                  </li>`;
   $( this ).parent().before(listItem);
 });
 
-//Shows the current selected image in the image box
+// Shows the current selected image in the image box
 $( "#recipe_image" ).on('change', function(event){
   $( '#recipe_header_image' ).prop("src", $( this ).val());
 });
@@ -58,29 +58,29 @@ $( "#recipe_image" ).on('change', function(event){
 /*
  * Submits ratings for recipes via AJAX
  */
-//Binds AJAX handler to form submit event
+// Binds AJAX handler to form submit event
 $( "#recipe_rating_form" ).submit(function(event) {
   event.preventDefault();
 
   submitFormAJAX(event, ratingSuccess);
 
-  //Stop reading star rating while server deals with request
+  // Stop reading star rating while server deals with request
   $( "input", this ).prop('disabled', true);
   $( ".star-rating-ctl", this ).addClass('disabled')
-  //Show spinner to indicate users request is being dealt with
+  // Show spinner to indicate users request is being dealt with
   $( ".preloader-wrapper", this ).removeClass("hide");
 });
 
-//Binds star rating change event to trigger form submission
+// Binds star rating change event to trigger form submission
 $( ".star-rating-ctl input[type=radio]" ).change(function() {
   $( "#recipe_rating_form" ).submit();
 });
 
 function ratingSuccess(response) {
-  //Stop reading star rating while server deals with request
+  // Stop reading star rating while server deals with request
   $( "input", "#recipe_rating_form" ).prop('disabled', false);
   $( ".star-rating-ctl", "#recipe_rating_form" ).removeClass('disabled')
-  //Show spinner to indicate users request is being dealt with
+  // Show spinner to indicate users request is being dealt with
   $( ".preloader-wrapper", "#recipe_rating_form" ).addClass("hide");
   //TODO: Update rating display element
 }
@@ -90,7 +90,7 @@ function ratingSuccess(response) {
  */
 $( "#recipe_favorite_form" ).submit(function(event) {
   event.preventDefault();
-  //There's no real need for a callback here
+  // There's no real need for a callback here
   submitFormAJAX(event, null);
 });
 
@@ -106,25 +106,29 @@ $( "#recipe_comment_form" ).submit(function(event) {
 
   submitFormAJAX(event, commentSuccess);
 
-  /*Make the form read only so we don't spam the server before it's
-    finished dealing with the current request.*/
+  /* Make the form read only so we don't spam the server before it's
+     finished dealing with the current request. */
   $( "input,textarea,button", this ).prop('readonly', true);
   $( "button", this ).prop('disabled', true);
-  //Show spinner to indicate user's request is being dealt with
+  // Show spinner to indicate user's request is being dealt with
   $( ".preloader-wrapper", this ).removeClass('hide');
 });
 
 function commentSuccess(response) {
-  //Reenable form and clear it's contents
+  // Reenable form and clear it's contents
   $( "input,textarea","#recipe_comment_form" ).prop('readonly', false);
   $( "button", "#recipe_comment_form").prop('disabled', false);
   $( "#recipe_comment_form" ).trigger("reset");
-  //Hide the spinner
+  // Hide the spinner
   $( "#recipe_comment_form .preloader-wrapper" ).addClass("hide");
 
-  //Show the new comment at the top of the comment list
-  let commentHTML = "<div class='row'><div class='col s12'><p>"
-    + response.author.name + "</p><p>" + response.text + "</p></div></div>";
+  // Show the new comment at the top of the comment list
+  let commentHTML =  `<div class='row'>
+                        <div class='col s12'>
+                          <p>${response.author.name}</p>
+                          <p>${response.text}</p>
+                        </div>
+                      </div>`;
   $( "#recipe_comments_wrapper" ).prepend(commentHTML);
 }
 
@@ -132,17 +136,17 @@ function commentSuccess(response) {
  * General function for submitting forms via AJAX
  */
 function submitFormAJAX(event, callbackSuccess) {
-  //Get form data
+  // Get form data
   var data = new FormData(event.target);
   var serialised = {};
-  //serialise it into key/value pairs that can be converted to JSON
+  // serialise it into key/value pairs that can be converted to JSON
   for (var key of data.keys()) {
     serialised[key] = data.get(key);
   }
-  //Make AJAX request
+  // Make AJAX request
   $.ajax({
     type : "POST",
-    url : $(event.target).prop("action"), //Get route from form action attribute
+    url : $(event.target).prop("action"), // Get route from form action attribute
     contentType : 'application/json;charset=UTF-8',
     data : JSON.stringify(serialised),
     success : callbackSuccess
@@ -152,48 +156,46 @@ function submitFormAJAX(event, callbackSuccess) {
 /*
  * Horizontal scroller component
  */
-
-//CODE TO INITIALISE AND RESIZE COMPONENT GOES HERE!
-
-//Scrolls one "page" left (backwards)
+// Scrolls one "page" left (backwards)
 $( ".scroller .scroll-left" ).click(function(event) {
   let scroller = $( this ).siblings(".scroller-items");
   let scrollItem = scroller.children(".scroll-item");
-  //Next page position = current page position - items in a page (scroll backwards)
+  // Next page position = current page position - items in a page (scroll backwards)
   let itemPosition = parseInt(scroller.attr("data-position"))
-  //If we're at the beginning of the list wrap around to the end
+  // If we're at the beginning of the list wrap around to the end
   if (itemPosition <= 0) itemPosition = scrollItem.length;
   else itemPosition -= Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
-  //Update data position so we know where we are in the list
+  // Update data position so we know where we are in the list
   scroller.attr("data-position", itemPosition);
-  //Animate the scroll
+  // Animate the scroll
   scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
 });
 
-//Scrolls one "page" right (forwards)
+// Scrolls one "page" right (forwards)
 $( ".scroller .scroll-right" ).click(function(event) {
   let scroller = $( this ).siblings(".scroller-items");
   let scrollItem = scroller.children(".scroll-item");
-  //Next page position = current page position + items in a page (scroll forwards)
+  // Next page position = current page position + items in a page (scroll forwards)
   let itemPosition = parseInt(scroller.attr("data-position")) +
     Math.floor(scroller.outerWidth() / scrollItem.outerWidth());
-  //If we're at the end of the list wrap around to the beginning
+  // If we're at the end of the list wrap around to the beginning
   if (itemPosition >= scrollItem.length) itemPosition = 0;
-  //Update data position so we know where we are in the list
+  // Update data position so we know where we are in the list
   scroller.attr("data-position", itemPosition);
-  //Animate the scroll
+  // Animate the scroll
   scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
 });
 
-//Updates scroller position when scrolling has finished
+// Updates scroller position when scrolling has finished
 $( ".scroller .scroller-items" ).scroll(function() {
   clearTimeout($(this).data("scroller-scrollTimer"));
-  //Scroll event has ended
+  console.log("test");
+  // Scroll event has ended
   $( this ).data("scroller-scrollTimer", setTimeout(() => {
-    //Get the first full item shown in the scroller
+    // Get the first full item shown in the scroller
     itemPosition = Math.round($( this ).scrollLeft() /
       $( this ).children(".scroll-item").outerWidth());
-    //Update the scroll position
+    // Update the scroll position
     $( this ).attr("data-position", itemPosition);
   }, 250));
 });
