@@ -129,7 +129,7 @@ function commentSuccess(response) {
   // Show the new comment at the top of the comment list
   let commentHTML =  `<div class='row'>
                         <div class='col s12'>
-                          <p>${response.author.name}</p>
+                          <p>${response.author}</p>
                           <p>${response.text}</p>
                         </div>
                       </div>`;
@@ -181,7 +181,7 @@ $( ".scroller .scroll-right" ).click(function(event) {
   let scrollItem = scroller.children(".scroll-item");
   // Next page position = current page position + items in a page (scroll forwards)
   let itemPosition = parseInt(scroller.attr("data-position")) +
-    Math.floor(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
+    Math.round(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
   // If we're at the end of the list wrap around to the beginning
   if (itemPosition >= scrollItem.length) itemPosition = 0;
   // Update data position so we know where we are in the list
