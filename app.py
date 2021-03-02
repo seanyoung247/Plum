@@ -116,7 +116,12 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
-#Recipe page
+
+@app.route("/")
+def search():
+    return render_template("search.html")
+
+
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
     """Shows the recipe page for the pageid passed."""
