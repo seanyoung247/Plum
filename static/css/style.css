@@ -173,31 +173,30 @@ ul.user-dropdown li > a {
 /*
  * Mini recipe icons
  */
-.recipe-icon {
+.item-tile {
   box-shadow: 1px 1px 5px #0D0A0B;
   position: relative;
   overflow: hidden;
   height: 200px;
   width: 200px;
 }
-.test-cls {
+.tile-image {
+  position: relative;
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 /* Adds a dark gradient to the bottom of the
    icon to make the title easier to read */
-.recipe-icon::before {
-  content: "";
+.tile-overlay {
   position: absolute;
   top: 25%;
   left: 0;
   width: 100%;
   height: 75%;
-  z-index: 0;
   background-image: linear-gradient(rgba(13,10,11,0.0), #0D0A0B);
 }
-.recipe-icon-title {
+.tile-title {
   position: absolute;
   left: 0;
   bottom: 0;

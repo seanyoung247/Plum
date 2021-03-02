@@ -24,10 +24,11 @@
 {% endmacro %}
 
 {% macro generate_item_tile(title, link, image) %}
-  <a href="{{ link }}">
-    <div class="recipe-icon">
-      <img class="test-cls" src="{{ image }}" alt="">
-      <span class="recipe-icon-title">{{ title }}</span>
-    </div>
-  </a>
+  <div class="item-tile">
+    <a href="{{ link }}">
+      <img class="tile-image" src="{{ image }}" alt="">
+      <span class="tile-overlay"></span>
+      <span class="tile-title">{{ title }}</span>
+    </a>
+  </div>
 {% endmacro %}
