@@ -4,7 +4,7 @@
 {% block content %}
   <div class="container vpad">
 
-    {% if user.recipes|length > 0 %}
+    {% if recipes.count() > 0 %}
       <div class="row">
         <h4 class="section-header col s12">
           {{ user.name|capitalize }}'s recipes
@@ -20,7 +20,7 @@
             <i class="material-icons">chevron_right</i>
           </button>
           <ul class="scroller-items" data-position="0">
-            {% for recipe in user.recipes %}
+            {% for recipe in recipes %}
               <li class="scroll-item">
                 {{ generate_recipe_icon(recipe) }}
               </li>
@@ -46,7 +46,7 @@
             <i class="material-icons">chevron_right</i>
           </button>
           <ul class="scroller-items" data-position="0">
-            {% for recipe in user.favorites %}
+            {% for recipe in favorites %}
               <li class="scroll-item">
                 {{ generate_recipe_icon(recipe) }}
               </li>
