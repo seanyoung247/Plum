@@ -23,11 +23,11 @@
   </div>
 {% endmacro %}
 
-{% macro generate_recipe_icon(recipe) %}
-  <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
+{% macro generate_item_tile(title, link, image) %}
+  <a href="{{ link }}">
     <div class="recipe-icon">
-      <img class="test-cls" src="{{ recipe.image }}" alt="">
-      <span class="recipe-icon-title">{{ recipe.title }}</span>
+      <img class="test-cls" src="{{ image }}" alt="">
+      <span class="recipe-icon-title">{{ title }}</span>
     </div>
   </a>
 {% endmacro %}
