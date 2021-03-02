@@ -105,6 +105,7 @@ $( "#recipe_favorite input[type=checkbox]" ).on('change', function(event) {
 /*
  * Submits new comments for recipes via AJAX
  */
+// Submits a comment to the AJAX route
 $( "#recipe_comment_form" ).submit(function(event) {
   event.preventDefault();
 
@@ -118,6 +119,7 @@ $( "#recipe_comment_form" ).submit(function(event) {
   $( ".preloader-wrapper", this ).removeClass('hide');
 });
 
+// Comment success callback
 function commentSuccess(response) {
   // Reenable form and clear it's contents
   $( "input,textarea","#recipe_comment_form" ).prop('readonly', false);
@@ -193,7 +195,7 @@ $( ".scroller .scroll-right" ).click(function(event) {
 // Updates scroller position when scrolling has finished
 $( ".scroller .scroller-items" ).scroll(function() {
   clearTimeout($(this).data("scroller-scrollTimer"));
-  // Scroll event has ended
+  // Fires 250ms after the last scroll event
   $( this ).data("scroller-scrollTimer", setTimeout(() => {
     // Get the first full item shown in the scroller
     itemPosition = Math.round($( this ).scrollLeft() /
