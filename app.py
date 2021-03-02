@@ -127,8 +127,8 @@ def recipe(pageid):
         interaction = {}
         if user_logged_in():
             interaction = mongo.db.ratings.find_one({
-                "user_id"   : session['userid'],
-                "recipe_id" : str(recipe['_id'])
+                "user_id"   : ObjectId(session['userid']),
+                "recipe_id" : recipe['_id']
             })
         #if the user hasn't interacted with this recipe yet, provide a dummy
         #interaction to populate favorite and rating with default values
@@ -226,9 +226,24 @@ def profile(username):
     user = mongo.db.users.find_one({"name" : username})
     if user:
         #Get list of recipes uploaded by this user
-
+        recipes = mongo.db.recipes.find({"author" : username})
         #Get recipes favorited by this user
-        return render_template("user_profile.html", user=user)
+        favorites = mongo.db.ratings.aggregate([
+            { "$match" : {"user_id" : user['_id'], "favorited" : True} },
+            {
+                "$lookup" : {
+                    "from" : "recipes",
+                    "localField" : "recipe_id",
+                    "foreignField" : "_id",
+                    "as": "favorites"
+                }
+            },
+            {"$unwind" : "$favorites"},
+            {"$replaceRoot" : {"newRoot" : "$favorites"}
+            }
+        ])
+
+        return render_template("user_profile.html", user=user, recipes=recipes, favorites=favorites)
     else:
         return abort(404)
 
@@ -319,8 +334,8 @@ def ajax_rating():
 
     #Check whether this user has already rated this recipe
     existing_interaction = mongo.db.ratings.find_one({
-        "user_id"   : session['userid'],
-        "recipe_id" : request.json['recipeId']
+        "user_id"   : ObjectId(session['userid']),
+        "recipe_id" : ObjectId(request.json['recipeId'])
     })
     new_rating = int(request.json['rating'])
     if existing_interaction:    #User has rated this recipe before
@@ -366,8 +381,8 @@ def ajax_rating():
         #if the update was successful log the new interation
         if result.matched_count > 0:
             interaction = {
-                "user_id"   : session['userid'],
-                "recipe_id" : request.json['recipeId'],
+                "user_id"   : ObjectId(session['userid']),
+                "recipe_id" : ObjectId(request.json['recipeId']),
                 "rating"    : new_rating,
                 "favorited" : False
             }
@@ -389,8 +404,8 @@ def ajax_favorite():
 
     #Has the user already rated or favorited this recipe?
     existing_interaction = mongo.db.ratings.find_one({
-        "user_id"   : session['userid'],
-        "recipe_id" : request.json['recipeId']
+        "user_id"   : ObjectId(session['userid']),
+        "recipe_id" : ObjectId(request.json['recipeId'])
     })
     #Update existing record
     if existing_interaction:
@@ -399,29 +414,12 @@ def ajax_favorite():
     else:
         #Create a new interaction
         interaction = {
-            "user_id"   : session['userid'],
-            "recipe_id" : request.json['recipeId'],
+            "user_id"   : ObjectId(session['userid']),
+            "recipe_id" : ObjectId(request.json['recipeId']),
             "rating"    : 0,
             "favorited" : favorite
         }
         mongo.db.ratings.insert_one(interaction)
-
-    if favorite: #If the user has just favorited the recipe, add it to the user record
-        #Get the recipe record
-        recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
-        recipe_token = {
-            "_id"    : str(recipe["_id"]),
-            "title"  : recipe["title"],
-            "pageid" : recipe["pageid"],
-            "image"  : recipe["image"]
-        }
-        #Add the recipe to the favorites list
-        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
-            {"$push" : {"favorites" : recipe_token}})
-    else:
-        #User has unfavorited the recipe, so remove it from the user record
-        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
-            {"$pull" : { "favorites" : {"_id" : request.json['recipeId']} } })
 
     return {'favorite' : favorite}
 
