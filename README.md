@@ -194,6 +194,30 @@ plumdb.users.find_one({"name": "username"})
 plumdb.users.insert_one(user-record)
 ```
 
+**Returns all the recipes a user has uploaded:**
+
+```mongodb
+plumdb.recipes.find({"author" : username})
+```
+
+**Returns all the recipes a user has favorited (for US006):**
+
+```mongodb
+plumdb.ratings.aggregate([
+	{ "$match" : {"user_id" : userid, "favorited" : True} },
+	{
+		"$lookup" : {
+			"from" : "recipes",
+			"localField" : "recipe_id",
+			"foreignField" : "_id",
+			"as": "favorites"
+		}
+	},
+	{"$unwind" : "$favorites"},
+	{"$replaceRoot" : {"newRoot" : "$favorites"}}
+])
+```
+
 ##### Searching
 
 **Finds a single recipe from it's pageid (for showing a single recipe page):**
@@ -249,22 +273,6 @@ plumdb.ratings.update_one({"_id" : interaction._id},
 ```
 
 **Favoriting a recipe (for US006):**
-
-Adding a favorite
-
-```mongodb
-plumdb.users.update_one({"_id" : user_id},
-	{"$push" : {"favorites": recipe_token}})
-```
-
-Removing a favorite
-
-```mongodb
-plumdb.users.update_one{"_id" : user_id},
-	{"$pull" : {"favorites" : {"_id" : recipe_id}}})
-```
-
-Updating the interaction record:
 
 ```mongodb
 plumdb.ratings.update_one({"_id" : existing_interaction['_id']},
