@@ -239,8 +239,7 @@ def profile(username):
                 }
             },
             {"$unwind" : "$favorites"},
-            {"$replaceRoot" : {"newRoot" : "$favorites"}
-            }
+            {"$replaceRoot" : {"newRoot" : "$favorites"}}
         ])
 
         return render_template("user_profile.html", user=user, recipes=recipes, favorites=favorites)
@@ -399,7 +398,7 @@ def ajax_favorite():
         return redirect(url_for("home"))
 
     #Checkboxes aren't included in the form data if unchecked.
-    #So if the key is in the data favorite is true, otherwise false
+    #So if the key is in the form data favorite is true, otherwise false
     favorite = ('favorite' in request.json)
 
     #Has the user already rated or favorited this recipe?
