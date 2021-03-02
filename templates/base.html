@@ -25,7 +25,7 @@
           <i class="material-icons">menu</i>
         </a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Search</a></li>
+          <li><a href="{{ url_for('search') }}">Search</a></li>
           {% if session.user %}
             <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
             <li>
@@ -49,7 +49,7 @@
     </ul>
 
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="#">Search</a></li>
+      <li><a href="{{ url_for('search') }}">Search</a></li>
       {% if session.user %}
         <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
         <li>

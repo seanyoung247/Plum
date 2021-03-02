@@ -117,9 +117,9 @@ def home():
 
 
 
-@app.route("/")
+@app.route("/search")
 def search():
-    return render_template("search.html")
+    return render_template("search.html", recipes=[])
 
 
 @app.route("/recipe/<pageid>")
