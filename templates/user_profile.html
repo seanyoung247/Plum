@@ -10,7 +10,7 @@
           {{ user.name|capitalize }}'s recipes
         </h4>
       </div>
-      <hr class="row recipe-divider">
+      <hr class="row section-divider">
       <div class="row">
         <div class="scroller col s12">
           <button class="scroll-left btn-floating btn-large btn-plum">
@@ -22,9 +22,11 @@
           <ul class="scroller-items" data-position="0">
             {% for recipe in recipes %}
               <li class="scroll-item">
-                {{ generate_item_tile(recipe.title,
-                    url_for('recipe', pageid=recipe.pageid),
-                    recipe.image) }}
+                <div class="recipe-tile">
+                  {{ generate_item_tile(recipe.title,
+                      url_for('recipe', pageid=recipe.pageid),
+                      recipe.image) }}
+                </div>
               </li>
             {% endfor %}
           </ul>
@@ -38,7 +40,7 @@
           {{ user.name|capitalize }}'s favorites
         </h4>
       </div>
-      <hr class="row recipe-divider">
+      <hr class="row section-divider">
       <div class="row">
         <div class="scroller col s12">
           <button class="scroll-left btn-floating btn-large btn-plum">
@@ -50,9 +52,11 @@
           <ul class="scroller-items" data-position="0">
             {% for recipe in favorites %}
               <li class="scroll-item">
-                {{ generate_item_tile(recipe.title,
-                    url_for('recipe', pageid=recipe.pageid),
-                    recipe.image) }}
+                <div class="recipe-tile">
+                  {{ generate_item_tile(recipe.title,
+                      url_for('recipe', pageid=recipe.pageid),
+                      recipe.image) }}
+                </div>
               </li>
             {% endfor %}
           </ul>

@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #0D0A0B;
   font-family: 'Open Sans', sans-serif;
 }
-hr {
+hr.section-divider {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(142,69,133,0), rgba(142,69,133,1), rgba(142,69,133,0));
@@ -158,7 +158,7 @@ ul.user-dropdown li > a {
   font-size: 20px;
   color: #8E4585;
 }
-/*Shows any hidden title text on hover*/
+/* Shows any hidden title text on hover */
 .card-title:hover {
   overflow: visible;
 }
@@ -171,14 +171,12 @@ ul.user-dropdown li > a {
   left: 0;
 }
 /*
- * Mini recipe icons
+ * Icons tiles
  */
 .item-tile {
   box-shadow: 1px 1px 5px #0D0A0B;
   position: relative;
   overflow: hidden;
-  height: 200px;
-  width: 200px;
 }
 .tile-image {
   position: relative;
@@ -362,6 +360,13 @@ input#recipe_image {
 .remove-list-item:hover {
   background-color: #8E4585;
   color: #F3FCF0;
+}
+/*
+ * User profile page
+ */
+.recipe-tile {
+  height: 200px;
+  width: 200px;
 }
 /*
  * Login page
