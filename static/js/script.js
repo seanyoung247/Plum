@@ -80,6 +80,7 @@ $( ".star-rating-ctl input[type=radio]" ).change(function() {
   $( "#recipe_rating_form" ).submit();
 });
 
+// Called if setting the rating was successful
 function ratingSuccess(response) {
   // Stop reading star rating while server deals with request
   $( "input", "#recipe_rating_form" ).prop('disabled', false);
@@ -92,12 +93,14 @@ function ratingSuccess(response) {
 /*
  * Recipe favoriting
  */
+// Submits the favorite to the server
 $( "#recipe_favorite_form" ).submit(function(event) {
   event.preventDefault();
   // There's no real need for a callback here
   submitFormAJAX(event, null);
 });
 
+// Binds favorite form submit to the favorite control change event
 $( "#recipe_favorite input[type=checkbox]" ).on('change', function(event) {
   $( '#recipe_favorite_form' ).submit();
 });
