@@ -70,7 +70,7 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         rating = [0.0,0,0,0,0,0]
         comments = []
         recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
-        author = {"name" : session['user'], "user_id" : session['userid']}
+        author = session['user']
     else:
         rating = recipe['rating']
         comments = recipe['comments']
@@ -95,11 +95,7 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         "description" : form_data.get('description'),
         "image" : form_data.get('image'),
         "cuisine" : form_data.get('cuisine'),
-        "time" : {
-            "total" : ( (int(time[0]) * 3600) + (int(time[1]) * 60) ),
-            "hours" : time[0],
-            "minutes" : time[1]
-        },
+        "time" : ( (int(time[0]) * 60) + int(time[1]) ),
         "servings" : form_data.get('servings'),
         "rating" : rating,
         "ingredients" : form_data.getlist('ingredients'),
@@ -229,6 +225,9 @@ def profile(username):
     """Checks if user exists and returns their profile page."""
     user = mongo.db.users.find_one({"name" : username})
     if user:
+        #Get list of recipes uploaded by this user
+
+        #Get recipes favorited by this user
         return render_template("user_profile.html", user=user)
     else:
         return abort(404)
@@ -437,7 +436,7 @@ def ajax_comment():
     if len(request.json['comment']) > 0:
         #Construct the new comment record:
         comment = {
-            "author" : { "name" : session["user"], "user_id" : session["userid"] },
+            "author" : session["user"],
             "text"   : request.json['comment']
         }
         mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
