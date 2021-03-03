@@ -116,10 +116,12 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
-
 @app.route("/search")
 def search():
-    return render_template("search.html", recipes=[])
+    """Shows the search page and results."""
+    #Get the cuisines for the category search
+    cuisines = mongo.db.cuisines.find().sort("name", 1)
+    return render_template("search.html", recipes=[], cuisines=cuisines)
 
 
 @app.route("/recipe/<pageid>")
