@@ -7,12 +7,10 @@
       <h4 class="section-header col s12">Latest Recipes</h4>
       <hr class="col s12 section-divider"/>
     </div>
-    {% for row in recipes|batch(4) %}
-      <div class="row">
-        {% for recipe in row %}
-          {{ generate_recipe_card(recipe) }}
-        {% endfor %}
-      </div>
-    {% endfor %}
+    <div class="row">
+      {% for recipe in recipes %}
+        {{ generate_recipe_card(recipe) }}
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
