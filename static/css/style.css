@@ -203,9 +203,6 @@ ul.user-dropdown li > a {
   left: 0;
   bottom: 0;
   right: 0;
-
-  color: #F3FCF0;
-  font-size: 20px;
   padding: 10px;
   white-space: normal;
 }
@@ -366,12 +363,33 @@ input#recipe_image {
   color: #F3FCF0;
 }
 /*
+ * Search page
+ */
+.search-col {
+  padding:0;
+}
+.search-tile {
+  position: relative;
+  width: 175px;
+  height: 175px;
+  background-color: #8E4585;
+  margin: 10px auto;
+}
+.search-tile .tile-title {
+  color: #F3FCF0;
+  font-size: 20px;
+}
+/*
  * User profile page
  */
 .recipe-tile {
   position: relative;
   height: 200px;
   width: 200px;
+}
+.recipe-tile .tile-title {
+  color: #F3FCF0;
+  font-size: 20px;
 }
 /*
  * Login page
@@ -514,11 +532,12 @@ li.scroll-item {
 /*
  * Media Queries
  */
-/* Very small screens and down */
-@media only screen and (max-width: 274px) {
-  /* Don't show brand title on really small screens */
-  .brand-title {
-    display: none;
+/* Stops recipe tiles getting larger than the scroller bounds,
+   which leads to some problems with scrolling */
+@media only screen and (max-width: 360px) {
+  .recipe-tile {
+    height: 150px;
+    width: 150px;
   }
 }
 /* Large screens and up */
