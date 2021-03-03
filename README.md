@@ -23,6 +23,7 @@ Plum is a recipe sharing website designed to help users find recipes and share t
       - [Rating Collection](#Rating-Collection)
       - [Units Collection](#Units-Collection)
       - [Cuisine Collection](#Cuisine-Collection)
+    - [Relationships](#Relationships)
     - [Indexes](#Indexes)
     - [Queries](#Queries)
       - [Browsing](#Browsing)
@@ -146,6 +147,8 @@ Enumerates cuisine types.
 | _id        | Record id                |
 | name       | Name of the cuisine type |
 
+#### Relationships
+
 #### Indexes
 
 **recipes:**
@@ -200,7 +203,7 @@ plumdb.users.insert_one(user-record)
 plumdb.recipes.find({"author" : username})
 ```
 
-**Returns all the recipes a user has favorited (for US006):**
+**Returns all the recipes a user has favourited (for US006):**
 
 ```mongodb
 plumdb.ratings.aggregate([
@@ -272,7 +275,7 @@ plumdb.ratings.update_one({"_id" : interaction._id},
 })
 ```
 
-**Favoriting a recipe (for US006):**
+**Favouriting a recipe (for US006):**
 
 ```mongodb
 plumdb.ratings.update_one({"_id" : existing_interaction['_id']},
@@ -285,7 +288,7 @@ plumdb.ratings.update_one({"_id" : existing_interaction['_id']},
 plumdb.recipes.update_one({"_id" : recipeId}
 {
 	"$push" : { "comments" : {
-		"author" : user_token,
+		"author" : username,
 		"text" : comment		
 	}}
 })
@@ -330,6 +333,7 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 - Plum (#8E4585) - Accent colour
 - Honeydew (#F3FCF0) - Background colour
 - Rich Black (#0D0A0B) - Main text colour
+- White - As a background to bring out some sections
 
 ### Layout
 
@@ -351,11 +355,11 @@ Branches were used to add new features for testing without affecting the main br
 
 #### Creating a branch
 
-Selecting a branch
+#### Selecting a branch
 
-Merging a branch
+#### Merging a branch
 
-Deleting a branch
+#### Deleting a branch
 
 ### Github Desktop
 
