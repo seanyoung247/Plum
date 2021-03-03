@@ -19,7 +19,8 @@
           <button class="scroll-right btn-floating btn-large btn-plum">
             <i class="material-icons">chevron_right</i>
           </button>
-          <ul class="scroller-items" data-position="0">
+          <ul class="scroller-items">
+            <li class="scroll-item-bookend"></li>
             {% for recipe in recipes %}
               <li class="scroll-item">
                 <div class="recipe-tile">
@@ -29,6 +30,7 @@
                 </div>
               </li>
             {% endfor %}
+            <li class="scroll-item-bookend"></li>
           </ul>
         </div>
       </div>
@@ -49,7 +51,8 @@
           <button class="scroll-right btn-floating btn-large btn-plum">
             <i class="material-icons">chevron_right</i>
           </button>
-          <ul class="scroller-items" data-position="0">
+          <ul class="scroller-items">
+            <li class="scroll-item-bookend"></li>
             {% for recipe in favorites %}
               <li class="scroll-item">
                 <div class="recipe-tile">
@@ -59,6 +62,7 @@
                 </div>
               </li>
             {% endfor %}
+            <li class="scroll-item-bookend"></li>
           </ul>
         </div>
       </div>

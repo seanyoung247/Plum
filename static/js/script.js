@@ -167,43 +167,36 @@ function submitFormAJAX(event, callbackSuccess) {
  */
 // Scrolls one "page" left (backwards)
 $( ".scroller .scroll-left" ).click(function(event) {
-  let scroller = $( this ).siblings(".scroller-items");
-  let scrollItem = scroller.children(".scroll-item");
-  // Next page position = current page position - items in a page (scroll backwards)
-  let itemPosition = parseInt(scroller.attr("data-position"))
-  // If we're at the beginning of the list wrap around to the end
-  if (itemPosition <= 0) itemPosition = scrollItem.length;
-  else itemPosition -= Math.floor(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
-  // Update data position so we know where we are in the list
-  scroller.attr("data-position", itemPosition);
-  // Animate the scroll
-  scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
+  let scroller = $( this ).siblings( ".scroller-items" );
+  let scrollItem = scroller.children( ".scroll-item" );
+  let scrollEndItem = scroller.children( ".scroll-item-bookend" );
+  let scrollPosition = scroller.get(0).scrollWidth;
+  // If we're at the beginning of the items, move back one page
+  if (scroller.scrollLeft() > 0) {
+    // Which item is left most?
+    let leftMostItem = Math.ceil((scroller.scrollLeft()) / scrollItem.outerWidth());
+    // How many items comprise a page?
+    let pageItemWidth = Math.floor(scroller.width() / scrollItem.outerWidth());
+    // Advance to new scrollPosition
+    scrollPosition = ((leftMostItem - pageItemWidth) * scrollItem.outerWidth());
+  }
+  scroller.animate({scrollLeft: scrollPosition}, 500);
 });
 
 // Scrolls one "page" right (forwards)
 $( ".scroller .scroll-right" ).click(function(event) {
-  let scroller = $( this ).siblings(".scroller-items");
-  let scrollItem = scroller.children(".scroll-item");
-  // Next page position = current page position + items in a page (scroll forwards)
-  let itemPosition = parseInt(scroller.attr("data-position")) +
-    Math.round(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
-  // If we're at the end of the list wrap around to the beginning
-  if (itemPosition >= scrollItem.length) itemPosition = 0;
-  // Update data position so we know where we are in the list
-  scroller.attr("data-position", itemPosition);
-  // Animate the scroll
-  scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
-});
-
-// Updates scroller position when scrolling has finished
-$( ".scroller .scroller-items" ).scroll(function() {
-  clearTimeout($(this).data("scroller-scrollTimer"));
-  // Fires 250ms after the last scroll event
-  $( this ).data("scroller-scrollTimer", setTimeout(() => {
-    // Get the first full item shown in the scroller
-    itemPosition = Math.round($( this ).scrollLeft() /
-      $( this ).children(".scroll-item").outerWidth());
-    // Update the scroll position
-    $( this ).attr("data-position", itemPosition);
-  }, 250));
+  let scroller = $( this ).siblings( ".scroller-items" );
+  let scrollItem = scroller.children( ".scroll-item" );
+  let scrollEndItem = scroller.children( ".scroll-item-bookend" );
+  let scrollPosition = 0;
+  // If we're not at the end of the items move to the next page
+  if ((scroller.scrollLeft() + scroller.width() + scrollEndItem.outerWidth()) < scroller.get(0).scrollWidth) {
+    // Which item is left most?
+    let leftMostItem = Math.floor((scroller.scrollLeft()) / scrollItem.outerWidth());
+    // How many items comprise a page?
+    let pageItemWidth = Math.floor(scroller.width() / scrollItem.outerWidth());
+    // Advance to new scrollPosition
+    scrollPosition = ((leftMostItem + pageItemWidth) * scrollItem.outerWidth());
+  }
+  scroller.animate({scrollLeft: scrollPosition}, 500);
 });

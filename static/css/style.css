@@ -175,7 +175,11 @@ ul.user-dropdown li > a {
  */
 .item-tile {
   box-shadow: 1px 1px 5px #0D0A0B;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 .tile-image {
@@ -365,6 +369,7 @@ input#recipe_image {
  * User profile page
  */
 .recipe-tile {
+  position: relative;
   height: 200px;
   width: 200px;
 }
@@ -485,8 +490,14 @@ li.scroll-item {
   font-size: 1rem;
   display: inline-block;
   text-align: center;
-
   padding: 10px;
+}
+.scroll-item-bookend {
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  width: 25px;
 }
 .scroller .scroll-left {
   position: absolute;
