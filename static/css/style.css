@@ -494,18 +494,10 @@ footer {
    but with scrollbars hidden */
 ul.scroller-items {
   list-style-type: none;
-  overflow: scroll;
+  overflow: hidden; /*scroll;*/
   white-space: nowrap;
   font-size: 0;
   padding: 0;
-  /* Removes scrollbars in firefox */
-  scrollbar-width: none;
-  /* Removes scrollbars in IE 10+ */
-  -ms-overflow-style: none;
-}
-/* Removes scrollbars in webkit browsers */
-ul.scroller-items::-webkit-scrollbar {
-  display: none;
 }
 li.scroll-item {
   font-size: 1rem;
@@ -517,7 +509,6 @@ li.scroll-item {
   font-size: 1rem;
   display: inline-block;
   text-align: center;
-  height: 100%;
   width: 25px;
 }
 .scroller .scroll-left {
