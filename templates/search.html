@@ -18,9 +18,9 @@
               <input name="cuisine" type="hidden" value="{{ cuisine.name }}">
               <button type="submit">
                 {{ generate_item_tile(
-                  cuisine.name|capitalize(),
-                  url_for('static', filename=("/images/categories/sm-"
-                    + cuisine.name|replace(' ', '-') + ".jpg"))
+                    cuisine.name|capitalize(),
+                    url_for('static', filename=("/images/categories/sm-"
+                      + cuisine.name|replace(' ', '-') + ".jpg"))
                 ) }}
               </button>
             </form>
@@ -29,7 +29,15 @@
       {% else %}
         {% if recipes.count() > 0 %}
           {% for recipe in recipes %}
-            {{ recipe }}
+            <div class="search-col col s12 m6 l4 xl3">
+              <div class="search-tile">
+                {{ generate_item_tile(
+                    recipe.title,
+                    recipe.image,
+                    url_for('recipe', pageid=recipe.pageid)
+                ) }}
+              </div>
+            </div>
           {% endfor %}
         {% else %}
           No recipes found
