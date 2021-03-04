@@ -42,8 +42,7 @@ $( "#ingredients .add-list-item" ).click(function(event) {
 $( "#steps .add-list-item" ).click(function(event) {
   let listItem =  `<li class='collection-item'>
                     <div class='input-field'>
-                      <textarea name='steps' class='materialize-textarea' required>
-                      </textarea>
+                      <textarea name='steps' class='materialize-textarea' required></textarea>
                     </div>
                     <a class='remove-list-item'><i class='material-icons'>clear</i></a>
                   </li>`;
