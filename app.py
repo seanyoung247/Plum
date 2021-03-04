@@ -121,7 +121,15 @@ def search():
     """Shows the search page and results."""
     if request.method == "POST":
         #Construct the search query
-        recipes = mongo.db.recipes.find({"cuisine" : request.form["cuisine"]})
+        if "cuisine" in request.form:
+            recipes = mongo.db.recipes.find({"cuisine" : request.form["cuisine"]})
+        elif "search-text" in request.form:
+            recipes = mongo.db.recipes.find({
+                "$text" : {
+                    "$search" : request.form["search-text"],
+                    "$caseSensitive" : False
+                }
+            })
     else:
         #Indicates no search was conducted
         recipes = None

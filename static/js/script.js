@@ -48,14 +48,10 @@ $( "#steps .add-list-item" ).click(function(event) {
                   </li>`;
   $( this ).parent().before(listItem);
 });
-//Shows the current selected image in the image box
-$( "#recipe_image" ).on('change', function(event){
-  $( '#recipe_header_image' ).attr("src", $( this ).val())
-});
 
 // Shows the current selected image in the image box
 $( "#recipe_image" ).on('change', function(event){
-  $( '#recipe_header_image' ).prop("src", $( this ).val());
+  $( '#recipe_header_image' ).prop("src", $( this ).val())
 });
 
 /*
@@ -187,7 +183,8 @@ $( ".scroller .scroll-left" ).click(function(event) {
 $( ".scroller .scroll-right" ).click(function(event) {
   let scroller = $( this ).siblings( ".scroller-items" );
   let scrollItemWidth = scroller.children( ".scroll-item" ).outerWidth();
-  let scrollEndPosition = scroller.scrollLeft() + scroller.width() + scroller.children( ".scroll-item-bookend" ).outerWidth();
+  let scrollEndPosition = scroller.scrollLeft() + scroller.width() +
+    scroller.children( ".scroll-item-bookend" ).outerWidth();
   let scrollPosition = 0;
   // If we're not at the end of the items move to the next page
   if (scrollEndPosition < (scroller.get(0).scrollWidth - 1)) {
