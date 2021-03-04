@@ -10,18 +10,32 @@
     </div>
 
     <div class="row">
-      {% for cuisine in cuisines %}
-        <div class="search-col col s12 m6 l4 xl3">
-          <div class="search-tile">
-            {{ generate_item_tile(
-              cuisine.name|capitalize(),
-              "url_for('/search')",
-              url_for('static', filename=("/images/categories/sm-"
-                + cuisine.name|replace(' ', '-') + ".jpg"))
-            ) }}
+      {# Only display categories if no search was conducted #}
+      {% if recipes is none %}
+        {% for cuisine in cuisines %}
+          <div class="search-col col s12 m6 l4 xl3">
+            <form class="search-tile" method="POST" action="{{ url_for('search') }}">
+              <input name="cuisine" type="hidden" value="{{ cuisine.name }}">
+              <button type="submit">
+                {{ generate_item_tile(
+                  cuisine.name|capitalize(),
+                  url_for('static', filename=("/images/categories/sm-"
+                    + cuisine.name|replace(' ', '-') + ".jpg"))
+                ) }}
+              </button>
+            </form>
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        {% if recipes.count() > 0 %}
+          {% for recipe in recipes %}
+            {{ recipe }}
+          {% endfor %}
+        {% else %}
+          No recipes found
+        {% endif %}
+      {% endif %}
     </div>
+
   </div>
 {% endblock %}
