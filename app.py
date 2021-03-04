@@ -116,12 +116,19 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
     """Shows the search page and results."""
+    if request.method == "POST":
+        #Construct the search query
+        recipes = mongo.db.recipes.find({"cuisine" : request.form["cuisine"]})
+    else:
+        #Indicates no search was conducted
+        recipes = None
+
     #Get the cuisines for the category search
     cuisines = mongo.db.cuisines.find().sort("name", 1)
-    return render_template("search.html", recipes=[], cuisines=cuisines)
+    return render_template("search.html", recipes=recipes, cuisines=cuisines)
 
 
 @app.route("/recipe/<pageid>")
@@ -181,7 +188,7 @@ def add_recipe():
         "title" : "",
         "description" : "",
         "image" : url_for('static', filename="images/categories/new-recipe.jpg"),
-        "time"  : {"hours" : "00", "minutes" : "00"},
+        "time"  : 0,
         "servings" : "0",
         "ingredients" : [],
         "steps" : []
@@ -206,7 +213,7 @@ def edit_recipe(pageid):
         return abort(404)
 
     #Check the currently logged in user has rights to edit this recipe
-    if (session['userid'] != recipe['author']['user_id'] and session['userrole'] != "admin"):
+    if (session['user'] != recipe['author'] and session['userrole'] != "admin"):
         flash("You don't have authorisation to edit this recipe", category="error")
         return redirect(url_for("home"))
 
