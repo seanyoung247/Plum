@@ -23,12 +23,16 @@
   </div>
 {% endmacro %}
 
-{% macro generate_item_tile(title, link, image) %}
+{% macro generate_item_tile(title, image, link=none) %}
   <div class="item-tile">
-    <a href="{{ link }}">
+    {% if link is not none %}
+      <a href="{{ link }}">
+    {% endif %}
       <img class="tile-image" src="{{ image }}" alt="">
       <span class="tile-overlay"></span>
       <span class="tile-title">{{ title }}</span>
-    </a>
+    {% if link is not none %}
+      </a>
+    {% endif %}
   </div>
 {% endmacro %}

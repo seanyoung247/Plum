@@ -24,9 +24,10 @@
             {% for recipe in recipes %}
               <li class="scroll-item">
                 <div class="recipe-tile">
-                  {{ generate_item_tile(recipe.title,
-                      url_for('recipe', pageid=recipe.pageid),
-                      recipe.image) }}
+                  {{ generate_item_tile(
+                      recipe.title,
+                      recipe.image,
+                      url_for('recipe', pageid=recipe.pageid)) }}
                 </div>
               </li>
             {% endfor %}
@@ -56,9 +57,10 @@
             {% for recipe in favorites %}
               <li class="scroll-item">
                 <div class="recipe-tile">
-                  {{ generate_item_tile(recipe.title,
-                      url_for('recipe', pageid=recipe.pageid),
-                      recipe.image) }}
+                  {{ generate_item_tile(
+                      recipe.title,
+                      recipe.image,
+                      url_for('recipe', pageid=recipe.pageid)) }}
                 </div>
               </li>
             {% endfor %}

@@ -379,6 +379,9 @@ input#recipe_image {
   color: #F3FCF0;
   font-size: 20px;
 }
+.search-tile .item-tile {
+  cursor: pointer;
+}
 /*
  * User profile page
  */
