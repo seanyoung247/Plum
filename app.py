@@ -1,4 +1,5 @@
 import os
+from functools import wraps
 from flask import ( Flask, flash, render_template, redirect,
                     request, session, url_for, abort)
 from flask_pymongo import PyMongo
@@ -24,6 +25,18 @@ mongo = PyMongo(app)
 #
 # Helper functions
 #
+def requires_logged_in_user(func):
+    """ Disables a wrapped route if not developing """
+    @wraps(func)
+    def route(*args, **kwargs):
+        if user_logged_in():
+            return func(*args, **kwargs)
+        else:
+            flash("You need to be logged in to access that page!", category="error")
+            return redirect(url_for("login"))
+
+    return route
+
 def user_logged_in():
     """Returns whether a user is currently logged in"""
     if session.get("user") is None:
@@ -164,12 +177,9 @@ def recipe(pageid):
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
+@requires_logged_in_user
 def add_recipe():
     """Shows the add recipe form and adds new recipe documents to the database."""
-    #Only logged in users can
-    if not user_logged_in():
-        flash("You need to be logged in to add recipes!", category="error")
-        return redirect(url_for("home"))
 
     if request.method == "POST":
         #construct new recipe record
@@ -208,12 +218,9 @@ def add_recipe():
 
 
 @app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
+@requires_logged_in_user
 def edit_recipe(pageid):
     """Shows the edit recipe form and adds changes to existing recipe document."""
-    #Only logged in users can edit recipes
-    if not user_logged_in():
-        flash("You need to be logged in to edit recipes!", category="error")
-        return redirect(url_for("home"))
 
     #Get the recipe to be edited
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
@@ -334,12 +341,12 @@ def login():
 
 
 @app.route("/logout")
+@requires_logged_in_user
 def logout():
     """Logs the current user out."""
-    if user_logged_in():
-        flash("User " + session["user"] + " Logged out", category="information")
-        #remove user from session
-        log_user_out()
+    flash("User " + session["user"] + " Logged out", category="information")
+    #remove user from session
+    log_user_out()
 
     return redirect(url_for("home"))
 
@@ -348,11 +355,9 @@ def logout():
 # AJAX/Update routes
 #
 @app.route("/ajax_rating", methods=['POST'])
+@requires_logged_in_user
 def ajax_rating():
     """Accepts an AJAX request for a recipe rating and updates the recipe document."""
-    if not user_logged_in():
-        flash("You need to be logged in to rate recipes!", category="error")
-        return redirect(url_for("home"))
 
     #Check whether this user has already rated this recipe
     existing_interaction = mongo.db.ratings.find_one({
@@ -414,12 +419,9 @@ def ajax_rating():
 
 
 @app.route("/ajax_favorite", methods=['POST'])
+@requires_logged_in_user
 def ajax_favorite():
     """Accepts AJAX requests for a favorite toggle and updates the database."""
-    if not user_logged_in():
-        flash("You need to be logged in to favorite recipes!", category="error")
-        return redirect(url_for("home"))
-
     #Checkboxes aren't included in the form data if unchecked.
     #So if the key is in the form data favorite is true, otherwise false
     favorite = ('favorite' in request.json)
@@ -447,12 +449,9 @@ def ajax_favorite():
 
 
 @app.route("/ajax_comment", methods=['POST'])
+@requires_logged_in_user
 def ajax_comment():
     """Adds a comment to a recipe document from AJAX requests"""
-    if not user_logged_in():
-        flash("You need to be logged in to comment on recipes!", category="error")
-        return redirect(url_for("home"))
-
     if len(request.json['comment']) > 0:
         #Construct the new comment record:
         comment = {
