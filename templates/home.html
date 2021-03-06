@@ -9,7 +9,9 @@
     </div>
     <div class="row">
       {% for recipe in recipes %}
-        {{ generate_recipe_card(recipe) }}
+        <div class="col s12 m6 l4 xl3">
+          {{ generate_recipe_card(recipe) }}
+        </div>
       {% endfor %}
     </div>
   </div>

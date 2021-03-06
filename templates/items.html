@@ -1,24 +1,21 @@
 {% from "star-rating.html" import generate_star_rating_display %}
 
 {% macro generate_recipe_card(recipe) %}
-  <div class="col s12 m6 xl3">
-    <div class="card">
-      <div class="card-image">
-        <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
-          <img src="{{ recipe.image }}" alt="{{ recipe.title }} header image">
-        </a>
-      </div>
-      <div class="card-content">
-        <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
-          <span class="card-title" data-expand="{{ recipe.title }}">
-            {{ recipe.title }}
-          </span>
-        </a>
-        <span class="card-recipe-rating">
-          {{ generate_star_rating_display(recipe.rating[0], false) }}
+  <div class="card">
+    <div class="card-image">
+      <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
+        <img src="{{ recipe.image }}" alt="{{ recipe.title }} header image">
+      </a>
+    </div>
+    <div class="card-content">
+      <a href="{{ url_for('recipe', pageid=recipe.pageid) }}">
+        <span class="card-title" data-expand="{{ recipe.title }}">
+          {{ recipe.title }}
         </span>
-
-      </div>
+      </a>
+      <span class="card-recipe-rating">
+        {{ generate_star_rating_display(recipe.rating[0], false) }}
+      </span>
     </div>
   </div>
 {% endmacro %}
