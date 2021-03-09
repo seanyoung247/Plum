@@ -1,4 +1,5 @@
 import os
+from helpers import *
 from functools import wraps
 from flask import ( Flask, flash, render_template, redirect,
                     request, session, url_for, abort)
@@ -21,12 +22,8 @@ DEBUGGING = (os.environ.get("DEBUGGING").lower() == "true")
 
 mongo = PyMongo(app)
 
-
-#
-# Helper functions
-#
 def requires_logged_in_user(func):
-    """ Disables a wrapped route if not developing """
+    """ Disables a wrapped route if user is not logged in """
     @wraps(func)
     def route(*args, **kwargs):
         if user_logged_in():
@@ -37,85 +34,18 @@ def requires_logged_in_user(func):
 
     return route
 
-def user_logged_in():
-    """Returns whether a user is currently logged in"""
-    if session.get("user") is None:
-        return False
-    else:
-        return True
 
+def requires_user_not_logged_in(func):
+    """ Disables a wrapped route if user is logged in """
+    @wraps(func)
+    def route(*args, **kwargs):
+        if not user_logged_in():
+            return func(*args, **kwargs)
+        else:
+            flash("User logged in!", category="error")
+            return redirect(url_for("login"))
 
-def log_user_in(user):
-    """Registers logged in user into the session"""
-    session["user"] = user["name"]
-    session["userid"] = str(user["_id"])
-    session["userrole"] = user["role"]
-
-
-def log_user_out():
-    """Removes the current user from the session"""
-    session.pop("user")
-    session.pop("userid")
-    session.pop("userrole")
-
-
-def calculate_rating(rating):
-    """Calculates overall rating from rating array."""
-    #Uses a simple averaging formula. A refinement could be to replace this with
-    #a weighted formula. For instance giving greater weight for more popular options.
-    cumulative = 0
-    weight = 0
-    for i in range(1,6):
-        cumulative += rating[i] * i
-        weight += rating[i]
-
-    if weight > 0 and cumulative > 0:
-        return cumulative / weight
-    else:
-        return 0
-
-
-def create_recipe_record(form_data, recipe = {}, new_pageid = True):
-    """Creates a new recipe record from formdata and any existing recipe document"""
-    #carry over any existing values that shouldn't be reset
-    if recipe == {}:
-        new_pageid = True
-        rating = [0.0,0,0,0,0,0]
-        comments = []
-        recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
-        author = session['user']
-    else:
-        rating = recipe['rating']
-        comments = recipe['comments']
-        recipe_date = recipe['date']
-        author = recipe['author']
-
-    #Generate pageid field
-    if new_pageid:
-        pageid = urlparse(
-            (form_data.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
-        ).path
-    else:
-        pageid = recipe['pageid']
-
-    #construct new recipe record
-    time = form_data.get("time").split(":")
-    recipe = {
-        "pageid" : pageid,
-        "title" : form_data.get('title'),
-        "author" : author,
-        "date" : recipe_date,
-        "description" : form_data.get('description'),
-        "image" : form_data.get('image'),
-        "cuisine" : form_data.get('cuisine'),
-        "time" : ( (int(time[0]) * 60) + int(time[1]) ),
-        "servings" : form_data.get('servings'),
-        "rating" : rating,
-        "ingredients" : form_data.getlist('ingredients'),
-        "steps" : form_data.getlist('steps'),
-        "comments" : comments
-    }
-    return recipe
+    return route
 
 
 #
@@ -278,13 +208,9 @@ def profile(username):
 
 
 @app.route("/register", methods=["GET", "POST"])
+@requires_user_not_logged_in
 def register():
     """Shows the register user page and adds a new user to the database."""
-    #Don't need to log in if user is already logged in..
-    if user_logged_in():
-        flash("User already logged in!", category="information")
-        return redirect(url_for("home"))
-
     if request.method == "POST":
         #check username doesn't already exist in the db
         existing_user = mongo.db.users.find_one(
@@ -312,13 +238,9 @@ def register():
 
 
 @app.route("/login", methods=["GET", "POST"])
+@requires_user_not_logged_in
 def login():
     """Shows the user login page and logs an existing user in."""
-    #Don't need to log in if user is already logged in..
-    if user_logged_in():
-        flash("User already logged in!", category="information")
-        return redirect(url_for("home"))
-
     if request.method == "POST":
         #check if username exists in db
         existing_user = mongo.db.users.find_one(
