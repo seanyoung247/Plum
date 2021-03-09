@@ -71,14 +71,19 @@ TBC
 - (US008) - As a recipe creator I want to gain feedback on my recipes so I can discover improvements.
 - (US009) - As a recipe creator I want to be able to edit a recipe I've posted so I can improve it.
 
+**Users**
+
+- (US010) - As a new user I want to be able to register with the site so that I can upload new recipes and track my favourites.
+- (US011) - As a registered user I want to be able to log into my account so that I can access my recipes and favourites.
+
 **Administration**
 
-- (US010) - As an admin I want to be able to edit content to ensure it adheres to site rules.
-- (US011) - As an admin I want to be able to add cuisine categories so users can search efficiently.
+- (US012) - As an admin I want to be able to edit content to ensure it adheres to site rules.
+- (US013) - As an admin I want to be able to add cuisine categories so users can search efficiently.
 
 **General**
 
-- (US012) - As a user I want to receive clear feedback for my actions so I know if any further action is required.
+- (US014) - As a user I want to receive clear feedback for my actions so I know if any further action is required.
 
 ##  Design
 
@@ -186,12 +191,12 @@ plumdb.ratings.find_one({"user_id" : user['userid'], "recipe_id" : recipe['_id']
 
 ##### Users
 
-**Returns a specific user account based on username:**
+**Returns a specific user account based on username (US011):**
 
 ```mongodb
 plumdb.users.find_one({"name": "username"})
 ```
-**Inserts a new user account into the database:**
+**Inserts a new user account into the database (US010):**
 
 ```mongodb
 plumdb.users.insert_one(user-record)
