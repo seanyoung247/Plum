@@ -69,6 +69,9 @@ hr.section-divider {
 .btn-plum:hover {
   background-color: #9F54B0;
 }
+.select-dropdown {
+  max-height: 50vh;
+}
 
 /*
  * Header and Navigation
@@ -416,9 +419,6 @@ input#recipe_image {
   flex-wrap: wrap;
   justify-content: center;
 }
-.select-dropdown {
-  max-height: 50vh;
-}
 .search-tile {
   display: inline-block;
   position: relative;
@@ -433,6 +433,15 @@ input#recipe_image {
 }
 .search-tile .item-tile {
   cursor: pointer;
+}
+/* Gives the icons a zoom effect. */
+.search-tile:hover {
+  width: 185px;
+  height: 185px;
+  margin: 0;
+}
+.search-tile:hover .tile-title {
+  padding: 15px;
 }
 /*
  * User profile page
@@ -542,8 +551,6 @@ footer {
   overflow: hidden;
   padding: 0 25px;
 }
-/* overflow set to scroll allowing touch scrolling,
-   but with scrollbars hidden */
 ul.scroller-items {
   list-style-type: none;
   overflow: hidden; /*scroll;*/
