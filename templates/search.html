@@ -4,28 +4,54 @@
 {% block content %}
   <div class="container vpad">
     <div class="row">
-      <div class="col s12">
-        <form  method="POST" action="">
+      <form class="col s12 l8 offset-l2"  method="POST" action="{{ url_for('search') }}">
+        <div id="basic_search_pane" class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">search</i>
+            <input id="search-text" name="search-text" type="text">
+            <label for="search-text">Search</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <a id="advanced_search">Advanced Search</a>
+          </div>
+        </div>
+        {# Advanced search options #}
+        <div id="advanced_search_pane" class="row">
+
+          {# cuisine, rating, servings, time #}
+          <div class="input-field col s6">
+            <select name="cuisine">
+              {% for cuisine in cuisines %}
+                <option value="{{ cuisine.name }}">
+                  {{- cuisine.name|capitalize -}}
+                </option>
+              {% endfor %}
+            </select>
+            <label>Cuisine type</label>
+          </div>
+
+          {# Servings search #}
+          <div class="input-field col s6 m3">
+            <i class="material-icons prefix">restaurant</i>
+            <input name="servings" type="number" id="recipe_servings" min="0">
+            <label for="recipe_servings">Servings</label>
+          </div>
+
+          {# Time search #}
+          <div class="input-field col s6 m3">
+            <i class="material-icons prefix">access_time</i>
+            <input name="time" id="recipe_time" type="text" class="timepicker"
+              value="00:00">
+            <label for="recipe_time">Max Time</label>
+          </div>
 
           <div class="row">
-            <div class="input-field col s12 l8 offset-l2">
-              <i class="material-icons prefix">search</i>
-              <input id="search-text" name="search-text" type="text" required>
-              <label for="search-text">Search</label>
-            </div>
+            <input class="col s6 offset-s3 btn-small" type="submit">
           </div>
-          <div class="row"><a id="" class="col s12">Advanced Search</a></div>
-          {# Advanced search options #}
-          <div class="row">
-            <div class="col s12">
-              <a class="btn-small">
-
-              </a>
-            </div>
-          </div>
-
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
 
     <div class="row">
