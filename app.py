@@ -37,43 +37,82 @@ def home():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """Shows the search page and results."""
+    pages = {}
+    query = {}
+    form_query = []
+    recipes = None
+    items_per_page = 10
+
     if request.method == "POST":
         #Construct the search query
-        query = {}
-
         if "cuisine" in request.form and request.form["cuisine"]:
             query["cuisine"] = request.form["cuisine"]
+            form_query.append({
+                "key" : "cuisine",
+                "value" : request.form["cuisine"]
+            })
 
         if "servings" in request.form and request.form["servings"]:
             query["servings"] = int(request.form["servings"])
+            form_query.append({
+                "key" : "servings",
+                "value" : request.form["servings"]
+            })
 
         if "time" in request.form and request.form["time"]:
             time = request.form["time"].split(":")
             minutes = ( (int(time[0]) * 60) + int(time[1]) )
             if minutes > 0:
                 query["time"] = { "$lte" : minutes }
+                form_query.append({
+                    "key" : "time",
+                    "value" : request.form["time"]
+                })
 
         if "rating" in request.form and request.form["rating"]:
             rating = int(request.form["rating"])
             query["rating"] = { "$gte" : rating }
+            form_query.append({
+                "key" : "rating",
+                "value" : request.form["rating"]
+            })
 
         if "search-text" in request.form and request.form["search-text"]:
             query["$text"] = {
                 "$search" : request.form["search-text"],
                 "$caseSensitive" : False
             }
+            form_query.append({
+                "key" : "search-text",
+                "value" : request.form["search-text"]
+            })
 
         #Only search if at least one field has been passed.
         if query:
-            recipes = mongo.db.recipes.find(query)
+             #Get page details
+            if "page" in request.form and request.form["page"]:
+                pages["current_page"] = int(request.form["page"])
+                pages["page_count"] = int(request.form["page_count"])
+                pages["total_items"] = int(request.form["total_items"])
+            else:
+                pages["total_items"] = mongo.db.recipes.count_documents(query)
+                pages["current_page"] = 0
+                pages["page_count"] = int(pages["total_items"] / items_per_page)
 
-    else:
-        #Indicates no search was conducted
-        recipes = None
+            if pages["total_items"] > 0:
+                #Get the page
+                recipes = mongo.db.recipes.find(query).skip(
+                    pages["current_page"] * items_per_page).limit(items_per_page)
+
+                print(pages["total_items"])
+                print(pages["current_page"])
+                print(pages["page_count"])
+                print(pages["current_page"] * items_per_page)
+
 
     #Get the cuisines for the category search
     cuisines = list(mongo.db.cuisines.find().sort("name", 1))
-    return render_template("search.html", recipes=recipes, cuisines=cuisines)
+    return render_template("search.html", cuisines=cuisines, query=form_query, pages=pages, recipes=recipes)
 
 
 @app.route("/recipe/<pageid>")
