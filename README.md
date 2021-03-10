@@ -473,7 +473,7 @@ Github desktop will automatically flag unmerged changes in the current repositor
 
 ### Media
 <details>
-<summary>The cuisine category images were obtained from [unsplash](https://unsplash.com/) and edited by Sean Young.</summary>
+<summary>The cuisine category images were obtained from <a href="https://unsplash.com/">unsplash</a> and edited by Sean Young.</summary>
 
 - [African](https://unsplash.com/photos/k2ZCm7LCj8E) - photograph by [Louis Hansel](https://unsplash.com/@louishansel)
 - [American](https://unsplash.com/photos/MH_lBTvkvPM) - photograph by [Kelly Visel](https://unsplash.com/@kellyvisel)
