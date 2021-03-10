@@ -365,15 +365,18 @@ input#recipe_image {
 /*
  * Search page
  */
-.search-col {
-  padding:0;
+.search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .search-tile {
+  display: inline-block;
   position: relative;
   width: 175px;
   height: 175px;
   background-color: #8E4585;
-  margin: 10px auto;
+  margin: 5px 5px;
 }
 .search-tile .tile-title {
   color: #F3FCF0;
