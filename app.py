@@ -1,6 +1,4 @@
 import os
-from helpers import *
-from functools import wraps
 from flask import ( Flask, flash, render_template, redirect,
                     request, session, url_for, abort)
 from flask_pymongo import PyMongo
@@ -10,6 +8,8 @@ from secrets import token_urlsafe
 from urllib.parse import urlparse
 from datetime import date, datetime
 
+from helpers import *
+from decorators import requires_logged_in_user, requires_user_not_logged_in
 if os.path.exists("env.py"):
     import env
 
@@ -21,32 +21,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 DEBUGGING = (os.environ.get("DEBUGGING").lower() == "true")
 
 mongo = PyMongo(app)
-
-
-def requires_logged_in_user(func):
-    """ Disables a wrapped route if user is not logged in """
-    @wraps(func)
-    def route(*args, **kwargs):
-        if user_logged_in():
-            return func(*args, **kwargs)
-        else:
-            flash("You need to be logged in to access that page!", category="error")
-            return redirect(url_for("login"))
-
-    return route
-
-
-def requires_user_not_logged_in(func):
-    """ Disables a wrapped route if a user is logged in """
-    @wraps(func)
-    def route(*args, **kwargs):
-        if not user_logged_in():
-            return func(*args, **kwargs)
-        else:
-            flash("User logged in!", category="error")
-            return redirect(url_for("home"))
-
-    return route
 
 
 #
@@ -68,7 +42,8 @@ def search():
         query = {}
         if "cuisine" in request.form:
             query["cuisine"] = request.form["cuisine"]
-        elif "search-text" in request.form:
+
+        if "search-text" in request.form:
             query["$text"] = {
                 "$search" : request.form["search-text"],
                 "$caseSensitive" : False
