@@ -89,11 +89,16 @@ def search():
 
         print(query)
 
+        for x in request.form:
+            print(x)
+
         #Only search if at least one field has been passed.
         if query:
-             #Get page details
+            #Get page details
+            print("page" in request.form)
             if "page" in request.form and request.form["page"]:
                 pages["current_page"] = int(request.form["page"])
+                # Might be better to re-query the database and calculate these?
                 pages["page_count"] = int(request.form["page_count"])
                 pages["total_items"] = int(request.form["total_items"])
             else:

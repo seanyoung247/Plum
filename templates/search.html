@@ -83,17 +83,35 @@
         {% if recipes.count() > 0 %}
           {# Only show pagination controls if there are multiple pages #}
           {% if pages and pages.page_count > 0 %}
-            <form action="">
-              <ul class="pagination">
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-
-                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            <form class="search-pages-form" method="POST" action="{{ url_for('search') }}">
+              <ul class="search-pages">
+                <li>
+                  <button type="submit" name="page" value="{{ pages.current_page - 1 }}"
+                    {{ 'disabled' if pages.current_page == 0 }}>
+                    <i class="material-icons">chevron_left</i>
+                  </button>
+                </li>
+                {% for i in range(pages.page_count + 1) %}
+                  <li>
+                    <button type="submit" name="page" value="{{ loop.index - 1 }}"
+                      {{ 'disabled' if pages.current_page == loop.index - 1 }}>
+                      {{- loop.index -}}
+                    </button>
+                  </li>
+                {% endfor %}
+                <li>
+                  <button type="submit" name="page" value="{{ pages.current_page + 1 }}"
+                    {{ 'disabled' if pages.current_page == pages.page_count }}>
+                    <i class="material-icons">chevron_right</i>
+                  </button>
+                </li>
               </ul>
               {# Store the query details for form resubmission #}
+              <input type="hidden" name="page_count" value="{{ pages.page_count }}">
+              <input type="hidden" name="total_items" value="{{ pages.total_items }}">
               {% for field in query %}
                 <input type="hidden" name="{{ field.key }}" value="{{ field.value }}">
               {% endfor %}
-
             </form>
           {% endif %}
 

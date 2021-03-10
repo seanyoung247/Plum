@@ -414,6 +414,16 @@ input#recipe_image {
   from {overflow: hidden;}
   to {overflow: visible;}
 }
+.search-pages-form {
+  display: flex;
+  justify-content: center;
+}
+.search-pages {
+  list-style-type: none;
+}
+.search-pages li {
+  display: inline;
+}
 .search-wrapper {
   display: flex;
   flex-wrap: wrap;
