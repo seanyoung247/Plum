@@ -22,6 +22,7 @@ DEBUGGING = (os.environ.get("DEBUGGING").lower() == "true")
 
 mongo = PyMongo(app)
 
+
 def requires_logged_in_user(func):
     """ Disables a wrapped route if user is not logged in """
     @wraps(func)
@@ -36,14 +37,14 @@ def requires_logged_in_user(func):
 
 
 def requires_user_not_logged_in(func):
-    """ Disables a wrapped route if user is logged in """
+    """ Disables a wrapped route if a user is logged in """
     @wraps(func)
     def route(*args, **kwargs):
         if not user_logged_in():
             return func(*args, **kwargs)
         else:
             flash("User logged in!", category="error")
-            return redirect(url_for("login"))
+            return redirect(url_for("home"))
 
     return route
 
