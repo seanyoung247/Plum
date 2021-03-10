@@ -159,7 +159,7 @@ Enumerates cuisine types.
 **recipes:**
 
 1. Unique index on page_id - Ensures pageid field is unique.
-2. -Text indexes for searching-
+2. Text index on title and description for text searches.
 
 **users:**
 
@@ -171,9 +171,11 @@ Enumerates cuisine types.
 
 **cuisines:**
 
-1. Unique index on name - ensures each cuisine type only appears once.
+1. Unique index on name - Ensures each cuisine type only appears once.
 
 #### Queries
+
+<Rationale/explanation goes here>
 
 ##### Browsing
 
@@ -232,6 +234,16 @@ plumdb.ratings.aggregate([
 
 ```Mongodb
 plumdb.recipes.find_one({"pageid": pageid})
+```
+
+**Finds recipes conforming to a user's search (for US003, US004, and US005):**
+
+Any individual field can be omitted as long as at least one field is passed.
+
+```Mongodb
+plumdb.recipes.find({
+	
+})
 ```
 
 ##### Uploading
@@ -332,7 +344,7 @@ Headers are rendered using [Open Sans](https://fonts.google.com/specimen/Open+Sa
 
 Sap Green was chosen as it is associated with nature, health, and freshness. Plum purple fits the branding of the site well while also being complimentary to Sap Green and evoking feelings of luxury. Honeydew was chosen as a background colour as it is near white, providing plenty of contrast for darker elements and text, while also tying into the main green colour.
 
-![pallet](dev/images/pallet/palette.png)
+### ![pallet](dev/images/pallet/palette.png)
 
 - Sap Green (#3F7D20) - Main site brand colour
 - Plum (#8E4585) - Accent colour
@@ -347,6 +359,58 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 ## Features
 
 ## Technologies
+
+### Languages
+
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+  - Used as the markup language for the site layout.
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+  - Used to style and colour HTML and dynamic elements.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - Used to create and manipulate the site's client-side dynamic elements. Also performs AJAX requests for client/server communication.
+- [Python](https://www.python.org/)
+  - Used for the backend server and running queries to the database.
+- [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+  - Used to generate HTML from site templates
+- [SVG](https://developer.mozilla.org/en-US/docs/Glossary/SVG)
+  - Used to define a number of the sites icons and graphical elements.
+
+### Libraries
+
+- [JQuery](https://jquery.com)
+    - The project uses JQuery to simplify DOM manipulation.
+- [Bootstrap](https://getbootstrap.com/)
+    - The project uses bootstrap to aid in responsive design.
+- [Popper](https://popper.js.org/)
+    - Included as a requirement of bootstrap. Used in dropdown splash screen menu.
+- [Virtual Joystick](https://github.com/jeromeetienne/virtualjoystick.js)
+    - A relatively lightweight touch joystick used for user interaction on touch screens. Licenced under the [MIT Licence](assets/scripts/MIT-LICENSE.txt).
+
+### Editors:
+
+- [Typora](https://typora.io/)
+  - Typora was used to simplify creation of the README.md file.
+- [Atom](https://atom.io/)
+  - Atom was used to write HTML and Javascript code.
+- [dbdiagram](https://dbdiagram.io/home)
+  - Used to create Entity Relationship Diagrams of the database.
+- [Balsamic](https://balsamiq.com/)
+  - Used to create the website's wireframes.
+
+### Tools:
+
+- [Git](https://git-scm.com/)
+  - Used for version control (via github desktop).
+- [Github desktop](https://desktop.github.com/)
+  - Used to push updates and synchronise local code with the remote repository.
+- [Github](https://github.com/)
+  - Used to store the project repository and deploy the site via github pages.
+- [MongoDB](https://www.mongodb.com/3)
+  - Used for the backend database.
+- [Adobe Photoshop](https://www.adobe.com/products/photoshop.html)
+  - Used to create some of the image files used on the site.
+- [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
+  - Used to create some of the sprite images and icons used on the site.
 
 ## Testing
 
@@ -409,28 +473,15 @@ Github desktop will automatically flag unmerged changes in the current repositor
 
 ### Media
 
-The cuisine category images were obtained from [unsplash](https://unsplash.com/) and edited by Sean Young.
+<details>
+	<summary>Test</summary>
+	* Test
+	*  test
+	*  test
+	*  test
+	*  test
+</details
 
-- [African](https://unsplash.com/photos/k2ZCm7LCj8E) - photograph by [Louis Hansel](https://unsplash.com/@louishansel)
-- [American](https://unsplash.com/photos/MH_lBTvkvPM) - photograph by [Kelly Visel](https://unsplash.com/@kellyvisel)
-- [Asian](https://unsplash.com/photos/L1ZhjK-R6uc) - photograph by [Sharon Chen](https://unsplash.com/@sharonchen)
-- [British](https://unsplash.com/photos/CRoAeTh5S_I) - photograph by [Sebastian Coman](https://unsplash.com/@sebastiancoman)
-- [Cajun](rBPtiHOY7nI) - photograph by [Sidney Pearce](https://unsplash.com/@sid_pearce)
-- [Chinese](https://unsplash.com/photos/jFu2L04tMBc) - photograph by [Drew Taylor](https://unsplash.com/@replicantman)
-- [European](https://unsplash.com/photos/r7RfMR_NzYY) - photograph by [Massimo Rinaldi](https://unsplash.com/@massimorinaldi27)
-- [French](https://unsplash.com/photos/-czl8QNCVKY) - photograph by [Julian Dik](https://unsplash.com/@juliandik)
-- [Greek](https://unsplash.com/photos/kQloRmVQYIs) - photograph by [Mor Shani](https://unsplash.com/@morsha)
-- [Indian](https://unsplash.com/photos/eEWlcfydzQ4) - photograph by [Sanket Shah](https://unsplash.com/@sanketshah)
-- [Irish](https://unsplash.com/photos/3hi4Ckm-0v0) - photograph by [Mick Haupt](https://unsplash.com/@rocinante_11)
-- [Italian](https://unsplash.com/photos/_TbB9rX9VSA) - photograph by [Logan Jeffrey](https://unsplash.com/@foodjetsexpress) 
-- [Japanese](https://unsplash.com/photos/iOHJKJqO6E0) - photograph by [Jakub Dziubak](https://unsplash.com/@jckbck)
-- [Mexican](https://unsplash.com/photos/7sStoaxfJh0) - photograph by [Natasha Bhogal](https://unsplash.com/@natashabhogal)
-- [Middle Eastern](https://unsplash.com/photos/P1AG2Y0mC-o) - photograph by [Sam Moqadam](https://unsplash.com/@itssammoqadam)
-- [Spanish](https://unsplash.com/photos/JBYunbDGcUo) - photograph by [Olivier Collet](https://unsplash.com/@ocollet)
-- [Tex-Mex](https://unsplash.com/photos/WYnj4atCRFY) - photograph by [Nadine Primeau](https://unsplash.com/@nadineprimeau)
-- [Thai](https://unsplash.com/photos/YmyFBvW7oG8) - photograph by [Nick Karvounis](https://unsplash.com/@nickkarvounis)
-- [Turkish](https://unsplash.com/photos/fg5DDCrybjA) - photograph by [Louis Hansel](https://unsplash.com/@louishansel)
-- [Vietnamese](https://unsplash.com/photos/B3Zq_3cu0Ug) - photograph by [Huong Pham](https://unsplash.com/@huongthu98)
 
 Recipes:
 
