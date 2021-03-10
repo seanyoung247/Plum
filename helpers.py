@@ -72,7 +72,7 @@ def create_recipe_record(form_data, recipe = {}, new_pageid = True):
         "image" : form_data.get('image'),
         "cuisine" : form_data.get('cuisine'),
         "time" : ( (int(time[0]) * 60) + int(time[1]) ),
-        "servings" : form_data.get('servings'),
+        "servings" : int(form_data.get('servings')),
         "rating" : rating,
         "ingredients" : form_data.getlist('ingredients'),
         "steps" : form_data.getlist('steps'),
