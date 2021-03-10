@@ -472,13 +472,14 @@ Github desktop will automatically flag unmerged changes in the current repositor
 ## Credits
 
 ### Media
-
 <details>
-	<summary>Test</summary>
-	####Cuisine
-	- test
-	- test
-	- test
+  <summary>Click to expand!</summary>
+
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
 </details>
 
 
