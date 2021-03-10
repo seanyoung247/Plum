@@ -69,6 +69,7 @@ hr.section-divider {
 .btn-plum:hover {
   background-color: #9F54B0;
 }
+
 /*
  * Header and Navigation
  */
@@ -365,10 +366,35 @@ input#recipe_image {
 /*
  * Search page
  */
+#basic_search_pane {
+  margin-bottom: 5px;
+}
+#advanced_search {
+  color: #8E4585;
+  cursor: pointer;
+}
+#advanced_search_pane {
+  display: block;
+  overflow: hidden;
+
+  border-bottom: 1px solid #8E4585;
+
+  height: 0;
+  transition: all 1s ease-in;
+}
+#advanced_search_pane.show {
+  display: block;
+  height: 250px;
+  transition: all 1s ease-in;
+}
 .search-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.select-dropdown {
+  max-height: 500px;
+  position: fixed;
 }
 .search-tile {
   display: inline-block;

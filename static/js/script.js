@@ -15,8 +15,15 @@ $(document).ready(function(){
     hoverEnabled: false
   });
   $('.collapsible').collapsible();
-  $('select').formSelect();
+  $('select').formSelect({container: "document.body"});
   $('.tabs').tabs();
+});
+
+/*
+ * Search Page
+ */
+$( "#advanced_search" ).click(function(event) {
+  $( "#advanced_search_pane" ).toggleClass("show");
 });
 
 /*
