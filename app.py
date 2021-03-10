@@ -40,14 +40,28 @@ def search():
     if request.method == "POST":
         #Construct the search query
         query = {}
+
         if "cuisine" in request.form:
             query["cuisine"] = request.form["cuisine"]
 
-        if "search-text" in request.form:
+        if "servings" in request.form and request.form["servings"]:
+            query["servings"] = int(request.form["servings"])
+
+        if "time" in request.form and request.form["time"]:
+            time = request.form["time"].split(":")
+            minutes = ( (int(time[0]) * 60) + int(time[1]) )
+            if minutes > 0:
+                query["time"] = { "$lte" : minutes }
+
+        if "search-text" in request.form and request.form["search-text"]:
             query["$text"] = {
                 "$search" : request.form["search-text"],
                 "$caseSensitive" : False
             }
+
+        #rating
+
+        print(query)
 
         recipes = mongo.db.recipes.find(query)
     else:
@@ -55,7 +69,7 @@ def search():
         recipes = None
 
     #Get the cuisines for the category search
-    cuisines = mongo.db.cuisines.find().sort("name", 1)
+    cuisines = list(mongo.db.cuisines.find().sort("name", 1))
     return render_template("search.html", recipes=recipes, cuisines=cuisines)
 
 
