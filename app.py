@@ -69,7 +69,7 @@ def search():
                     "value" : request.form["time"]
                 })
 
-        if "rating" in request.form and request.form["rating"]:
+        if "rating" in request.form and int(request.form["rating"]) > 0:
             rating = int(request.form["rating"])
             query["rating"] = { "$gte" : rating }
             form_query.append({
@@ -86,6 +86,8 @@ def search():
                 "key" : "search-text",
                 "value" : request.form["search-text"]
             })
+
+        print(query)
 
         #Only search if at least one field has been passed.
         if query:
