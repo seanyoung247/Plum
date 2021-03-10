@@ -41,7 +41,7 @@ def search():
         #Construct the search query
         query = {}
 
-        if "cuisine" in request.form:
+        if "cuisine" in request.form and request.form["cuisine"]:
             query["cuisine"] = request.form["cuisine"]
 
         if "servings" in request.form and request.form["servings"]:
@@ -53,13 +53,16 @@ def search():
             if minutes > 0:
                 query["time"] = { "$lte" : minutes }
 
+        if "rating" in request.form and request.form["rating"]:
+            rating = int(request.form["rating"])
+            query["rating"] = { "$gte" : rating }
+
+
         if "search-text" in request.form and request.form["search-text"]:
             query["$text"] = {
                 "$search" : request.form["search-text"],
                 "$caseSensitive" : False
             }
-
-        #rating
 
         print(query)
 

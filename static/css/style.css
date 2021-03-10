@@ -233,7 +233,7 @@ ul.user-dropdown li > a {
 }
 .recipe-rating {
   margin: 10px 0;
-  color: darkorange;
+  color: #8E4585;
   text-align: center;
 }
 .recipe-rating .star i {
@@ -366,12 +366,23 @@ input#recipe_image {
 /*
  * Search page
  */
-#basic_search_pane {
+.row.line-spacing-5 {
   margin-bottom: 5px;
 }
-#advanced_search {
-  color: #8E4585;
+#basic_search_pane {
+  margin-top: 5px;
+}
+#advanced_search_toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+#advanced_search_toggle a {
+  text-decoration: none;
+  color: #3F7D20;
   cursor: pointer;
+}
+#advanced_search_toggle a:hover {
+  color: #8E4585;
 }
 /* Shows/hides the advanced search panel */
 #advanced_search_pane {
@@ -379,21 +390,21 @@ input#recipe_image {
   overflow: hidden;
   border-bottom: 1px solid #8E4585;
 
-  height: 0;
-  transition: all 1s ease-in;
+  max-height: 0;
+  transition: max-height 0.5s ease-in;
 }
 #advanced_search_pane.show {
   display: block;
-  height: 250px;
-  transition: all 1s ease-in;
+  max-height: 300px;
+  transition: max-height 0.5s ease-in;
 }
 /* These classes allow overflow of the advanced search panel,
    so that the drop down isn't clipped. The use animation to
    delay the overflow property change, so that contents remain
    clipped until after the search panel has extended. */
 #advanced_search_pane.allow-overflow {
-  animation: delay-overflow 1s;
-  animation-delay: 1s;
+  animation: delay-overflow 0.5s;
+  animation-delay: 0.5s;
   animation-fill-mode: forwards;
 }
 @keyframes delay-overflow {

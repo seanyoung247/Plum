@@ -1,27 +1,28 @@
 {% extends "base.html" %}
 {% from "items.html" import generate_item_tile %}
+{% from "star-rating.html" import generate_star_rating_control %}
 
 {% block content %}
-  <div class="container vpad">
-    <div class="row">
+  <div class="container">
+    <div class="row line-spacing-5">
       <form class="col s12 l8 offset-l2"  method="POST" action="{{ url_for('search') }}">
-        <div id="basic_search_pane" class="row">
+        <div id="basic_search_pane" class="row line-spacing-5">
           <div class="input-field col s12">
             <i class="material-icons prefix">search</i>
             <input id="search-text" name="search-text" type="text">
             <label for="search-text">Search</label>
           </div>
         </div>
-        <div class="row">
-          <div class="col s12">
-            <a id="advanced_search">Advanced Search</a>
+        <div class="row line-spacing-5">
+          <div id="advanced_search_toggle" class="col s12">
+            <a>Advanced Search</a>
           </div>
         </div>
         {# Advanced search options #}
-        <div id="advanced_search_pane" class="row">
+        <div id="advanced_search_pane" class="row line-spacing-5">
 
           {# cuisine, rating, servings, time #}
-          <div class="input-field col s12 m6">
+          <div class="input-field col s12 l6">
             <select name="cuisine">
               <option value="" selected>Search cuisines</option>
               {% for cuisine in cuisines %}
@@ -34,18 +35,24 @@
           </div>
 
           {# Servings search #}
-          <div class="input-field col s6 m3">
+          <div class="input-field col s6 l3">
             <i class="material-icons prefix">restaurant</i>
             <input name="servings" type="number" id="recipe_servings" min="0">
             <label for="recipe_servings">Servings</label>
           </div>
 
           {# Time search #}
-          <div class="input-field col s6 m3">
+          <div class="input-field col s6 l3">
             <i class="material-icons prefix">access_time</i>
             <input name="time" id="recipe_time" type="text" class="timepicker"
               value="00:00">
             <label for="recipe_time">Max Time</label>
+          </div>
+
+          {# Rating #}
+          <div class="recipe-rating">
+            <div>Minimum rating</div>
+            {{ generate_star_rating_control(0) }}
           </div>
 
           <div class="row">

@@ -22,7 +22,7 @@ $(document).ready(function(){
 /*
  * Search Page
  */
-$( "#advanced_search" ).click(function(event) {
+$( "#advanced_search_toggle a" ).click(function(event) {
   $( "#advanced_search_pane" ).toggleClass("show").toggleClass("allow-overflow");
 });
 
