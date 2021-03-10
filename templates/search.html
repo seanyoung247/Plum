@@ -21,8 +21,9 @@
         <div id="advanced_search_pane" class="row">
 
           {# cuisine, rating, servings, time #}
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6">
             <select name="cuisine">
+              <option value="" selected>Search cuisines</option>
               {% for cuisine in cuisines %}
                 <option value="{{ cuisine.name }}">
                   {{- cuisine.name|capitalize -}}

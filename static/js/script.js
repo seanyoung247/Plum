@@ -15,7 +15,7 @@ $(document).ready(function(){
     hoverEnabled: false
   });
   $('.collapsible').collapsible();
-  $('select').formSelect({container: "document.body"});
+  $('select').formSelect();
   $('.tabs').tabs();
 });
 
@@ -23,7 +23,7 @@ $(document).ready(function(){
  * Search Page
  */
 $( "#advanced_search" ).click(function(event) {
-  $( "#advanced_search_pane" ).toggleClass("show");
+  $( "#advanced_search_pane" ).toggleClass("show").toggleClass("allow-overflow");
 });
 
 /*

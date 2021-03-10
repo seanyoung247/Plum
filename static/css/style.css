@@ -373,10 +373,10 @@ input#recipe_image {
   color: #8E4585;
   cursor: pointer;
 }
+/* Shows/hides the advanced search panel */
 #advanced_search_pane {
   display: block;
   overflow: hidden;
-
   border-bottom: 1px solid #8E4585;
 
   height: 0;
@@ -387,14 +387,26 @@ input#recipe_image {
   height: 250px;
   transition: all 1s ease-in;
 }
+/* These classes allow overflow of the advanced search panel,
+   so that the drop down isn't clipped. The use animation to
+   delay the overflow property change, so that contents remain
+   clipped until after the search panel has extended. */
+#advanced_search_pane.allow-overflow {
+  animation: delay-overflow 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes delay-overflow {
+  from {overflow: hidden;}
+  to {overflow: visible;}
+}
 .search-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 .select-dropdown {
-  max-height: 500px;
-  position: fixed;
+  max-height: 50vh;
 }
 .search-tile {
   display: inline-block;
