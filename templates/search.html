@@ -81,6 +81,22 @@
         </div>
       {% else %}
         {% if recipes.count() > 0 %}
+          {# Only show pagination controls if there are multiple pages #}
+          {% if pages and pages.page_count > 0 %}
+            <form action="">
+              <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+              </ul>
+              {# Store the query details for form resubmission #}
+              {% for field in query %}
+                <input type="hidden" name="{{ field.key }}" value="{{ field.value }}">
+              {% endfor %}
+
+            </form>
+          {% endif %}
+
           <div class="search-wrapper col s12">
             {% for recipe in recipes %}
               <div class="search-tile">
