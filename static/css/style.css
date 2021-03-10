@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #0D0A0B;
   font-family: 'Open Sans', sans-serif;
 }
-hr {
+hr.section-divider {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(142,69,133,0), rgba(142,69,133,1), rgba(142,69,133,0));
@@ -69,6 +69,10 @@ hr {
 .btn-plum:hover {
   background-color: #9F54B0;
 }
+.select-dropdown {
+  max-height: 50vh;
+}
+
 /*
  * Header and Navigation
  */
@@ -158,7 +162,7 @@ ul.user-dropdown li > a {
   font-size: 20px;
   color: #8E4585;
 }
-/*Shows any hidden title text on hover*/
+/* Shows any hidden title text on hover */
 .card-title:hover {
   overflow: visible;
 }
@@ -171,40 +175,38 @@ ul.user-dropdown li > a {
   left: 0;
 }
 /*
- * Mini recipe icons
+ * Icons tiles
  */
-.recipe-icon {
+.item-tile {
   box-shadow: 1px 1px 5px #0D0A0B;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
-  height: 200px;
-  width: 200px;
 }
-.test-cls {
+.tile-image {
+  position: relative;
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 /* Adds a dark gradient to the bottom of the
    icon to make the title easier to read */
-.recipe-icon::before {
-  content: "";
+.tile-overlay {
   position: absolute;
-  top: 25%;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 75%;
-  z-index: 0;
-  background-image: linear-gradient(rgba(13,10,11,0.0), #0D0A0B);
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(rgba(13,10,11,0.0) 25%, #0D0A0B 100%);
 }
-.recipe-icon-title {
+.tile-title {
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
-
-  color: #F3FCF0;
-  font-size: 20px;
   padding: 10px;
   white-space: normal;
 }
@@ -234,7 +236,7 @@ ul.user-dropdown li > a {
 }
 .recipe-rating {
   margin: 10px 0;
-  color: darkorange;
+  color: #8E4585;
   text-align: center;
 }
 .recipe-rating .star i {
@@ -365,6 +367,134 @@ input#recipe_image {
   color: #F3FCF0;
 }
 /*
+ * Search page
+ */
+.row.line-spacing-5 {
+  margin-bottom: 5px;
+}
+#basic_search_pane {
+  margin-top: 5px;
+}
+#advanced_search_toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+#advanced_search_toggle a {
+  text-decoration: none;
+  color: #3F7D20;
+  cursor: pointer;
+}
+#advanced_search_toggle a:hover {
+  color: #8E4585;
+}
+/* Shows/hides the advanced search panel */
+#advanced_search_pane {
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid #8E4585;
+
+  max-height: 0;
+  transition: max-height 0.5s ease-in;
+}
+#advanced_search_pane.show {
+  display: block;
+  max-height: 300px;
+  transition: max-height 0.5s ease-in;
+}
+/* These classes allow overflow of the advanced search panel,
+   so that the drop down isn't clipped. The use animation to
+   delay the overflow property change, so that contents remain
+   clipped until after the search panel has extended. */
+#advanced_search_pane.allow-overflow {
+  animation: delay-overflow 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes delay-overflow {
+  from {overflow: hidden;}
+  to {overflow: visible;}
+}
+.search-pages-form {
+  display: flex;
+  justify-content: center;
+}
+.search-pages {}
+.search-pages-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  vertical-align: middle;
+
+  height: 30px;
+  padding: 0 10px;
+  margin: 2px 2px;
+}
+.search-pages-btn:disabled {
+  color: #888;
+	cursor: default;
+}
+.search-pages-btn.active {
+  color: #F3FCF0;
+  background-color: #8E4585;
+}
+.search-pages-btn:hover:not(:disabled) {
+  border-bottom: 2px solid #8E4585;
+  margin-bottom: 0;
+}
+.search-pages-btn:focus,
+.search-pages-btn:active {
+  background-color: transparent;
+}
+.search-pages .search-pages-btn:first-child,
+.search-pages .search-pages-btn:last-child {
+  padding: 0 5px;
+}
+.search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search-tile {
+  display: inline-block;
+  position: relative;
+  width: 175px;
+  height: 175px;
+  background-color: #8E4585;
+  margin: 5px 5px;
+}
+.search-tile .tile-title {
+  color: #F3FCF0;
+  font-size: 20px;
+}
+.search-tile .item-tile {
+  cursor: pointer;
+}
+/* Gives the icons a zoom effect. */
+.search-tile:hover {
+  width: 185px;
+  height: 185px;
+  margin: 0;
+}
+.search-tile:hover .tile-title {
+  padding: 15px;
+}
+/*
+ * User profile page
+ */
+.recipe-tile {
+  position: relative;
+  height: 200px;
+  width: 200px;
+}
+.recipe-tile .tile-title {
+  color: #F3FCF0;
+  font-size: 20px;
+}
+/*
  * Login page
  */
 /*Makes the login box centred vertically.*/
@@ -460,29 +590,24 @@ footer {
   overflow: hidden;
   padding: 0 25px;
 }
-/* overflow set to scroll allowing touch scrolling,
-   but with scrollbars hidden */
 ul.scroller-items {
   list-style-type: none;
-  overflow: scroll;
+  overflow: hidden; /*scroll;*/
   white-space: nowrap;
   font-size: 0;
   padding: 0;
-  /* Removes scrollbars in firefox */
-  scrollbar-width: none;
-  /* Removes scrollbars in IE 10+ */
-  -ms-overflow-style: none;
-}
-/* Removes scrollbars in webkit browsers */
-ul.scroller-items::-webkit-scrollbar {
-  display: none;
 }
 li.scroll-item {
   font-size: 1rem;
   display: inline-block;
   text-align: center;
-
   padding: 10px;
+}
+.scroll-item-bookend {
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+  width: 25px;
 }
 .scroller .scroll-left {
   position: absolute;
@@ -499,11 +624,12 @@ li.scroll-item {
 /*
  * Media Queries
  */
-/* Very small screens and down */
-@media only screen and (max-width: 274px) {
-  /* Don't show brand title on really small screens */
-  .brand-title {
-    display: none;
+/* Stops recipe tiles getting larger than the scroller bounds,
+   which leads to some problems with scrolling */
+@media only screen and (max-width: 360px) {
+  .recipe-tile {
+    height: 150px;
+    width: 150px;
   }
 }
 /* Large screens and up */

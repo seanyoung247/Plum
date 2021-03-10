@@ -33,7 +33,7 @@
               <div class="input-field col s6">
                 <i class="material-icons prefix">access_time</i>
                 <input name="time" id="recipe_time" type="text" class="timepicker"
-                  value="{{ recipe.time.hours }}:{{ recipe.time.minutes }}">
+                  value="{{ (recipe.time / 60)|int }}:{{ '%02d' % (recipe.time % 60) }}">
                 <label for="recipe_time">Time</label>
               </div>
 

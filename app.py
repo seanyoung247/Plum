@@ -8,6 +8,8 @@ from secrets import token_urlsafe
 from urllib.parse import urlparse
 from datetime import date, datetime
 
+from helpers import *
+from decorators import requires_logged_in_user, requires_user_not_logged_in
 if os.path.exists("env.py"):
     import env
 
@@ -22,90 +24,6 @@ mongo = PyMongo(app)
 
 
 #
-# Helper functions
-#
-def user_logged_in():
-    """Returns whether a user is currently logged in"""
-    if session.get("user") is None:
-        return False
-    else:
-        return True
-
-
-def log_user_in(user):
-    """Registers logged in user into the session"""
-    session["user"] = user["name"]
-    session["userid"] = str(user["_id"])
-    session["userrole"] = user["role"]
-
-
-def log_user_out():
-    """Removes the current user from the session"""
-    session.pop("user")
-    session.pop("userid")
-    session.pop("userrole")
-
-
-def calculate_rating(rating):
-    """Calculates overall rating from rating array."""
-    #Uses a simple averaging formula. A refinement could be to replace this with
-    #a weighted formula. For instance giving greater weight for more popular options.
-    cumulative = 0
-    weight = 0
-    for i in range(1,6):
-        cumulative += rating[i] * i
-        weight += rating[i]
-
-    if weight > 0 and cumulative > 0:
-        return cumulative / weight
-    else:
-        return 0
-
-
-def create_recipe_record(form_data, recipe = {}, new_pageid = True):
-    """Creates a new recipe record from formdata and any existing recipe document"""
-    #carry over any existing values that shouldn't be reset
-    if recipe == {}:
-        new_pageid = True
-        rating = [0.0,0,0,0,0,0]
-        comments = []
-        recipe_date = datetime.strftime(date.today(),'%d/%m/%Y')
-        author = session['user']
-    else:
-        rating = recipe['rating']
-        comments = recipe['comments']
-        recipe_date = recipe['date']
-        author = recipe['author']
-
-    #Generate pageid field
-    if new_pageid:
-        pageid = urlparse(
-            (form_data.get('title') + "-" + token_urlsafe(8)).replace(" ", "-")
-        ).path
-    else:
-        pageid = recipe['pageid']
-
-    #construct new recipe record
-    time = form_data.get("time").split(":")
-    recipe = {
-        "pageid" : pageid,
-        "title" : form_data.get('title'),
-        "author" : author,
-        "date" : recipe_date,
-        "description" : form_data.get('description'),
-        "image" : form_data.get('image'),
-        "cuisine" : form_data.get('cuisine'),
-        "time" : ( (int(time[0]) * 60) + int(time[1]) ),
-        "servings" : form_data.get('servings'),
-        "rating" : rating,
-        "ingredients" : form_data.getlist('ingredients'),
-        "steps" : form_data.getlist('steps'),
-        "comments" : comments
-    }
-    return recipe
-
-
-#
 # App routes
 #
 @app.route("/")
@@ -116,7 +34,94 @@ def home():
     return render_template("home.html", recipes=recipes)
 
 
-#Recipe page
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """Shows the search page and results."""
+    pages = {}
+    query = {}
+    form_query = []
+    recipes = None
+    items_per_page = 10
+
+    if request.method == "POST":
+        #Construct the search query
+        if "cuisine" in request.form and request.form["cuisine"]:
+            query["cuisine"] = request.form["cuisine"]
+            form_query.append({
+                "key" : "cuisine",
+                "value" : request.form["cuisine"]
+            })
+
+        if "servings" in request.form and request.form["servings"]:
+            query["servings"] = int(request.form["servings"])
+            form_query.append({
+                "key" : "servings",
+                "value" : request.form["servings"]
+            })
+
+        if "time" in request.form and request.form["time"]:
+            time = request.form["time"].split(":")
+            minutes = ( (int(time[0]) * 60) + int(time[1]) )
+            if minutes > 0:
+                query["time"] = { "$lte" : minutes }
+                form_query.append({
+                    "key" : "time",
+                    "value" : request.form["time"]
+                })
+
+        if "rating" in request.form and int(request.form["rating"]) > 0:
+            rating = int(request.form["rating"])
+            query["rating"] = { "$gte" : rating }
+            form_query.append({
+                "key" : "rating",
+                "value" : request.form["rating"]
+            })
+
+        if "search-text" in request.form and request.form["search-text"]:
+            query["$text"] = {
+                "$search" : request.form["search-text"],
+                "$caseSensitive" : False
+            }
+            form_query.append({
+                "key" : "search-text",
+                "value" : request.form["search-text"]
+            })
+
+        print(query)
+
+        for x in request.form:
+            print(x)
+
+        #Only search if at least one field has been passed.
+        if query:
+            #Get page details
+            print("page" in request.form)
+            if "page" in request.form and request.form["page"]:
+                pages["current_page"] = int(request.form["page"])
+                # Might be better to re-query the database and calculate these?
+                pages["page_count"] = int(request.form["page_count"])
+                pages["total_items"] = int(request.form["total_items"])
+            else:
+                pages["total_items"] = mongo.db.recipes.count_documents(query)
+                pages["current_page"] = 0
+                pages["page_count"] = int(pages["total_items"] / items_per_page)
+
+            if pages["total_items"] > 0:
+                #Get the page
+                recipes = mongo.db.recipes.find(query).skip(
+                    pages["current_page"] * items_per_page).limit(items_per_page)
+
+                print(pages["total_items"])
+                print(pages["current_page"])
+                print(pages["page_count"])
+                print(pages["current_page"] * items_per_page)
+
+
+    #Get the cuisines for the category search
+    cuisines = list(mongo.db.cuisines.find().sort("name", 1))
+    return render_template("search.html", cuisines=cuisines, query=form_query, pages=pages, recipes=recipes)
+
+
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
     """Shows the recipe page for the pageid passed."""
@@ -141,12 +146,9 @@ def recipe(pageid):
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
+@requires_logged_in_user
 def add_recipe():
     """Shows the add recipe form and adds new recipe documents to the database."""
-    #Only logged in users can
-    if not user_logged_in():
-        flash("You need to be logged in to add recipes!", category="error")
-        return redirect(url_for("home"))
 
     if request.method == "POST":
         #construct new recipe record
@@ -174,7 +176,7 @@ def add_recipe():
         "title" : "",
         "description" : "",
         "image" : url_for('static', filename="images/categories/new-recipe.jpg"),
-        "time"  : {"hours" : "00", "minutes" : "00"},
+        "time"  : 0,
         "servings" : "0",
         "ingredients" : [],
         "steps" : []
@@ -185,12 +187,9 @@ def add_recipe():
 
 
 @app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
+@requires_logged_in_user
 def edit_recipe(pageid):
     """Shows the edit recipe form and adds changes to existing recipe document."""
-    #Only logged in users can edit recipes
-    if not user_logged_in():
-        flash("You need to be logged in to edit recipes!", category="error")
-        return redirect(url_for("home"))
 
     #Get the recipe to be edited
     recipe = mongo.db.recipes.find_one({"pageid": pageid})
@@ -199,7 +198,7 @@ def edit_recipe(pageid):
         return abort(404)
 
     #Check the currently logged in user has rights to edit this recipe
-    if (session['userid'] != recipe['author']['user_id'] and session['userrole'] != "admin"):
+    if (session['user'] != recipe['author'] and session['userrole'] != "admin"):
         flash("You don't have authorisation to edit this recipe", category="error")
         return redirect(url_for("home"))
 
@@ -248,13 +247,9 @@ def profile(username):
 
 
 @app.route("/register", methods=["GET", "POST"])
+@requires_user_not_logged_in
 def register():
     """Shows the register user page and adds a new user to the database."""
-    #Don't need to log in if user is already logged in..
-    if user_logged_in():
-        flash("User already logged in!", category="information")
-        return redirect(url_for("home"))
-
     if request.method == "POST":
         #check username doesn't already exist in the db
         existing_user = mongo.db.users.find_one(
@@ -282,13 +277,9 @@ def register():
 
 
 @app.route("/login", methods=["GET", "POST"])
+@requires_user_not_logged_in
 def login():
     """Shows the user login page and logs an existing user in."""
-    #Don't need to log in if user is already logged in..
-    if user_logged_in():
-        flash("User already logged in!", category="information")
-        return redirect(url_for("home"))
-
     if request.method == "POST":
         #check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -311,12 +302,12 @@ def login():
 
 
 @app.route("/logout")
+@requires_logged_in_user
 def logout():
     """Logs the current user out."""
-    if user_logged_in():
-        flash("User " + session["user"] + " Logged out", category="information")
-        #remove user from session
-        log_user_out()
+    flash("User " + session["user"] + " Logged out", category="information")
+    #remove user from session
+    log_user_out()
 
     return redirect(url_for("home"))
 
@@ -325,11 +316,9 @@ def logout():
 # AJAX/Update routes
 #
 @app.route("/ajax_rating", methods=['POST'])
+@requires_logged_in_user
 def ajax_rating():
     """Accepts an AJAX request for a recipe rating and updates the recipe document."""
-    if not user_logged_in():
-        flash("You need to be logged in to rate recipes!", category="error")
-        return redirect(url_for("home"))
 
     #Check whether this user has already rated this recipe
     existing_interaction = mongo.db.ratings.find_one({
@@ -391,12 +380,9 @@ def ajax_rating():
 
 
 @app.route("/ajax_favorite", methods=['POST'])
+@requires_logged_in_user
 def ajax_favorite():
     """Accepts AJAX requests for a favorite toggle and updates the database."""
-    if not user_logged_in():
-        flash("You need to be logged in to favorite recipes!", category="error")
-        return redirect(url_for("home"))
-
     #Checkboxes aren't included in the form data if unchecked.
     #So if the key is in the form data favorite is true, otherwise false
     favorite = ('favorite' in request.json)
@@ -424,12 +410,9 @@ def ajax_favorite():
 
 
 @app.route("/ajax_comment", methods=['POST'])
+@requires_logged_in_user
 def ajax_comment():
     """Adds a comment to a recipe document from AJAX requests"""
-    if not user_logged_in():
-        flash("You need to be logged in to comment on recipes!", category="error")
-        return redirect(url_for("home"))
-
     if len(request.json['comment']) > 0:
         #Construct the new comment record:
         comment = {

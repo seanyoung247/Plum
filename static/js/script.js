@@ -20,6 +20,13 @@ $(document).ready(function(){
 });
 
 /*
+ * Search Page
+ */
+$( "#advanced_search_toggle a" ).click(function(event) {
+  $( "#advanced_search_pane" ).toggleClass("show").toggleClass("allow-overflow");
+});
+
+/*
  * Edit/Add Recipe page
  */
 // Removes a list item from the method or ingredients lists
@@ -42,21 +49,16 @@ $( "#ingredients .add-list-item" ).click(function(event) {
 $( "#steps .add-list-item" ).click(function(event) {
   let listItem =  `<li class='collection-item'>
                     <div class='input-field'>
-                      <textarea name='steps' class='materialize-textarea' required>
-                      </textarea>
+                      <textarea name='steps' class='materialize-textarea' required></textarea>
                     </div>
                     <a class='remove-list-item'><i class='material-icons'>clear</i></a>
                   </li>`;
   $( this ).parent().before(listItem);
 });
-//Shows the current selected image in the image box
-$( "#recipe_image" ).on('change', function(event){
-  $( '#recipe_header_image' ).attr("src", $( this ).val())
-});
 
 // Shows the current selected image in the image box
 $( "#recipe_image" ).on('change', function(event){
-  $( '#recipe_header_image' ).prop("src", $( this ).val());
+  $( '#recipe_header_image' ).prop("src", $( this ).val())
 });
 
 /*
@@ -80,6 +82,7 @@ $( ".star-rating-ctl input[type=radio]" ).change(function() {
   $( "#recipe_rating_form" ).submit();
 });
 
+// Called if setting the rating was successful
 function ratingSuccess(response) {
   // Stop reading star rating while server deals with request
   $( "input", "#recipe_rating_form" ).prop('disabled', false);
@@ -92,12 +95,14 @@ function ratingSuccess(response) {
 /*
  * Recipe favoriting
  */
+// Submits the favorite to the server
 $( "#recipe_favorite_form" ).submit(function(event) {
   event.preventDefault();
   // There's no real need for a callback here
   submitFormAJAX(event, null);
 });
 
+// Binds favorite form submit to the favorite control change event
 $( "#recipe_favorite input[type=checkbox]" ).on('change', function(event) {
   $( '#recipe_favorite_form' ).submit();
 });
@@ -164,43 +169,39 @@ function submitFormAJAX(event, callbackSuccess) {
  */
 // Scrolls one "page" left (backwards)
 $( ".scroller .scroll-left" ).click(function(event) {
-  let scroller = $( this ).siblings(".scroller-items");
-  let scrollItem = scroller.children(".scroll-item");
-  // Next page position = current page position - items in a page (scroll backwards)
-  let itemPosition = parseInt(scroller.attr("data-position"))
-  // If we're at the beginning of the list wrap around to the end
-  if (itemPosition <= 0) itemPosition = scrollItem.length;
-  else itemPosition -= Math.floor(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
-  // Update data position so we know where we are in the list
-  scroller.attr("data-position", itemPosition);
-  // Animate the scroll
-  scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
+  let scroller = $( this ).siblings( ".scroller-items" );
+  let scrollItem = scroller.children( ".scroll-item" );
+  let scrollEndItem = scroller.children( ".scroll-item-bookend" );
+  let scrollPosition = scroller.get(0).scrollWidth;
+  // If we're at the beginning of the items, move back one page
+  if (scroller.scrollLeft() > 0) {
+    // Which item is left most?
+    let leftMostItem = Math.ceil((scroller.scrollLeft()) / scrollItem.outerWidth());
+    // How many items fit in a page?
+    let pageItemWidth = Math.floor(scroller.width() / scrollItem.outerWidth());
+    // Calculate new scroll position: Find out which item should be left most
+    //  then calulate it's position by multiplying it by icon width
+    scrollPosition = ((leftMostItem - pageItemWidth) * scrollItem.outerWidth());
+  }
+  scroller.animate({scrollLeft: scrollPosition}, 500);
 });
 
 // Scrolls one "page" right (forwards)
 $( ".scroller .scroll-right" ).click(function(event) {
-  let scroller = $( this ).siblings(".scroller-items");
-  let scrollItem = scroller.children(".scroll-item");
-  // Next page position = current page position + items in a page (scroll forwards)
-  let itemPosition = parseInt(scroller.attr("data-position")) +
-    Math.round(Math.max(scroller.outerWidth() / scrollItem.outerWidth(), 1));
-  // If we're at the end of the list wrap around to the beginning
-  if (itemPosition >= scrollItem.length) itemPosition = 0;
-  // Update data position so we know where we are in the list
-  scroller.attr("data-position", itemPosition);
-  // Animate the scroll
-  scroller.animate({scrollLeft: (itemPosition * scrollItem.outerWidth())}, 500);
-});
-
-// Updates scroller position when scrolling has finished
-$( ".scroller .scroller-items" ).scroll(function() {
-  clearTimeout($(this).data("scroller-scrollTimer"));
-  // Fires 250ms after the last scroll event
-  $( this ).data("scroller-scrollTimer", setTimeout(() => {
-    // Get the first full item shown in the scroller
-    itemPosition = Math.round($( this ).scrollLeft() /
-      $( this ).children(".scroll-item").outerWidth());
-    // Update the scroll position
-    $( this ).attr("data-position", itemPosition);
-  }, 250));
+  let scroller = $( this ).siblings( ".scroller-items" );
+  let scrollItemWidth = scroller.children( ".scroll-item" ).outerWidth();
+  let scrollEndPosition = scroller.scrollLeft() + scroller.width() +
+    scroller.children( ".scroll-item-bookend" ).outerWidth();
+  let scrollPosition = 0;
+  // If we're not at the end of the items move to the next page
+  if (scrollEndPosition < (scroller.get(0).scrollWidth - 1)) {
+    // Which item is left most?
+    let leftMostItem = Math.floor((scroller.scrollLeft()) / scrollItemWidth);
+    // How many items fit in a page?
+    let pageItemWidth = Math.floor(scroller.width() / scrollItemWidth);
+    // Calculate new scroll position: Find out which item should be left most
+    //  then calulate it's position by multiplying it by icon width
+    scrollPosition = ((leftMostItem + pageItemWidth) * scrollItemWidth);
+  }
+  scroller.animate({scrollLeft: scrollPosition}, 500);
 });
