@@ -196,11 +196,11 @@ ul.user-dropdown li > a {
    icon to make the title easier to read */
 .tile-overlay {
   position: absolute;
-  top: 25%;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 75%;
-  background-image: linear-gradient(rgba(13,10,11,0.0), #0D0A0B);
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(rgba(13,10,11,0.0) 25%, #0D0A0B 100%);
 }
 .tile-title {
   position: absolute;
