@@ -87,11 +87,6 @@ def search():
                 "value" : request.form["search-text"]
             })
 
-        print(query)
-
-        for x in request.form:
-            print(x)
-
         #Only search if at least one field has been passed.
         if query:
             #Get page details
@@ -110,11 +105,6 @@ def search():
                 #Get the page
                 recipes = mongo.db.recipes.find(query).skip(
                     pages["current_page"] * items_per_page).limit(items_per_page)
-
-                print(pages["total_items"])
-                print(pages["current_page"])
-                print(pages["page_count"])
-                print(pages["current_page"] * items_per_page)
 
 
     #Get the cuisines for the category search
