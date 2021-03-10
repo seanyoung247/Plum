@@ -57,16 +57,16 @@ def search():
             rating = int(request.form["rating"])
             query["rating"] = { "$gte" : rating }
 
-
         if "search-text" in request.form and request.form["search-text"]:
             query["$text"] = {
                 "$search" : request.form["search-text"],
                 "$caseSensitive" : False
             }
 
-        print(query)
+        #Only search if at least one field has been passed.
+        if query:
+            recipes = mongo.db.recipes.find(query)
 
-        recipes = mongo.db.recipes.find(query)
     else:
         #Indicates no search was conducted
         recipes = None
