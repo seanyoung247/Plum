@@ -418,11 +418,40 @@ input#recipe_image {
   display: flex;
   justify-content: center;
 }
-.search-pages {
-  list-style-type: none;
+.search-pages {}
+.search-pages-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  vertical-align: middle;
+
+  height: 30px;
+  padding: 0 10px;
+  margin: 2px 2px;
 }
-.search-pages li {
-  display: inline;
+.search-pages-btn:disabled {
+  color: #888;
+	cursor: default;
+}
+.search-pages-btn.active {
+  color: #F3FCF0;
+  background-color: #8E4585;
+}
+.search-pages-btn:hover:not(:disabled) {
+  border-bottom: 2px solid #8E4585;
+  margin-bottom: 0;
+}
+.search-pages-btn:focus,
+.search-pages-btn:active {
+  background-color: transparent;
+}
+.search-pages .search-pages-btn:first-child,
+.search-pages .search-pages-btn:last-child {
+  padding: 0 5px;
 }
 .search-wrapper {
   display: flex;

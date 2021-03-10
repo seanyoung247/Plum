@@ -84,28 +84,22 @@
           {# Only show pagination controls if there are multiple pages #}
           {% if pages and pages.page_count > 0 %}
             <form class="search-pages-form" method="POST" action="{{ url_for('search') }}">
-              <ul class="search-pages">
-                <li>
-                  <button type="submit" name="page" value="{{ pages.current_page - 1 }}"
-                    {{ 'disabled' if pages.current_page == 0 }}>
-                    <i class="material-icons">chevron_left</i>
+              <div class="search-pages">
+                <button class="search-pages-btn" type="submit" name="page" value="{{ pages.current_page - 1 }}"
+                  {{ 'disabled' if pages.current_page == 0 }}>
+                  <i class="material-icons">chevron_left</i>
+                </button>
+                {%- for i in range(pages.page_count + 1) -%}
+                  <button class="search-pages-btn {{ 'active' if pages.current_page == loop.index -1 }}"
+                    type="submit" name="page" value="{{ loop.index - 1 }}" {{ 'disabled' if pages.current_page == loop.index - 1 }}>
+                    {{- loop.index -}}
                   </button>
-                </li>
-                {% for i in range(pages.page_count + 1) %}
-                  <li>
-                    <button type="submit" name="page" value="{{ loop.index - 1 }}"
-                      {{ 'disabled' if pages.current_page == loop.index - 1 }}>
-                      {{- loop.index -}}
-                    </button>
-                  </li>
-                {% endfor %}
-                <li>
-                  <button type="submit" name="page" value="{{ pages.current_page + 1 }}"
-                    {{ 'disabled' if pages.current_page == pages.page_count }}>
-                    <i class="material-icons">chevron_right</i>
-                  </button>
-                </li>
-              </ul>
+                {%- endfor -%}
+                <button class="search-pages-btn" type="submit" name="page" value="{{ pages.current_page + 1 }}"
+                  {{ 'disabled' if pages.current_page == pages.page_count }}>
+                  <i class="material-icons">chevron_right</i>
+                </button>
+              </div>
               {# Store the query details for form resubmission #}
               <input type="hidden" name="page_count" value="{{ pages.page_count }}">
               <input type="hidden" name="total_items" value="{{ pages.total_items }}">
