@@ -2,6 +2,10 @@
 {% from "star-rating.html" import generate_star_rating_display,
                                   generate_star_rating_control %}
 
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/recipe.css') }}">
+{% endblock %}
+
 {% block content %}
   <div class="container vpad">
     {# RECIPE TOOLBAR #}
@@ -208,4 +212,8 @@
     {# END COMMENTS #}
 
   </div>
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript" src="{{ url_for('static', filename='js/recipes.js') }}"></script>
 {% endblock %}
