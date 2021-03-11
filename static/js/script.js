@@ -39,6 +39,11 @@ $( "#register-username" ).focusout(function(event) {
 function callBackUsername(response) {
   if ( response["exists"] ) {
     $( "#register-username" ).removeClass("valid").addClass("invalid");
+    // Don't let the user submit the form if the username is taken
+    $( "#register-username" )[0].setCustomValidity("Username already exists");
+  } else {
+    $( "#register-username" ).removeClass("invalid").addClass("valid");
+    $( "#register-username" )[0].setCustomValidity("");
   }
 }
 
@@ -46,15 +51,19 @@ function callBackUsername(response) {
 $( "#register-password" ).focusout(function(event) {
   if ($( this ).val() === $( "#register-password-confirm" ).val()) {
     $( "#register-password-confirm" ).removeClass("invalid").addClass("valid");
+    $( "#register-password-confirm" )[0].setCustomValidity("");
   } else {
     $( "#register-password-confirm" ).removeClass("valid").addClass("invalid");
+    $( "#register-password-confirm" )[0].setCustomValidity("Passwords don't match");
   }
 });
 $( "#register-password-confirm" ).keyup(function() {
   if ($( this ).val() === $( "#register-password" ).val()) {
     $( this ).removeClass("invalid").addClass("valid");
+    this.setCustomValidity("");
   } else {
     $( this ).removeClass("valid").addClass("invalid");
+    this.setCustomValidity("Passwords don't match");
   }
 });
 /*
