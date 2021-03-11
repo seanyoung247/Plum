@@ -324,6 +324,9 @@ def logout():
 def ajax_rating():
     """Accepts an AJAX request for a recipe rating and updates the recipe document."""
 
+    if "rating" not in request.json or "recipeId" not in request.json:
+        return  {"new_rating" : 0}
+
     #Check whether this user has already rated this recipe
     existing_interaction = mongo.db.ratings.find_one({
         "user_id"   : ObjectId(session['userid']),
@@ -417,7 +420,7 @@ def ajax_favorite():
 @requires_logged_in_user
 def ajax_comment():
     """Adds a comment to a recipe document from AJAX requests"""
-    if len(request.json['comment']) > 0:
+    if "comment" in request.json and len(request.json['comment']) > 0:
         #Construct the new comment record:
         comment = {
             "author" : session["user"],
@@ -428,10 +431,22 @@ def ajax_comment():
         return comment
 
 
-@app.route("/ajax_checkusername")
+@app.route("/ajax_checkusername", methods=['POST'])
 def ajax_checkusername():
     """Checks if a username already exists in the database."""
-    return "NOT YET IMPLIMENTED"
+    response = { "username" : "", "exists" : True }
+
+    if "username" in request.json:
+        #Search for this username
+        existing_user = mongo.db.users.find_one(
+            {"name": request.json["username"].lower()})
+        response['username'] = request.json["username"]
+        if existing_user:
+            response['exists'] = True
+        else:
+            response['exists'] = False
+
+    return response
 
 
 #
