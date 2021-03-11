@@ -3,8 +3,6 @@
 /*font-family: 'Roboto', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 /*font-family: 'Open Sans', sans-serif;*/
-/*@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');*/
-/*font-family: 'Oswald', sans-serif;*/
 
 /*
 Colours:
@@ -493,34 +491,6 @@ input#recipe_image {
 .recipe-tile .tile-title {
   color: #F3FCF0;
   font-size: 20px;
-}
-/*
- * Login page
- */
-/*Makes the login box centred vertically.*/
-.login-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 1;
-}
-.login-wrapper > .valign-wrapper {
-  flex: 1;
-}
-.login-box {
-  max-width: 750px;
-}
-.login-header {
-  background-color: #F3FCF0;
-  color: #3F7D20;
-}
-li:not(.active) > .login-header {
-  border-bottom: 2px solid #8E4585;
-  /* Delays the application of this rule on collapse so the border appears
-     as the content dissapears for a seemless transition. */
-  transition-delay: 0.3s;
-}
-.login-body {
-  border-bottom: 2px solid #8E4585;
 }
 /*
  * Footer
