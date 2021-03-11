@@ -26,10 +26,12 @@
 {% macro generate_star_rating_control(precheck) %}
   <div class="star-rating-ctl">
     {% for i in range(1, 6)|reverse %}
-      <input id="rating{{ i }}" type="radio" name="rating" value="{{ i }}"
-        {%- if precheck == i -%}
-          checked
-        {%- endif %} required>
+      <input id="rating{{ i }}"
+        type="radio"
+        name="rating"
+        value="{{ i }}"
+        {{ 'checked' if precheck == i }}
+        required>
       <label for="rating{{ i }}" class="star">
         <i class="material-icons"></i>
       </label>
@@ -37,9 +39,11 @@
     {# Adds a hidden zero star checked by default so control will always
        return a value. This approach also makes it easy to expand the
        control to have a "clear rating" option later. #}
-    <input id="rating0" type="radio" name="rating" value="0"
-      {%- if precheck == 0 -%}
-        checked
-      {%- endif %} required>
+    <input id="rating0"
+      type="radio"
+      name="rating"
+      value="0"
+      {{ 'checked' if precheck == 0 }}
+      required>
   </div>
 {% endmacro %}

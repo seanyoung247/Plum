@@ -7,18 +7,23 @@
     {# RECIPE TOOLBAR #}
       {% if session.user %}
         <div id="recipe_toolbar">
-          <form id="recipe_favorite_form" method="POST"
-            action="{{ url_for('ajax_favorite') }}">
+          <form id="recipe_favorite_form"
+            method="POST" action="{{ url_for('ajax_favorite') }}">
+
             <input name="recipeId" type="hidden" value="{{ recipe._id }}">
-            <label id="recipe_favorite" data-path="url_for('ajax_favorite')"
+
+            <label id="recipe_favorite"
+              data-path="url_for('ajax_favorite')"
               class="btn-floating btn-large btn-plum">
-              <input name="favorite" type="checkbox"
-                {%- if interaction.favorited -%}
-                  checked
-                {%- endif -%}/>
+
+              <input
+                name="favorite"
+                type="checkbox"
+                {{ 'checked' if interaction.favorited }}/>
               <i class="material-icons"></i>
             </label>
           </form>
+
           {% if ( (session.user == recipe.author) or (session.userrole == 'admin')) %}
             <a id="recipe_edit" href="{{ url_for('edit_recipe', pageid=recipe.pageid) }}"
               class="btn-floating btn-large btn-plum">
@@ -100,7 +105,7 @@
             {% for step in recipe.steps %}
               <input name="step-check" type="radio" id="step-{{ loop.index }}">
               <label for="step-{{ loop.index }}">
-                <li {#id="step-{{ loop.index }}"#} class="collection-item">
+                <li class="collection-item">
                   {{ step }}
                 </li>
               </label>

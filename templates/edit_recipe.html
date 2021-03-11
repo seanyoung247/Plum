@@ -50,9 +50,7 @@
                 <select name="cuisine" required>
                   {% for cuisine in cuisines %}
                     <option value="{{ cuisine.name }}"
-                      {%- if recipe.cuisine == cuisine.name -%}
-                        selected
-                      {%- endif -%}>
+                      {{- 'selected' if recipe.cuisine == cuisine.name -}}>
                       {{- cuisine.name|capitalize -}}
                     </option>
                   {% endfor %}
