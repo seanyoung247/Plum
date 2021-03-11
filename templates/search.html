@@ -64,7 +64,7 @@
 
     <div class="row">
       {# Only display categories if no search was conducted #}
-      {% if recipes is none %}
+      {% if not pages %}
         <div class="search-wrapper col s12">
           {% for cuisine in cuisines %}
             <form class="search-tile" method="POST" action="{{ url_for('search') }}">
@@ -80,9 +80,9 @@
           {% endfor %}
         </div>
       {% else %}
-        {% if recipes.count() > 0 %}
+        {% if pages.total_items > 0 %}
           {# Only show pagination controls if there are multiple pages #}
-          {% if pages and pages.page_count > 0 %}
+          {% if pages.page_count > 0 %}
             <form class="search-pages-form" method="POST" action="{{ url_for('search') }}">
               <div class="search-pages">
                 <button class="search-pages-btn" type="submit" name="page" value="{{ pages.current_page - 1 }}"
@@ -121,7 +121,9 @@
             {% endfor %}
           </div>
         {% else %}
-          No recipes found
+          <div class="search-wrapper col s12">
+            No recipes found
+          </div>
         {% endif %}
       {% endif %}
     </div>

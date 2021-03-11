@@ -37,11 +37,11 @@ def home():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """Shows the search page and results."""
+    items_per_page = 10
     pages = {}
     query = {}
     form_query = []
     recipes = None
-    items_per_page = 10
 
     if request.method == "POST":
         #Construct the search query
@@ -87,18 +87,11 @@ def search():
                 "value" : request.form["search-text"]
             })
 
-        print(query)
-
-        for x in request.form:
-            print(x)
-
         #Only search if at least one field has been passed.
         if query:
             #Get page details
-            print("page" in request.form)
             if "page" in request.form and request.form["page"]:
                 pages["current_page"] = int(request.form["page"])
-                # Might be better to re-query the database and calculate these?
                 pages["page_count"] = int(request.form["page_count"])
                 pages["total_items"] = int(request.form["total_items"])
             else:
@@ -110,12 +103,8 @@ def search():
                 #Get the page
                 recipes = mongo.db.recipes.find(query).skip(
                     pages["current_page"] * items_per_page).limit(items_per_page)
-
-                print(pages["total_items"])
-                print(pages["current_page"])
-                print(pages["page_count"])
-                print(pages["current_page"] * items_per_page)
-
+        else:
+            pages = {"current_page" : 0, "page_count" : 0, "total_items" : 0}
 
     #Get the cuisines for the category search
     cuisines = list(mongo.db.cuisines.find().sort("name", 1))
