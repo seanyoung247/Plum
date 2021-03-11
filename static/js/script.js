@@ -20,23 +20,42 @@ $(document).ready(function(){
 });
 
 /*
- * Login page
+ * Login/registration page
  */
+// Sends an AJAX request to the server to check if username is available
+$( "#register-username" ).focusout(function(event) {
+  event.preventDefault();
+  // Make AJAX request
+  $.ajax({
+    type : "POST",
+    url : $(event.target).attr("data-validate"),
+    contentType : 'application/json;charset=UTF-8',
+    data : JSON.stringify({ "username" : $( this ).val() }),
+    success : callBackUsername
+  });
+  return false;
+});
+
+function callBackUsername(response) {
+  if ( response["exists"] ) {
+    $( "#register-username" ).removeClass("valid").addClass("invalid");
+  }
+}
+
+// Checks if confirm password field matches password field and sets it valid/invalid
 $( "#register-password" ).focusout(function(event) {
-  if ($( this ).val() == $( "#register-password-confirm" ).val()) {
+  if ($( this ).val() === $( "#register-password-confirm" ).val()) {
     $( "#register-password-confirm" ).removeClass("invalid").addClass("valid");
   } else {
     $( "#register-password-confirm" ).removeClass("valid").addClass("invalid");
   }
-  event.stopPropagation();
 });
 $( "#register-password-confirm" ).keyup(function() {
-  if ($( this ).val() == $( "#register-password" ).val()) {
+  if ($( this ).val() === $( "#register-password" ).val()) {
     $( this ).removeClass("invalid").addClass("valid");
   } else {
     $( this ).removeClass("valid").addClass("invalid");
   }
-  event.stopPropagation();
 });
 /*
  * Search Page

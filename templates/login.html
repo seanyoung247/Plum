@@ -52,7 +52,8 @@
                     <div class="input-field col s12">
                       <i class="material-icons prefix">person</i>
                       <input id="register-username" name="username" type="text" minlength="5"
-                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate"
+                          data-validate="{{ url_for('ajax_checkusername') }}" required>
                       <label for="register-username">Username</label>
                     </div>
                   </div>
@@ -67,7 +68,8 @@
                     <div class="input-field col s12">
                       <i class="material-icons prefix">lock</i>
                       <input id="register-password" name="password" type="password" minlength="5"
-                        maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,}" class="validate" required>
+                        maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,}"
+                          class="validate" required>
                       <label for="register-password">Password</label>
                     </div>
                   </div>
