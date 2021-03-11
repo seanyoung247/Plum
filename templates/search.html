@@ -2,6 +2,10 @@
 {% from "items.html" import generate_item_tile %}
 {% from "star-rating.html" import generate_star_rating_control %}
 
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
+
 {% block content %}
   <div class="container">
     <div class="row line-spacing-5">
@@ -50,7 +54,7 @@
           </div>
 
           {# Rating #}
-          <div class="recipe-rating">
+          <div class="search-rating">
             <div>Minimum rating</div>
             {{ generate_star_rating_control(0) }}
           </div>

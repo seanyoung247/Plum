@@ -1,0 +1,121 @@
+.row.line-spacing-5 {
+  margin-bottom: 5px;
+}
+#basic_search_pane {
+  margin-top: 5px;
+}
+#advanced_search_toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+#advanced_search_toggle a {
+  text-decoration: none;
+  color: #3F7D20;
+  cursor: pointer;
+}
+#advanced_search_toggle a:hover {
+  color: #8E4585;
+}
+/* Shows/hides the advanced search panel */
+#advanced_search_pane {
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid #8E4585;
+
+  max-height: 0;
+  transition: max-height 0.5s ease-in;
+}
+#advanced_search_pane.show {
+  display: block;
+  max-height: 300px;
+  transition: max-height 0.5s ease-in;
+}
+/* These classes allow overflow of the advanced search panel,
+   so that the drop down isn't clipped. The use animation to
+   delay the overflow property change, so that contents remain
+   clipped until after the search panel has extended. */
+#advanced_search_pane.allow-overflow {
+  animation: delay-overflow 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes delay-overflow {
+  from {overflow: hidden;}
+  to {overflow: visible;}
+}
+.search-rating {
+  margin: 10px 0;
+  color: #8E4585;
+  text-align: center;
+}
+.search-rating .star i {
+  font-size: 35px;
+}
+.search-pages-form {
+  display: flex;
+  justify-content: center;
+}
+.search-pages {}
+.search-pages-btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  vertical-align: middle;
+
+  height: 30px;
+  padding: 0 10px;
+  margin: 2px 2px;
+}
+.search-pages-btn:disabled {
+  color: #888;
+	cursor: default;
+}
+.search-pages-btn.active {
+  color: #F3FCF0;
+  background-color: #8E4585;
+}
+.search-pages-btn:hover:not(:disabled) {
+  border-bottom: 2px solid #8E4585;
+  margin-bottom: 0;
+}
+.search-pages-btn:focus,
+.search-pages-btn:active {
+  background-color: transparent;
+}
+.search-pages .search-pages-btn:first-child,
+.search-pages .search-pages-btn:last-child {
+  padding: 0 5px;
+}
+.search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search-tile {
+  display: inline-block;
+  position: relative;
+  width: 175px;
+  height: 175px;
+  background-color: #8E4585;
+  margin: 5px 5px;
+}
+.search-tile .tile-title {
+  color: #F3FCF0;
+  font-size: 20px;
+}
+.search-tile .item-tile {
+  cursor: pointer;
+}
+/* Gives the icons a zoom effect. */
+.search-tile:hover {
+  width: 185px;
+  height: 185px;
+  margin: 0;
+}
+.search-tile:hover .tile-title {
+  padding: 15px;
+}
