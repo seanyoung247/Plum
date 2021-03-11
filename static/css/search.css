@@ -43,6 +43,14 @@
   from {overflow: hidden;}
   to {overflow: visible;}
 }
+.search-rating {
+  margin: 10px 0;
+  color: #8E4585;
+  text-align: center;
+}
+.search-rating .star i {
+  font-size: 35px;
+}
 .search-pages-form {
   display: flex;
   justify-content: center;
