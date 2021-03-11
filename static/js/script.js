@@ -20,6 +20,25 @@ $(document).ready(function(){
 });
 
 /*
+ * Login page
+ */
+$( "#register-password" ).focusout(function(event) {
+  if ($( this ).val() == $( "#register-password-confirm" ).val()) {
+    $( "#register-password-confirm" ).removeClass("invalid").addClass("valid");
+  } else {
+    $( "#register-password-confirm" ).removeClass("valid").addClass("invalid");
+  }
+  event.stopPropagation();
+});
+$( "#register-password-confirm" ).keyup(function() {
+  if ($( this ).val() == $( "#register-password" ).val()) {
+    $( this ).removeClass("invalid").addClass("valid");
+  } else {
+    $( this ).removeClass("valid").addClass("invalid");
+  }
+  event.stopPropagation();
+});
+/*
  * Search Page
  */
 $( "#advanced_search_toggle a" ).click(function(event) {

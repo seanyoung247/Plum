@@ -26,7 +26,7 @@
                     <div class="input-field col s12 l6">
                       <i class="material-icons prefix">lock</i>
                       <input id="login-password" name="password" type="password" minlength="5"
-                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,}" class="validate" required>
                       <label for="login-password">Password</label>
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                     <div class="input-field col s12">
                       <i class="material-icons prefix">lock</i>
                       <input id="register-password" name="password" type="password" minlength="5"
-                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        maxlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,}" class="validate" required>
                       <label for="register-password">Password</label>
                     </div>
                   </div>
@@ -75,8 +75,9 @@
                     <div class="input-field col s12">
                       <i class="material-icons prefix">lock</i>
                       <input id="register-password-confirm" name="password-confirm" type="password" minlength="5"
-                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        maxlength="15" class="" required>
                       <label for="register-password-confirm">Confirm Password</label>
+                      <span class="helper-text" data-error="Passwords don't match" data-success="passwords match">Passwords don't match</span>
                     </div>
                   </div>
                   <div class="row">
@@ -96,3 +97,4 @@
   </div>
 
 {% endblock %}
+{#pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,}"#}
