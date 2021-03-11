@@ -259,6 +259,11 @@ def register():
             flash("That user name already exists", category="warning")
             return redirect(url_for("login"))
 
+        #Ensure there's no typos in the password field:
+        if (request.form.get("password") != request.form.get("password-confirm")):
+            flash("Passwords don't match!", category="warning")
+            return redirect(url_for("login"))
+
         register = {
             "name"     : request.form.get("username").lower(),
             "email"    : request.form.get("email").lower(),
@@ -266,10 +271,9 @@ def register():
             "role"     : "user"
         }
         #register user and add them to the session cookie
-        mongo.db.users.insert_one(register)
-        registered_user = mongo.db.users.find_one(
-            {"name": request.form.get("username").lower()})
-        log_user_in(registered_user)
+        register["_id"] = mongo.db.users.insert_one(register).inserted_id
+        log_user_in(register)
+
         flash("User " + session["user"] + " registered!", category="information")
         return redirect(url_for("home"))
 
