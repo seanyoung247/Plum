@@ -149,7 +149,7 @@ def add_recipe():
 
     if request.method == "POST":
         #construct new recipe record
-        recipe = create_recipe_record(request.form)
+        recipe = compile_recipe_record(request.form)
         result = mongo.db.recipes.insert_one(recipe)
         #Add new recipe to user record
         recipe_token = {
@@ -201,7 +201,7 @@ def edit_recipe(pageid):
 
     if request.method == "POST":
         #Update the recipe record
-        recipe = create_recipe_record(request.form, recipe,
+        recipe = compile_recipe_record(request.form, recipe,
             ( recipe['title'] != request.form.get('title') ))
         mongo.db.recipes.replace_one({"pageid" : pageid}, recipe)
         return redirect(url_for("recipe", pageid=recipe['pageid']))

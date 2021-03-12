@@ -41,7 +41,7 @@ def calculate_rating(rating):
         return 0
 
 
-def create_recipe_record(form_data, recipe = {}, new_pageid = True):
+def compile_recipe_record(form_data, recipe = {}, new_pageid = True):
     """Creates a new recipe record from formdata and any existing recipe document"""
     #carry over any existing values that shouldn't be reset
     if recipe == {}:
