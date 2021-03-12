@@ -89,7 +89,9 @@ TBC
 
 ### Database 
 
-#### ![Plum ERD_Page_2](D:\OneDrive\Documents\GitHub\Plum\dev\mockups\Plum ERD_Page_2.png)
+#### ![Plum ERD_Page_2](dev/mockups/plum_erd.png)
+
+[(PDF)](dev/mockups/plum_erd.pdf)
 
 #### Indexes
 
