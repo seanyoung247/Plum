@@ -60,7 +60,6 @@
   display: flex;
   justify-content: center;
 }
-.search-pages {}
 .search-pages-btn {
   background: none;
 	color: inherit;
@@ -70,6 +69,7 @@
 	cursor: pointer;
 	outline: inherit;
   vertical-align: middle;
+  line-height: 1em;
 
   height: 30px;
   padding: 0 10px;
@@ -82,6 +82,7 @@
 .search-pages-btn.active {
   color: #F3FCF0;
   background-color: #8E4585;
+  border-radius: 5px;
 }
 .search-pages-btn:hover:not(:disabled) {
   border-bottom: 2px solid #8E4585;
@@ -103,8 +104,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-.search-tile {
+.search-result {
   display: inline-block;
+  border-bottom: 1px solid #8E4585;
+}
+.search-tile {
   position: relative;
   width: 175px;
   height: 175px;
