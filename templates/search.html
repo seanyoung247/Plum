@@ -4,17 +4,15 @@
 
 {% block content %}
   <div class="container">
-    <div class="row line-spacing-5">
-      <form class="col s12 l8 offset-l2"  method="POST" action="{{ url_for('search') }}">
+    <div class="row">
+      <form class="col s12 {#l8 offset-l2#}"  method="POST" action="{{ url_for('search') }}">
         <div id="basic_search_pane" class="row line-spacing-5">
-          <div class="input-field col s12">
+          <div class="input-field col s12 m8 l10">
             <i class="material-icons prefix">search</i>
             <input id="search-text" name="search-text" type="text">
             <label for="search-text">Search</label>
           </div>
-        </div>
-        <div class="row line-spacing-5">
-          <div id="advanced_search_toggle" class="col s12">
+          <div id="advanced_search_toggle" class="col s12 m4 l2 center-align">
             <a>Advanced Search</a>
           </div>
         </div>
@@ -107,6 +105,9 @@
                 <input type="hidden" name="{{ field.key }}" value="{{ field.value }}">
               {% endfor %}
             </form>
+            <div class="search-pages-count">
+              Showing results {{ pages.first_item }} to {{ pages.last_item }} of {{ pages.total_items }}
+            </div>
           {% endif %}
 
           <div class="search-wrapper col s12">
@@ -121,9 +122,7 @@
             {% endfor %}
           </div>
         {% else %}
-          <div class="search-wrapper col s12">
-            No recipes found
-          </div>
+          No results
         {% endif %}
       {% endif %}
     </div>

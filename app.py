@@ -42,6 +42,7 @@ def search():
     query = {}
     form_query = []
     recipes = None
+    items_per_page = 10
 
     if request.method == "POST":
         #Construct the search query
@@ -90,6 +91,7 @@ def search():
         #Only search if at least one field has been passed.
         if query:
             #Get page details
+            pages["items_per_page"] = items_per_page
             if "page" in request.form and request.form["page"]:
                 pages["current_page"] = int(request.form["page"])
                 pages["page_count"] = int(request.form["page_count"])
@@ -97,14 +99,20 @@ def search():
             else:
                 pages["total_items"] = mongo.db.recipes.count_documents(query)
                 pages["current_page"] = 0
-                pages["page_count"] = int(pages["total_items"] / items_per_page)
+                pages["page_count"] = int(pages["total_items"] / pages["items_per_page"])
 
             if pages["total_items"] > 0:
+                #calculates the first and last items shown by the current page
+                pages["first_item"] = (pages["current_page"] * pages["items_per_page"]) + 1
+                last_item = (pages["current_page"] * pages["items_per_page"]) + pages["items_per_page"]
+                if last_item < pages["total_items"]:
+                    pages["last_item"] = last_item
+                else:
+                    pages["last_item"] = pages["total_items"]
                 #Get the page
                 recipes = mongo.db.recipes.find(query).skip(
                     pages["current_page"] * items_per_page).limit(items_per_page)
-        else:
-            pages = {"current_page" : 0, "page_count" : 0, "total_items" : 0}
+
 
     #Get the cuisines for the category search
     cuisines = list(mongo.db.cuisines.find().sort("name", 1))
