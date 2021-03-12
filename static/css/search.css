@@ -69,6 +69,7 @@
 	cursor: pointer;
 	outline: inherit;
   vertical-align: middle;
+  line-height: 1em;
 
   height: 30px;
   padding: 0 10px;
