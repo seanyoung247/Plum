@@ -13,17 +13,6 @@ Plum is a recipe sharing website designed to help users find recipes and share t
     - [User Stories](#User-Stories)
 - **[Design](#Design)**
   - [Database](#Database)
-    - [Schema](#Schema)
-      - [Recipe Collection](#Recipe-Collection)
-        - [User Token](#User-Token)
-        - [Ingredient List](#Ingredient-List)
-        - [Comment List](#Comment-List)
-      - [User Collection](#User-Collection)
-        - [Recipe Token](#Recipe-Token)
-      - [Rating Collection](#Rating-Collection)
-      - [Units Collection](#Units-Collection)
-      - [Cuisine Collection](#Cuisine-Collection)
-    - [Relationships](#Relationships)
     - [Indexes](#Indexes)
     - [Queries](#Queries)
       - [Browsing](#Browsing)
@@ -34,14 +23,14 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Fonts](#Fonts)
   - [Colours](#Colours)
   - [Layout](#Layout)
-- [Features](#Features)
-- [Technologies](#Technologies)
-- [Testing](#Testing)
-- [Source Control](#Source-Control)
+- **[Features](#Features)**
+- **[Technologies](#Technologies)**
+- **[Testing](#Testing)**
+- **[Source Control](#Source-Control)**
   - [Branches](#Branches)
   - [Github Desktop](#Github-Desktop)
-- [Deployment](#Deployment)
-- [Credits](#Credits)
+- **[Deployment](#Deployment)**
+- **[Credits](#Credits)**
   - [Media](#Media)
   - [Acknowledgements](#Acknowledgements)
 
@@ -272,7 +261,7 @@ plumdb.users.update_one({_uid : userid},
 	{$push : {recipes : recipe_token}})
 ```
 
-**Edits an existing recipe (for US009):**
+**Edits an existing recipe (for US009 and US012):**
 
 ```Mongodb
 mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
