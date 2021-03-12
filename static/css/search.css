@@ -7,7 +7,6 @@
 #basic_search_pane {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 5px;
 }
 #advanced_search_toggle {
   display: flex;

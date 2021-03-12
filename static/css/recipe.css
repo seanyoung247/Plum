@@ -1,0 +1,153 @@
+.recipe-header {
+  background-color: rgba(63,125,32,0.15);
+}
+.recipe-title {
+  color: #8E4585;
+  margin: 20px 0;
+  /* Makes the title respond to viewport width to fill the space
+     better while preventing it from getting too big or small */
+  font-size: calc(20px + 2vw);
+  text-align: center;
+}
+.recipe-author {
+  color: #3F7D20;
+  text-align: center;
+}
+.recipe-author a {
+  color: #8E4585;
+}
+.recipe-author a:hover {
+  color: #9F54B0;
+}
+.recipe-rating {
+  margin: 10px 0;
+  color: #8E4585;
+  text-align: center;
+}
+.recipe-rating .star i {
+  font-size: 35px;
+}
+.recipe-header-sub {
+  color: #3F7D20;
+  text-align: center;
+}
+.recipe-header-sub div:not(:last-child) {
+  border-right: 1px solid #3F7D20;
+}
+.recipe-header-sub p i {
+  color: #3F7D20;
+  font-size: 50px;
+}
+.recipe-header-sub span {
+  font-size: calc(20px + 0.5vw);
+}
+.recipe-description {}
+.recipe-rating-form .star i {
+  font-size: 3em;
+}
+#recipe_comment_form {
+  position: relative;
+}
+#recipe_comment_form .preloader-wrapper {
+  position: absolute;
+  top :0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* Styles materialize tabs */
+.recipe-tabs .tab a {
+  color: rgba(63,125,32,0.7);
+}
+.recipe-tabs .tab a:hover {
+  font-weight: bold;
+  color: #3F7D20;
+}
+.recipe-tabs .tab a.active,
+.recipe-tabs .tab a:focus.active {
+  color: #3F7D20;
+  font-weight: bold;
+  background-color: white;
+}
+.recipe-tabs .indicator {
+  background-color: #8E4585;
+}
+/* Removes ordered list numbering so custom numbers can be displayed. */
+ol.collection {
+  list-style: none;
+  counter-reset: list-counter;
+  padding: 0;
+}
+ol.collection li.collection-item {
+  counter-increment: list-counter;
+  font-size: 1rem;
+  padding-left: 50px;
+  color: #0D0A0B;
+}
+/* Adds custom styled list numbers before the HTML content. */
+ol.collection li.collection-item::before {
+  content: counter(list-counter);
+  text-align: center;
+  color: #8E4585;
+  position: absolute;
+  left: 10px;
+  margin-top: -5px;
+  line-height: 30px;
+  background-color: white;
+  border: 1px solid #8E4585;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+/* Gives a highlight effect on a selected step so the user can highlight
+   the current step they're following. */
+ol.collection li.collection-item:hover,
+ol.collection input:checked + label li.collection-item {
+  background-color: rgba(63,125,32,0.15);
+}
+ol.collection input:checked + label li.collection-item::before
+{
+  color: #F3FCF0;
+  background-color: #8E4585;
+}
+/*
+ * Recipe toolbar and favorite element
+ */
+#recipe_toolbar {
+  position: absolute;
+  margin: 5px;
+}
+#recipe_favorite_form {
+  display: inline-block;
+}
+#recipe_favorite > input[type="checkbox"] ~ .material-icons::after {
+  content: "favorite_border";
+}
+#recipe_favorite > input[type="checkbox"]:checked ~ .material-icons::after {
+  content: "favorite";
+}
+/*
+ * Add/Edit recipe page
+ */
+input#recipe_image {
+  background-color: rgba(243,252,240,0.9);
+}
+#steps .collection-item,
+#ingredients .collection-item {
+  position: relative;
+}
+.remove-list-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  color: #0D0A0B;
+  cursor: pointer;
+}
+.remove-list-item:hover {
+  background-color: #8E4585;
+  color: #F3FCF0;
+}

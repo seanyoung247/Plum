@@ -256,6 +256,11 @@ def register():
             flash("That user name already exists", category="warning")
             return redirect(url_for("login"))
 
+        #Ensure there's no typos in the password field:
+        if (request.form.get("password") != request.form.get("password-confirm")):
+            flash("Passwords don't match!", category="warning")
+            return redirect(url_for("login"))
+
         register = {
             "name"     : request.form.get("username").lower(),
             "email"    : request.form.get("email").lower(),
@@ -263,10 +268,9 @@ def register():
             "role"     : "user"
         }
         #register user and add them to the session cookie
-        mongo.db.users.insert_one(register)
-        registered_user = mongo.db.users.find_one(
-            {"name": request.form.get("username").lower()})
-        log_user_in(registered_user)
+        register["_id"] = mongo.db.users.insert_one(register).inserted_id
+        log_user_in(register)
+
         flash("User " + session["user"] + " registered!", category="information")
         return redirect(url_for("home"))
 
@@ -316,6 +320,9 @@ def logout():
 @requires_logged_in_user
 def ajax_rating():
     """Accepts an AJAX request for a recipe rating and updates the recipe document."""
+
+    if "rating" not in request.json or "recipeId" not in request.json:
+        return  {"new_rating" : 0}
 
     #Check whether this user has already rated this recipe
     existing_interaction = mongo.db.ratings.find_one({
@@ -410,7 +417,7 @@ def ajax_favorite():
 @requires_logged_in_user
 def ajax_comment():
     """Adds a comment to a recipe document from AJAX requests"""
-    if len(request.json['comment']) > 0:
+    if "comment" in request.json and len(request.json['comment']) > 0:
         #Construct the new comment record:
         comment = {
             "author" : session["user"],
@@ -421,10 +428,22 @@ def ajax_comment():
         return comment
 
 
-@app.route("/ajax_checkusername")
+@app.route("/ajax_checkusername", methods=['POST'])
 def ajax_checkusername():
     """Checks if a username already exists in the database."""
-    return "NOT YET IMPLIMENTED"
+    response = { "username" : "", "exists" : True }
+
+    if "username" in request.json:
+        #Search for this username
+        existing_user = mongo.db.users.find_one(
+            {"name": request.json["username"].lower()})
+        response['username'] = request.json["username"]
+        if existing_user:
+            response['exists'] = True
+        else:
+            response['exists'] = False
+
+    return response
 
 
 #
