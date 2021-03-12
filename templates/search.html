@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "items.html" import generate_item_tile %}
-{% from "star-rating.html" import generate_star_rating_control %}
+{% from "star-rating.html" import generate_star_rating_control, generate_star_rating_display %}
 
 {% block styles %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
@@ -116,12 +116,15 @@
 
           <div class="search-wrapper col s12">
             {% for recipe in recipes %}
-              <div class="search-tile">
-                {{ generate_item_tile(
-                    recipe.title,
-                    recipe.image,
-                    url_for('recipe', pageid=recipe.pageid)
-                ) }}
+              <div class="search-result">
+                <div class="search-tile">
+                  {{ generate_item_tile(
+                      recipe.title,
+                      recipe.image,
+                      url_for('recipe', pageid=recipe.pageid)
+                  ) }}
+                </div>
+                <div class="rating">{{ generate_star_rating_display(recipe.rating[0]) }}</div>
               </div>
             {% endfor %}
           </div>
