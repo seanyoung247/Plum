@@ -89,70 +89,7 @@ TBC
 
 ### Database 
 
-#### Schema
-
-##### Recipe Collection
-
-Stores individual recipes
-
-| Field name  | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| _id         | Record id                                                    |
-| pageid      | Unique string url path for this recipe                       |
-| title       | Recipe name                                                  |
-| author      | Username of the user who uploaded this recipe                |
-| date        | The date this recipe was added                               |
-| description | Short description of the recipe                              |
-| image       | Recipe Image URL string                                      |
-| cuisine     | Cuisine type                                                 |
-| time        | time this recipe takes to prepare in minutes                 |
-| servings    | Integer number of the number of servings this recipe provides |
-| rating      | List of values for how many of each star rating the recipe has received. |
-| ingredients | List of ingredients                                          |
-| steps       | List of strings of preparation steps                         |
-| comments    | List of comment objects                                      |
-
-###### Comment List
-
-| Field Name | Description                   |
-| ---------- | ----------------------------- |
-| user       | Username                      |
-| comment    | String content of the comment |
-
-##### User Collection
-
-Holds information on each registered user
-
-| Field Name | Description              |
-| ---------- | ------------------------ |
-| _id        | Record id                |
-| name       | User Name                |
-| password   | User's password hash     |
-| email      | User's email address     |
-| role       | User role, user or admin |
-
-##### Rating Collection
-
-Holds individual user-recipe rating interactions. Indexed on user_id and recipe_id.
-
-| Field Name | Description                                 |
-| ---------- | ------------------------------------------- |
-| _id        | Record id                                   |
-| user_id    | Record id of the user making this rating    |
-| recipe_id  | Record id of the recipe being rated         |
-| rating     | Number 1-5 indicating the star rating given |
-| favourited | Did the user favourite the recipe?          |
-
-##### Cuisine Collection 
-
-Enumerates cuisine types.
-
-| Field Name | Description              |
-| ---------- | ------------------------ |
-| _id        | Record id                |
-| name       | Name of the cuisine type |
-
-#### Relationships
+#### ![Plum ERD_Page_2](D:\OneDrive\Documents\GitHub\Plum\dev\mockups\Plum ERD_Page_2.png)
 
 #### Indexes
 
@@ -175,20 +112,18 @@ Enumerates cuisine types.
 
 #### Queries
 
-<Rationale/explanation goes here>
-
 ##### Browsing
 
 **Returns the 8 newest recipes (for US001):**
 
 ```mongodb
-plumdb.recipes.find().sort("_id", -1).limit(8)
+plumdb.recipes.find().sort(_id, -1).limit(8)
 ```
 
 **Returns a specific Recipe/User interaction (for US002, US008):**
 
 ```Mongodb
-plumdb.ratings.find_one({"user_id" : user['userid'], "recipe_id" : recipe['_id']})
+plumdb.ratings.find_one({user_id : user['userid'], recipe_id : recipe['_id']})
 ```
 
 ##### Users
@@ -196,7 +131,7 @@ plumdb.ratings.find_one({"user_id" : user['userid'], "recipe_id" : recipe['_id']
 **Returns a specific user account based on username (US011):**
 
 ```mongodb
-plumdb.users.find_one({"name": "username"})
+plumdb.users.find_one({name: username})
 ```
 **Inserts a new user account into the database (US010):**
 
@@ -207,24 +142,24 @@ plumdb.users.insert_one(user-record)
 **Returns all the recipes a user has uploaded:**
 
 ```mongodb
-plumdb.recipes.find({"author" : username})
+plumdb.recipes.find({author : username})
 ```
 
 **Returns all the recipes a user has favourited (for US006):**
 
 ```mongodb
 plumdb.ratings.aggregate([
-	{ "$match" : {"user_id" : userid, "favorited" : True} },
+	{ $match : {user_id : userid, favorited : True} },
 	{
-		"$lookup" : {
-			"from" : "recipes",
-			"localField" : "recipe_id",
-			"foreignField" : "_id",
-			"as": "favorites"
+		$lookup : {
+			from : recipes,
+			localField : recipe_id,
+			foreignField : _id,
+			as : favorites
 		}
 	},
-	{"$unwind" : "$favorites"},
-	{"$replaceRoot" : {"newRoot" : "$favorites"}}
+	{$unwind : $favorites},
+	{$replaceRoot : {newRoot : $favorites}}
 ])
 ```
 
@@ -233,7 +168,7 @@ plumdb.ratings.aggregate([
 **Finds a single recipe from it's pageid (for showing a single recipe page):**
 
 ```Mongodb
-plumdb.recipes.find_one({"pageid": pageid})
+plumdb.recipes.find_one({pageid: pageid})
 ```
 
 **Finds recipes conforming to a user's search (for US003, US004, and US005):**
@@ -242,9 +177,18 @@ Any individual field can be omitted as long as at least one field is passed.
 
 ```Mongodb
 plumdb.recipes.find({
-	
+	cuisine* : query.cuisine,
+	servings* : query.servings,
+	time* : {$lte : query.time},
+	rating* : {$gte : query.time},
+	$text* : {
+		$search : query.text,
+		$caseSensitive : False
+	}
 })
 ```
+
+*Optional
 
 ##### Uploading
 
@@ -253,11 +197,11 @@ plumdb.recipes.find({
 Updating the recipe record
 
 ```mongodb
-plumdb.recipes.update_one({"_id" : recipeId}
+plumdb.recipes.update_one({_id : recipeId}
 {
-	"$set" : {
-		"rating.0" : avg_rating,
-		"rating.<vote>" : rating[vote] + 1
+	$set : {
+		rating.0 : avg_rating,
+		rating.<vote> : rating[vote] + 1
 	}
 })
 ```
@@ -273,12 +217,12 @@ plumdb.ratings.insert_one(interaction-record)
 Updating the recipe record
 
 ```mongodb
-plumdb.recipes.update_one({"_id" : recipeId}
+plumdb.recipes.update_one({_id : recipeId}
 {
-	"$set" : {
-		"rating.0" : avg_rating,
-		"rating.{vote}" : rating[vote] + 1
-		"rating.{old_vote}" : rating[old_vote] - 1
+	$set : {
+		rating.0 : avg_rating,
+		rating.{vote} : rating[vote] + 1
+		rating.{old_vote} : rating[old_vote] - 1
 	}
 })
 ```
@@ -286,27 +230,27 @@ plumdb.recipes.update_one({"_id" : recipeId}
 Updating the rating record
 
 ```mongodb
-plumdb.ratings.update_one({"_id" : interaction._id}, 
+plumdb.ratings.update_one({_id : interaction._id}, 
 {
-	"$set" : {"rating" : new_rating}
+	$set : {rating : new_rating}
 })
 ```
 
 **Favouriting a recipe (for US006):**
 
 ```mongodb
-plumdb.ratings.update_one({"_id" : existing_interaction['_id']},
-	{"$set" : {"favorited" : favorite}})
+plumdb.ratings.update_one({_id : existing_interaction._id},
+	{$set : {favorited : favorite}})
 ```
 
 **Adds a comment to a recipe (for US002 and US008)**:
 
 ```mongodb
-plumdb.recipes.update_one({"_id" : recipeId}
+plumdb.recipes.update_one({_id : recipeId}
 {
-	"$push" : { "comments" : {
-		"author" : username,
-		"text" : comment		
+	$push : { comments : {
+		author : username,
+		text : comment		
 	}}
 })
 ```
@@ -322,14 +266,14 @@ plumdb.recipes.insert_one(recipe-record)
 Adds the recipe to the users list
 
 ```mongodb
-plumdb.users.update_one({"_uid" : userid},
-	{"$push" : {"recipes" : recipe_token}})
+plumdb.users.update_one({_uid : userid},
+	{$push : {recipes : recipe_token}})
 ```
 
 **Edits an existing recipe (for US009):**
 
 ```Mongodb
-mongo.db.recipes.replace_one({"pageid" : pageid}, recipe-record)
+mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
 ```
 
 ##### Administration
