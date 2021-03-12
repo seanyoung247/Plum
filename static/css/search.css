@@ -1,12 +1,17 @@
+/*
+ * Search page styles
+ */
 .row.line-spacing-5 {
   margin-bottom: 5px;
 }
 #basic_search_pane {
-  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
 }
 #advanced_search_toggle {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 #advanced_search_toggle a {
   text-decoration: none;
@@ -89,6 +94,9 @@
 .search-pages .search-pages-btn:first-child,
 .search-pages .search-pages-btn:last-child {
   padding: 0 5px;
+}
+.search-pages-count {
+  text-align: center;
 }
 .search-wrapper {
   display: flex;
