@@ -42,7 +42,7 @@
                         type="password"
                         minlength="5"
                         maxlength="15"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,}"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}"
                         class="validate"
                         required>
                       <label for="login-password">
@@ -105,13 +105,18 @@
                         name="password"
                         type="password"
                         minlength="5"
-                        maxlength="15"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,}"
+                        maxlength="25"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}"
                         class="validate"
                         required>
                       <label for="register-password">
                         Password
                       </label>
+                      <span class="helper-text"
+                        data-error="Password needs to have at least 8 characters, one capital letter and one number."
+                        data-success="Password OK">
+                          Password needs to have at least 8 characters, one capital letter and one number.
+                      </span>
                     </div>
                   </div>
                   <div class="row">
