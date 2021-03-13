@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  $('.tabs').tabs();
 });
 
 // Sends an AJAX request to the server to check if username is available

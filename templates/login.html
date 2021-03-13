@@ -11,144 +11,146 @@
       <div class="container valign">
 
         <div class="login-box">
-          <ul class="collapsible">
-            <li class="active">
-              <div class="login-header collapsible-header">
+          <ul class="plum-tabs tabs row">
+            <li class="tab col s6">
+              <a href="#login-form" class="login-header active">
                 <h5><i class="material-icons">login</i>Login</h5>
-              </div>
-              <div class="login-body collapsible-body">
-
-                <form method="POST" action="{{ url_for('login') }}">
-                  <div class="row">
-                    <div class="input-field col s12 l6">
-                      <i class="material-icons prefix">person</i>
-                      <input id="login-username"
-                        name="username"
-                        type="text"
-                        minlength="5"
-                        maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$"
-                        class="validate"
-                        required>
-                      <label for="login-username">
-                        Username
-                      </label>
-                    </div>
-
-                    <div class="input-field col s12 l6">
-                      <i class="material-icons prefix">lock</i>
-                      <input id="login-password"
-                        name="password"
-                        type="password"
-                        minlength="5"
-                        maxlength="15"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}"
-                        class="validate"
-                        required>
-                      <label for="login-password">
-                        Password
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <button type="submit" name="button"
-                      class="col s12 l6 offset-l3 btn-large text-shadow login-btn">
-                      Log In
-                    </button>
-                  </div>
-                </form>
-
-              </div>
+              </a>
             </li>
-            <li>
-              <div class="login-header collapsible-header">
+            <li class="tab col s6">
+              <a href="#register-form" class="login-header">
                 <h5><i class="material-icons">person_add</i>Register</h5>
-              </div>
-              <div class="login-body collapsible-body">
-                <form method="POST" action="{{ url_for('register') }}">
-
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">person</i>
-                      <input id="register-username"
-                        name="username"
-                        type="text"
-                        minlength="5"
-                        maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$"
-                        class="validate"
-                        data-validate="{{ url_for('ajax_checkusername') }}"
-                        required>
-                      <label for="register-username">
-                        Username
-                      </label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">person</i>
-                      <input id="register-email"
-                        name="email"
-                        type="email"
-                        class="validate"
-                        required>
-                      <label for="register-email">
-                        Email
-                      </label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">lock</i>
-                      <input id="register-password"
-                        name="password"
-                        type="password"
-                        minlength="5"
-                        maxlength="25"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}"
-                        class="validate"
-                        required>
-                      <label for="register-password">
-                        Password
-                      </label>
-                      <span class="helper-text"
-                        data-error="Password needs to have at least 8 characters, one capital letter and one number."
-                        data-success="Password OK">
-                          Password needs to have at least 8 characters, one capital letter and one number.
-                      </span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">lock</i>
-                      <input id="register-password-confirm"
-                        name="password-confirm"
-                        type="password"
-                        minlength="5"
-                        maxlength="15"
-                        class=""
-                        required>
-                      <label for="register-password-confirm">
-                        Confirm Password
-                      </label>
-                      <span class="helper-text"
-                        data-error="Passwords don't match"
-                        data-success="passwords match">
-                          Passwords don't match
-                      </span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <button id="register-submit" type="submit" name="button"
-                      class="col s12 l6 offset-l3 btn-large text-shadow login-btn">
-                      Register
-                    </button>
-                  </div>
-                </form>
-              </div>
+              </a>
             </li>
           </ul>
+
+          <div id="login-form" class="login-body">
+            <form method="POST" action="{{ url_for('login') }}">
+              <div class="row">
+                <div class="input-field col s12 l6">
+                  <i class="material-icons prefix">person</i>
+                  <input id="login-username"
+                    name="username"
+                    type="text"
+                    minlength="5"
+                    maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$"
+                    class="validate"
+                    required>
+                  <label for="login-username">
+                    Username
+                  </label>
+                </div>
+
+                <div class="input-field col s12 l6">
+                  <i class="material-icons prefix">lock</i>
+                  <input id="login-password"
+                    name="password"
+                    type="password"
+                    minlength="5"
+                    maxlength="15"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}"
+                    class="validate"
+                    required>
+                  <label for="login-password">
+                    Password
+                  </label>
+                </div>
+              </div>
+
+              <div class="row">
+                <button type="submit" name="button"
+                  class="col s12 l6 offset-l3 btn-large text-shadow login-btn">
+                  Log In
+                </button>
+              </div>
+            </form>
+
+          </div>
+
+          <div id="register-form" class="login-body">
+            <form method="POST" action="{{ url_for('register') }}">
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">person</i>
+                  <input id="register-username"
+                    name="username"
+                    type="text"
+                    minlength="5"
+                    maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$"
+                    class="validate"
+                    data-validate="{{ url_for('ajax_checkusername') }}"
+                    required>
+                  <label for="register-username">
+                    Username
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">person</i>
+                  <input id="register-email"
+                    name="email"
+                    type="email"
+                    class="validate"
+                    required>
+                  <label for="register-email">
+                    Email
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">lock</i>
+                  <input id="register-password"
+                    name="password"
+                    type="password"
+                    minlength="5"
+                    maxlength="25"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}"
+                    class="validate"
+                    required>
+                  <label for="register-password">
+                    Password
+                  </label>
+                  <span class="helper-text"
+                    data-error="Password needs to have at least 8 characters, one capital letter and one number."
+                    data-success="Password OK">
+                      Password needs to have at least 8 characters, one capital letter and one number.
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">lock</i>
+                  <input id="register-password-confirm"
+                    name="password-confirm"
+                    type="password"
+                    minlength="5"
+                    maxlength="15"
+                    class=""
+                    required>
+                  <label for="register-password-confirm">
+                    Confirm Password
+                  </label>
+                  <span class="helper-text"
+                    data-error="Passwords don't match"
+                    data-success="passwords match">
+                      Passwords don't match
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <button id="register-submit" type="submit" name="button"
+                  class="col s12 l6 offset-l3 btn-large text-shadow login-btn">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+
         </div>
 
       </div>
