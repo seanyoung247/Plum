@@ -439,12 +439,18 @@ Github desktop will automatically flag unmerged changes in the current repositor
 <summary>Recipes:</summary>
 
 - Parmesan Crusted Chicken image and recipe from [gimmedelicious](https://gimmedelicious.com/crispy-parmesan-crusted-chicken/).
+
 - Efo Riro image and recipe from [yummymedley](https://www.yummymedley.com/spinach-stew-yoruba-style/)
+
 - Singapore Fried Rice image and recipe from [frugalfeeding](https://frugalfeeding.com/2015/04/12/singapore-fried-rice/)
+
 - Irish stew image from [SimplyRecipes](https://www.simplyrecipes.com/recipes/irish_beef_stew/)
+
 - Recipe from [BBC Good Food](https://www.bbcgoodfood.com/recipes/lighter-spaghetti-meatballs)
+
 - Chicken Provençal image and recipe from [The Modern Proper](https://themodernproper.com/chicken-provencal)
-</details>
+- Beef Wellington image by [Chanwit Voraakan](https://pixabay.com/users/pzphone-1813175/) recipe from [BBC Good Food](https://www.bbcgoodfood.com/recipes/beef-wellington)
+  </details>
 
 General:
 
