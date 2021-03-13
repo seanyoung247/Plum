@@ -4,6 +4,11 @@
 .recipe-header {
   background-color: rgba(63,125,32,0.15);
 }
+#image_upload_btn {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
 .recipe-title {
   color: #8E4585;
   margin: 20px 0;
