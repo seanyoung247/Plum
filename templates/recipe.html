@@ -97,7 +97,10 @@
           <ul class="collection">
             {% for ingredient in recipe.ingredients %}
               <li class="collection-item">
-                {{ ingredient }}
+                <label>
+                  <input class="ingredient-check" type="checkbox">
+                  <span class="ingredient-text">{{ ingredient }}</span>
+                </label>
               </li>
             {% endfor %}
           </ul>
