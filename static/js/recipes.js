@@ -120,6 +120,10 @@ function imageUploaded(error, result) {
 $( "#image_upload_btn" ).click(function(event) {
   event.preventDefault();
 
-  cloudinary.openUploadWidget({ cloud_name: 'dtx8mohkg', upload_preset: 'plum8hdx'},
+  cloudinary.openUploadWidget(
+    {
+      cloud_name: 'dtx8mohkg',
+      upload_preset: 'plum8hdx'
+    },
     imageUploaded);
 });

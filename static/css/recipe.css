@@ -81,6 +81,16 @@
 .recipe-tabs .indicator {
   background-color: #8E4585;
 }
+.ingredient-text {
+  color: #0D0A0B;
+}
+.ingredient-check:checked + .ingredient-text {
+  text-decoration: line-through;
+}
+input[type="checkbox"].ingredient-check:checked + span:before {
+  border-right: 2px solid #8E4585; /*#3F7D20;*/
+  border-bottom: 2px solid #8E4585; /*#3F7D20;*/
+}
 /* Removes ordered list numbering so custom numbers can be displayed. */
 ol.collection {
   list-style: none;

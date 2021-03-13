@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.collapsible').collapsible();
+
 });
 
 // Sends an AJAX request to the server to check if username is available

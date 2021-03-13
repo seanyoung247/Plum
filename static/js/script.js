@@ -10,6 +10,7 @@ $(document).ready(function(){
   $('.timepicker').timepicker({
     twelveHour: false
   });
+  $('.collapsible').collapsible();
   $('select').formSelect();
 });
 

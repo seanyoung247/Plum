@@ -346,6 +346,8 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
   - Used to create some of the image files used on the site.
 - [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
   - Used to create some of the sprite images and icons used on the site.
+- [Cloudinary](https://cloudinary.com/)
+  - Used to store and serve recipe images and handle image uploading.
 
 ## Testing
 
