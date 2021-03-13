@@ -11,18 +11,19 @@
   flex: 1;
 }
 .login-box {
+  box-shadow: 0 0 5px #0D0A0B;
+  background-color: white;
   max-width: 750px;
 }
 .login-header {
-  background-color: #F3FCF0;
+  border-bottom: 1px solid #AAA;
+}
+.login-header h5 {
+  color: #AAA;
+}
+.login-header.active h5 {
   color: #3F7D20;
 }
-li:not(.active) > .login-header {
-  border-bottom: 2px solid #8E4585;
-  /* Delays the application of this rule on collapse so the border appears
-     as the content dissapears for a seemless transition. */
-  transition-delay: 0.3s;
-}
 .login-body {
-  border-bottom: 2px solid #8E4585;
+  padding: 10px;
 }
