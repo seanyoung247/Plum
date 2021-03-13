@@ -110,7 +110,16 @@ $( "#recipe_image_url" ).on('change', function(event){
   $( '#recipe_header_image' ).prop("src", $( this ).val())
 });
 
+// cloudinary callback. Sets upload image url input
+function imageUploaded(error, result) {
+  $( '#recipe_header_image' ).prop("src", result[0].secure_url);
+  $( '#recipe_image_url' ).val(result[0].secure_url);
+}
+
+// Shows the cloudinary image upload widget
 $( "#image_upload_btn" ).click(function(event) {
+  event.preventDefault();
+
   cloudinary.openUploadWidget({ cloud_name: 'dtx8mohkg', upload_preset: 'plum8hdx'},
-    function(error, result) { console.log(error, result) });
+    imageUploaded);
 });
