@@ -106,7 +106,7 @@ TBC
 ##### Browsing
 
 <details>
-<summar>**Returns the 8 newest recipes (for US001):**</summary>
+<summary><b>Returns the 8 newest recipes (for US001):</b></summary>
 
 ```mongodb
 plumdb.recipes.find().sort(_id, -1).limit(8)
@@ -114,7 +114,7 @@ plumdb.recipes.find().sort(_id, -1).limit(8)
 </details>
 
 <details>
-<summary>**Returns a specific Recipe/User interaction (for US002, US008):**</summary>
+<summary><b>Returns a specific Recipe/User interaction (for US002, US008):</b></summary>
 
 ```Mongodb
 plumdb.ratings.find_one({user_id : user['userid'], recipe_id : recipe['_id']})
@@ -124,7 +124,7 @@ plumdb.ratings.find_one({user_id : user['userid'], recipe_id : recipe['_id']})
 ##### Users
 
 <details>
-<summary>**Find a specific user account based on username (US011):**</summary>
+<summary><b>Find a specific user account based on username (US011):</b></summary>
 
 ```mongodb
 plumdb.users.find_one({name: username})
@@ -132,7 +132,7 @@ plumdb.users.find_one({name: username})
 </details>
 
 <details>
-<summary>**Insert a new user account into the database (US010):**</summary>
+<summary><b>Insert a new user account into the database (US010):</b></summary>
 
 ```mongodb
 plumdb.users.insert_one(user-record)
@@ -140,7 +140,7 @@ plumdb.users.insert_one(user-record)
 </details>
 
 <details>
-<summary>**Find all the recipes a user has uploaded:**</summary>
+<summary><b>Find all the recipes a user has uploaded:</b></summary>
 
 ```mongodb
 plumdb.recipes.find({author : username})
@@ -148,7 +148,7 @@ plumdb.recipes.find({author : username})
 </details>
 
 <details>
-<summary>**Find all the recipes a user has favourited (for US006):**</summary>
+<summary><b>Find all the recipes a user has favourited (for US006):</b></summary>
 
 ```mongodb
 plumdb.ratings.aggregate([
@@ -170,7 +170,7 @@ plumdb.ratings.aggregate([
 ##### Searching
 
 <details>
-<summary>**Find a single recipe from it's pageid (for showing a single recipe page):**</summary>
+<summary><b>Find a single recipe from it's pageid (for showing a single recipe page):</b></summary>
 
 ```Mongodb
 plumdb.recipes.find_one({pageid: pageid})
@@ -178,7 +178,7 @@ plumdb.recipes.find_one({pageid: pageid})
 </details>
 
 <details>
-<summary>**Find recipes conforming to a user's search (for US003, US004, and US005):**</summary>
+<summary><b>Find recipes conforming to a user's search (for US003, US004, and US005):</b></summary>
 
 Any individual field can be omitted as long as at least one field is passed.
 
@@ -201,7 +201,7 @@ plumdb.recipes.find({
 ##### Uploading
 
 <details>
-<summary>**Add a rating vote to a recipe (for US002 and US008)**:</summary>
+<summary><b>Add a rating vote to a recipe (for US002 and US008):<b></summary>
 
 Updating the recipe record
 
@@ -223,7 +223,7 @@ plumdb.ratings.insert_one(interaction-record)
 </details>
 
 <details>
-<summary>**Update a rating vote on a recipe (for US002 and US008)**:</summary>
+<summary><b>Update a rating vote on a recipe (for US002 and US008):</b></summary>
 
 Updating the recipe record
 
@@ -249,7 +249,7 @@ plumdb.ratings.update_one({_id : interaction._id},
 </details>
 
 <details>
-<summary>**Favouriting a recipe (for US006):**</summary>
+<summary><b>Favouriting a recipe (for US006):</b></summary>
 
 ```mongodb
 plumdb.ratings.update_one({_id : existing_interaction._id},
@@ -258,7 +258,7 @@ plumdb.ratings.update_one({_id : existing_interaction._id},
 </details>
 
 <details>
-<summary>**Add a comment to a recipe (for US002 and US008)**:</summary>
+<summary><b>Add a comment to a recipe (for US002 and US008):</b></summary>
 
 ```mongodb
 plumdb.recipes.update_one({_id : recipeId}
@@ -272,7 +272,7 @@ plumdb.recipes.update_one({_id : recipeId}
 </details>
 
 <details>
-<summary>**Add a new recipe (for US007):**</summary>
+<summary><b>Add a new recipe (for US007):</b></summary>
 
 Adds the recipe to the database
 
@@ -286,10 +286,10 @@ Adds the recipe to the users list
 plumdb.users.update_one({_uid : userid},
 	{$push : {recipes : recipe_token}})
 ```
-<details>
+</details>
 
 <details>
-<summary>**Edit an existing recipe (for US009 and US012):**</summary>
+<summary><b>Edit an existing recipe (for US009 and US012):</b></summary>
 
 ```Mongodb
 mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
