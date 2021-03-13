@@ -64,7 +64,24 @@ hr.section-divider {
 .select-dropdown {
   max-height: 50vh;
 }
-
+/* Changes materialize input fields to brand colours */
+.input-field .prefix.active,
+ul.dropdown-content.select-dropdown li span,
+.input-field textarea.materialize-textarea:focus:not([readonly]) + label,
+.input-field input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+.input-field input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+.input-field input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
+.input-field input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
+  color: #3F7D20;
+}
+.input-field input[type="text"]:not(.browser-default):focus,
+.input-field input[type="email"]:not(.browser-default):focus,
+.input-field input[type="number"]:not(.browser-default):focus,
+.input-field input[type="password"]:not(.browser-default):focus,
+.input-field textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #3F7D20;
+  box-shadow: 0 1px 0 0 #3F7D20;
+}
 /*
  * Header and Navigation
  */
@@ -106,6 +123,27 @@ ul.user-dropdown li > a {
 .sidenav .collapsible-body {
   padding: 0 32px;
   background-color: transparent;
+}
+/*
+ * Tabs
+ */
+/* Styles materialize tabs */
+.plum-tabs .tab a {
+  color: rgba(63,125,32,0.7);
+  background-color: white;
+}
+.plum-tabs .tab a:hover {
+  font-weight: bold;
+  color: #3F7D20;
+}
+.plum-tabs .tab a.active,
+.plum-tabs .tab a:focus.active {
+  color: #3F7D20;
+  font-weight: bold;
+  background-color: white;
+}
+.plum-tabs .indicator {
+  background-color: #8E4585;
 }
 /*
  * Recipe cards
