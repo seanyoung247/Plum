@@ -106,6 +106,11 @@ $( "#steps .add-list-item" ).click(function(event) {
 });
 
 // Shows the current selected image in the image box
-$( "#recipe_image" ).on('change', function(event){
+$( "#recipe_image_url" ).on('change', function(event){
   $( '#recipe_header_image' ).prop("src", $( this ).val())
+});
+
+$( "#image_upload_btn" ).click(function(event) {
+  cloudinary.openUploadWidget({ cloud_name: 'dtx8mohkg', upload_preset: 'plum8hdx'},
+    function(error, result) { console.log(error, result) });
 });
