@@ -105,38 +105,50 @@ TBC
 
 ##### Browsing
 
-**Returns the 8 newest recipes (for US001):**
+<details>
+<summar>**Returns the 8 newest recipes (for US001):**</summary>
 
 ```mongodb
 plumdb.recipes.find().sort(_id, -1).limit(8)
 ```
+</details>
 
-**Returns a specific Recipe/User interaction (for US002, US008):**
+<details>
+<summary>**Returns a specific Recipe/User interaction (for US002, US008):**</summary>
 
 ```Mongodb
 plumdb.ratings.find_one({user_id : user['userid'], recipe_id : recipe['_id']})
 ```
+</details>
 
 ##### Users
 
-**Returns a specific user account based on username (US011):**
+<details>
+<summary>**Find a specific user account based on username (US011):**</summary>
 
 ```mongodb
 plumdb.users.find_one({name: username})
 ```
-**Inserts a new user account into the database (US010):**
+</details>
+
+<details>
+<summary>**Insert a new user account into the database (US010):**</summary>
 
 ```mongodb
 plumdb.users.insert_one(user-record)
 ```
+</details>
 
-**Returns all the recipes a user has uploaded:**
+<details>
+<summary>**Find all the recipes a user has uploaded:**</summary>
 
 ```mongodb
 plumdb.recipes.find({author : username})
 ```
+</details>
 
-**Returns all the recipes a user has favourited (for US006):**
+<details>
+<summary>**Find all the recipes a user has favourited (for US006):**</summary>
 
 ```mongodb
 plumdb.ratings.aggregate([
@@ -153,16 +165,20 @@ plumdb.ratings.aggregate([
 	{$replaceRoot : {newRoot : $favorites}}
 ])
 ```
+</details>
 
 ##### Searching
 
-**Finds a single recipe from it's pageid (for showing a single recipe page):**
+<details>
+<summary>**Find a single recipe from it's pageid (for showing a single recipe page):**</summary>
 
 ```Mongodb
 plumdb.recipes.find_one({pageid: pageid})
 ```
+</details>
 
-**Finds recipes conforming to a user's search (for US003, US004, and US005):**
+<details>
+<summary>**Find recipes conforming to a user's search (for US003, US004, and US005):**</summary>
 
 Any individual field can be omitted as long as at least one field is passed.
 
@@ -180,10 +196,12 @@ plumdb.recipes.find({
 ```
 
 *Optional
+</details>
 
 ##### Uploading
 
-**Adds a rating vote to a recipe (for US002 and US008)**:
+<details>
+<summary>**Add a rating vote to a recipe (for US002 and US008)**:</summary>
 
 Updating the recipe record
 
@@ -202,8 +220,10 @@ Adding the rating record
 ```mongodb
 plumdb.ratings.insert_one(interaction-record)
 ```
+</details>
 
-**Updates a rating vote on a recipe (for US002 and US008)**:
+<details>
+<summary>**Update a rating vote on a recipe (for US002 and US008)**:</summary>
 
 Updating the recipe record
 
@@ -226,15 +246,19 @@ plumdb.ratings.update_one({_id : interaction._id},
 	$set : {rating : new_rating}
 })
 ```
+</details>
 
-**Favouriting a recipe (for US006):**
+<details>
+<summary>**Favouriting a recipe (for US006):**</summary>
 
 ```mongodb
 plumdb.ratings.update_one({_id : existing_interaction._id},
 	{$set : {favorited : favorite}})
 ```
+</details>
 
-**Adds a comment to a recipe (for US002 and US008)**:
+<details>
+<summary>**Add a comment to a recipe (for US002 and US008)**:</summary>
 
 ```mongodb
 plumdb.recipes.update_one({_id : recipeId}
@@ -245,8 +269,10 @@ plumdb.recipes.update_one({_id : recipeId}
 	}}
 })
 ```
+</details>
 
-**Adds a new recipe (for US007):**
+<details>
+<summary>**Add a new recipe (for US007):**</summary>
 
 Adds the recipe to the database
 
@@ -260,12 +286,15 @@ Adds the recipe to the users list
 plumdb.users.update_one({_uid : userid},
 	{$push : {recipes : recipe_token}})
 ```
+<details>
 
-**Edits an existing recipe (for US009 and US012):**
+<details>
+<summary>**Edit an existing recipe (for US009 and US012):**</summary>
 
 ```Mongodb
 mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
 ```
+</details>
 
 ##### Administration
 
