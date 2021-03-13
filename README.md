@@ -106,7 +106,7 @@ TBC
 ##### Browsing
 
 <details>
-<summary><b>Returns the 8 newest recipes (for US001):</b></summary>
+<summary><b>Find the 8 newest recipes (for US001):</b></summary>
 
 ```mongodb
 plumdb.recipes.find().sort(_id, -1).limit(8)
@@ -114,7 +114,7 @@ plumdb.recipes.find().sort(_id, -1).limit(8)
 </details>
 
 <details>
-<summary><b>Returns a specific Recipe/User interaction (for US002, US008):</b></summary>
+<summary><b>Find a specific Recipe/User interaction (for US002, US008):</b></summary>
 
 ```Mongodb
 plumdb.ratings.find_one({user_id : user['userid'], recipe_id : recipe['_id']})
@@ -355,7 +355,7 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 - [Typora](https://typora.io/)
   - Typora was used to simplify creation of the README.md file.
 - [Atom](https://atom.io/)
-  - Atom was used to write HTML and Javascript code.
+  - Atom was used to write HTML/CSS, Javascript and Python code.
 - [dbdiagram](https://dbdiagram.io/home)
   - Used to create Entity Relationship Diagrams of the database.
 - [Balsamic](https://balsamiq.com/)
@@ -377,6 +377,8 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
   - Used to create some of the sprite images and icons used on the site.
 - [Cloudinary](https://cloudinary.com/)
   - Used to store and serve recipe images and handle image uploading.
+- [Coolors](https://coolors.co/)
+  - Used to help define the site colour scheme.
 
 ## Testing
 
@@ -386,11 +388,41 @@ The website was developed using the Atom editor with github for version control.
 
 ### Branches
 
-Branches were used to add new features for testing without affecting the main branch and deployed application. 
+Branches were used to add and develop new features for testing without affecting the main branch and deployed application. 
 
 #### Creating a branch
 
+<details>
+<summary>Command Line Interface:</summary>
+
+`>git branch <branch name>`
+</details>
+
+<details>
+<summary>Github Repository:</summary>
+
+1. Selecting the branch drop down
+
+2. Typing a new branch name into the dropdown
+
+3. Selecting the "Create Branch" option
+
+   ![Github new branch](dev/images/docs/new_branch_github.png)
+</details>
+
+<details>
+<summary>Github Desktop:</summary>
+
+1. Selecting the current branch drop down
+2. Typing the new branch name into the input field
+3. Clicking the new branch button
+
+![Github desktop create new branch](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\new_branch_github_desktop.png)
+</details>
+
 #### Selecting a branch
+
+
 
 #### Merging a branch
 
