@@ -66,21 +66,23 @@ hr.section-divider {
 }
 /* Changes materialize input fields to brand colours */
 .input-field .prefix.active,
-ul.dropdown-content.select-dropdown li span,
 .input-field textarea.materialize-textarea:focus:not([readonly]) + label,
 .input-field input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
 .input-field input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
 .input-field input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
 .input-field input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
-  color: #3F7D20;
+  color: #8E4585;
+}
+ul.dropdown-content.select-dropdown li span {
+  color: #0D0A0B;
 }
 .input-field input[type="text"]:not(.browser-default):focus,
 .input-field input[type="email"]:not(.browser-default):focus,
 .input-field input[type="number"]:not(.browser-default):focus,
 .input-field input[type="password"]:not(.browser-default):focus,
 .input-field textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #3F7D20;
-  box-shadow: 0 1px 0 0 #3F7D20;
+  border-bottom: 1px solid #8E4585;
+  box-shadow: 0 1px 0 0 #8E4585;
 }
 /*
  * Header and Navigation
