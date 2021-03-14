@@ -7,7 +7,6 @@ $( "#recipe_rating_form" ).submit(function(event) {
   event.preventDefault();
 
   submitFormAJAX(event, ratingSuccess);
-
   // Stop reading star rating while server deals with request
   $( "input", this ).prop('disabled', true);
   $( ".star-rating-ctl", this ).addClass('disabled')
@@ -15,11 +14,22 @@ $( "#recipe_rating_form" ).submit(function(event) {
   $( ".preloader-wrapper", this ).removeClass("hide");
 });
 
+// Log that the rating value has changed.
+$( ".star-rating-ctl input[type='radio']" ).change(function(event) {
+  $( ".star-rating-ctl" ).prop("data-rating-changed", true);
+});
+
+// Submits the rating form only when losing focus and value has changed
 $( ".star-rating-ctl" ).focusout(function(event) {
   /* If the new focus item isn't a child of the star-rating-ctl radio-group,
-     focus has left the button group (and not just an individual radio button).
-     It's now safe to trigger the */
-  if (this != $( event.relatedTarget ).parent()[0]) $( "#recipe_rating_form" ).submit();
+     focus has left the button group (and not just an individual radio button). */
+  if (this != $( event.relatedTarget ).parent()[0] ) {
+    // Only submit if the value has actually been changed
+    if ($( this ).prop("data-rating-changed")) {
+      $( this ).prop("data-rating-changed", false);
+      $( "#recipe_rating_form" ).submit();
+    }
+  }
 });
 
 // Called if setting the rating was successful

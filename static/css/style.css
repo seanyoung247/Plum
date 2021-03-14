@@ -313,7 +313,6 @@ footer {
   pointer-events: none;
   opacity: 0.75;
 }
-
 /* Gives a focus hint for accessibility */
 .star-rating-ctl input[type="radio"]:focus + .star > i {
   border-radius: 50%;
@@ -321,7 +320,10 @@ footer {
   margin: -1px;
   box-shadow: 0 0 5px #8E4585;
 }
-
+.star-rating-ctl .star:focus {
+  outline: none;
+  border: none;
+}
 /*
  * Horizontal item scroller
  */

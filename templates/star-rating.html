@@ -32,7 +32,7 @@
         value="{{ i }}"
         {{ 'checked' if precheck == i }}
         required>
-      <label for="rating{{ i }}" class="star">
+      <label for="rating{{ i }}" class="star" tabindex="-1">
         <i class="material-icons"></i>
       </label>
     {% endfor %}
