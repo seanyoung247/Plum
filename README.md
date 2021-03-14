@@ -105,38 +105,50 @@ TBC
 
 ##### Browsing
 
-**Returns the 8 newest recipes (for US001):**
+<details>
+<summary><b>Find the 8 newest recipes (for US001):</b></summary>
 
 ```mongodb
 plumdb.recipes.find().sort(_id, -1).limit(8)
 ```
+</details>
 
-**Returns a specific Recipe/User interaction (for US002, US008):**
+<details>
+<summary><b>Find a specific Recipe/User interaction (for US002, US008):</b></summary>
 
 ```Mongodb
 plumdb.ratings.find_one({user_id : user['userid'], recipe_id : recipe['_id']})
 ```
+</details>
 
 ##### Users
 
-**Returns a specific user account based on username (US011):**
+<details>
+<summary><b>Find a specific user account based on username (US011):</b></summary>
 
 ```mongodb
 plumdb.users.find_one({name: username})
 ```
-**Inserts a new user account into the database (US010):**
+</details>
+
+<details>
+<summary><b>Insert a new user account into the database (US010):</b></summary>
 
 ```mongodb
 plumdb.users.insert_one(user-record)
 ```
+</details>
 
-**Returns all the recipes a user has uploaded:**
+<details>
+<summary><b>Find all the recipes a user has uploaded:</b></summary>
 
 ```mongodb
 plumdb.recipes.find({author : username})
 ```
+</details>
 
-**Returns all the recipes a user has favourited (for US006):**
+<details>
+<summary><b>Find all the recipes a user has favourited (for US006):</b></summary>
 
 ```mongodb
 plumdb.ratings.aggregate([
@@ -153,16 +165,20 @@ plumdb.ratings.aggregate([
 	{$replaceRoot : {newRoot : $favorites}}
 ])
 ```
+</details>
 
 ##### Searching
 
-**Finds a single recipe from it's pageid (for showing a single recipe page):**
+<details>
+<summary><b>Find a single recipe from it's pageid (for showing a single recipe page):</b></summary>
 
 ```Mongodb
 plumdb.recipes.find_one({pageid: pageid})
 ```
+</details>
 
-**Finds recipes conforming to a user's search (for US003, US004, and US005):**
+<details>
+<summary><b>Find recipes conforming to a user's search (for US003, US004, and US005):</b></summary>
 
 Any individual field can be omitted as long as at least one field is passed.
 
@@ -180,10 +196,12 @@ plumdb.recipes.find({
 ```
 
 *Optional
+</details>
 
 ##### Uploading
 
-**Adds a rating vote to a recipe (for US002 and US008)**:
+<details>
+<summary><b>Add a rating vote to a recipe (for US002 and US008):<b></summary>
 
 Updating the recipe record
 
@@ -202,8 +220,10 @@ Adding the rating record
 ```mongodb
 plumdb.ratings.insert_one(interaction-record)
 ```
+</details>
 
-**Updates a rating vote on a recipe (for US002 and US008)**:
+<details>
+<summary><b>Update a rating vote on a recipe (for US002 and US008):</b></summary>
 
 Updating the recipe record
 
@@ -226,15 +246,19 @@ plumdb.ratings.update_one({_id : interaction._id},
 	$set : {rating : new_rating}
 })
 ```
+</details>
 
-**Favouriting a recipe (for US006):**
+<details>
+<summary><b>Favouriting a recipe (for US006):</b></summary>
 
 ```mongodb
 plumdb.ratings.update_one({_id : existing_interaction._id},
 	{$set : {favorited : favorite}})
 ```
+</details>
 
-**Adds a comment to a recipe (for US002 and US008)**:
+<details>
+<summary><b>Add a comment to a recipe (for US002 and US008):</b></summary>
 
 ```mongodb
 plumdb.recipes.update_one({_id : recipeId}
@@ -245,8 +269,10 @@ plumdb.recipes.update_one({_id : recipeId}
 	}}
 })
 ```
+</details>
 
-**Adds a new recipe (for US007):**
+<details>
+<summary><b>Add a new recipe (for US007):</b></summary>
 
 Adds the recipe to the database
 
@@ -260,12 +286,15 @@ Adds the recipe to the users list
 plumdb.users.update_one({_uid : userid},
 	{$push : {recipes : recipe_token}})
 ```
+</details>
 
-**Edits an existing recipe (for US009 and US012):**
+<details>
+<summary><b>Edit an existing recipe (for US009 and US012):</b></summary>
 
 ```Mongodb
 mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
 ```
+</details>
 
 ##### Administration
 
@@ -326,7 +355,7 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 - [Typora](https://typora.io/)
   - Typora was used to simplify creation of the README.md file.
 - [Atom](https://atom.io/)
-  - Atom was used to write HTML and Javascript code.
+  - Atom was used to write HTML/CSS, Javascript and Python code.
 - [dbdiagram](https://dbdiagram.io/home)
   - Used to create Entity Relationship Diagrams of the database.
 - [Balsamic](https://balsamiq.com/)
@@ -348,6 +377,8 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
   - Used to create some of the sprite images and icons used on the site.
 - [Cloudinary](https://cloudinary.com/)
   - Used to store and serve recipe images and handle image uploading.
+- [Coolors](https://coolors.co/)
+  - Used to help define the site colour scheme.
 
 ## Testing
 
@@ -357,15 +388,91 @@ The website was developed using the Atom editor with github for version control.
 
 ### Branches
 
-Branches were used to add new features for testing without affecting the main branch and deployed application. 
+Branches were used to add and develop new features for testing without affecting the main branch and deployed application. 
 
 #### Creating a branch
 
+<details>
+<summary>Command Line Interface:</summary>
+`>git branch <branch name>`
+
+A branch can be created and selected in one operation with:
+
+`>git checkout -b <branch name>`
+
+</details>
+
+<details>
+<summary>Github Repository:</summary>
+From the repository main page on github.com:
+
+
+1. Selecting the branch drop down
+
+2. Typing a new branch name into the dropdown
+
+3. Selecting the "Create Branch" option
+
+   ![Github new branch](dev/images/docs/new_branch_github.png)
+   </details>
+
+<details>
+<summary>Github Desktop:</summary>
+From github desktop main window:
+
+
+1. Selecting the current branch drop down
+2. Typing the new branch name into the input field
+3. Clicking the new branch button
+
+![Github desktop create new branch](dev/images/docs/new_branch_github_desktop.png)
+</details>
+
 #### Selecting a branch
+
+<details>
+<summary>Command Line Interface</summary>
+
+`git checkout <branch name>`
+</details>
+
+<details>
+<summary>Github repository</summary>
+
+From the githup repository main page:
+
+1. Select the branch drop down
+2. Select the required branch
+
+![Github select branch](dev/images/docs/select_branch_github.png)
+</details>
+
+<details>
+<summary>Github Desktop</summary>
+
+From the github desktop main window:
+
+1. Select the current branch drop down
+2. Select the required branch
+
+![Github desktop select branch](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\select_branch_github_desktop.png)
+</details>
 
 #### Merging a branch
 
+Command Line Interface
+
+Github repository
+
+Github Desktop
+
 #### Deleting a branch
+
+Command Line Interface
+
+Github repository
+
+Github Desktop
 
 ### Github Desktop
 
