@@ -503,12 +503,8 @@ The site also uses the following JavaScript files for dynamic functionality:
     - The project uses the Werkzeug WSGI library to manage the Web Server Gateway Interface and related tasks.
 - [JQuery](https://jquery.com)
     - The project uses JQuery to simplify DOM manipulation.
-- [Bootstrap](https://getbootstrap.com/)
-    - The project uses bootstrap to aid in responsive design.
-- [Popper](https://popper.js.org/)
-    - Included as a requirement of bootstrap. Used in dropdown splash screen menu.
-- [Virtual Joystick](https://github.com/jeromeetienne/virtualjoystick.js)
-    - A relatively lightweight touch joystick used for user interaction on touch screens. Licenced under the [MIT Licence](assets/scripts/MIT-LICENSE.txt).
+- [Materialize](https://materializecss.com/)
+    - The project uses Materialize to aid in responsive design and conforming to the google material design language.
 
 ### Editors
 
