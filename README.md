@@ -455,7 +455,7 @@ From the github desktop main window:
 1. Select the current branch drop down
 2. Select the required branch
 
-![Github desktop select branch](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\select_branch_github_desktop.png)
+![Github desktop select branch](dev/images/docs/select_branch_github_desktop.png)
 </details>
 
 #### Merging a branch
