@@ -43,22 +43,22 @@ hr.section-divider {
   color: #3F7D20;
 }
 .btn-small,
-.btn-large,
-.btn-small:focus,
-.btn-large:focus {
+.btn-large {
   color: #F3FCF0;
   background-color: #3F7D20;
 }
 .btn-small:hover,
-.btn-large:hover {
+.btn-large:hover,
+.btn-small:focus,
+.btn-large:focus {
   background-color: #63A344;
 }
-.btn-plum,
-.btn-plum:focus {
+.btn-plum {
   color: #F3FCF0;
   background-color: #8E4585;
 }
-.btn-plum:hover {
+.btn-plum:hover,
+.btn-plum:focus {
   background-color: #9F54B0;
 }
 .select-dropdown {
@@ -66,21 +66,23 @@ hr.section-divider {
 }
 /* Changes materialize input fields to brand colours */
 .input-field .prefix.active,
-ul.dropdown-content.select-dropdown li span,
 .input-field textarea.materialize-textarea:focus:not([readonly]) + label,
 .input-field input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
 .input-field input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
 .input-field input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
 .input-field input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
-  color: #3F7D20;
+  color: #8E4585;
+}
+ul.dropdown-content.select-dropdown li span {
+  color: #0D0A0B;
 }
 .input-field input[type="text"]:not(.browser-default):focus,
 .input-field input[type="email"]:not(.browser-default):focus,
 .input-field input[type="number"]:not(.browser-default):focus,
 .input-field input[type="password"]:not(.browser-default):focus,
 .input-field textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #3F7D20;
-  box-shadow: 0 1px 0 0 #3F7D20;
+  border-bottom: 1px solid #8E4585;
+  box-shadow: 0 1px 0 0 #8E4585;
 }
 /*
  * Header and Navigation
@@ -310,6 +312,17 @@ footer {
 .star-rating-ctl.disabled .star {
   pointer-events: none;
   opacity: 0.75;
+}
+/* Gives a focus hint for accessibility */
+.star-rating-ctl input[type="radio"]:focus + .star > i {
+  border-radius: 50%;
+  border: 1px solid #8E4585;
+  margin: -1px;
+  box-shadow: 0 0 5px #8E4585;
+}
+.star-rating-ctl .star:focus {
+  outline: none;
+  border: none;
 }
 /*
  * Horizontal item scroller

@@ -337,7 +337,8 @@ def ajax_rating():
         recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
         rating = recipe['rating']
         #Remove old rating vote and add the new one
-        rating[old_rating] -= 1
+        if rating[old_rating] > 0:
+            rating[old_rating] -= 1
         rating[new_rating] += 1
         rating[0] = calculate_rating(rating)
         #Update the recipe document with the new rating
