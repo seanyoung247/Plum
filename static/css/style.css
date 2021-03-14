@@ -318,7 +318,7 @@ footer {
   border-radius: 50%;
   border: 1px solid #8E4585;
   margin: -1px;
-  box-shadow: 0 0 5px #8E4585;
+  box-shadow: 0 0 5px #0D0A0B;
 }
 .star-rating-ctl .star:focus {
   outline: none;

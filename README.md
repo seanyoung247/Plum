@@ -24,12 +24,22 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Colours](#Colours)
   - [Layout](#Layout)
 - **[Features](#Features)**
+  - [Existing Features](#Existing-Features)
+  - [Future Features](Future-Features)
 - **[Technologies](#Technologies)**
+  - [Site architecture](#Site architecture)
+  - [Languages](#Languages)
+  - [Libraries](#Libraries)
+  - [Editors](#Editors)
+  - [Tools](#Tools)
+  - [Platforms](#Platforms)
 - **[Testing](#Testing)**
 - **[Source Control](#Source-Control)**
   - [Branches](#Branches)
   - [Github Desktop](#Github-Desktop)
 - **[Deployment](#Deployment)**
+  - [Database Deployment](#Database-Deployment)
+  - [Deployment Platform](#Deployment-Platform)
 - **[Credits](#Credits)**
   - [Media](#Media)
   - [Acknowledgements](#Acknowledgements)
@@ -38,7 +48,7 @@ Plum is a recipe sharing website designed to help users find recipes and share t
 
 ### Project Goals
 
-TBC
+The project goal is to produce a recipe sharing website that allows users to share recipes.
 
 ### User Stories
 
@@ -87,19 +97,69 @@ TBC
 **recipes:**
 
 1. Unique index on page_id - Ensures pageid field is unique.
+
+   ```Mongodb
+   plumdb.recipes.createIndex(
+   {
+   	pageid : 1
+   },
+   {
+   	unique: true
+   })
+   ```
+
 2. Text index on title and description for text searches.
+
+   ```Mongodb
+   plumdb.recipes.createIndex(
+   {
+   	title : "text",
+   	description : "text"
+   })
+   ```
 
 **users:**
 
 1. Unique index on name - Ensures two users can't share a username.
 
+   ```Mongodb
+   plumdb.users.createIndex(
+   {
+   	name : 1
+   },
+   {
+   	unqiue: true
+   })
+   ```
+
 **ratings:**
 
 1. Unique compound index on user_id and recipe_id - Ensures only one interaction record between one recipe and user.
 
+   ```Mongodb
+   plumdb.ratings.createIndex(
+   {
+   	recipe_id : 1,
+   	user_id : 1
+   },
+   {
+   	unique : true
+   })
+   ```
+
 **cuisines:**
 
 1. Unique index on name - Ensures each cuisine type only appears once.
+
+   ```Mongodb
+   plumdb.cuisines.createIndex(
+   {
+   	name : 1
+   },
+   {
+   	unique : true
+   })
+   ```
 
 #### Queries
 
@@ -201,7 +261,7 @@ plumdb.recipes.find({
 ##### Uploading
 
 <details>
-<summary><b>Add a rating vote to a recipe (for US002 and US008):<b></summary>
+<summary><b>Add a rating vote to a recipe (for US002 and US008):</b></summary>
 
 Updating the recipe record
 
@@ -274,17 +334,8 @@ plumdb.recipes.update_one({_id : recipeId}
 <details>
 <summary><b>Add a new recipe (for US007):</b></summary>
 
-Adds the recipe to the database
-
 ```mongodb
 plumdb.recipes.insert_one(recipe-record)
-```
-
-Adds the recipe to the users list
-
-```mongodb
-plumdb.users.update_one({_uid : userid},
-	{$push : {recipes : recipe_token}})
 ```
 </details>
 
@@ -295,6 +346,8 @@ plumdb.users.update_one({_uid : userid},
 mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
 ```
 </details>
+
+
 
 ##### Administration
 
@@ -322,7 +375,110 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 
 ## Features
 
+The site allows users to upload new recipes and edit their existing ones. Users can search for recipes based on name, description, cuisine type, number of servings cooking time and/or minimum rating. Users can favourite recipes, which links the recipe to their profile page. They can also comment on and rate recipes giving feedback to recipe creators.
+
+### Existing Features
+
+- (**US001**): On load the user is presented with the latest recipe uploads
+- (**US002**): Ratings are shown on the front page and with search results
+  - Recipe pages show a recipe's rating and comment list
+- (**US003**): The basic search feature: 
+  - Performs text searches on the name and description field
+- (**US004, US005**): The advanced search feature:
+  - Performs searches on the cuisines field
+  - Performs searches on the servings field
+  - Performs searches on the time field
+  - Performs searches on the rating field
+- (**US006**): Recipes can be favourited with a heart icon on the recipe page
+- (**US007**): Recipes can be added with the "add recipe" option on the main menu
+- (**US008**): Users can comment on and rate recipes from the recipe page
+- (**US009**): The recipe's author can edit the recipe from the recipe page
+- (**US010**): New users can register on the site from the log on page
+- (**US011**): Registered users can log in to the site from the log on page
+- (**US012**): Admin users can edit any recipe from it's page
+- (**US014**): The site provides multiple feedback mechanisms:
+  - Flash messages from the server provides information, warning and error messages raised during backend operations.
+  - Forms indicate required fields with warning messages on submit.
+  - Forms provide validation warnings through colour cues and messages on the form field.
+  - Interactive site components react to user actions with hover cues.
+  - Recipe ingredients can be "checked" to indicate usage or availability.
+  - Recipe steps can be highlighted to indicate the user's current progress.
+
+### Future Features
+
+- (**US013**): There is currently no facility to add cuisine categories within the website.
+- (**US008, US012**): Comment editing/deletion not yet implemented.
+- (**US012**): Admin panel to simplify administration tasks.
+- (**US012**): Recipes can't currently be deleted.
+- User password can't be changed. Related to (**US010 and US011**).
+- (**US007, US008, US009**): Rich text input for comments and recipe text.
+
 ## Technologies
+
+### Site architecture
+
+The site uses a python server backend and Mongodb database. Server code is implemented in the following files:
+
+- app.py
+  - Main server code. Flask initialisation, database interface, and server routes.
+- decorators.py
+  - Exposes custom decorators to simplify some defensive programming tasks.
+- helpers.py
+  - Exposes some simple functions for common tasks.
+
+Front end HTML is generated by the following Jinja templates:
+
+- base.html
+  - Defines the main site structure and navigation. All other templates extend this.
+- home.html
+  - Generates the main landing page.
+- login.html
+  - Generates the login page. Performs user login and registration.
+- search.html
+  - Generates the search page. Performs searches and shows search results.
+- recipe.html
+  - Generate individual recipe pages.
+- edit_recipe.html
+  - Generates the add/edit recipe pages.
+- user_profile.html
+  - Generates the user profile pages.
+
+In addition the following templates provide macros for generating custom controls and display elements:
+
+- items.html
+  - Exposes macros that generate:
+    - The recipe cards used on the landing page
+    - The icon tiles used for recipe links on search and user profile pages
+- star-rating.html
+  - Exposes macros that generate:
+    - The static star rating display element
+    - The interactive star rating control
+
+Pages are styled through the following css files:
+
+- style.css
+  - Defines global styles used by all pages.
+- login.css
+  - Defines styles used by the login page.
+- recipe.css
+  - Defines styles used by the recipe and add/edit recipe pages
+- search.css
+  - Defines styles used by the search page
+
+The site also uses the following JavaScript files for dynamic functionality:
+
+- script.js
+  - Code used by all pages.
+    - Initialises materialize components.
+    - Defines a general AJAX function.
+- login.js
+  - Code used on the login page.
+    - Performs AJAX requests to check username is available during registration
+    - Ensures password and password confirmation fields are equal.
+- recipes.js
+  - Code used on the recipe and add/edit recipes pages.
+    - Performs AJAX submissions for commenting, rating and favouriting recipes.
+    - Interfaces with cloudinary for image uploads.
 
 ### Languages
 
@@ -341,16 +497,16 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 
 ### Libraries
 
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+    - The project uses the Flask micro-web framework to simplify web server tasks.
+- [Wekzeug](https://palletsprojects.com/p/werkzeug/)
+    - The project uses the Werkzeug WSGI library to manage the Web Server Gateway Interface and related tasks.
 - [JQuery](https://jquery.com)
     - The project uses JQuery to simplify DOM manipulation.
-- [Bootstrap](https://getbootstrap.com/)
-    - The project uses bootstrap to aid in responsive design.
-- [Popper](https://popper.js.org/)
-    - Included as a requirement of bootstrap. Used in dropdown splash screen menu.
-- [Virtual Joystick](https://github.com/jeromeetienne/virtualjoystick.js)
-    - A relatively lightweight touch joystick used for user interaction on touch screens. Licenced under the [MIT Licence](assets/scripts/MIT-LICENSE.txt).
+- [Materialize](https://materializecss.com/)
+    - The project uses Materialize to aid in responsive design and conforming to the google material design language.
 
-### Editors:
+### Editors
 
 - [Typora](https://typora.io/)
   - Typora was used to simplify creation of the README.md file.
@@ -361,7 +517,7 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 - [Balsamic](https://balsamiq.com/)
   - Used to create the website's wireframes.
 
-### Tools:
+### Tools
 
 - [Git](https://git-scm.com/)
   - Used for version control (via github desktop).
@@ -380,7 +536,14 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 - [Coolors](https://coolors.co/)
   - Used to help define the site colour scheme.
 
+### Platforms
+
+- [Heroku](https://www.heroku.com/platform)
+  - The project uses Heroku as it's deployment platform.
+
 ## Testing
+
+Information on testing can be found in [TESTING.md](TESTING.md)
 
 ## Source Control
 
@@ -455,24 +618,97 @@ From the github desktop main window:
 1. Select the current branch drop down
 2. Select the required branch
 
-![Github desktop select branch](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\select_branch_github_desktop.png)
+![Github desktop select branch](dev/images/docs/select_branch_github_desktop.png)
 </details>
 
 #### Merging a branch
 
-Command Line Interface
+<details>
+<summary>Command Line Interface</summary>
 
-Github repository
+1. Checkout branch to merge into:
 
-Github Desktop
+   `>git checkout <destination branch>`
+
+2. Merge source branch into destination:
+
+   `git merge <source branch>`
+</details>
+
+<details>
+<summary>Github repository</summary>
+
+From the github repository.
+
+1. Select "Pull Requests" from the menu bar
+2. Select button "Compare & pull request"
+3. Select the destination branch from the first drop down
+4. Select the source branch in the second drop down
+5. Add any comments and select "Create pull request"
+6. In the following page select "Merge pull request"
+7. Add any comments and select "Confirm merge"
+
+![Merge branch github](dev/images/docs/merge_branch_github.png)
+</details>
+
+<details>
+<summary>Github Desktop</summary>
+
+From the github desktop main window:
+
+1. Select the current branch dropdown
+2. Select the required destination branch
+3. Reopen the branch dropdown
+4. Select "choose a branch to merge" option
+5. From the new window select the required source branch
+6. Select Merge button at the bottom of the window
+
+![Merge Branch github desktop](dev/images/docs/merge_branch_github_desktop.png)
+</details>
 
 #### Deleting a branch
 
-Command Line Interface
+<details>
+<summary>Command Line Interface</summary>
 
-Github repository
+1. Ensure you are not on the branch you want to delete by selecting another
 
-Github Desktop
+2. Delete the branch locally:
+
+   `git branch - <local branch name>`
+
+3. Delete the branch remotely:
+
+   `git push origin --delete <remote branch name>`
+</details>
+
+<details>
+<summary>Github repository</summary>
+
+From the github repository main page:
+
+1. Select the branches option:
+
+   ![Github branch delete step 1](dev/images/docs/delete_branch_github.png)
+
+2. Select the trashcan icon next to the branch you want to delete:
+
+   ![Github delete branch step 2](dev/images/docs/delete_branch_github2.png)
+</details>
+
+<details>
+<summary>Github Desktop</summary>
+
+From the main window
+
+1. Select the branch you want to delete
+2. From the main menu select "Branch"
+3. Select "Delete..."
+4. Select the checkbox to delete the remote branch
+5. Select Delete
+
+![Delete branch github desktop](dev/images/docs/delete_branch_github_desktop.png)
+</details>
 
 ### Github Desktop
 
@@ -512,6 +748,48 @@ Github desktop will automatically flag unmerged changes in the current repositor
 5. Select Push Origin from the pane on the right.
 
 ## Deployment
+
+### Database Deployment
+
+The site uses a Mongodb database for data storage and retrieval.
+
+#### Connecting to Mongodb
+
+From the CLI:
+
+`mongo "mongodb<url connection string>" --username root`
+
+Input the root password when prompted
+
+#### Creating or selecting a database
+
+From the MongoDB CLI:
+
+`use <database>`
+
+#### Creating a collection
+
+From the MongoDB CLI:
+
+`db.<collection>.insert(<document>)`
+
+#### Adding an index
+
+From the MongoDB CLI:
+
+`db.<collection>.createIndex({<fields>:<type>}{<options>})`
+
+### Deployment Platform
+
+The site is deployed to Heroku at: https://plum-recipes.herokuapp.com/
+
+#### Creating a Heroku app
+
+#### Setting Environment variables
+
+#### Deployment
+
+#### Automatic Deployment
 
 ## Credits
 
