@@ -38,6 +38,8 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Branches](#Branches)
   - [Github Desktop](#Github-Desktop)
 - **[Deployment](#Deployment)**
+  - [Database Deployment](#Database-Deployment)
+  - [Deployment Platform](#Deployment-Platform)
 - **[Credits](#Credits)**
   - [Media](#Media)
   - [Acknowledgements](#Acknowledgements)
@@ -282,12 +284,9 @@ plumdb.recipes.update_one({_id : recipeId}
 <details>
 <summary><b>Add a new recipe (for US007):</b></summary>
 
-Adds the recipe to the database
-
 ```mongodb
 plumdb.recipes.insert_one(recipe-record)
 ```
-
 </details>
 
 <details>
@@ -704,11 +703,15 @@ Github desktop will automatically flag unmerged changes in the current repositor
 
 ## Deployment
 
+Database
+
+The site uses a Mongodb database.
+
+
+
+Deployment Platform
+
 The site is deployed to Heroku at: https://plum-recipes.herokuapp.com/
-
-<TODO: Heroku setup and deployment>
-
-<TODO: Mongodb database setup>
 
 ## Credits
 
