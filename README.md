@@ -209,7 +209,7 @@ plumdb.recipes.find({
 ##### Uploading
 
 <details>
-<summary><b>Add a rating vote to a recipe (for US002 and US008):<b></summary>
+<summary><b>Add a rating vote to a recipe (for US002 and US008):</b></summary>
 
 Updating the recipe record
 
@@ -297,6 +297,8 @@ plumdb.recipes.insert_one(recipe-record)
 mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
 ```
 </details>
+
+
 
 ##### Administration
 
