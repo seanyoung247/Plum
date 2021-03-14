@@ -394,12 +394,18 @@ Branches were used to add and develop new features for testing without affecting
 
 <details>
 <summary>Command Line Interface:</summary>
-
 `>git branch <branch name>`
+
+A branch can be created and selected in one operation with:
+
+`>git checkout -b <branch name>`
+
 </details>
 
 <details>
 <summary>Github Repository:</summary>
+From the repository main page on github.com:
+
 
 1. Selecting the branch drop down
 
@@ -408,25 +414,65 @@ Branches were used to add and develop new features for testing without affecting
 3. Selecting the "Create Branch" option
 
    ![Github new branch](dev/images/docs/new_branch_github.png)
-</details>
+   </details>
 
 <details>
 <summary>Github Desktop:</summary>
+From github desktop main window:
+
 
 1. Selecting the current branch drop down
 2. Typing the new branch name into the input field
 3. Clicking the new branch button
 
-![Github desktop create new branch](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\new_branch_github_desktop.png)
+![Github desktop create new branch](dev/images/docs/new_branch_github_desktop.png)
 </details>
 
 #### Selecting a branch
 
+<details>
+<summary>Command Line Interface</summary>
 
+`git checkout <branch name>`
+</details>
+
+<details>
+<summary>Github repository</summary>
+
+From the githup repository main page:
+
+1. Select the branch drop down
+2. Select the required branch
+
+![Github select branch](dev/images/docs/select_branch_github.png)
+</details>
+
+<details>
+<summary>Github Desktop</summary>
+
+From the github desktop main window:
+
+1. Select the current branch drop down
+2. Select the required branch
+
+![Github desktop select branch](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\select_branch_github_desktop.png)
+</details>
 
 #### Merging a branch
 
+Command Line Interface
+
+Github repository
+
+Github Desktop
+
 #### Deleting a branch
+
+Command Line Interface
+
+Github repository
+
+Github Desktop
 
 ### Github Desktop
 
