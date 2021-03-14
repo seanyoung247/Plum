@@ -97,19 +97,69 @@ The project goal is to produce a recipe sharing website that allows users to sha
 **recipes:**
 
 1. Unique index on page_id - Ensures pageid field is unique.
+
+   ```Mongodb
+   plumdb.recipes.createIndex(
+   {
+   	pageid : 1
+   },
+   {
+   	unique: true
+   })
+   ```
+
 2. Text index on title and description for text searches.
+
+   ```Mongodb
+   plumdb.recipes.createIndex(
+   {
+   	title : "text",
+   	description : "text"
+   })
+   ```
 
 **users:**
 
 1. Unique index on name - Ensures two users can't share a username.
 
+   ```Mongodb
+   plumdb.users.createIndex(
+   {
+   	name : 1
+   },
+   {
+   	unqiue: true
+   })
+   ```
+
 **ratings:**
 
 1. Unique compound index on user_id and recipe_id - Ensures only one interaction record between one recipe and user.
 
+   ```Mongodb
+   plumdb.ratings.createIndex(
+   {
+   	recipe_id : 1,
+   	user_id : 1
+   },
+   {
+   	unique : true
+   })
+   ```
+
 **cuisines:**
 
 1. Unique index on name - Ensures each cuisine type only appears once.
+
+   ```Mongodb
+   plumdb.cuisines.createIndex(
+   {
+   	name : 1
+   },
+   {
+   	unique : true
+   })
+   ```
 
 #### Queries
 
@@ -335,10 +385,10 @@ The site allows users to upload new recipes and edit their existing ones. Users 
 - (**US003**): The basic search feature: 
   - Performs text searches on the name and description field
 - (**US004, US005**): The advanced search feature:
-  - Perform searches on the cuisines field
+  - Performs searches on the cuisines field
   - Performs searches on the servings field
-  - performs searches on the time field
-  - performs searches on the rating field
+  - Performs searches on the time field
+  - Performs searches on the rating field
 - (**US006**): Recipes can be favourited with a heart icon on the recipe page
 - (**US007**): Recipes can be added with the "add recipe" option on the main menu
 - (**US008**): Users can comment on and rate recipes from the recipe page
@@ -703,15 +753,47 @@ Github desktop will automatically flag unmerged changes in the current repositor
 
 ## Deployment
 
-Database
+### Database Deployment
 
-The site uses a Mongodb database.
+The site uses a Mongodb database for data storage and retrieval.
 
+#### Connecting to Mongodb
 
+From the CLI:
 
-Deployment Platform
+`mongo "mongodb<url connection string>" --username root`
+
+Input the root password when prompted
+
+#### Creating or selecting a database
+
+From the MongoDB CLI:
+
+`use <database>`
+
+#### Creating a collection
+
+From the MongoDB CLI:
+
+`db.<collection>.insert(<document>)`
+
+#### Adding an index
+
+From the MongoDB CLI:
+
+`db.<collection>.createIndex({<fields>:<type>}{<options>})`
+
+### Deployment Platform
 
 The site is deployed to Heroku at: https://plum-recipes.herokuapp.com/
+
+#### Creating a Heroku app
+
+#### Setting Environment variables
+
+#### Deployment
+
+#### Automatic Deployment
 
 ## Credits
 
