@@ -496,6 +496,8 @@ The site also uses the following JavaScript files for dynamic functionality:
 
 ## Testing
 
+Information on testing can be found in [TESTING.md](TESTING.md)
+
 ## Source Control
 
 The website was developed using the Atom editor with github for version control. Github Desktop was used to simplify the process of compiling pushing commits to the remote repository.
