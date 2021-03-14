@@ -38,7 +38,7 @@ Plum is a recipe sharing website designed to help users find recipes and share t
 
 ### Project Goals
 
-TBC
+The project goal is to produce a recipe sharing website that allows users to share recipes.
 
 ### User Stories
 
@@ -315,6 +315,44 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 [Wireframes](dev/mockups/wireframes.pdf)
 
 ## Features
+
+The site allows users to upload new recipes and edit their existing ones. Users can search for recipes based on name, description, cuisine type, number of servings cooking time and/or minimum rating. Users can favourite recipes, which links the recipe to their profile page. They can also comment on and rate recipes giving feedback to recipe creators.
+
+### Existing Features
+
+- (**US001**): On load the user is presented with the latest recipe uploads
+- (**US002**): Ratings are shown on the front page and with search results
+  - Recipe pages show a recipe's rating and comment list
+- (**US003**): The basic search feature: 
+  - Performs text searches on the name and description field
+- (**US004, US005**): The advanced search feature:
+  - Perform searches on the cuisines field
+  - Performs searches on the servings field
+  - performs searches on the time field
+  - performs searches on the rating field
+- (**US006**): Recipes can be favourited with a heart icon on the recipe page
+- (**US007**): Recipes can be added with the "add recipe" option on the main menu
+- (**US008**): Users can comment on and rate recipes from the recipe page
+- (**US009**): The recipe's author can edit the recipe from the recipe page
+- (**US010**): New users can register on the site from the log on page
+- (**US011**): Registered users can log in to the site from the log on page
+- (**US012**): Admin users can edit any recipe from it's page
+- (**US014**): The site provides multiple feedback mechanisms:
+  - Flash messages from the server provides information, warning and error messages raised during backend operations.
+  - Forms indicate required fields with warning messages on submit.
+  - Forms provide validation warnings through colour cues and messages on the form field.
+  - Interactive site components react to user actions with hover cues.
+  - Recipe ingredients can be "checked" to indicate usage or availability.
+  - Recipe steps can be highlighted to indicate the user's current progress.
+
+### Features Left to Implement
+
+- (**US013**): There is currently no facility to add cuisine categories within the website.
+- (**US008, US012**): Comment editing/deletion not yet implemented.
+- (**US012**): Admin panel to simplify administration tasks.
+- (**US012**): Recipes can't currently be deleted.
+- User password can't be changed. Related to (**US010 and US011**).
+- (**US007, US008, US009**): Rich text input for comments and recipe text.
 
 ## Technologies
 
