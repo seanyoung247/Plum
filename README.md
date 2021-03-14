@@ -479,7 +479,7 @@ From the github repository.
 6. In the following page select "Merge pull request"
 7. Add any comments and select "Confirm merge"
 
-![Merge branch github](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\merge_branch_github.png)
+![Merge branch github](dev/images/docs/merge_branch_github.png)
 </details>
 
 <details>
@@ -494,7 +494,7 @@ From the github desktop main window:
 5. From the new window select the required source branch
 6. Select Merge button at the bottom of the window
 
-![Merge Branch github desktop](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\merge_branch_github_desktop.png)
+![Merge Branch github desktop](dev/images/docs/merge_branch_github_desktop.png)
 </details>
 
 #### Deleting a branch
