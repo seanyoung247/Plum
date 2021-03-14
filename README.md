@@ -280,12 +280,6 @@ Adds the recipe to the database
 plumdb.recipes.insert_one(recipe-record)
 ```
 
-Adds the recipe to the users list
-
-```mongodb
-plumdb.users.update_one({_uid : userid},
-	{$push : {recipes : recipe_token}})
-```
 </details>
 
 <details>
@@ -460,19 +454,92 @@ From the github desktop main window:
 
 #### Merging a branch
 
-Command Line Interface
+<details>
+<summary>Command Line Interface</summary>
 
-Github repository
+1. Checkout branch to merge into:
 
-Github Desktop
+   `>git checkout <destination branch>`
+
+2. Merge source branch into destination:
+
+   `git merge <source branch>`
+</details>
+
+<details>
+<summary>Github repository</summary>
+
+From the github repository.
+
+1. Select "Pull Requests" from the menu bar
+2. Select button "Compare & pull request"
+3. Select the destination branch from the first drop down
+4. Select the source branch in the second drop down
+5. Add any comments and select "Create pull request"
+6. In the following page select "Merge pull request"
+7. Add any comments and select "Confirm merge"
+
+![Merge branch github](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\merge_branch_github.png)
+</details>
+
+<details>
+<summary>Github Desktop</summary>
+
+From the github desktop main window:
+
+1. Select the current branch dropdown
+2. Select the required destination branch
+3. Reopen the branch dropdown
+4. Select "choose a branch to merge" option
+5. From the new window select the required source branch
+6. Select Merge button at the bottom of the window
+
+![Merge Branch github desktop](D:\OneDrive\Documents\GitHub\Plum\dev\images\docs\merge_branch_github_desktop.png)
+</details>
 
 #### Deleting a branch
 
-Command Line Interface
+<details>
+<summary>Command Line Interface</summary>
 
-Github repository
+1. Ensure you are not on the branch you want to delete by selecting another
 
-Github Desktop
+2. Delete the branch locally:
+
+   `git branch - <local branch name>`
+
+3. Delete the branch remotely:
+
+   `git push origin --delete <remote branch name>`
+</details>
+
+<details>
+<summary>Github repository</summary>
+
+From the github repository main page:
+
+1. Select the branches option:
+
+   ![Github branch delete step 1](dev/images/docs/delete_branch_github.png)
+
+2. Select the trashcan icon next to the branch you want to delete:
+
+   ![Github delete branch step 2](dev/images/docs/delete_branch_github2.png)
+</details>
+
+<details>
+<summary>Github Desktop</summary>
+
+From the main window
+
+1. Select the branch you want to delete
+2. From the main menu select "Branch"
+3. Select "Delete..."
+4. Select the checkbox to delete the remote branch
+5. Select Delete
+
+![Delete branch github desktop](dev/images/docs/delete_branch_github_desktop.png)
+</details>
 
 ### Github Desktop
 
