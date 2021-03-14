@@ -24,7 +24,7 @@
 {% endmacro %}
 
 {% macro generate_star_rating_control(precheck) %}
-  <div class="star-rating-ctl">
+  <radio-group class="star-rating-ctl">
     {% for i in range(1, 6)|reverse %}
       <input id="rating{{ i }}"
         type="radio"
@@ -45,5 +45,5 @@
       value="0"
       {{ 'checked' if precheck == 0 }}
       required>
-  </div>
+  </radio-group>
 {% endmacro %}

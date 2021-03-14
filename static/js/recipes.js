@@ -15,9 +15,11 @@ $( "#recipe_rating_form" ).submit(function(event) {
   $( ".preloader-wrapper", this ).removeClass("hide");
 });
 
-// Binds star rating change event to trigger form submission
-$( ".star-rating-ctl input[type=radio]" ).change(function() {
-  $( "#recipe_rating_form" ).submit();
+$( ".star-rating-ctl" ).focusout(function(event) {
+  /* If the new focus item isn't a child of the star-rating-ctl radio-group,
+     focus has left the button group (and not just an individual radio button).
+     It's now safe to trigger the */
+  if (this != $( event.relatedTarget ).parent()[0]) $( "#recipe_rating_form" ).submit();
 });
 
 // Called if setting the rating was successful
@@ -38,7 +40,7 @@ $( "#recipe_favorite_form" ).submit(function(event) {
 });
 
 // Binds favorite form submit to the favorite control change event
-$( "#recipe_favorite input[type=checkbox]" ).on('change', function(event) {
+$( "#recipe_favorite input[type=checkbox]" ).change(function(event) {
   $( '#recipe_favorite_form' ).submit();
 });
 
@@ -106,7 +108,7 @@ $( "#steps .add-list-item" ).click(function(event) {
 });
 
 // Shows the current selected image in the image box
-$( "#recipe_image_url" ).on('change', function(event){
+$( "#recipe_image_url" ).on('change', function(event) {
   $( '#recipe_header_image' ).prop("src", $( this ).val())
 });
 

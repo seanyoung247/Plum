@@ -43,22 +43,22 @@ hr.section-divider {
   color: #3F7D20;
 }
 .btn-small,
-.btn-large,
-.btn-small:focus,
-.btn-large:focus {
+.btn-large {
   color: #F3FCF0;
   background-color: #3F7D20;
 }
 .btn-small:hover,
-.btn-large:hover {
+.btn-large:hover,
+.btn-small:focus,
+.btn-large:focus {
   background-color: #63A344;
 }
-.btn-plum,
-.btn-plum:focus {
+.btn-plum {
   color: #F3FCF0;
   background-color: #8E4585;
 }
-.btn-plum:hover {
+.btn-plum:hover,
+.btn-plum:focus {
   background-color: #9F54B0;
 }
 .select-dropdown {
@@ -313,6 +313,15 @@ footer {
   pointer-events: none;
   opacity: 0.75;
 }
+
+/* Gives a focus hint for accessibility */
+.star-rating-ctl input[type="radio"]:focus + .star > i {
+  border-radius: 50%;
+  border: 1px solid #8E4585;
+  margin: -1px;
+  box-shadow: 0 0 5px #8E4585;
+}
+
 /*
  * Horizontal item scroller
  */
