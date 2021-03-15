@@ -214,13 +214,12 @@
         </div>
         <div class="comment-box">
           <p class="comment-content">{{ comment.text }}</p>
-          <a class="delete-comment btn-floating btn-small btn-plum">
-            <i class="material-icons">delete_outline</i>
-          </a>
+          {% if ( (session.user == recipe.author) or (session.userrole == 'admin')) %}
+            <a class="delete-comment btn-floating btn-small btn-plum">
+              <i class="material-icons">delete_outline</i>
+            </a>
+          {% endif %}
         </div>
-        {% if ( (session.user == recipe.author) or (session.userrole == 'admin')) %}
-
-        {% endif %}
       </div>
     {% endfor %}
     </div>
