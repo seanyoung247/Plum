@@ -216,6 +216,17 @@ def edit_recipe(pageid):
     return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 
+@app.route("/delete_recipe", methods=["POST"])
+@requires_logged_in_user
+def delete_recipe():
+    """ Deletes a given recipe from the database """
+    mongo.db.recipes.delete_one({"_id" : ObjectId(request.form["recipeId"])})
+
+    flash("Recipe {title} deleted!".format(title=request.form["recipeTitle"]),
+        category="success")
+    return redirect(url_for("home"))
+
+
 @app.route("/profile/<username>")
 def profile(username):
     """Checks if user exists and returns their profile page."""
@@ -263,7 +274,6 @@ def register():
 
         register = {
             "name"     : request.form.get("username").lower(),
-            "email"    : request.form.get("email").lower(),
             "password" : generate_password_hash(request.form.get("password")),
             "role"     : "user"
         }
@@ -271,7 +281,7 @@ def register():
         register["_id"] = mongo.db.users.insert_one(register).inserted_id
         log_user_in(register)
 
-        flash("User " + session["user"] + " registered!", category="information")
+        flash("User " + session["user"] + " registered!", category="info")
         return redirect(url_for("home"))
 
     return render_template("login.html")
@@ -290,7 +300,7 @@ def login():
             #ensure password matches
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 log_user_in(existing_user)
-                flash("User " + session["user"] + " Logged in!", category="information")
+                flash("User " + session["user"] + " Logged in!", category="info")
                 return redirect(url_for("home"))
             else:
                 flash("Incorrect username or password", category="warning")
@@ -306,7 +316,7 @@ def login():
 @requires_logged_in_user
 def logout():
     """Logs the current user out."""
-    flash("User " + session["user"] + " Logged out", category="information")
+    flash("User " + session["user"] + " Logged out", category="info")
     #remove user from session
     log_user_out()
 
@@ -320,6 +330,12 @@ def logout():
 @requires_logged_in_user
 def ajax_rating():
     """Accepts an AJAX request for a recipe rating and updates the recipe document."""
+
+    response = {
+        "success" : False,
+        "flash" : None,
+        "response" : -1
+    }
 
     if "rating" not in request.json or "recipeId" not in request.json:
         return  {"new_rating" : 0}
@@ -355,6 +371,7 @@ def ajax_rating():
             existing_interaction['rating'] = new_rating
             result = mongo.db.ratings.update_one({"_id" : existing_interaction['_id']},
                 {"$set" : {"rating" : new_rating}})
+            response["success"] = True;
 
     else:                       #User has not rated this recipe before
         #Get the recipe's current rating
@@ -380,8 +397,10 @@ def ajax_rating():
                 "favorited" : False
             }
             mongo.db.ratings.insert_one(interaction)
+            response["success"] = True;
 
-    return {"new_rating" : new_rating}
+    response["response"] = new_rating
+    return response
 
 
 @app.route("/ajax_favorite", methods=['POST'])
@@ -391,6 +410,11 @@ def ajax_favorite():
     #Checkboxes aren't included in the form data if unchecked.
     #So if the key is in the form data favorite is true, otherwise false
     favorite = ('favorite' in request.json)
+    response = {
+        "success" : True,
+        "flash": None,
+        "response" : favorite
+    }
 
     #Has the user already rated or favorited this recipe?
     existing_interaction = mongo.db.ratings.find_one({
@@ -411,38 +435,72 @@ def ajax_favorite():
         }
         mongo.db.ratings.insert_one(interaction)
 
-    return {'favorite' : favorite}
+    return response
 
 
 @app.route("/ajax_comment", methods=['POST'])
 @requires_logged_in_user
 def ajax_comment():
     """Adds a comment to a recipe document from AJAX requests"""
+    response = {
+        "success" : False,
+        "flash" : None,
+        "response" : None
+    }
     if "comment" in request.json and len(request.json['comment']) > 0:
         #Construct the new comment record:
         comment = {
             "author" : session["user"],
+            "profile" : url_for("profile", username=session["user"]),
             "text"   : request.json['comment']
         }
         mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
             {"$push": { "comments" : comment }})
-        return comment
+        response["success"] = True
+        response["response"] = comment
+
+    return response
+
+
+@app.route("/ajax_delete_comment", methods=["POST"])
+@requires_logged_in_user
+def ajax_delete_comment():
+    """ Deletes a comment from the recipe document """
+    response = {
+        "success" : False,
+        "flash" : {"message" : "Deletion Failed!", "category" : "error"},
+        "response" : None
+    }
+
+    if "comment" in request.json and "recipe" in request.json:
+        index = int(request.json["comment"])
+        mongo.db.recipes.update({"_id" : ObjectId(request.json["recipe"])},
+            { "$set" : { "comments.{i}".format(i = index) : None } })
+        mongo.db.recipes.update({"_id" : ObjectId(request.json["recipe"])},
+            { "$pull" : { "comments" : None } })
+        response["flash"] = {"message" : "Comment deleted!", "category" : "success"}
+
+    return response
 
 
 @app.route("/ajax_checkusername", methods=['POST'])
 def ajax_checkusername():
     """Checks if a username already exists in the database."""
-    response = { "username" : "", "exists" : True }
+    response = {
+        "success" : True,
+        "flash" : None,
+        "response" : None
+    }
 
     if "username" in request.json:
         #Search for this username
         existing_user = mongo.db.users.find_one(
             {"name": request.json["username"].lower()})
-        response['username'] = request.json["username"]
+        response['response'] = request.json["username"]
         if existing_user:
-            response['exists'] = True
+            response['response'] = True
         else:
-            response['exists'] = False
+            response['response'] = False
 
     return response
 

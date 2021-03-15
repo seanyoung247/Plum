@@ -87,13 +87,23 @@
     </ul>
   </header>
 
-  <section>
-    {%- with messages = get_flashed_messages() -%}
-      {%- if messages -%}
-        {%- for message in messages -%}
-          <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-        {%- endfor -%}
-      {%- endif -%}
+  <section class="container flash-message-wrapper">
+    {%- with messages = get_flashed_messages(with_categories=true) -%}
+      {#{%- if messages -%}#}
+        <ul class="flash-message-list">
+          {%- for category, message in messages -%}
+            <li class="row flash-message {{ category }}">
+              <div class="flash-icon">
+                <i class="material-icons">{{'check_circle' if category == "success" else category -}}</i>
+              </div>
+              <div class="flash-content">
+                {{- message -}}
+              </div>
+              <a class="flash-close"><i class="material-icons">close</i></a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {#{%- endif -%}#}
     {%- endwith -%}
   </section>
 

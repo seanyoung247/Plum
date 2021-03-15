@@ -114,6 +114,47 @@ ol.collection input:checked + label li.collection-item::before
   background-color: #8E4585;
 }
 /*
+ * Comments
+ */
+#recipe_comments_wrapper {
+  margin-bottom: 50px;
+}
+.comment-wrapper {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin: 25px 10px;
+}
+.comment-author {
+  flex: 1;
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.author-link {
+  text-decoration: none;
+  color: #0D0A0B;
+}
+.delete-comment {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+}
+.comment-box {
+  flex: 1;
+  flex-basis: 100%;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 5px #0D0A0B;
+  border-radius: 25px 25px 25px 25px;
+}
+
+#recipe_comments_wrapper .comment-box {
+  padding: 15px;
+}
+/*
  * Recipe toolbar and favorite element
  */
 #recipe_toolbar {
@@ -128,6 +169,29 @@ ol.collection input:checked + label li.collection-item::before
 }
 #recipe_favorite > input[type="checkbox"]:checked ~ .material-icons::after {
   content: "favorite";
+}
+/*
+ * Delete recipe modal
+ */
+.modal-content {
+  background-color: #F3FCF0;
+  color: #0D0A0B;
+}
+.modal-content h4 {
+  color: #3F7D20;
+}
+.modal .modal-footer {
+  background-color: #F3FCF0;
+}
+#delete_form {
+  display: inline-block;
+}
+#delete_form a,
+#delete_form button {
+  font-size: 25px;
+}
+.modal-close {
+  padding-top: 1px;
 }
 /*
  * Add/Edit recipe page
@@ -153,3 +217,43 @@ input#recipe_image {
   background-color: #8E4585;
   color: #F3FCF0;
 }
+
+/* Mobile screens < 600px */
+/* Tablet screens 600px - 991px */
+@media only screen and (min-width: 600px) {
+  .comment-author {
+    flex: 1;
+    flex-basis: 25%;
+    justify-content: flex-end;
+  }
+  .delete-comment {
+    right: 0;
+    top: 0;
+  }
+  .comment-box {
+    flex: 1;
+    flex-basis: 74%;
+    margin-left: 1%;
+    border-radius: 2px 25px 25px 25px;
+  }
+}
+/* Desktop screens 992px - 1199px */
+@media only screen and (min-width: 992px) {
+  .comment-author {
+    flex: 1;
+    flex-basis: 20%;
+    justify-content: flex-end;
+  }
+  .delete-comment {
+    right: 0;
+    top: 0;
+  }
+  .comment-box {
+    flex: 1;
+    flex-basis: 79%;
+    margin-left: 1%;
+    border-radius: 2px 25px 25px 25px;
+  }
+}
+/* Large Desktop screens > 1200px */
+/*@media only screen and (min-width: 992px) {}*/

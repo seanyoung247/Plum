@@ -15,6 +15,34 @@ $(document).ready(function(){
 });
 
 /*
+ * Closes flash messages
+ */
+$( ".flash-message-list" ).on("click", ".flash-close", function(event) {
+  $( this ).closest( ".flash-message" ).remove();
+});
+
+/*
+ * Adds a flash message as a response to an AJAX request
+ */
+function ajaxFlashResponse(response) {
+  if (response && response.flash) {
+    flashIcon = ( (response.flash.category === "success") ? "check_circle" : response.flash.category );
+    flashMessage =
+      `<li class="row flash-message ${response.flash.category}">
+        <div class="flash-icon">
+          <i class="material-icons">${flashIcon}</i>
+        </div>
+        <div class="flash-content">
+          ${response.flash.message}
+        </div>
+        <a class="flash-close"><i class="material-icons">close</i></a>
+      </li>`
+
+    $( ".flash-message-list" ).append(flashMessage);
+  }
+}
+
+/*
  * Search Page
  */
 $( "#advanced_search_toggle a" ).click(function(event) {
