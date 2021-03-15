@@ -392,10 +392,14 @@ The site allows users to upload new recipes and edit their existing ones. Users 
 - (**US006**): Recipes can be favourited with a heart icon on the recipe page
 - (**US007**): Recipes can be added with the "add recipe" option on the main menu
 - (**US008**): Users can comment on and rate recipes from the recipe page
-- (**US009**): The recipe's author can edit the recipe from the recipe page
+- (**US009**): The site allows the recipe author to:
+  - Edit the recipe from the recipe page
+  - Delete the recipe from the recipe page
 - (**US010**): New users can register on the site from the log on page
 - (**US011**): Registered users can log in to the site from the log on page
-- (**US012**): Admin users can edit any recipe from it's page
+- (**US012**): The site allows admin users to:
+  - Edit any recipe from it's page
+  - Delete any recipe from it's page
 - (**US014**): The site provides multiple feedback mechanisms:
   - Flash messages from the server provides information, warning and error messages raised during backend operations.
   - Forms indicate required fields with warning messages on submit.
@@ -409,7 +413,6 @@ The site allows users to upload new recipes and edit their existing ones. Users 
 - (**US013**): There is currently no facility to add cuisine categories within the website.
 - (**US008, US012**): Comment editing/deletion not yet implemented.
 - (**US012**): Admin panel to simplify administration tasks.
-- (**US012**): Recipes can't currently be deleted.
 - User password can't be changed. Related to (**US010 and US011**).
 - (**US007, US008, US009**): Rich text input for comments and recipe text.
 
