@@ -274,7 +274,6 @@ def register():
 
         register = {
             "name"     : request.form.get("username").lower(),
-            "email"    : request.form.get("email").lower(),
             "password" : generate_password_hash(request.form.get("password")),
             "role"     : "user"
         }
