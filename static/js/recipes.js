@@ -79,15 +79,42 @@ function commentSuccess(response) {
   // Hide the spinner
   $( "#recipe_comment_form .preloader-wrapper" ).addClass("hide");
 
+  commentIndex = $( "#recipe_comments_wrapper" ).children().length;
+
   // Show the new comment at the top of the comment list
-  let commentHTML =  `<div class='row'>
-                        <div class='col s12'>
-                          <p>${response.author}</p>
-                          <p>${response.text}</p>
-                        </div>
-                      </div>`;
-  $( "#recipe_comments_wrapper" ).prepend(commentHTML);
+  let commentHTML =
+    `<div class="comment-wrapper" data-comment-index="${commentIndex}">
+        <div class="comment-author">
+          <p>${response.author}</p>
+        </div>
+        <div class="comment-box">
+          <p class="comment-content">${response.text}</p>
+          <a class="delete-comment btn-floating btn-small btn-plum">
+            <i class="material-icons">delete_outline</i>
+          </a>
+        </div>
+      </div>`
+
+  $( "#recipe_comments_wrapper" ).append(commentHTML);
 }
+
+$( "#recipe_comments_wrapper" ).on("click", ".delete-comment", function(event) {
+
+  data = {
+    "recipe" : $( "#recipeId" ).val(),
+    "comment" : $( this ).closest(".comment-wrapper").index()
+  }
+
+  $( this ).closest(".comment-wrapper").remove();
+  $.ajax({
+    type : "POST",
+    url : $( "#recipe_comments_wrapper" ).attr("data-delete-comment"),
+    contentType : 'application/json;charset=UTF-8',
+    data : JSON.stringify(data),
+    success : null
+  });
+});
+
 /*
  * Edit/Add Recipe page
  */
