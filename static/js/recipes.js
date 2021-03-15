@@ -111,7 +111,7 @@ $( "#recipe_comments_wrapper" ).on("click", ".delete-comment", function(event) {
     url : $( "#recipe_comments_wrapper" ).attr("data-delete-comment"),
     contentType : 'application/json;charset=UTF-8',
     data : JSON.stringify(data),
-    success : null
+    success : ajaxFlashResponse
   });
 });
 
