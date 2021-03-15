@@ -216,6 +216,17 @@ def edit_recipe(pageid):
     return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
 
 
+@app.route("/delete_recipe", methods=["POST"])
+@requires_logged_in_user
+def delete_recipe():
+    """ Deletes a given recipe from the database """
+    mongo.db.recipes.delete_one({"_id" : ObjectId(request.form["recipeId"])})
+
+    flash("Recipe {title} deleted!".format(title=request.form["recipeTitle"]),
+        category="information")
+    return redirect(url_for("home"))
+
+
 @app.route("/profile/<username>")
 def profile(username):
     """Checks if user exists and returns their profile page."""
@@ -427,6 +438,14 @@ def ajax_comment():
         mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
             {"$push": { "comments" : comment }})
         return comment
+
+
+@app.route("/ajax_delete_comment", methods=["POST"])
+@requires_logged_in_user
+def ajax_delete_comment():
+    """ Deletes a comment from the recipe document """
+
+    return {"deleted" : False}
 
 
 @app.route("/ajax_checkusername", methods=['POST'])
