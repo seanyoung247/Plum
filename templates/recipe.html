@@ -8,6 +8,7 @@
 
 {% block content %}
   <div class="container vpad">
+    <input id="recipeId" type="hidden" value="{{ recipe._id }}">
     {# RECIPE TOOLBAR #}
       {% if session.user %}
         <div id="recipe_toolbar">
@@ -205,19 +206,17 @@
       <hr class="col s12 section-divider"/>
     </div>
     {# renders comments in reverse order (newest first) #}
-    <div id="recipe_comments_wrapper">
-    {% for comment in recipe.comments|reverse %}
-      <div class="comment-wrapper" data-comment-index="{{ loop.index0 }}">
+    <div id="recipe_comments_wrapper" data-delete-comment="{{ url_for('ajax_delete_comment') }}">
+    {% for comment in recipe.comments %}
+      <div class="comment-wrapper">
         <div class="comment-author">
-          <a class="author-link" href="{{ url_for('profile', username=recipe.author) }}">
-            {{- comment.author -}}
-          </a>
-          <a href="#" class="delete_comment btn-floating btn-small btn-plum">
-            <i class="material-icons">delete_outline</i>
-          </a>
+          <p>{{- comment.author -}}</p>
         </div>
         <div class="comment-box">
           <p class="comment-content">{{ comment.text }}</p>
+          <a class="delete-comment btn-floating btn-small btn-plum">
+            <i class="material-icons">delete_outline</i>
+          </a>
         </div>
         {% if ( (session.user == recipe.author) or (session.userrole == 'admin')) %}
 
