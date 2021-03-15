@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $('.tabs').tabs();
+  $('.modal').modal();
 });
 
 // Binds AJAX handler to form submit event
