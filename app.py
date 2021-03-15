@@ -444,8 +444,17 @@ def ajax_comment():
 @requires_logged_in_user
 def ajax_delete_comment():
     """ Deletes a comment from the recipe document """
+    response = {"deleted" : False}
 
-    return {"deleted" : False}
+    if "comment" in request.json and "recipe" in request.json:
+        index = int(request.json["comment"])
+        mongo.db.recipes.update({"_id" : ObjectId(request.json["recipe"])},
+            { "$set" : { "comments.{i}".format(i = index) : None } })
+        mongo.db.recipes.update({"_id" : ObjectId(request.json["recipe"])},
+            { "$pull" : { "comments" : None } })
+        response["deleted"] = True
+
+    return response
 
 
 @app.route("/ajax_checkusername", methods=['POST'])
