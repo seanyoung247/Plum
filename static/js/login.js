@@ -17,7 +17,7 @@ $( "#register-username" ).focusout(function(event) {
 });
 
 function callBackUsername(response) {
-  if ( response["exists"] ) {
+  if (response.response) {
     $( "#register-username" ).removeClass("valid").addClass("invalid");
     // Don't let the user submit the form if the username is taken
     $( "#register-username" )[0].setCustomValidity("Username already exists");

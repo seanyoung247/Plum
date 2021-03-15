@@ -79,16 +79,14 @@ function commentSuccess(response) {
   // Hide the spinner
   $( "#recipe_comment_form .preloader-wrapper" ).addClass("hide");
 
-  commentIndex = $( "#recipe_comments_wrapper" ).children().length;
-
   // Show the new comment at the top of the comment list
   let commentHTML =
-    `<div class="comment-wrapper" data-comment-index="${commentIndex}">
+    `<div class="comment-wrapper">
         <div class="comment-author">
-          <p>${response.author}</p>
+          <a href="${response.response.profile}">${response.response.author}</a>
         </div>
         <div class="comment-box">
-          <p class="comment-content">${response.text}</p>
+          <p class="comment-content">${response.response.text}</p>
           <a class="delete-comment btn-floating btn-small btn-plum">
             <i class="material-icons">delete_outline</i>
           </a>

@@ -498,9 +498,9 @@ def ajax_checkusername():
             {"name": request.json["username"].lower()})
         response['response'] = request.json["username"]
         if existing_user:
-            response['success'] = True
+            response['response'] = True
         else:
-            response['success'] = False
+            response['response'] = False
 
     return response
 

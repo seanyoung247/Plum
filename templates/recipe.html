@@ -210,7 +210,7 @@
     {% for comment in recipe.comments %}
       <div class="comment-wrapper">
         <div class="comment-author">
-          <p>{{- comment.author -}}</p>
+          <a href="{{ url_for('profile', username=comment.author) }}">{{- comment.author -}}</a>
         </div>
         <div class="comment-box">
           <p class="comment-content">{{ comment.text }}</p>
