@@ -132,7 +132,7 @@ ul.user-dropdown li > a {
 .flash-message-list {
   position: fixed;
   width: 90vw;
-  top: 65px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -147,6 +147,9 @@ ul.user-dropdown li > a {
   margin: 0 0 10px 0;
   overflow: hidden;
   animation: grow 0.5s;
+}
+.flash-message:first-child {
+  padding-top: 5px;
 }
 @keyframes grow {
   from {
