@@ -223,7 +223,7 @@ def delete_recipe():
     mongo.db.recipes.delete_one({"_id" : ObjectId(request.form["recipeId"])})
 
     flash("Recipe {title} deleted!".format(title=request.form["recipeTitle"]),
-        category="information")
+        category="success")
     return redirect(url_for("home"))
 
 
@@ -281,7 +281,7 @@ def register():
         register["_id"] = mongo.db.users.insert_one(register).inserted_id
         log_user_in(register)
 
-        flash("User " + session["user"] + " registered!", category="information")
+        flash("User " + session["user"] + " registered!", category="info")
         return redirect(url_for("home"))
 
     return render_template("login.html")
@@ -300,7 +300,7 @@ def login():
             #ensure password matches
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 log_user_in(existing_user)
-                flash("User " + session["user"] + " Logged in!", category="information")
+                flash("User " + session["user"] + " Logged in!", category="info")
                 return redirect(url_for("home"))
             else:
                 flash("Incorrect username or password", category="warning")
@@ -316,7 +316,7 @@ def login():
 @requires_logged_in_user
 def logout():
     """Logs the current user out."""
-    flash("User " + session["user"] + " Logged out", category="information")
+    flash("User " + session["user"] + " Logged out", category="info")
     #remove user from session
     log_user_out()
 
@@ -432,18 +432,21 @@ def ajax_comment():
         #Construct the new comment record:
         comment = {
             "author" : session["user"],
+            "profile" : url_for("profile", username=session["user"]),
             "text"   : request.json['comment']
         }
         mongo.db.recipes.update_one({ "_id": ObjectId(request.json['recipeId']) },
             {"$push": { "comments" : comment }})
         return comment
 
+    return {"author" : None, "profile" : None, "text" : None}
+
 
 @app.route("/ajax_delete_comment", methods=["POST"])
 @requires_logged_in_user
 def ajax_delete_comment():
     """ Deletes a comment from the recipe document """
-    response = {"deleted" : False}
+    response = {"message" : "Deletion Failed!", "category" : "error"}
 
     if "comment" in request.json and "recipe" in request.json:
         index = int(request.json["comment"])
@@ -451,7 +454,7 @@ def ajax_delete_comment():
             { "$set" : { "comments.{i}".format(i = index) : None } })
         mongo.db.recipes.update({"_id" : ObjectId(request.json["recipe"])},
             { "$pull" : { "comments" : None } })
-        response["deleted"] = True
+        response = {"message" : "Comment deleted!", "category" : "success"}
 
     return response
 

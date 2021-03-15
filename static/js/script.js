@@ -15,6 +15,32 @@ $(document).ready(function(){
 });
 
 /*
+ * Closes flash messages
+ */
+$( ".flash-message-list" ).on("click", ".flash-close", function(event) {
+  $( this ).closest( ".flash-message" ).remove();
+});
+
+/*
+ * Adds a flash message as a response to an AJAX request
+ */
+function ajaxFlashResponse(response) {
+  flashIcon = ( (response.category === "success") ? "check_circle" : response.category );
+  flashMessage =
+  `<li class="row flash-message ${response.category}">
+    <div class="flash-icon">
+      <i class="material-icons">${flashIcon}</i>
+    </div>
+    <div class="flash-content">
+      ${response.message}
+    </div>
+    <a class="flash-close"><i class="material-icons">close</i></a>
+  </li>`
+
+  $( ".flash-message-list" ).append(flashMessage);
+}
+
+/*
  * Search Page
  */
 $( "#advanced_search_toggle a" ).click(function(event) {
