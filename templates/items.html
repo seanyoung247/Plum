@@ -21,7 +21,7 @@
 {% endmacro %}
 
 {% macro generate_item_tile(title, image, link=none) %}
-  <div class="item-tile">
+  <span class="item-tile">
     {% if link is not none %}
       <a href="{{ link }}">
     {% endif %}
@@ -31,5 +31,5 @@
     {% if link is not none %}
       </a>
     {% endif %}
-  </div>
+  </span>
 {% endmacro %}
