@@ -13,15 +13,15 @@
           {{ recipe.title }}
         </span>
       </a>
-      <span class="card-recipe-rating">
+      <div class="card-recipe-rating">
         {{ generate_star_rating_display(recipe.rating[0], false) }}
-      </span>
+      </div>
     </div>
   </div>
 {% endmacro %}
 
 {% macro generate_item_tile(title, image, link=none) %}
-  <div class="item-tile">
+  <span class="item-tile">
     {% if link is not none %}
       <a href="{{ link }}">
     {% endif %}
@@ -31,5 +31,5 @@
     {% if link is not none %}
       </a>
     {% endif %}
-  </div>
+  </span>
 {% endmacro %}

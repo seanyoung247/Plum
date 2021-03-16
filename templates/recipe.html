@@ -114,12 +114,12 @@
         {% if recipe.steps|length > 0 %}
           <ol class="collection">
             {% for step in recipe.steps %}
-              <input name="step-check" type="radio" id="step-{{ loop.index }}">
-              <label for="step-{{ loop.index }}">
-                <li class="collection-item">
-                  {{ step }}
-                </li>
-              </label>
+              <li>
+                <input name="step-check" type="radio" id="step-{{ loop.index }}">
+                <label for="step-{{ loop.index }}">
+                  <span class="collection-item">{{ step }}</span>
+                </label>
+              </li>
             {% endfor %}
           </ol>
         {% endif %}
@@ -246,5 +246,5 @@
 {% endblock %}
 
 {% block scripts %}
-  <script type="text/javascript" src="{{ url_for('static', filename='js/recipes.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/recipes.js') }}"></script>
 {% endblock %}

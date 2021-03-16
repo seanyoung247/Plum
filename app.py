@@ -233,9 +233,9 @@ def profile(username):
     user = mongo.db.users.find_one({"name" : username})
     if user:
         #Get list of recipes uploaded by this user
-        recipes = mongo.db.recipes.find({"author" : username})
+        recipes = list(mongo.db.recipes.find({"author" : username}))
         #Get recipes favorited by this user
-        favorites = mongo.db.ratings.aggregate([
+        favorites = list(mongo.db.ratings.aggregate([
             { "$match" : {"user_id" : user['_id'], "favorited" : True} },
             {
                 "$lookup" : {
@@ -247,7 +247,7 @@ def profile(username):
             },
             {"$unwind" : "$favorites"},
             {"$replaceRoot" : {"newRoot" : "$favorites"}}
-        ])
+        ]))
 
         return render_template("user_profile.html", user=user, recipes=recipes, favorites=favorites)
     else:
