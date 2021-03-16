@@ -13,7 +13,7 @@ class TestHelpers(unittest.TestCase):
             self.assertEqual(calculate_rating([0,0,0,0,1,0]), 4.0)
         # Test rating calculation with multiple votes
         with self.subTest():
-            self.assertEqual(calculate_rating([0,1,0,0,0,1]), 3.0)
+            self.assertEqual(calculate_rating([0,1,2,5,2,1]), 3.0)
 
 
 if __name__ == '__main__':
