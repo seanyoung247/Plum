@@ -81,14 +81,19 @@ ol.collection {
   counter-reset: list-counter;
   padding: 0;
 }
-ol.collection li.collection-item {
+ol.collection li {
+  list-style: none;
+  padding: 0;
+}
+ol.collection span.collection-item {
+  display: block;
   counter-increment: list-counter;
   font-size: 1rem;
   padding-left: 50px;
   color: #0D0A0B;
 }
 /* Adds custom styled list numbers before the HTML content. */
-ol.collection li.collection-item::before {
+ol.collection span.collection-item::before {
   content: counter(list-counter);
   text-align: center;
   color: #8E4585;
@@ -104,11 +109,11 @@ ol.collection li.collection-item::before {
 }
 /* Gives a highlight effect on a selected step so the user can highlight
    the current step they're following. */
-ol.collection li.collection-item:hover,
-ol.collection input:checked + label li.collection-item {
+ol.collection .collection-item:hover,
+ol.collection input:checked + label .collection-item {
   background-color: rgba(63,125,32,0.15);
 }
-ol.collection input:checked + label li.collection-item::before
+ol.collection input:checked + label .collection-item::before
 {
   color: #F3FCF0;
   background-color: #8E4585;
