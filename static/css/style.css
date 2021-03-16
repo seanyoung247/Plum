@@ -132,7 +132,7 @@ ul.user-dropdown li > a {
 .flash-message-list {
   position: fixed;
   width: 90vw;
-  top: 65px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -147,6 +147,9 @@ ul.user-dropdown li > a {
   margin: 0 0 10px 0;
   overflow: hidden;
   animation: grow 0.5s;
+}
+.flash-message:first-child {
+  padding-top: 5px;
 }
 @keyframes grow {
   from {
@@ -404,10 +407,12 @@ footer {
 }
 /* Gives a focus hint for accessibility */
 .star-rating-ctl input[type="radio"]:focus + .star > i {
-  border-radius: 50%;
+  /*border-radius: 50%;
   border: 1px solid #8E4585;
   margin: -1px;
-  box-shadow: 0 0 5px #0D0A0B;
+  box-shadow: 0 0 5px #0D0A0B;*/
+  color: #9F54B0;
+  border: transparent;
 }
 .star-rating-ctl .star:focus {
   outline: none;
