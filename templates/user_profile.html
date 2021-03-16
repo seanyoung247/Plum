@@ -4,7 +4,7 @@
 {% block content %}
   <div class="container vpad">
 
-    {% if recipes.count() > 0 %}
+    {% if recipes|length > 0 %}
       <div class="row">
         <h4 class="section-header col s12">
           {{ user.name|capitalize }}'s recipes
@@ -37,7 +37,7 @@
       </div>
     {% endif %}
 
-    {% if user.favorites|length > 0 %}
+    {% if favorites|length > 0 %}
       <div class="row">
         <h4 class="section-header col s12">
           {{ user.name|capitalize }}'s favorites
@@ -74,5 +74,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript" src="{{ url_for('static', filename='js/scroller.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scroller.js') }}"></script>
 {% endblock %}
