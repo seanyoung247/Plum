@@ -2,7 +2,7 @@
 {% from "items.html" import generate_item_tile %}
 {% from "star-rating.html" import generate_star_rating_control, generate_star_rating_display %}
 
-
+{# To do: Could do with only showing a maximum number of pages at once. #}
 {% macro pagination() %}
 <form class="col s12 search-pages-form" method="POST" action="{{ url_for('search') }}">
   <div class="search-pages">

@@ -123,6 +123,8 @@ ol.collection input:checked + label li.collection-item::before
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-end;
   margin: 25px 10px;
 }
 .comment-author {
@@ -137,7 +139,7 @@ ol.collection input:checked + label li.collection-item::before
   color: #3F7D20;
 }
 .comment-author > a:hover {
-  text-decoration: overline underline;
+  color: #8E4585;
 }
 .delete-comment {
   position: absolute;
