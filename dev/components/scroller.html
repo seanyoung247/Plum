@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style media="screen">
+      .scroller,
+      .col.scroller {
+        position: relative;
+        overflow: hidden;
+        padding: 0 25px;
+      }
+      /* overflow set to scroll allowing touch scrolling,
+         but with scrollbars hidden */
+      ul.scroller-items {
+        list-style-type: none;
+        overflow: scroll;
+        white-space: nowrap;
+        font-size: 0;
+        padding: 0;
+        /* Removes scrollbars in firefox */
+        scrollbar-width: none;
+        /* Removes scrollbars in IE 10+ */
+        -ms-overflow-style: none;
+
+        border: 1px solid red;
+        counter-reset: list-counter;
+      }
+      /* Removes scrollbars in webkit */
+      ul.scroller-items::-webkit-scrollbar {
+        display: none;
+      }
+      li.scroll-item {
+        font-size: 1rem;
+        display: inline-block;
+        color: #F3FCF0;
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+
+        counter-increment: list-counter;
+      }
+      li.scroll-item-bookend {
+        font-size: 1rem;
+        display: inline-block;
+        text-align: center;
+        width: 25px;
+
+        border:1px solid red;
+      }
+      .scroll-item div {
+        background-color: #3F7D20;
+        width: 100%;
+        height: 100%;
+      }
+      .scroll-item div::before {
+        content: counter(list-counter) " - ";
+      }
+      .scroll-item:first-child div::after {
+        content: " first!";
+      }
+      .scroll-item:last-child div::after {
+        content: " Last!";
+      }
+      /*.scroll-item:nth-child(even) {
+        background-color: red;
+      }
+      /*.scroll-left, .scroll-left:hover,
+      .scroll-left:focus, .scroll-left:active,
+      .scroll-right, .scroll-right:hover,
+      .scroll-right:focus, .scroll-right:active {
+        position: absolute;
+        height: 100%;
+        width: 25px;
+        border: 0;
+        padding: 0;
+        outline: none;
+        background-color: #8E4585;
+        color: #F3FCF0;
+      }*/
+      .scroller .scroll-left {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .scroller .scroll-right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body style="margin:0; padding:0;">
+    <div class="row">
+
+    <div class="scroller col s12">
+      <button class="scroll-left btn-floating btn-large"><i class="material-icons">chevron_left</i></button>
+      <button class="scroll-right btn-floating btn-large"><i class="material-icons">chevron_right</i></button>
+      <ul class="scroller-items">
+        <li class="scroll-item-bookend"></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item-bookend"></li>
+      </ul>
+    </div>
+
+    </div>
+    <div class="row">
+
+    <div class="scroller col s12">
+      <button class="scroll-left btn-floating btn-large"><i class="material-icons">chevron_left</i></button>
+      <button class="scroll-right btn-floating btn-large"><i class="material-icons">chevron_right</i></button>
+      <ul class="scroller-items">
+        <li class="scroll-item-bookend"></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item"><div>Test Item</div></li>
+        <li class="scroll-item-bookend"></li>
+      </ul>
+    </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        //setScrollerSize();
+      });
+
+      /*function setScrollerSize() {
+        let scroller = $( ".scroller" );
+        console.log(scroller.width())
+        scroller.children( ".scroller-items" ).children( ".scroll-item" ).each(function() {
+          $( this ).outerWidth($( ".scroller" ).width() / 4);
+          console.log($( ".scroller" ).outerWidth() / 4);
+        });
+      }*/
+
+      //Scrolls one "page" left (backwards)
+      $( ".scroller .scroll-left" ).click(function(event) {
+        let scroller = $( this ).siblings( ".scroller-items" );
+        let scrollItem = scroller.children( ".scroll-item" );
+        let scrollEndItem = scroller.children( ".scroll-item-bookend" );
+        let scrollPosition = scroller.get(0).scrollWidth;
+        // If we're at the beginning of the items, move back one page
+        if (scroller.scrollLeft() > 0) {
+          // Which item is left most?
+          let leftMostItem = Math.ceil((scroller.scrollLeft()) / scrollItem.outerWidth());
+          // How many items fit in a page?
+          let pageItemWidth = Math.floor(scroller.width() / scrollItem.outerWidth());
+          // Calculate new scroll position: Find out which item should be left most
+          //  then calulate it's position by multiplying it by icon width
+          scrollPosition = ((leftMostItem - pageItemWidth) * scrollItem.outerWidth());
+        }
+        scroller.animate({scrollLeft: scrollPosition}, 500);
+      });
+
+      // Scrolls one "page" right (forwards)
+      $( ".scroller .scroll-right" ).click(function(event) {
+        let scroller = $( this ).siblings( ".scroller-items" );
+        let scrollItemWidth = scroller.children( ".scroll-item" ).outerWidth();
+        let scrollEndPosition = scroller.scrollLeft() + scroller.width() + scroller.children( ".scroll-item-bookend" ).outerWidth();
+        let scrollPosition = 0;
+        // If we're not at the end of the items move to the next page
+        if (scrollEndPosition < (scroller.get(0).scrollWidth - 1)) {
+          // Which item is left most?
+          let leftMostItem = Math.floor((scroller.scrollLeft()) / scrollItemWidth);
+          // How many items fit in a page?
+          let pageItemWidth = Math.floor(scroller.width() / scrollItemWidth);
+          // Calculate new scroll position: Find out which item should be left most
+          //  then calulate it's position by multiplying it by icon width
+          scrollPosition = ((leftMostItem + pageItemWidth) * scrollItemWidth);
+        }
+        scroller.animate({scrollLeft: scrollPosition}, 500);
+      });
+
+      //Updates scroller position when scrolling has finished
+      /*$( ".scroller .scroller-items" ).scroll(function() {
+        clearTimeout($(this).data("scroller-scrollTimer"));
+        //Scroll event has ended
+        $( this ).data("scroller-scrollTimer", setTimeout(() => {
+          //Get the first full item shown in the scroller
+          itemPosition = Math.round($( this ).scrollLeft() /
+            $( this ).children(".scroll-item").outerWidth());
+          //Update the scroll position
+          $( this ).attr("data-position", itemPosition);
+        }, 250));
+      });*/
+    </script>
+  </body>
+</html>
