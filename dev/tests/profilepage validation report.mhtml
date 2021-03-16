@@ -1,0 +1,522 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://validator.w3.org/nu/?doc=https%3A%2F%2Fplum-recipes.herokuapp.com%2Fprofile%2Fseanyoung
+Subject: Showing results for https://plum-recipes.herokuapp.com/profile/seanyoung - Nu Html Checker
+Date: Tue, 16 Mar 2021 23:42:44 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--WiwfJRbzpHee3wUxakxkxeXnEix89w0TVEklRo9OGq----"
+
+
+------MultipartBoundary--WiwfJRbzpHee3wUxakxkxeXnEix89w0TVEklRo9OGq----
+Content-Type: text/html
+Content-ID: <frame-630B7594B82DCE273B309A5E04ACE9BA@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://validator.w3.org/nu/?doc=https%3A%2F%2Fplum-recipes.herokuapp.com%2Fprofile%2Fseanyoung
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-2fd94905-c302-42c2-995b-d1f45ea274c3@mhtml.blink" /><l=
+ink href=3D"https://validator.w3.org/nu/icon.png" rel=3D"icon"><link href=
+=3D"https://validator.w3.org/nu/style.css" rel=3D"stylesheet"><title>Showin=
+g results for https://plum-recipes.herokuapp.com/profile/seanyoung - Nu Htm=
+l Checker</title><meta name=3D"viewport" content=3D"width=3Ddevice-width, i=
+nitial-scale=3D1"></head><body><div id=3D"banner"><h1 id=3D"title"><a href=
+=3D"https://validator.w3.org/nu/"><span>Nu Html Checker</span></a></h1></di=
+v><p class=3D"disclaimer">This tool is an ongoing experiment in better HTML=
+ checking, and its behavior remains subject to change</p><h2 id=3D"top">Sho=
+wing results for https://plum-recipes.herokuapp.com/profile/seanyoung</h2><=
+form method=3D"get" enctype=3D""><fieldset><legend>Checker Input</legend><p=
+ class=3D"checkboxes">Show <span class=3D"checkboxgroup"><label title=3D"Di=
+splay the markup source of the input document." for=3D"showsource"><input t=
+ype=3D"checkbox" name=3D"showsource" id=3D"showsource" value=3D"yes">source=
+</label><label title=3D"Display an outline of the input document." for=3D"s=
+howoutline"><input type=3D"checkbox" name=3D"showoutline" id=3D"showoutline=
+" value=3D"yes">outline</label><label title=3D"Display a report about the t=
+extual alternatives for images." for=3D"showimagereport"><input type=3D"che=
+ckbox" name=3D"showimagereport" id=3D"showimagereport" value=3D"yes">image =
+report</label></span><input id=3D"show_options" type=3D"button" value=3D"Op=
+tions=E2=80=A6"><span class=3D"extraoptions hidden"><span class=3D"checkbox=
+group"><label title=3D"Check the content of all responses, including (non-2=
+00) error responses"><input type=3D"checkbox" name=3D"checkerrorpages" id=
+=3D"checkerrorpages" value=3D"yes">check error pages</label></span><label i=
+d=3D"user-agent-label" title=3D"Specify the user-agent string to send in th=
+e document request">User-Agent <input name=3D"useragent" list=3D"useragents=
+" value=3D"Validator.nu/LV http://validator.w3.org/services" disabled=3D"">=
+</label><label id=3D"accept-language-label" title=3D"Specify the accept-lan=
+guage header to send in the document request">Accept-Language <input id=3D"=
+acceptlanguage" name=3D"acceptlanguage" disabled=3D""></label><datalist id=
+=3D"useragents"><option value=3D"Mozilla/5.0 (Linux; Android 4.4.2; en-us; =
+SC-04E Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chr=
+ome/28.0.1500.94 Mobile Safari/537.36" label=3D"Android"></option><option v=
+alue=3D"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)=
+ Chrome/41.0.2228.0 Safari/537.36" label=3D"Chrome"></option><option value=
+=3D"Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0" labe=
+l=3D"Firefox"></option><option value=3D"Mozilla/5.0 (Windows NT 6.3; Triden=
+t/7.0; rv:11.0) like Gecko" label=3D"Internet Explorer"></option><option va=
+lue=3D"Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/53=
+6.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25" label=
+=3D"iPhone/iOS Safari"></option><option value=3D"Mozilla/5.0 (Windows NT 6.=
+3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36=
+ OPR/28.0.1750.48" label=3D"Opera"></option><option value=3D"Mozilla/5.0 (M=
+acintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.4.10 (KHTML, like Gecko) =
+Version/8.0.4 Safari/600.4.10" label=3D"Safari"></option><option value=3D"V=
+alidator.nu/LV" label=3D"default"></option></datalist></span></p><div id=3D=
+"inputregion"><label id=3D"inputlabel">Check by<select id=3D"docselect"><op=
+tion value=3D"">address</option><option value=3D"file">file upload</option>=
+<option value=3D"textarea">text input</option></select></label><input type=
+=3D"url" name=3D"doc" id=3D"doc" pattern=3D"(?:(?:https?://.+)|(?:data:.+))=
+?" title=3D"Absolute URL (http, https or data only) of the document to be c=
+hecked." tabindex=3D"0" autofocus=3D"autofocus" value=3D"https://plum-recip=
+es.herokuapp.com/profile/seanyoung" aria-labelledby=3D"docselect" required=
+=3D"" placeholder=3D"Enter the URL for an HTML, CSS, or SVG document"></div=
+><p><input value=3D"Check" type=3D"submit" id=3D"submit"></p></fieldset></f=
+orm><div id=3D"results"><p class=3D"success">Document checking completed. N=
+o errors or warnings to show.</p><div class=3D"details"><p class=3D"msgsche=
+ma">Used the schema for HTML + SVG 1.1 + MathML 3.0 + RDFa 1.1.</p><p class=
+=3D"msgmediatype">Used the HTML parser. Externally specified character enco=
+ding was utf-8.</p></div><p class=3D"stats">Total execution time 660 millis=
+econds.</p></div><hr><div id=3D"about"><p><a href=3D"https://validator.w3.o=
+rg/nu/about.html">About this checker</a> =E2=80=A2 <a href=3D"https://valid=
+ator.w3.org/nu/about.html#issues">Report an issue</a> =E2=80=A2 <span class=
+=3D"version">Version: 21.3.16</span></p></div></body></html>
+------MultipartBoundary--WiwfJRbzpHee3wUxakxkxeXnEix89w0TVEklRo9OGq----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-2fd94905-c302-42c2-995b-d1f45ea274c3@mhtml.blink
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--WiwfJRbzpHee3wUxakxkxeXnEix89w0TVEklRo9OGq----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://validator.w3.org/nu/style.css
+
+@charset "utf-8";
+
+html, body, h1, #banner, #banner a { margin: 0px; padding: 0px; border: 0px=
+; font-weight: 400; font-style: normal; font-size: 100%; font-family: sans-=
+serif; vertical-align: baseline; background-color: rgb(255, 255, 255); colo=
+r: rgb(31, 33, 38); line-height: 1; text-align: left; }
+
+a img { border: 0px; }
+
+abbr[title], acronym[title], span[title], strong[title] { border-bottom: th=
+in dotted; cursor: help; }
+
+acronym:hover, abbr:hover { cursor: help; }
+
+body { padding-bottom: 6em; }
+
+h3 { font-family: sans-serif; color: rgb(102, 153, 0); background-color: rg=
+b(255, 255, 255); font-size: 1.1em; border-bottom: 1px dotted rgb(170, 170,=
+ 119); text-decoration: none; margin-top: 1em; margin-bottom: 1em; }
+
+textarea { width: 95.5%; }
+
+label { font-size: 0.9em; padding-left: 0.2em; padding-right: 0.2em; }
+
+#csslabel { font-size: 11px; margin-left: 4px; }
+
+#title { font-family: "Myriad Web", "Myriad Pro", "Gill Sans", Helvetica, A=
+rial, sans-serif; background-color: rgb(54, 93, 149); color: rgb(253, 253, =
+253); font-size: 1.6em; padding: 0.43em; border-radius: 6px; }
+
+#title a, #title a img { background-color: rgb(54, 93, 149); }
+
+#title a:link, #title a:hover, #title a:visited, #title a:active { text-dec=
+oration: none; color: rgb(253, 253, 253) !important; }
+
+#title img { vertical-align: middle; margin-right: 0.7em; }
+
+#banner { margin: 1.5em 2em; }
+
+fieldset { background-color: rgb(234, 235, 238); }
+
+legend { font-size: 1.1em; padding: 1em 0px 0.23em; }
+
+legend a:link, legend a:visited, legend a:hover, legend a:active { text-dec=
+oration: none; }
+
+div, p, li, h2 { font-family: sans-serif; }
+
+h2 { font-size: 16px; }
+
+#top { margin-left: 3%; }
+
+th, td { padding-top: 1px; padding-bottom: 1px; margin: 0px; }
+
+hr { margin-left: 3%; margin-right: 3%; }
+
+#banner { margin-left: 3%; margin-right: 3%; margin-bottom: 18px; }
+
+#results, #about { font-size: 14px; margin-top: 50px; padding-left: 3%; mar=
+gin-right: 3%; }
+
+#about { margin-bottom: 12px; }
+
+p.disclaimer { font: 400 16px Arial; margin-left: 3%; margin-right: 3%; col=
+or: rgb(116, 116, 116); }
+
+.alert { color: rgb(0, 0, 0); background-color: rgb(255, 255, 0); }
+
+body { font-family: sans-serif; font-size: inherit; margin: 0px; }
+
+form { font: 400 16px Arial; background-color: rgb(255, 255, 255); margin-b=
+ottom: 0.5em; padding: 0px 3%; vertical-align: inherit; }
+
+legend { font: inherit; vertical-align: inherit; padding: 0px; }
+
+fieldset { font: 400 16px Arial; padding: 0.5% 1.5%; border: 1px solid rgb(=
+204, 204, 204); border-radius: 4px; margin: 0px; background-color: rgb(255,=
+ 255, 255); vertical-align: inherit; }
+
+label { font: 400 16px Arial; vertical-align: baseline; padding: 0px; }
+
+select { vertical-align: baseline; }
+
+textarea { font: 400 0.85em Arial; border: 1px solid; margin: 2px; padding:=
+ 2px; }
+
+#inputregion { margin-top: 12px; }
+
+#inputlabel { margin-left: 2px; }
+
+#doc { width: 95.5%; margin-left: 2px; margin-top: 2px; padding: 3px 5px 2p=
+x; border-radius: 6px; border: 1px solid rgb(204, 204, 204); }
+
+#doc[type=3D"file"] { margin-top: -3px; width: initial; border: 0px; }
+
+#docselect { margin-left: 3px; }
+
+#submit { margin-left: 2px; }
+
+table { width: 100%; table-layout: fixed; }
+
+fieldset td, fieldset th { padding-top: 0.4em; padding-bottom: 0.4em; }
+
+tr:first-child td, tr:first-child th { vertical-align: top; }
+
+fieldset th { padding-left: 0px; padding-right: 0.4em; text-align: right; w=
+idth: 8em; font-weight: inherit; }
+
+fieldset td { padding-left: 0px; padding-right: 0px; }
+
+textarea, #doc[type=3D"url"] { font-family: Monaco, Consolas, "Andale Mono"=
+, monospace; }
+
+.stats, .details { font-size: 0.85em; }
+
+.details .msgschema { display: none; }
+
+.details p { margin: 0px; }
+
+.success, .failure, .fatalfailure { border-radius: 4px; padding: 0.5em; fon=
+t-weight: 700; font-family: Arial, sans-serif; }
+
+.success { color: rgb(0, 0, 0); background-color: rgb(204, 255, 204); borde=
+r: 1px solid rgb(204, 204, 204); }
+
+.failure { color: rgb(255, 255, 255); background-color: rgb(54, 93, 149); }
+
+.fatalfailure { color: rgb(255, 255, 255); background-color: rgb(255, 0, 0)=
+; }
+
+ol { margin: 1.5em 0px; padding: 0px 2.5em; }
+
+li { margin: 0px; padding: 0.5em; }
+
+li ol { padding-right: 0px; margin-top: 0.5em; margin-bottom: 0px; }
+
+li li { padding-right: 0px; padding-bottom: 0.2em; padding-top: 0.2em; }
+
+#results > ol:first-child { padding-top: 35px; padding-bottom: 25px; backgr=
+ound-color: rgb(239, 239, 239); border-radius: 4px; }
+
+#results > ol:first-child > li { border: 1px solid rgb(204, 204, 204); marg=
+in-bottom: 8px; padding-left: 12px; border-radius: 4px; background-color: r=
+gb(255, 255, 255); }
+
+#results > ol:first-child > li > p:first-child, #results > ol:first-child >=
+ li > p:first-child code { font-size: 16px; font-weight: 700; }
+
+#results > ol:first-child > li > p:first-child code { font-weight: 400; }
+
+#results > ol:first-child > li > p:first-child { color: transparent; }
+
+#results > ol:first-child > li > p:first-child > strong, #results > ol:firs=
+t-child > li > p:first-child > span { color: rgb(0, 0, 0); }
+
+#results > ol:first-child > li > p:first-child > strong:first-child { paddi=
+ng: 1px 6px; border-radius: 6px; border: 1px solid rgb(204, 204, 204); font=
+: 700 16px Arial; }
+
+.info, .warning, .error, .io, .fatal, .schema, .internal { color: rgb(0, 0,=
+ 0); }
+
+.info > p:first-child > strong:first-child { background-color: rgb(204, 255=
+, 204); }
+
+.warning > p:first-child > strong:first-child { background-color: rgb(255, =
+255, 204); }
+
+.error > p:first-child > strong:first-child, .io > p:first-child > strong:f=
+irst-child, .fatal > p:first-child > strong:first-child, .schema > p:first-=
+child > strong:first-child, .internal > p:first-child > strong:first-child =
+{ background-color: rgb(255, 204, 204); }
+
+hr { border-top: 1px dotted rgb(102, 102, 102); border-bottom: none; border=
+-left: none; border-right: none; height: 0px; }
+
+p { margin: 0.5em 0px; }
+
+li p { margin: 0px; }
+
+.stats, .details { margin-top: 0.75em; }
+
+.lf { color: rgb(34, 34, 34); }
+
+.extract { overflow: hidden; max-height: 5.5em; }
+
+.extract b, .source b { color: rgb(0, 0, 0); background-color: rgb(255, 255=
+, 128); }
+
+.extract b { font-weight: 400; }
+
+ol.source li { padding-top: 0px; padding-bottom: 0px; }
+
+ol.source b, ol.source .b { color: rgb(0, 0, 0); background-color: rgb(255,=
+ 255, 128); font-weight: 700; }
+
+code { white-space: pre-wrap; overflow-wrap: break-word; }
+
+.error p, .info p, .warning p, .error dd, .info dd, .warning dd { line-heig=
+ht: 1.8; }
+
+.error p code { border: 1px dashed rgb(153, 153, 153); padding: 2px 4px; }
+
+.warning code { border: 1px dashed rgb(153, 153, 153); padding: 2px 4px; }
+
+.extract code { background-color: inherit; border: none; padding: 0px; }
+
+dl { margin-top: 0.5em; margin-bottom: 0px; }
+
+dd { margin-left: 1.5em; padding-left: 0px; margin-top: 2px; }
+
+table.imagereview { width: 100%; table-layout: auto; border-collapse: colla=
+pse; border-spacing: 0px; }
+
+col.img { width: 180px; }
+
+col.alt { color: rgb(0, 0, 0); background-color: rgb(255, 255, 204); }
+
+td.alt span { color: rgb(0, 0, 0); background-color: rgb(255, 255, 170); }
+
+.imagereview th { font-weight: 700; text-align: left; vertical-align: botto=
+m; }
+
+.imagereview td { vertical-align: middle; }
+
+td.img { padding: 0px 0.5em 0.5em 0px; text-align: right; }
+
+img { max-height: 180px; max-width: 180px; }
+
+th.img { padding: 0px 0.5em 0.5em 0px; vertical-align: bottom; text-align: =
+right; }
+
+td.alt, td.location { text-align: left; padding: 0px 0.5em 0.5em; }
+
+th.alt, th.location { padding: 0px 0.5em 0.5em; vertical-align: bottom; }
+
+[irrelevent], .irrelevant { display: none; }
+
+dd code ~ span { color: rgb(102, 102, 102); }
+
+dl.inputattrs { display: table; }
+
+dl.inputattrs dt { display: table-caption; }
+
+dl.inputattrs dd { display: table-row; }
+
+dl.inputattrs .inputattrname, dl.inputattrs .inputattrtypes, dl.inputattrs =
+> dd > a { display: table-cell; padding-top: 2px; padding-left: 1.5em; padd=
+ing-right: 1.5em; }
+
+dl.inputattrs .inputattrtypes { padding-left: 4px; padding-right: 4px; }
+
+.inputattrtypes > a { color: rgb(102, 102, 102); }
+
+dl.inputattrs .highlight { background-color: rgb(255, 255, 204); padding-bo=
+ttom: 2px; font-weight: 400; color: rgb(102, 102, 102); }
+
+@media (max-width: 24em) {
+  body { padding: 3px; }
+  table, thead, tfoot, tbody, tr, th, td { display: block; width: 100%; }
+  th { text-align: left; padding-bottom: 0px; }
+}
+
+.checkboxes label { margin-right: 20px; }
+
+#xnote { color: rgb(116, 116, 116); margin-left: 2px; margin-top: 6px; }
+
+#outline h2 { margin-top: 24px; margin-bottom: 0px; }
+
+#outline .heading { color: rgb(191, 79, 0); font-weight: 700; }
+
+#outline ol { margin-top: 0px; padding-top: 1px; }
+
+#outline > h2 + ol { margin-top: 0px; }
+
+#outline li { padding: 0px 0px 9px; margin: 0px; list-style-type: none; pos=
+ition: relative; }
+
+#outline li:first-child { padding-top: 7px; }
+
+#outline li li { list-style-type: none; }
+
+#outline li:first-child::before { position: absolute; top: 1px; height: 13p=
+x; left: -0.75em; width: 0.5em; border-color: rgb(187, 187, 187); border-st=
+yle: none none solid solid; content: ""; border-width: 0.1em; }
+
+#outline li:not(:last-child)::after { position: absolute; top: 1px; bottom:=
+ -0.6em; left: -0.75em; width: 0.5em; border-color: rgb(187, 187, 187); bor=
+der-style: none none solid solid; content: ""; border-width: 0.1em; }
+
+#results .hidden { display: none; }
+
+#filters { margin-left: 3%; margin-right: 3%; margin-bottom: 1em; padding: =
+4px 4px 0.5em; }
+
+#filters > div { font: 400 16px Arial; color: rgb(116, 116, 116); backgroun=
+d-color: rgb(255, 255, 204); padding: 4px; }
+
+#filters button { min-height: 18px; border-radius: 6px; border: 1px solid r=
+gb(204, 204, 204); background-color: rgb(255, 255, 204); }
+
+.message_filtering { transition: all 1.5s ease-out 0s; background-color: rg=
+b(255, 255, 255) !important; }
+
+#filters .filtercount { font: italic 400 16px Arial; padding-left: 4px; pad=
+ding-top: 6px; }
+
+#filters.expanded { background-color: rgb(255, 255, 204); transition: all 0=
+.8s ease-out 0s; opacity: 1; visibility: visible; }
+
+#filters.unexpanded { transition: all 0.8s ease-out 0s; }
+
+#filters h2 { margin-top: 4px; margin-bottom: 0px; }
+
+#filters fieldset { margin: 1em; font: 400 16px Arial; }
+
+#filters fieldset.hidden, .checkboxes input.hidden, .checkboxes .extraoptio=
+ns.hidden { transition: all 0.8s ease-out 0s; opacity: 0; visibility: hidde=
+n; height: 0px; margin: -45px; }
+
+#filters fieldset.unhidden, .checkboxes input.unhidden, .checkboxes .extrao=
+ptions.unhidden { transition: all 0.8s ease-out 0s; opacity: 1; visibility:=
+ visible; }
+
+.checkboxes .extraoptions label { margin-right: 0px; }
+
+#filters fieldset.unhidden, .checkboxes input.unhidden { background-color: =
+rgb(255, 255, 204); }
+
+#filters fieldset legend { font-weight: 700; font-family: sans-serif; }
+
+#filters fieldset legend a { font-weight: 400; }
+
+#filters input { position: absolute; top: 2px; left: 0px; }
+
+#filters ol { counter-reset: item 0; margin: 0px; padding: 0px 0px 0px 40px=
+; }
+
+#filters ol ol { margin-top: 6px; }
+
+#filters li { list-style-type: none; padding: 0px 0px 0px 25px; margin: 6px=
+ 0px 0px; position: relative; line-height: 1.8; }
+
+#filters li li { margin: 0px; }
+
+#filters li::before { content: counters(item, ".") " "; counter-increment: =
+item 1; width: 40px; position: absolute; top: 0px; left: -50px; text-align:=
+ right; color: rgb(119, 119, 119); }
+
+#filters fieldset label { font-family: sans-serif; }
+
+#filters code { white-space: pre-wrap; overflow-wrap: break-word; border: 1=
+px dashed rgb(153, 153, 153); background-color: rgb(255, 255, 221); padding=
+: 2px 4px; }
+
+#filters .hide, #filters .show { color: rgb(0, 0, 255); }
+
+.checkboxes { margin-left: 2px; }
+
+.checkboxes label { margin-right: 16px; }
+
+.checkboxgroup { padding: 3px 6px 2px 2px; border-radius: 6px; border: 1px =
+solid rgb(204, 204, 204); font-size: 11px; margin-right: 10px; }
+
+.checkboxgroup label { font-size: 11px; }
+
+label[for=3D"showimagereport"] { margin-right: 0px; }
+
+input[list=3D"useragents"], input#acceptlanguage { padding: 2px 4px 3px; bo=
+rder-radius: 6px; border: 1px solid rgb(204, 204, 204); }
+
+input[list=3D"useragents"] { width: 30.5%; margin-right: 10px; }
+
+input#acceptlanguage { width: 55px; }
+
+@media (max-width: 1234px) {
+  #accept-language-label { display: block; margin-top: 8px; }
+}
+
+@media (min-width: 954px) {
+  .checkboxes .extraoptions { padding-left: 8px; }
+}
+
+@media (max-width: 953px) {
+  .extraoptions { display: block; margin-top: 8px; padding-left: 0px; }
+  .checkboxes { margin-bottom: -43px; }
+  #inputregion { margin-top: 76px; }
+  .extraoptions.unhidden { margin-bottom: -68px; }
+  input[list=3D"useragents"] { width: 350px; }
+  #accept-language-label { display: inline; }
+}
+
+@media (max-width: 836px) {
+  #accept-language-label { display: block; margin-top: 8px; }
+}
+
+@media (max-width: 640px) {
+  #show_options { display: block; margin-top: 8px; padding-left: 0px; }
+  #inputregion { margin-top: 100px; }
+  .extraoptions.unhidden { margin-bottom: -90px; }
+  #user-agent-label { display: block; margin-top: 8px; }
+  input[list=3D"useragents"] { width: 96.9%; }
+  #about { font-size: 11px; }
+  .checkboxes { font-size: 12px; }
+}
+
+#headingoutline p { margin: 10px; font-weight: 700; color: rgb(191, 79, 0);=
+ }
+
+.h2 { padding-left: 24px; }
+
+.h3 { padding-left: 48px; }
+
+.h4 { padding-left: 72px; }
+
+.h5 { padding-left: 96px; }
+
+.h6 { padding-left: 120px; }
+
+.headinglevel, .missingheadinglevel { border-radius: 4px; padding: 1px 3px =
+1px 4px; font-size: 80%; font-weight: 400; color: rgb(255, 255, 255); }
+
+.headinglevel { background-color: rgb(0, 128, 0); }
+
+.missingheadinglevel { background-color: rgb(128, 0, 0); }
+
+.missingheading { color: rgb(116, 116, 116); }
+------MultipartBoundary--WiwfJRbzpHee3wUxakxkxeXnEix89w0TVEklRo9OGq------
