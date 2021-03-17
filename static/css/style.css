@@ -132,7 +132,7 @@ ul.user-dropdown li > a {
 .flash-message-list {
   position: fixed;
   width: 90vw;
-  top: 60px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -467,6 +467,13 @@ li.scroll-item {
   .recipe-tile {
     height: 150px;
     width: 150px;
+  }
+}
+/* Tablet screens and up */
+@media only screen and (min-width: 600px) {
+  /* Ensures first flash message appears just under the menubar. */
+  .flash-message-list {
+    top: 58px;
   }
 }
 /* Large screens and up */
