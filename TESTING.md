@@ -4,10 +4,10 @@
 
 ## Contents
 
-- [Automated Testing](Automated-Testing)
-- [Manual Testing](Manual-Testing)
-- [Solved Issues](Solved-Issues)
-- [Known Issues](Known-Issues)
+- [Automated Testing](#Automated-Testing)
+- [Manual Testing](#Manual-Testing)
+- [Solved Issues](#Solved-Issues)
+- [Known Issues](#Known-Issues)
 
 ## Automated Testing
 
@@ -84,9 +84,63 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
 </details>
 
-<lighthouse>
+
+
+<details>
+
+<summary>Google Chrome's <b>lighthouse</b> was also run and provided the following reports:</summary>
+
+Home page
+
+- [Mobile](dev/tests/lighthouse/homepage(mobile).pdf)
+- [Desktop](dev/tests/lighthouse/homepage(desktop).pdf)
+
+login page
+
+- [Mobile](dev/tests/lighthouse/loginpage(mobile).pdf)
+- [Desktop](dev/tests/lighthouse/loginpage(desktop).pdf)
+
+recipe page
+
+- [Mobile](dev/tests/lighthouse/recipepage(mobile).pdf)
+- [Desktop](dev/tests/lighthouse/recipepage(desktop).pdf)
+
+edit recipe page
+
+- [Mobile](dev/tests/lighthouse/editrecipepage(mobile).pdf)
+- [Desktop](dev/tests/lighthouse/editrecipepage(desktop).pdf)
+
+profile page
+
+- [Mobile](dev/tests/lighthouse/profilepage(mobile).pdf)
+- [Desktop](dev/tests/lighthouse/profilepage(desktop).pdf)
+
+search page
+
+- [Mobile](dev/tests/lighthouse/searchpage(mobile).pdf)
+- [Desktop](dev/tests/lighthouse/searchpage(desktop).pdf)
+
+</details>
+
+
 
 ### Python unit tests
+
+Automated unit testing was performed on functions suitable for it:
+
+calculate_rating
+
+```
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+```
+
+Test criteria is in test.py
+
+
 
 ## Manual Testing
 
