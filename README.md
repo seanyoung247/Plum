@@ -27,7 +27,7 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Existing Features](#Existing-Features)
   - [Future Features](Future-Features)
 - **[Technologies](#Technologies)**
-  - [Site architecture](#Site architecture)
+  - [Site architecture](#Site-architecture)
   - [Languages](#Languages)
   - [Libraries](#Libraries)
   - [Editors](#Editors)
