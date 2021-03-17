@@ -2,16 +2,16 @@ $(document).ready(function(){
   /*
    * Materialise component initialisation
    */
-  $('.sidenav').sidenav();
-  $('.dropdown-trigger').dropdown({
+  $(".sidenav").sidenav();
+  $(".dropdown-trigger").dropdown({
     // Prevents the dropdown menu covering the trigger item
     coverTrigger: false
   });
-  $('.timepicker').timepicker({
+  $(".timepicker").timepicker({
     twelveHour: false
   });
-  $('.collapsible').collapsible();
-  $('select').formSelect();
+  $(".collapsible").collapsible();
+  $("select").formSelect();
 });
 
 /*
@@ -54,17 +54,17 @@ $( "#advanced_search_toggle a" ).click(function(event) {
  */
 function submitFormAJAX(event, callbackSuccess) {
   // Get form data
-  var data = new FormData(event.target);
-  var serialised = {};
+  let data = new FormData(event.target);
+  let serialised = {};
   // serialise it into key/value pairs that can be converted to JSON
-  for (var key of data.keys()) {
+  for (let key of data.keys()) {
     serialised[key] = data.get(key);
   }
   // Make AJAX request
   $.ajax({
     type : "POST",
     url : $(event.target).prop("action"), // Get route from form action attribute
-    contentType : 'application/json;charset=UTF-8',
+    contentType : "application/json;charset=UTF-8",
     data : JSON.stringify(serialised),
     success : callbackSuccess
   });
