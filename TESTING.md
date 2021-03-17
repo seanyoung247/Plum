@@ -15,21 +15,30 @@
 
 Generated **HTML** and **CSS** code were validated with the W3C Markup and CSS validators. Both were found to have no errors or warnings. Reports can be seen below:
 
-Home page
+<details>
+<summary><b>HTML</b></summary>
 
-Login page
+- [Home page](dev/tests/html/home_page-validation_report.pdf)
+- [Login page](dev/tests/html/login_page-validation_report.pdf)
+- [Recipe page](dev/tests/html/recipe_page-validation_report.pdf)
+- [Add recipe page](dev/tests/html/add_recipe_page-validation_report.pdf)
+- [Edit recipe page](dev/tests/html/edit_recipe_page-validation_report.pdf)
+- [Profile page](dev/tests/html/profile_page-validation_report.pdf)
+- [Search page](dev/tests/html/search_page-validation_report.pdf)
+</details>
 
-Recipe page
+<details>
+<summary><b>CSS</b></summary>
 
-Add/Edit recipe page
-
-Search page
-
-Profile page
+- [style.css](dev/tests/css/style_css-validation_report.pdf) - Global style sheet
+- [login.css](dev/tests/css/login_css-validation_report.pdf) - Login page style sheet
+- [recipe.css](dev/tests/css/recipe_css-validation_report.pdf) - Recipe and add/edit recipe pages style sheet
+- [search.css](dev/tests/css/search_css-validation_report.pdf) - Search page style sheet
+</details>
 
 **JavaScript** code was run through [JSHint](https://jshint.com/) to ensure they were syntactically correct. Any errors were corrected and linting re-run until correct.
 
-Pylint was used to verify **Python** code. Any errors were corrected and re-run until correct*. Reports can be seen below:
+Pylint was used to verify **Python** code. Any errors were corrected and re-run until correct. Reports can be seen below:
 
 <details>
 <summary><b>app.py</b> report</summary>
@@ -42,6 +51,10 @@ app.py:17:4: W0611: Unused import env (unused-import)
 
 Your code has been rated at 9.95/10 (previous run: 9.95/10, +0.00)
 ```
+[app report](dev/tests/pylint/app_report.txt)
+
+A warning regarding unused-imports remains as the linter is unable to recognise the use of variables in env.py.
+
 </details>
 
 <details>
@@ -53,6 +66,8 @@ Your code has been rated at 9.95/10 (previous run: 9.95/10, +0.00)
 
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 ```
+[decorators report](dev/tests/pylint/decorators_report.txt)
+
 </details>
 
 <details>
@@ -65,7 +80,8 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 ```
 
-*A warning regarding unused-imports remains as the linter is unable to recognise the use of variables in env.py.
+[helpers report](dev/tests/pylint/helpers_report.txt)
+
 </details>
 
 <lighthouse>
