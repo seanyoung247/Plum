@@ -1,0 +1,2560 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2Frecipe.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+Subject: W3C CSS Validator results for https://plum-recipes.herokuapp.com/static/css/recipe.css (CSS level 3 + SVG)
+Date: Tue, 16 Mar 2021 23:54:54 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----"
+
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: text/html
+Content-ID: <frame-630B7594B82DCE273B309A5E04ACE9BA@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2Frecipe.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang=3D"en" xml:lang=3D"en" xmlns=
+=3D"http://www.w3.org/1999/xhtml" dir=3D"ltr"><head><meta http-equiv=3D"Con=
+tent-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" =
+type=3D"text/css" href=3D"cid:css-2edb3b2e-faa1-4a60-87d6-3d22cf9b4c24@mhtm=
+l.blink" />
+     =20
+      <meta http-equiv=3D"Content-Script-Type" content=3D"text/javascript">
+      <meta http-equiv=3D"Content-Style-Type" content=3D"text/css">
+        <meta name=3D"ROBOTS" content=3D"NOINDEX, NOFOLLOW">
+        <title>W3C CSS Validator results for https://plum-recipes.herokuapp=
+.com/static/css/recipe.css (CSS level 3 + SVG)</title>
+        <link href=3D"http://jigsaw.w3.org/css-validator/" rel=3D"validator=
+">
+        <link type=3D"text/css" rel=3D"stylesheet" href=3D"https://jigsaw.w=
+3.org/css-validator/style/base.css">
+        <link type=3D"text/css" rel=3D"stylesheet" href=3D"https://jigsaw.w=
+3.org/css-validator/style/results.css">
+    </head>
+    <body>
+      <div id=3D"banner">
+       <h1 id=3D"title"><a href=3D"https://www.w3.org/"><img alt=3D"W3C" wi=
+dth=3D"110" height=3D"61" id=3D"logo" src=3D"https://jigsaw.w3.org/css-vali=
+dator/images/w3c.png"></a>
+       <a href=3D"https://jigsaw.w3.org/css-validator/"><span>The W3C CSS V=
+alidation Service</span></a></h1>
+
+       <p id=3D"tagline">
+         W3C CSS Validator results for https://plum-recipes.herokuapp.com/s=
+tatic/css/recipe.css (CSS level 3 + SVG)
+       </p>
+      </div>
+
+        <ul class=3D"navbar" id=3D"jumpbar">
+            <li><strong>Jump to:</strong></li>
+                        <li><a href=3D"https://jigsaw.w3.org/css-validator/=
+validator?uri=3Dhttps%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2Fr=
+ecipe.css&amp;profile=3Dcss3svg&amp;usermedium=3Dall&amp;warning=3D1&amp;ve=
+xtwarning=3D&amp;lang=3Den#css">Validated CSS</a></li>
+            </ul>
+<div id=3D"results_container">
+   <h2>W3C CSS Validator results for https://plum-recipes.herokuapp.com/sta=
+tic/css/recipe.css (CSS level 3 + SVG)</h2>
+            <!-- NO ERRORS -->
+        <div id=3D"congrats">
+            <h3>Congratulations! No Error Found.</h3>
+            <p>
+                This document validates as <a href=3D"http://www.w3.org/Sty=
+le/CSS/current-work.html">CSS level 3 + SVG</a> !=20
+            </p>
+            <p>
+                To show your readers that you've taken the care to create a=
+n interoperable Web page, you may display this icon on any page that valida=
+tes. Here is the XHTML you could use to add this icon to your Web page:
+            </p>
+            <img class=3D"inline-badge" style=3D"border:0;width:88px;height=
+:31px" src=3D"https://jigsaw.w3.org/css-validator/images/vcss" alt=3D"Valid=
+ CSS!">  =20
+            <pre class=3D"example badgeSnippet">&lt;p&gt;
+    &lt;a href=3D"https://jigsaw.w3.org/css-validator/check/referer"&gt;
+        &lt;img style=3D"border:0;width:88px;height:31px"
+            src=3D"https://jigsaw.w3.org/css-validator/images/vcss"
+            alt=3D"Valid CSS!" /&gt;
+    &lt;/a&gt;
+&lt;/p&gt;
+            </pre>
+        <img class=3D"inline-badge" style=3D"border:0;width:88px;height:31p=
+x" src=3D"https://jigsaw.w3.org/css-validator/images/vcss-blue" alt=3D"Vali=
+d CSS!">
+        <pre class=3D"example badgeSnippet">&lt;p&gt;
+    &lt;a href=3D"https://jigsaw.w3.org/css-validator/check/referer"&gt;
+        &lt;img style=3D"border:0;width:88px;height:31px"
+            src=3D"https://jigsaw.w3.org/css-validator/images/vcss-blue"
+            alt=3D"Valid CSS!" /&gt;
+    &lt;/a&gt;
+&lt;/p&gt;
+        </pre>
+            <p>(close the img tag with &gt; instead of /&gt; if using HTML =
+&lt;=3D 4.01)</p>
+           =20
+<div id=3D"w3c-include" lang=3D"en" dir=3D"ltr"><div class=3D"w3c-include" =
+id=3D"w3c-include-validator-donation"><p><a href=3D"https://www.edx.org/pro=
+fessional-certificate/front-end-web-developer-9" title=3D"W3Cx" class=3D"w3=
+c-include-validator-donation-img"><img src=3D"https://www.w3.org/2018/12/w3=
+cx-fewd.png" alt=3D"W3Cx logo" height=3D"99" class=3D"w3c-include-sponsor-i=
+mg"></a></p><p><span class=3D"insert"><span>Interested in =E2=80=9Cdevelopi=
+ng=E2=80=9D your developer skills? In W3Cx=E2=80=99s hands-on Professional =
+Certificate Program, learn how to code the right way by creating Web sites =
+and apps that use the latest Web standards. <a href=3D"https://www.edx.org/=
+professional-certificate/front-end-web-developer-9">Find out more!</a></spa=
+n></span><br><br><span><a href=3D"https://www.w3.org/QA/Tools/Donate">Donat=
+e</a> and help us build better tools for a better web.</span></p></div></di=
+v>
+           =20
+            <p>
+                If you like, you can download a copy of this image to keep =
+in your local web directory, and change the XHTML fragment above to referen=
+ce your local image rather than the one on this server.
+            </p>
+                        <p>
+                If you would like to create a link to this page (i.e., this=
+ validation result) to make it easier to re-validate this page in the futur=
+e or to allow others to validate your page, the URI is:
+            </p>
+<pre>http://jigsaw.w3.org/css-validator/validator?uri=3Dhttps%3A%2F%2Fplum-=
+recipes.herokuapp.com%2Fstatic%2Fcss%2Frecipe.css&amp;profile=3Dcss3svg&amp=
+;usermedium=3Dall&amp;warning=3D1&amp;vextwarning=3D
+or
+http://jigsaw.w3.org/css-validator/check/referer (for HTML/XML document onl=
+y)
+</pre>
+            <p>(Or, you can just add the current page to your bookmarks or =
+hotlist.)</p>
+       =20
+        </div>
+        <p class=3D"backtop"><a href=3D"https://jigsaw.w3.org/css-validator=
+/validator?uri=3Dhttps%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2F=
+recipe.css&amp;profile=3Dcss3svg&amp;usermedium=3Dall&amp;warning=3D1&amp;v=
+extwarning=3D&amp;lang=3Den#banner">=E2=86=91 Top</a></p>
+   =20
+
+        <div id=3D"css">
+            <h3>Valid CSS information</h3>
+            <div class=3D"vAtRule">
+   =20
+                                <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-header
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">rgb(63, 1=
+25, 32, 0.15)</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #image_upload_btn
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">5px</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">bottom</span> =
+:
+                                    <span class=3D"PropertyValue">5px</span=
+>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-title
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">20px 0</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">calc(20px=
+ + 2vw)</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-author
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-author a
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-author a:hover
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#9F54B0</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-rating
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">10px 0</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-rating .star i
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">35px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-header-sub
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-header-sub div:not(:last-child)
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-right</=
+span> :
+                                    <span class=3D"PropertyValue">1px solid=
+ #3F7D20</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-header-sub p i
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">50px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-header-sub span
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">calc(20px=
+ + 0.5vw)</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-rating-form .star i
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">3em</span=
+>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_comment_form
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_comment_form .preloader-wrapper
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">bottom</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">auto</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .ingredient-text
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#0D0A0B</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .ingredient-check:checked + .ingredient-tex=
+t
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-decoratio=
+n</span> :
+                                    <span class=3D"PropertyValue">line-thro=
+ugh</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                input[type=3D"checkbox"].ingredient-check:c=
+hecked + span:before
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-right</=
+span> :
+                                    <span class=3D"PropertyValue">2px solid=
+ #8E4585</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-bottom<=
+/span> :
+                                    <span class=3D"PropertyValue">2px solid=
+ #8E4585</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ol.collection
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">list-style</sp=
+an> :
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">counter-reset<=
+/span> :
+                                    <span class=3D"PropertyValue">list-coun=
+ter</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ol.collection li
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">list-style</sp=
+an> :
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ol.collection span.collection-item
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">block</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">counter-increm=
+ent</span> :
+                                    <span class=3D"PropertyValue">list-coun=
+ter</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">1rem</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding-left</=
+span> :
+                                    <span class=3D"PropertyValue">50px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#0D0A0B</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ol.collection span.collection-item::before
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">counter(l=
+ist-counter)</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">10px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin-top</sp=
+an> :
+                                    <span class=3D"PropertyValue">-5px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">line-height</s=
+pan> :
+                                    <span class=3D"PropertyValue">30px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">white</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">#8E4585 s=
+olid 1px</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-radius<=
+/span> :
+                                    <span class=3D"PropertyValue">50%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">30px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">30px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ol.collection .collection-item:hover, ol.co=
+llection input:checked + label .collection-item
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">rgb(63, 1=
+25, 32, 0.15)</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ol.collection input:checked + label .collec=
+tion-item::before
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_comments_wrapper
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin-bottom<=
+/span> :
+                                    <span class=3D"PropertyValue">50px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-wrapper
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-flow</spa=
+n> :
+                                    <span class=3D"PropertyValue">row</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-wrap</spa=
+n> :
+                                    <span class=3D"PropertyValue">wrap</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">align-items</s=
+pan> :
+                                    <span class=3D"PropertyValue">flex-star=
+t</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">justify-conten=
+t</span> :
+                                    <span class=3D"PropertyValue">flex-end<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">25px 10px=
+</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-author
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex</span> :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-basis</sp=
+an> :
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-wrap</spa=
+n> :
+                                    <span class=3D"PropertyValue">wrap</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">justify-conten=
+t</span> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-author &gt; a
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-decoratio=
+n</span> :
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-author &gt; a:hover
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .delete-comment
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">cursor</span> =
+:
+                                    <span class=3D"PropertyValue">pointer</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-box
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex</span> :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-basis</sp=
+an> :
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">white</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">box-shadow</sp=
+an> :
+                                    <span class=3D"PropertyValue">0 0 5px #=
+0D0A0B</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-radius<=
+/span> :
+                                    <span class=3D"PropertyValue">25px 25px=
+ 25px 25px</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_comments_wrapper .comment-box
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">15px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_toolbar
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">5px</span=
+>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_favorite_form
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">inline-bl=
+ock</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_favorite &gt; input[type=3D"checkbo=
+x"] ~ .material-icons::after
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">"favorite=
+_border"</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #recipe_favorite &gt; input[type=3D"checkbo=
+x"]:checked ~ .material-icons::after
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">"favorite=
+"</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .modal-content
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#0D0A0B</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .modal-content h4
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .modal .modal-footer
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #delete_form
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">inline-bl=
+ock</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #delete_form a, #delete_form button
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">25px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .modal-close
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding-top</s=
+pan> :
+                                    <span class=3D"PropertyValue">1px</span=
+>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                input#recipe_image
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">rgb(243, =
+252, 240, 0.9)</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                #steps .collection-item, #ingredients .coll=
+ection-item
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .remove-list-item
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">25px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">25px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">transpare=
+nt</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#0D0A0B</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">cursor</span> =
+:
+                                    <span class=3D"PropertyValue">pointer</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .remove-list-item:hover
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                    	                    <div class=3D"atRule">
+                    <span class=3D"atSelector">
+                        @media only screen and (min-width: 600px)
+                    </span>
+                    {
+                                        <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-author
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex</span> :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-basis</sp=
+an> :
+                                    <span class=3D"PropertyValue">25%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">justify-conten=
+t</span> :
+                                    <span class=3D"PropertyValue">flex-end<=
+/span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .delete-comment
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-box
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex</span> :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-basis</sp=
+an> :
+                                    <span class=3D"PropertyValue">74%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin-left</s=
+pan> :
+                                    <span class=3D"PropertyValue">1%</span>=
+;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-radius<=
+/span> :
+                                    <span class=3D"PropertyValue">2px 25px =
+25px 25px</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                                        }
+                            </div>
+                                        <div>
+                            </div>
+                    	                    <div class=3D"atRule">
+                    <span class=3D"atSelector">
+                        @media only screen and (min-width: 992px)
+                    </span>
+                    {
+                                        <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-author
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex</span> :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-basis</sp=
+an> :
+                                    <span class=3D"PropertyValue">20%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">justify-conten=
+t</span> :
+                                    <span class=3D"PropertyValue">flex-end<=
+/span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .delete-comment
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .comment-box
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex</span> :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-basis</sp=
+an> :
+                                    <span class=3D"PropertyValue">79%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin-left</s=
+pan> :
+                                    <span class=3D"PropertyValue">1%</span>=
+;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-radius<=
+/span> :
+                                    <span class=3D"PropertyValue">2px 25px =
+25px 25px</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                                        }
+                            </div>
+                                        <div>
+                            </div>
+                        </div>
+        </div>
+        <p class=3D"backtop"><a href=3D"https://jigsaw.w3.org/css-validator=
+/validator?uri=3Dhttps%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2F=
+recipe.css&amp;profile=3Dcss3svg&amp;usermedium=3Dall&amp;warning=3D1&amp;v=
+extwarning=3D&amp;lang=3Den#banner">=E2=86=91 Top</a></p>
+</div><!-- results_container -->
+        <ul class=3D"navbar" id=3D"menu">
+            <li><strong><a href=3D"https://jigsaw.w3.org/css-validator/" ti=
+tle=3D"Home page for the W3C CSS Validation Service">Home</a></strong> <spa=
+n class=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/about.html" =
+title=3D"About this service">About</a> <span class=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/documentatio=
+n.html" title=3D"Documentation for the W3C CSS Validation Service">Document=
+ation</a> <span class=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/DOWNLOAD.htm=
+l" title=3D"Download and install the CSS validator">Download</a> <span clas=
+s=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/Email.html" =
+title=3D"How to provide feedback on this service">Feedback</a> <span class=
+=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/thanks.html"=
+ title=3D"Credits and Acknowlegments">Credits</a></li>
+        </ul>
+
+<div id=3D"footer">
+        <p id=3D"activity_logos">
+            <a href=3D"https://www.w3.org/QA/" title=3D"W3C's Quality Assur=
+ance Activity, bringing you free Web quality tools and more"><img src=3D"ht=
+tps://www.w3.org/QA/2002/12/qa-small.png" alt=3D"QA"></a><a href=3D"https:/=
+/www.w3.org/Style/CSS/learning" title=3D"Learn more about Cascading Style S=
+heets"><img src=3D"https://jigsaw.w3.org/css-validator/images/woolly-icon" =
+alt=3D"CSS"></a>
+        </p>
+        <p id=3D"support_logo">
+        <a href=3D"https://www.w3.org/QA/Tools/Donate">
+        <img src=3D"https://www.w3.org/QA/Tools/I_heart_validator" alt=3D"I=
+ heart Validator logo" title=3D" Validators Donation Program">
+        </a>
+        </p>
+        <p class=3D"copyright">
+            <a rel=3D"Copyright" href=3D"http://www.w3.org/Consortium/Legal=
+/ipr-notice#Copyright">Copyright</a>
+            =C2=A9 1994-2014
+            <a href=3D"http://www.w3.org/"><acronym title=3D"World Wide Web=
+ Consortium">W3C</acronym></a>=C2=AE
+            (<a href=3D"http://www.csail.mit.edu/"><acronym title=3D"Massac=
+husetts Institute of Technology">MIT</acronym></a>,
+            <a href=3D"http://www.ercim.eu/"><acronym title=3D"European Res=
+earch Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+            <a href=3D"http://www.keio.ac.jp/">Keio</a>,
+	   <a href=3D"http://ev.buaa.edu.cn/">Beihang</a>),
+            All Rights Reserved.
+            W3C <a href=3D"http://www.w3.org/Consortium/Legal/ipr-notice#Le=
+gal_Disclaimer">liability</a>,
+            <a href=3D"http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Tr=
+ademarks">trademark</a>,
+            <a rel=3D"Copyright" href=3D"http://www.w3.org/Consortium/Legal=
+/copyright-documents">document use</a>
+            and <a rel=3D"Copyright" href=3D"http://www.w3.org/Consortium/L=
+egal/copyright-software">software licensing</a>
+            rules apply. Your interactions with this site are in accordance
+            with our <a href=3D"http://www.w3.org/Consortium/Legal/privacy-=
+statement#Public">public</a> and
+            <a href=3D"http://www.w3.org/Consortium/Legal/privacy-statement=
+#Members">Member</a> privacy statements.
+        </p>
+</div>
+   =20
+
+</body></html>
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-2edb3b2e-faa1-4a60-87d6-3d22cf9b4c24@mhtml.blink
+
+@charset "utf-8";
+
+#w3c-include { display: table; width: 100%; box-sizing: border-box; margin:=
+ 1em 0px 0px; padding: 0px; }
+
+.w3c-include { display: table-row; padding-bottom: 1em; }
+
+.w3c-include > p { display: table-cell; vertical-align: middle; text-align:=
+ center; padding-bottom: 1em; }
+
+.w3c-include > p:first-of-type { padding-right: 1em; width: 20%; padding-le=
+ft: 2em; }
+
+.w3c-include > p:last-of-type { padding-right: 2em; }
+
+.w3c-include-sponsor-img { margin-left: 1em; }
+
+.FlattrButton { float: right; margin-right: 1em; }
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jigsaw.w3.org/css-validator/style/base.css
+
+@charset "utf-8";
+
+html, body, form, fieldset, p, a, ul, ol, li, div, legend, label, br, input=
+, button, textarea, h1, h2, h3, h4, h5, strong { margin: 0px; padding: 0px;=
+ border: 0px; font-weight: normal; font-style: normal; font-size: 100%; fon=
+t-family: Helvetica, Arial, sans-serif; vertical-align: baseline; backgroun=
+d-color: white; color: rgb(31, 33, 38); line-height: 1; text-align: left; }
+
+a img { border: 0px; }
+
+a:link, a:visited { text-decoration: underline; color: rgb(54, 93, 149); }
+
+a:hover, a:active { text-decoration: underline; color: rgb(31, 33, 38); }
+
+ul, ol { list-style: none; }
+
+abbr[title], acronym[title], span[title], strong[title] { border-bottom: th=
+in dotted; cursor: help; }
+
+acronym:hover, abbr:hover { cursor: help; }
+
+body { padding-bottom: 6em; min-width: 40em; }
+
+p { line-height: 130%; }
+
+strong { font-weight: bold; }
+
+h2 { color: rgb(102, 153, 0); font-family: Verdana, Arial, sans-serif; back=
+ground-color: white; font-size: 1.3em; margin-bottom: 1em; }
+
+h3 { font-family: Verdana, Arial, sans-serif; color: rgb(102, 153, 0); back=
+ground-color: white; font-size: 1.1em; border-bottom: 1px dotted rgb(170, 1=
+70, 119); text-decoration: none; margin-top: 1em; margin-bottom: 1em; }
+
+h4 { font-family: Verdana, Arial, sans-serif; color: rgb(102, 153, 0); font=
+-style: italic; text-decoration: none; font-size: 0.9em; font-weight: 600; =
+margin-top: 1.5em; margin-bottom: 0.5em; }
+
+h5, h6 { font-family: Verdana, Arial, sans-serif; color: rgb(17, 17, 26); b=
+ackground-color: white; font-weight: normal; font-size: small; margin-top: =
+1em; margin-left: 1em; margin-bottom: 0.7em; }
+
+table { }
+
+td, th { padding: 6px; }
+
+input#uri, input#file, input#uploaded_file, input#keywords, input#short_des=
+c, textarea { font-family: Monaco, "Courier New", monospace; font-size: 0.9=
+em; border-width: 1px; border-style: solid; border-color: rgb(119, 119, 119=
+) rgb(187, 187, 187) rgb(221, 221, 221); border-image: initial; background:=
+ url("../images/textbg.png") left top no-repeat rgb(254, 254, 254); padding=
+: 0.2em; max-width: 1000px; font-variant: normal; }
+
+input#uri, input#file, input#uploaded_file { width: 85%; margin: 0.3em 0px =
+0px 1em; }
+
+input#file, input#uploaded_file { width: 30em; }
+
+input#mailsearch, input#bugsearch { background-color: rgb(234, 235, 238); c=
+olor: rgb(54, 93, 149); padding: 0.3em 1em; border: 1px outset rgb(204, 204=
+, 204); }
+
+input#mailsearch:active, input#bugsearch:active { border-style: inset !impo=
+rtant; }
+
+a.submit { display: block; width: 10em; text-align: center; margin: 0px aut=
+o; background: url("../images/button-left.png") left center no-repeat; text=
+-decoration: none; }
+
+a.submit span { display: block; padding: 1.2em 2em; background: url("../ima=
+ges/button-right.png") right center no-repeat; }
+
+textarea { width: 98.5%; }
+
+p.submit_button input { overflow: visible; color: rgb(54, 93, 149); padding=
+: 0.3em 0.4em 0.1em 0.3em; font-size: 1.2em; width: 12em; text-align: cente=
+r; border-width: 1px 2px 2px 1px; border-style: solid; border-color: rgb(17=
+0, 170, 170) rgb(68, 68, 68) rgb(68, 68, 68) rgb(170, 170, 170); background=
+: url("../images/grad.png") left top repeat-x rgb(238, 238, 238); cursor: p=
+ointer; }
+
+p.submit_button input:active { color: rgb(31, 33, 38); border-width: 2px 1p=
+x 1px 2px; border-style: solid; border-color: rgb(68, 68, 68) rgb(170, 170,=
+ 170) rgb(170, 170, 170) rgb(68, 68, 68); }
+
+label { font-size: 0.9em; padding-left: 0.2em; padding-right: 0.2em; }
+
+div.options select { margin-right: 0.8em; }
+
+div.options label { margin: 1em 0.3em 0px 0px; background-color: rgb(234, 2=
+35, 238); }
+
+div.options table, div.options tbody, div.options td, div.options th, div.o=
+ptions tr { margin: 0px; padding: 0px; }
+
+div.options table { border-collapse: collapse; }
+
+div.options th, div.options th label { font-weight: bold; }
+
+div.options td, div.options th { padding: 0.5em 1.1em 0.5em 0px; text-align=
+: left; }
+
+div.options td input { margin-right: 0.2em; }
+
+div.options select { width: 12em; }
+
+div.options table tr.subchoice th { padding-left: 3em; }
+
+tr.subchoice th label { padding-left: 0px; }
+
+tr.subchoice th, tr.subchoice th label { font-size: 1em; font-weight: norma=
+l; }
+
+h1#title { font-family: "Myriad Web", "Myriad Pro", "Gill Sans", Helvetica,=
+ Arial, sans-serif; color: rgb(253, 253, 253); font-size: 1.6em; background=
+: url("../images/head-bl.png") left bottom no-repeat; padding-bottom: 0.43e=
+m; }
+
+h1#title a, h1#title a img { background-color: rgb(54, 93, 149); }
+
+h1 span { border-bottom: 1px solid rgb(78, 111, 158); border-top-color: rgb=
+(78, 111, 158); border-right-color: rgb(78, 111, 158); border-left-color: r=
+gb(78, 111, 158); }
+
+h1#title a:link, h1#title a:hover, h1#title a:visited, h1#title a:active { =
+text-decoration: none; color: rgb(253, 253, 253) !important; }
+
+h1#title img { vertical-align: middle; margin-right: 0.7em; }
+
+div#banner { background: url("../images/head-br.png") right bottom no-repea=
+t rgb(54, 93, 149); margin: 1.5em 2em; }
+
+p#tagline { font-size: 0.7em; margin: -2em 0px 0px 12.1em; padding-bottom: =
+1em; letter-spacing: 0.1em; color: rgb(208, 220, 238); background-color: tr=
+ansparent; line-height: 100% !important; }
+
+ul#lang_choice { position: absolute; text-align: right; top: 0px; right: 0p=
+x; font-size: 0.7em; padding: 0.5em 0px; line-height: 100%; margin-right: 3=
+.3em; min-width: 40em; background-color: transparent; }
+
+ul#lang_choice a:link, ul#lang_choice a:visited { text-decoration: none; }
+
+ul#lang_choice a:hover, ul#lang_choice a:active { text-decoration: underlin=
+e; }
+
+ul#lang_choice li { display: inline; padding-left: 0.5em; }
+
+ul#tabset_tabs { height: 1.59em; }
+
+ul#tabset_tabs li { cursor: pointer; float: left; margin-right: 0.245em; ba=
+ckground: url("../images/tab-tl.png") left top no-repeat rgb(218, 221, 227)=
+; border-bottom: 1px solid rgb(203, 208, 219); }
+
+ul#tabset_tabs li.selected { background: url("../images/round-tl.png") left=
+ top no-repeat rgb(234, 235, 238); border-bottom: 1px solid rgb(234, 235, 2=
+38); }
+
+ul#tabset_tabs li.selected a:link, ul#tabset_tabs li.selected a:visited { c=
+olor: rgb(31, 33, 38); background: url("../images/round-tr.png") right top =
+no-repeat rgb(234, 235, 238); }
+
+ul#tabset_tabs li span { color: rgb(97, 101, 113); }
+
+body ul#tabset_tabs li.selected a span { color: rgb(61, 66, 79); }
+
+ul#tabset_tabs li a:link, ul#tabset_tabs li a:visited { color: rgb(54, 93, =
+149); display: block; padding: 0.515em 1.3em 0.215em 0.8em; background: url=
+("../images/tab-tr.png") right top no-repeat rgb(218, 221, 227); margin-lef=
+t: 0.5em; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+
+ul#tabset_tabs li a:hover, ul#tabset_tabs li a:active { color: rgb(31, 33, =
+38); }
+
+ul#tabset_tabs li a:hover span, ul#tabset_tabs li a:active span { color: rg=
+b(61, 66, 79); }
+
+ul#tabset_tabs li.selected span { color: rgb(93, 99, 113); }
+
+div#frontforms { background: rgb(255, 255, 255); padding: 0px 2em; }
+
+div#fields { clear: both; background: url("../images/round-tr.png") right t=
+op no-repeat rgb(234, 235, 238); padding: 0.5em 1.3em; border-bottom: 1px s=
+olid rgb(220, 221, 224); }
+
+div#fields legend, div#fields p, div#fields fieldset, div#fields form, div#=
+fields form fieldset legend a, div#fields form p label, div#fields tr label=
+ { background-color: rgb(234, 235, 238); }
+
+fieldset { background: rgb(234, 235, 238); }
+
+legend { font-size: 1.1em; padding: 1em 0px 0.23em; letter-spacing: 0.06em;=
+ }
+
+legend a:link, legend a:visited, legend a:hover, legend a:active { text-dec=
+oration: none; }
+
+legend.toggletext { cursor: pointer; padding-left: 0.8em; background: url("=
+../images/arrow-closed.png") 0px 1.2em no-repeat rgb(234, 235, 238); }
+
+legend.toggled { background: url("../images/arrow-open.png") 0px 1.4em no-r=
+epeat rgb(234, 235, 238); }
+
+p.instructions { color: rgb(77, 82, 94); font-size: 0.8em; padding-bottom: =
+1em; padding-top: 0.5em; }
+
+p.instructions label { color: rgb(77, 82, 94); padding: 0px; margin: 0px; f=
+ont-size: 1em; }
+
+div.options { padding: 0.7em 0px 0.5em 1em; }
+
+div.options, p.submit_button, p.instructions, p#note { border-top: 1px soli=
+d rgb(203, 205, 213); background: url("../images/double.png") left top repe=
+at-x rgb(234, 235, 238); }
+
+p.submit_button { padding: 0.6em 0px 0px; margin: 0px; text-align: center; =
+}
+
+p#note { clear: both; color: rgb(77, 82, 94); font-size: 0.9em; padding: 0.=
+5em 0px 0.1em; }
+
+ul#menu { text-align: center; margin: 1em 2em; background: url("../images/r=
+ound-br.png") right bottom no-repeat rgb(234, 235, 238); padding: 0.5em 0px=
+ 0.3em; border-top: 1px solid rgb(220, 221, 224); }
+
+ul#menu span { display: none; }
+
+ul#menu a:link, ul#menu a:visited { background: rgb(234, 235, 238); color: =
+rgb(54, 93, 149); text-decoration: none; }
+
+ul#menu a:hover, ul#menu a:active { color: rgb(31, 33, 38); text-decoration=
+: underline; }
+
+ul#menu li { display: inline; margin-right: 0.8em; background: rgb(234, 235=
+, 238); }
+
+div#footer { padding: 0px 2em; }
+
+p#activity_logos { float: left; margin-right: 2em; }
+
+p#support_logo { float: right; font-size: 0.8em; text-align: center; margin=
+-left: 2em; }
+
+p.copyright { text-align: center; text-transform: uppercase; font-size: 0.7=
+em; line-height: 1.4; }
+
+p.copyright, p.copyright a { text-decoration: none; color: rgb(124, 131, 14=
+9); }
+
+p.copyright a:link, p.copyright a:visited { color: rgb(163, 117, 110); }
+
+p.copyright a:hover, p.copyright a:active { color: rgb(125, 74, 66); }
+
+p#version_info { font-size: small; text-align: center; color: rgb(136, 136,=
+ 136); background-color: white; }
+
+div.doc { margin: 1em 2em; padding: 0.5em 0px 0.3em; }
+
+div.doc p, div.doc li { line-height: 150% !important; }
+
+div.doc p { margin-bottom: 0.7em; margin-top: 0.5em; }
+
+div.doc p, div.doc dt, div.doc ul, div.doc ol { margin-left: 1.5em; margin-=
+right: 1.5em; }
+
+div.doc ul li { list-style-type: disc; margin-left: 1em; }
+
+#toc { font-size: 0.85em; font-weight: bold; margin-bottom: 2em; margin-lef=
+t: 3em; }
+
+div.doc div#toc ol { list-style-type: decimal; }
+
+div.doc div#toc ol li { line-height: 130%; font-weight: bold; }
+
+div.doc div#toc ol li ol { list-style-type: lower-alpha; font-weight: norma=
+l; margin-left: 1em; }
+
+div.doc div#toc ol li ol li ol { list-style-type: lower-roman; }
+
+dl#expl dt code { white-space: normal; font-weight: bold; }
+
+dl#expl dt { border-top: 1px dashed black; margin-top: 2em; margin-bottom: =
+1em; }
+
+div.doc dt { margin-top: 1.2em; margin-bottom: 0.2em; }
+
+div.doc dt, div.doc dt a { font-style: italic; }
+
+div.doc dd { margin-right: 0px; }
+
+div.doc var { color: rgb(0, 0, 102); }
+
+div.doc code { white-space: normal; display: inline; padding-left: 0.2em; p=
+adding-right: 0.2em; color: black; font-family: Monaco, "Courier New", mono=
+space; border: 1px dotted rgb(204, 204, 204); }
+
+div.doc code.block { display: block; padding: 1em; white-space: pre; margin=
+-top: 1em; margin-bottom: 1em; margin-right: 3em; }
+
+div.doc code samp { font-weight: normal; color: black; font-style: italic; =
+}
+
+div.doc table { border-collapse: collapse; border-right: 1px solid rgb(204,=
+ 204, 204); }
+
+div.doc table td, .doc table th { border-top: 0px solid rgb(221, 221, 221);=
+ border-bottom: 1px solid rgb(204, 204, 204); border-left: 1px solid rgb(23=
+8, 238, 238); padding: 6px; border-collapse: collapse; }
+
+div.doc table th { background-color: rgb(238, 238, 238); color: rgb(17, 17,=
+ 26); border-right: 1px solid rgb(204, 204, 204); }
+
+div.doc table { margin-top: 1em; margin-bottom: 0.5em; border-collapse: col=
+lapse; border-right: 1px solid rgb(204, 204, 204); }
+
+div.doc td, div.doc th { border-top: 0px solid rgb(221, 221, 221); border-b=
+ottom: 1px solid rgb(204, 204, 204); border-left: 1px solid rgb(238, 238, 2=
+38); border-collapse: collapse; }
+
+div.doc th { background-color: rgb(238, 238, 238); color: rgb(17, 17, 26); =
+border-right: 1px solid rgb(204, 204, 204); }
+
+div.intro { margin: 1em 2em; padding: 0.5em 0px 0.3em; }
+
+#news dt { font-weight: bold; margin-top: 1.5em; margin-bottom: 0.3em; }
+
+#news dd { margin-left: 2.5em; margin-right: 1.5em; }
+
+#test_warning { border-left: 1px solid rgb(204, 204, 204); border-right: 1p=
+x solid rgb(204, 204, 204); line-height: 160%; text-align: center; margin-t=
+op: 2em; margin-left: 12%; margin-right: 12%; padding-left: 1.5em; padding-=
+right: 1.5em; color: black; background-color: white; }
+
+#test_warning img { width: 1.3em; vertical-align: middle; }
+
+div#don_program { border: 1px solid rgb(85, 176, 90); padding: 0.5em; line-=
+height: 150%; text-align: center; margin-top: 0.5em; }
+
+div#don_program span#don_program_img { float: left; width: 150px; height: 6=
+0px; }
+
+div#don_program span#don_program_img img { vertical-align: middle; }
+
+div#don_program span#don_program_text { }
+
+div#don_program span#don_program_text a { font-weight: bold; }
+
+#w3c-include { margin-top: 1em; }
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/head-bl.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAABtQTFRFNl2V////+vv9qrrSWXqo6u70XHupZYOuaIWv8//jBgAAAB5J
+REFUeNpiYGcAAWYwycQCIhlZ2UAkIxMzB0CAAQACIAAs0f7R9gAAAABJRU5ErkJggg==
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/head-br.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAABtQTFRFNl2V////+vv9qrrSWXqo6u70XHupZYOuaIWv8//jBgAAACFJ
+REFUeNpiYAACdhDBwAwiWJiABBsrIwMHMxMjI0CAAQAB+gAswU2YfQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/round-br.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAMAAAAmGUT3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAABJQTFRF6uvu////7u/x9vf47/Dy/f39bZkEnAAAAB9JREFUeNpiYMAA
+LHAWM4zBxAhjsEJYLMyMjIwAAQYAAgUAHYEWSW8AAAAASUVORK5CYII=
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jigsaw.w3.org/css-validator/style/results.css
+
+@charset "utf-8";
+
+#jumpbar { margin: 1em 2.4em; }
+
+#jumpbar li { color: rgb(17, 17, 26) !important; }
+
+#jumpbar { background-color: white; border-bottom: 1px solid rgb(0, 90, 156=
+); border-top: 1px solid rgb(0, 90, 156); color: rgb(0, 90, 156); font-size=
+: 0.9em; font-weight: bold; line-height: 140%; list-style-type: none; paddi=
+ng: 3px 0px; text-align: center; vertical-align: bottom; }
+
+#jumpbar li { display: inline; }
+
+#jumpbar li a { font-weight: 700; padding-left: 1.2em; padding-right: 1.2em=
+; text-decoration: none; }
+
+div#results_container { margin: 2em; }
+
+#congrats h3, #errors h3 { margin: 0px; font-family: "Bitstream Vera Sans",=
+ sans-serif; font-weight: 800; font-style: normal; text-decoration: none; w=
+ord-spacing: normal; letter-spacing: normal; text-transform: none; border-c=
+olor: black; padding: 0.4em; }
+
+#congrats h3 { background-color: rgb(85, 176, 90); color: white; }
+
+#congrats p { padding: 0.5em 1em; }
+
+#congrats p.toggle { text-indent: 10px; background: url("../images/arrow-do=
+wn.gif") 15px 0px no-repeat transparent; }
+
+#congrats p.closed { text-indent: 10px; background: url("../images/arrow-ri=
+ght.gif") 15px 0px no-repeat transparent; }
+
+#congrats pre { overflow: auto; }
+
+img.inline-badge { float: left; padding: 3em 10px 10px; margin: 0px 0px 0px=
+ 1.6em; }
+
+pre.badgeSnippet { margin-top: 0px; padding-left: 1em; font-size: small; co=
+lor: rgb(68, 68, 68); margin-bottom: 2em; margin-left: 108px !important; }
+
+#warnings table, #errors table { width: 100%; line-height: 120%; border-col=
+lapse: collapse; border-right: 1px solid rgb(204, 204, 204); border-top: 1p=
+x solid rgb(204, 204, 204) !important; }
+
+#warnings td, #errors td { border-width: 0px; }
+
+#errors h4, #warnings h4 { font-weight: bold; margin: 0px; padding: 0.4em; =
+background-color: rgb(238, 238, 238); color: black; }
+
+#errors h4 a, #warnings h4 a { background-color: rgb(238, 238, 238); }
+
+td.linenumber { width: 3em; background-color: rgb(225, 225, 225); text-alig=
+n: right; border-bottom: 1px solid rgb(204, 204, 204) !important; }
+
+td.codeContext { background-color: rgb(241, 241, 241); border-bottom: 1px s=
+olid rgb(221, 221, 221) !important; }
+
+#errors h2 { background-color: rgb(232, 40, 72); color: white; }
+
+#errors h3 { color: white; background-color: rgb(210, 61, 36) !important; }
+
+td.parse-error { padding: 5px 1em; border-bottom: 1px solid rgb(255, 221, 2=
+21) !important; }
+
+td.nocontext { width: 3em; background-color: rgb(241, 241, 241); border-bot=
+tom: 1px solid rgb(221, 221, 221) !important; }
+
+td.io, td.notfound, td.invalidparam, td.errortoken, td.unknownerror { paddi=
+ng: 5px 1em; border-bottom: 1px solid rgb(255, 221, 221) !important; }
+
+tr.warning { padding: 0px; }
+
+td.level1, td.level2, td.level0 { padding: 5px 1em; border-bottom: 1px soli=
+d rgb(255, 221, 221) !important; }
+
+.level0 { color: rgb(0, 0, 0); border-left: 10px solid rgb(204, 102, 102) !=
+important; }
+
+.level1 { color: rgb(0, 0, 0); border-left: 10px solid rgb(250, 144, 132) !=
+important; }
+
+.level2 { color: rgb(0, 0, 0); border-left: 10px solid rgb(255, 177, 167) !=
+important; }
+
+pre { margin-left: 1em; border-left: thin solid rgb(221, 221, 221); padding=
+: 2em; }
+
+#css { }
+
+.vAtRule { font-family: monospace; padding: 0em; }
+
+.atRule { margin: 1em 0px; padding-left: 0.5em; border-left: 3px solid rgb(=
+221, 221, 221); }
+
+.atSelector { }
+
+.selector { background-color: rgb(241, 241, 241); font-family: monospace; p=
+adding: 1em; border-bottom: 1px solid rgb(221, 221, 221); }
+
+.selectorValue { font-weight: bold; }
+
+.RuleList { padding: 0px 1em; background-color: rgb(241, 241, 241); }
+
+.Rule { background-color: rgb(241, 241, 241); font-family: monospace; }
+
+.Property { color: rgb(34, 34, 34); font-family: monospace; font-style: ita=
+lic; }
+
+.PropertyValue { color: rgb(102, 102, 102); }
+
+p.backtop { color: rgb(187, 187, 204); font-size: x-small; text-transform: =
+uppercase; font-weight: bold; padding-top: 0.3em; text-align: right; border=
+-top: 1px solid rgb(238, 238, 255); clear: both; padding-right: 0px !import=
+ant; margin: 1em 0px !important; }
+
+p.backtop a:link, p.backtop a:hover, p.backtop a:visited { color: rgb(187, =
+187, 204); text-decoration: none; }
+
+.error code, .warning code, .unrecognized, .exp, .skippedString, .codeConte=
+xt { border: 1px dashed rgb(153, 153, 153); padding: 2px 4px; }
+
+.unrecognized, .exp, .skippedString, .codeContext { font-family: monospace;=
+ }
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/w3c.png
+
+iVBORw0KGgoAAAANSUhEUgAAAG4AAAA9CAMAAAB7n6yQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAq9QTFRFNl2V8fHx/v7+////9fX19vb29PT0+vr68vLy+fn5+/v78/Pz
++Pj48PDw/Pz8/f399/f3AAAAQmebTnChPz8/aIWvfn5+Pj4+T3GiW3uoscDVICAgDw8PQmabEBAQ
+jKLBf5e6PT09WnmnTnGio7TNnp6edI+1fZW4c460T09Pfpa5W1tbb29vZoOt7O7yMDAwWnqncYyy
+6Ovu5unsgZm8rLvQX19fzc3N3OHouMTWf39/6u706+vrvLy8197pu8fZxcXFrq6u1Nzmt7e38PL2
+Z4SuorPMfX1909rlmKvH5+rtLy8v7e/zvr6+wszat8PVobLKoLHKl6rGytPhS26g7u7up6en8fT3
+Sm2fvb292+Dn2N/p3+Tr4ufur77TrbzRsL7Ts8DS7/H14+Pjtra20tnkgJi7+vv9WXmnx9Hf7e3t
+nZ2d4eXsco2ztsLUjaPCxc/d4+bq1dzn8fT4cYuyma3J0djjjY2NmazI4ebtqrrSVXWkZYOt3Nzc
+iZ+/iqDA2t/musjbi6HAiIiIO2GXf5i77Ozs7vD03uLnorPLyNLgYGBgTk5OzMzMHx8fQmecu7u7
+1tbWXHuprKysqqqqiZ++x9De5OnwWXmm5eXlVXal6+3xxMTEZYOulKjEs8HWmJiYxtDerr3SprfP
+ssHW29vbusbY0Njitr/Nx8fHvsrcusfYv8vc8vX4q7rP5ujsxsbGiYmJfJW48fP2eHh4vcnaiZ6+
+yMjIWXqoQEBAa2trz9fhLS0tpLbOl6vHv8zdydPh09PTgZq9V3im3eLpZYKsfHx8ytTi6evv4OXs
+vcrcXFxc09vlZ4Wvq7nO3uPqjY+TW3upenp66OjoLi4uPDw8Xl5eampqTU1N6Ortc461jo6OiqC/
+1dXVbGxsucXXlqrG3d3dfpe69fb5dZC2rKho9QAABLZJREFUeNrsl4d3E0cQxg8EkoUUSSvJMrYk
+bBkMFjbYxmAcF4JtwLhRAqGFhN4JhBJI6L2l995777333nuvf0h2ZnZ1e2qHACl5PL73LM03ZX+3
+qzs9S7NYlm3J36flSpbGq7QcatkLuaRpW3JK027NLW6fdkqn9H/X9N2Nluypcfd0A+2mDZbsasPb
+Ku4jS7b1uop7tHe29beK6519nTy4s44aNxP9TOFuB/OPOvVWwjOULxk/NzS0UHgx/2uoerGqLAXO
+rSsf/D3CPB1fdfdPxFGhZQDj8o/mYRlzuyvrAoFAXZk+mAJ3N/iR0n0J7hG9enbiNwT1ljHSAM4L
+sj/dVW7WE2ypMsXhgpdLd4EBLrxR10N+NJMKruTknp6Am/mDK/3JcS5FeFxjhBkDpr9eLESfj8JY
+uxDz/hiOVQYZCxzwu9iqoKtLn0yFWwuJtUnhrnHYPY7MYESjmY0gfyAQpBPd7oqu8ruidZXmuIcg
+USjdSH0HXEXgBlP8Pk4WYVwHjNkQbQZcwOU6EI0G/ArNgOunyguZc4RBQKEs4YZepRjP8lOKgXYp
+hVfzsAmC7c1N6qopcbhmkTBLsb4w8UrwOrRpGDdzXLMc38za+yVRShydmAqQ8Gn6VhdiYSnl2xn7
+Tp+PNpnhbKoOKqn1VP+JXDHExXroPUj5Sxi712ailDgbfirPYthBdS8V8DZdD9FFmO4QA37WZTt2
+XIe+iULR8EaMQeTx+BDYYrj2jHB2g1ohNRCi1bKhGNwgiPZDdASTR+RAAbvCbqbUOPtAyLXyYL5s
+QHg5RPNjDZr3tW6Jsx8Pbj/kBgmAF++K1XZ7N7Z2y23iVbQSrisznNOoMyA3ngdwt5evQLiSdZ4Z
+G/R+Ar6gwGmqNDiqDSfAuQR1OksEVsVp3uHcv3ecuHLi7CFqCb354O1D2bKihEZLeHxNhjhPnCbg
+Qh4AVHs8d4F7eCK8+pSmifSNM9fj+brAY6p0uLl4TgiY4PHcjPA/4HWP2nWdJho8v2WG6xuvasj+
+BS9LuBsG+8LUfYYuyGvDePB8X1Olxe2UFR+4w7Ebw9h1OPlw5rglsrIT3OfSnWfsuvMYcX0S5BWV
+39H5hJtnbNqEyU19jkbpcUPF6ZH7RfR9YGx6B5MPnADcPHF65M4nVx3XROkvrowfftAEZ03QCCqM
+EjaMbgqVRsimUZi9MRI/fFlb4oLpcVa8ybV64ehs7+dR/Y7wDquaLbX+MMM4+hV7MmPcFFpK3YdP
+EML16gkMtbaFnlAn2xj7OD3Okag5kL9Nuk5wQ3iA3NJOTNbg7OkORyQ0Vh8cG2KsInE9E5wDbv6X
+Y24bLezoxE+xdA4Ph9D3AI8Ws9Bi2biX/xMY+jVz3LW0lNBU2TWVJkq3iWcRrsHxEt8QbnBGBP6L
+vsORHpeXRJP56elul6bVUPSu4fePaAFKKBKhHyUVyZYzw+WFtcmK82mPUVC7XBlcXkvJRd/oP4GS
+0sxxNYb0c9ouEdXW6HurleVF3wtYaG+eKa5XMn22UXWTblDijXDDhJ+apDbcUvEKY98+82av5DLF
+nVj9h7jHs077UcWtyTpujYrbuu607GrdVsPTOmvBoSzCDi2Ypf0rwAAtbg13itqTcgAAAABJRU5E
+rkJggg==
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/vcss
+
+R0lGODlhWAAfAMYAAP///3OUxwxHnTZkrlR8ut/m8u7u7kxMTK6urp2dnb6+vrHD4KG32ZKr0yws
+LAAAAH19fRwcHO7y+CFVpsHP5o2NjQwMDBdNomSIwQtEnY6n0s7Ozl1dXdDb7CZZqIOfzUVwtDw8
+PGx6kW1tbczMzP/MZmOlxgBmmRh7rUqUvefv90pKSr29xpmZmbXW54S11jMzM4SEhCMcDg8MBlqc
+vWZmZu+/X4ltNjwwGG1XK9+yWa+MRkw8HsCZTM+lUltIJCwjEQwJBJx8PjGMtTk5ORwWC8OcTuu8
+XpkAAGYzAPTDYZUAAMyZM7mUSuG0Wt6xWHtzZiggEABmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBm
+mQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBm
+mQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmSH+
+ClZhbGlkIENTUyEAIfkEAQAAfwAsAAAAAFgAHwAAB/6AJIKDhIWGh4iJiouMhX+PjyQAk5SVlpeY
+mSWbnJ2en6ChoEdGK5CRmamqqaKtrq8lpKankqu2trC5urGlp3+1t8GYu8Stsr7AwsqTxc2fx7TL
+0gDO1ZvQkLUBAgOUBAIElQUC5OXkkwYHBwgACQqU1tXYqAAL5AWTDOeUDebl3QYcPBgIIQIEePGa
+zftFiRyDSRLILfAmYAIFCtsEUABQ4YGFAxEGJkCYkNhCYN/CTbogAEPDDBoASGCp0oGFDZM4RKhU
+sthJSvouTOpAzsMkewIkAPhwb9KDCpQMvCNp4waOqzl0cNrB4yqPHpx8/PC6Q9cxJNkojRMwkSm5
+Dv4AMHADsPYDpQcGWJWwAWRg3wdBtPYYGATHQLA6ggA2/EBILlJJkEimN2mAgAAALLNsAMCDAM7f
+BHjYCMCBqk03APvYa/hHidRBylp1nPrBjRI7cDiGdeSG5N8MKTH1EPEyN6IC4IIwtzHE6RI8HuQA
+tWMg4R82SviwPpDHali+f/9OhpzpgLqiK1FgCYLj8x/SOfW44djHjRw4inQvoePG2L9AwCKEeMAl
+AwBLLNllGTkuVSJXUjjpJQRg9fU1nWHTQfcADq89wMMmOQD2yoAEohUcJQ8mB0BGbFmij0arcAIf
+d0BkVx13D5Tlg2LcZfjabp2QSGBalSAlFADICf5wyYsiXCIVSbjh9wOQ2lmFww1gbdJfVzmUtQmJ
+QijBiZDiRVNJcQ0eCM6KHuATFzkJjFQJByNA2ROZSIiJJxJLIHPJNxNNItdDyw1AgVvtRQAVAOk8
+cBAzPW3CRIlI7InELERW0o9S+QiATwEsmQMXAg9EEMJAptlZkqUlNoEpZWqpBFE3R4XmQaAAIBDS
+AxzkpeqqlIrnRC9mWuKmWpZIAFcwkXoyabBK/DSNMs06S6mY0k7LbLWdPPubmLy8eqK2uHDbyRPf
+cpItuTGae+4N4F5DbKbsPueuKD+xoO++/Pbr77//GiHwwAQXbPDBCB8cAxTikrDCwxBHLPHEFA1X
+bPHFGGf8MBFR+BIIACH5BAEKAH8ALAEAAQAkABwAAAf+gACCg4SFhoeIiYqLjI2Oj5CRkpOUiAEC
+A4MEAgSEBQKgoaCCBgcHCAAJCoULoAWCDKODDaKhmQYOD7oQERCGoAyCEqALmgITFBSXAhQAFQ8W
+BxG6CYabnYIXAhiDAhkaABLa2A4WG4IcEYexF4IdoB6CrQISAB+ugg8Vgwarhp8Cit0D1QEABkwA
+AH4Y9MBAowECAgCAqK0BAA8CLG4S4KEZAAeO7nkYFhHTOwEFQYhqFsLRyXsDFHIkREEbCGePtGlb
+CBEUN0IH6Z1zFBQlgGUBC8ViBmleOwAnBRhaKsJQP0QkfwIYd9TDK4OgElQjxGFEok3FBB0MpnIA
+hYE8NyPsA1DqgS9EtOrBEvCqgDZRBRE8iBBCF8hEBbAJyyRvo4e0ABBMe8DBoaKvgzALK1ips+fP
+oEOLDh0IADs=
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/vcss-blue
+
+R0lGODlhWAAfAPcAAAAAAAcICQsLCw8RExMUFRMWGBwcHBoeIRwgIyMjIyInKyQqLigoKCctMSgu
+MysyNi41OjMzMzE4PTs7OzU9QjhARjxGTD9JUEtLTEFLUk9PUElUW1RVVVtbW0Rdb01YYVBcZVle
+YlVha1hlb1tpc2VlZWtrbGBveWJxfHt7ewBanAhfnx9bhwlgnw1ioRFlohVopBprph5tqDJtmSFv
+qSVyqil1rDF5rzl0oTV8sDh+smh4hG5/izyBs0SGtkeIt0qKuVWRvVqUv2uDl3CBjXSGknyPnXaR
+p3+ToF2WwGOawmmexG2hxnWlyXyqzIGDhYmOlpeXl5iYmIGUooaaqIidrJCXoI2isZmhqqOlpqur
+rbS0tL+/v4Kuzoawz4Ww0Imz0Zuywp+3yJC31JW61Zi815u+2KG6y6W+0J/B2qPD26nD1arG2qzI
+3LDL3rLN4LbQ48LCwszMzNTU1NjY2MDW58ba6M3f7NPj7t3p8ufn5+zs7OLs8+nx9u70+PPz8/L3
++vX4+/7+/szMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAIMALAAAAABYAB8A
+AAj+AOUIHEiwoMGDCBMqXMiQYJZBECHKEUSxosWLGDNm5POmo8ePIEOKHCmyCpQQESVqXMlSI0eS
+MGPKzHIy5aCJLXO2fCmzp8+OWGqmxKmzKEaeP5OSDIpyqNGnFpEqnfqRqU2iUI1KpUrVqlNBamQ0
+qQimBhiLflaskMGWbRCKf56YmLglEMWtXJV6jYgzjwoYFeuo0GFRjYrDiFU4oYgBAIAAdCLQuasU
+Tt6qQvlWtKHiTsUXKvpUTKIiSB8+Zv4CEpQFAIMUEwgI2EP5Mte9Kik2UdGl4g0VairCUJGHYg3g
+FDVMsCuoRIqKeHtattw1c25BgnPcPfxWkB0VNij+glGhnSIBooH+QP9o5IMFEWHerCGSwcKIM2/c
+TNlQ4cOV2ycdpllFLoQmSGoqvECREyqM1QdodsCVwEo8ZfAYBAd88AYIADwgAQFU6AcAAhQgIAKA
+LCB2nSBBINfib3AI8lsdgihxGBN+CBIIBhR2NAUABuD3hhhvEICAG2+0wcYbFhIpH1dVzJCYCjcV
+VpogLsjQRoN8JEhREMORt1oUPb4xAgAjgGQBAANYQEVHRFxIxJJU4TDlYVj1oYILb6igBCAr2JCa
+EBbZAVobgsRR5gcAnAASGzs44BgPPlIQAAAWTOWGD3dSiZUgOqjw2xuCcPpbcBYt4edOHRUBgAL+
+bbwBBxpv0PpGFQBc8MYZbsCxxgADKLVppysK4sVhLtg13mE5WtRnDax2JGkBH1AAwhsCWCtpEW9c
+4MAGFwCwwUht6EBGSJzeOWBFdxwGBEV+qdADRlvKQNtFf6gnCE9tnEDBART8twMFClSww5JTXLAA
+BCQIGdJvLoDxUbpTfmWRDCqUsZkKZ5GRREWq/sDFvRWZwEVtIMFB3Ugqk0TxCl10RDFiHlyFkY18
+VLQbHjU22IcaoKkRSAd6lBzAHCjb5pGqUzbxw5QrDNHUuhW9cYNFddBAESDDrXBYeXIYwAEHCQBA
+ZtJKJxlqp4itYIR1VV4USG8WLUYRHkvAAIO/EswJQgcHBkSghUV5pA3SsGyvAAZucWelleEhtXin
+4m8w/qnj0UL+kY2JrfAFUHBfjnmZmn/E9J6fgz51saOTXrpHTqiVuuo2t55TdJp7MTvtFtvu+uFI
+whQrSW4EH5Llgmyh/PLMN+/8885rYcX0VkBBvRVSXG9FFNZTLwUU2VPf/fTfX8999kWYsPpNGHCA
+AQYaxA+//PFrML/97uMP//37v5/B+wC0QAAFCMD//c9/CMQAAQuYQADGLwI2CQgAOw==
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.w3.org/2018/12/w3cx-fewd.png
+
+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
+cGUub3Jnm+48GgAAAABJRU5ErkJggg==
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.w3.org/QA/2002/12/qa-small.png
+
+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
+oUrYAAAAAElFTkSuQmCC
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/woolly-icon
+
+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
++2rvZGYs/wfPRkulpOSSMQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.w3.org/QA/Tools/I_heart_validator
+
+iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAEJQTFRFAFqc////AAAAu9PlRIa2d6fKiLLRM3uwEWWjzN7rwNbngK3O
+ZpzEInCpkLfUmb3X3enyVZG9MHmvYJjBIG+o7vT4nbi73AAAAK1JREFUeNrMk+sOwjAIhWFAadV5
+9/1f1UI7XZz9h4kkpZxD+jUsHUzBAROGhgEhMH4JvN59E8kXyRHA3d6yIhZEqVXSvqgLS4lMdY9I
+3+UIOPuXNSCxr3RgasISianmaamT9LbbX4EglXe2kfWkpBmoEK6ADKbcW65sBo+AQIjaCvZTwlug
+8AeQcTvy8db2+SG9uVDQb2lAxJfX+ytj8GzkX99hIDD6Xw6OpwADAALMBacrRrN/AAAAAElFTkSu
+QmCC
+
+------MultipartBoundary--wa2CzvfBrPdHbWuJt8JLxLtjvWKhhxh7MBfXBDN2nn------

@@ -1,0 +1,3190 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+Subject: W3C CSS Validator results for https://plum-recipes.herokuapp.com/static/css/style.css (CSS level 3 + SVG)
+Date: Tue, 16 Mar 2021 23:50:59 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----"
+
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: text/html
+Content-ID: <frame-630B7594B82DCE273B309A5E04ACE9BA@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang=3D"en" xml:lang=3D"en" xmlns=
+=3D"http://www.w3.org/1999/xhtml" dir=3D"ltr"><head><meta http-equiv=3D"Con=
+tent-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" =
+type=3D"text/css" href=3D"cid:css-f86d26d1-a24f-49dd-946d-fe99c5e6e28e@mhtm=
+l.blink" />
+     =20
+      <meta http-equiv=3D"Content-Script-Type" content=3D"text/javascript">
+      <meta http-equiv=3D"Content-Style-Type" content=3D"text/css">
+        <meta name=3D"ROBOTS" content=3D"NOINDEX, NOFOLLOW">
+        <title>W3C CSS Validator results for https://plum-recipes.herokuapp=
+.com/static/css/style.css (CSS level 3 + SVG)</title>
+        <link href=3D"http://jigsaw.w3.org/css-validator/" rel=3D"validator=
+">
+        <link type=3D"text/css" rel=3D"stylesheet" href=3D"https://jigsaw.w=
+3.org/css-validator/style/base.css">
+        <link type=3D"text/css" rel=3D"stylesheet" href=3D"https://jigsaw.w=
+3.org/css-validator/style/results.css">
+    </head>
+    <body>
+      <div id=3D"banner">
+       <h1 id=3D"title"><a href=3D"https://www.w3.org/"><img alt=3D"W3C" wi=
+dth=3D"110" height=3D"61" id=3D"logo" src=3D"https://jigsaw.w3.org/css-vali=
+dator/images/w3c.png"></a>
+       <a href=3D"https://jigsaw.w3.org/css-validator/"><span>The W3C CSS V=
+alidation Service</span></a></h1>
+
+       <p id=3D"tagline">
+         W3C CSS Validator results for https://plum-recipes.herokuapp.com/s=
+tatic/css/style.css (CSS level 3 + SVG)
+       </p>
+      </div>
+
+        <ul class=3D"navbar" id=3D"jumpbar">
+            <li><strong>Jump to:</strong></li>
+                        <li><a href=3D"https://jigsaw.w3.org/css-validator/=
+validator?uri=3Dhttps%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2Fs=
+tyle.css&amp;profile=3Dcss3svg&amp;usermedium=3Dall&amp;warning=3D1&amp;vex=
+twarning=3D&amp;lang=3Den#css">Validated CSS</a></li>
+            </ul>
+<div id=3D"results_container">
+   <h2>W3C CSS Validator results for https://plum-recipes.herokuapp.com/sta=
+tic/css/style.css (CSS level 3 + SVG)</h2>
+            <!-- NO ERRORS -->
+        <div id=3D"congrats">
+            <h3>Congratulations! No Error Found.</h3>
+            <p>
+                This document validates as <a href=3D"http://www.w3.org/Sty=
+le/CSS/current-work.html">CSS level 3 + SVG</a> !=20
+            </p>
+            <p>
+                To show your readers that you've taken the care to create a=
+n interoperable Web page, you may display this icon on any page that valida=
+tes. Here is the XHTML you could use to add this icon to your Web page:
+            </p>
+            <img class=3D"inline-badge" style=3D"border:0;width:88px;height=
+:31px" src=3D"https://jigsaw.w3.org/css-validator/images/vcss" alt=3D"Valid=
+ CSS!">  =20
+            <pre class=3D"example badgeSnippet">&lt;p&gt;
+    &lt;a href=3D"https://jigsaw.w3.org/css-validator/check/referer"&gt;
+        &lt;img style=3D"border:0;width:88px;height:31px"
+            src=3D"https://jigsaw.w3.org/css-validator/images/vcss"
+            alt=3D"Valid CSS!" /&gt;
+    &lt;/a&gt;
+&lt;/p&gt;
+            </pre>
+        <img class=3D"inline-badge" style=3D"border:0;width:88px;height:31p=
+x" src=3D"https://jigsaw.w3.org/css-validator/images/vcss-blue" alt=3D"Vali=
+d CSS!">
+        <pre class=3D"example badgeSnippet">&lt;p&gt;
+    &lt;a href=3D"https://jigsaw.w3.org/css-validator/check/referer"&gt;
+        &lt;img style=3D"border:0;width:88px;height:31px"
+            src=3D"https://jigsaw.w3.org/css-validator/images/vcss-blue"
+            alt=3D"Valid CSS!" /&gt;
+    &lt;/a&gt;
+&lt;/p&gt;
+        </pre>
+            <p>(close the img tag with &gt; instead of /&gt; if using HTML =
+&lt;=3D 4.01)</p>
+           =20
+<div id=3D"w3c-include" lang=3D"en" dir=3D"ltr"><div class=3D"w3c-include" =
+id=3D"w3c-include-validator-donation"><p><a href=3D"https://twitter.com/w3c=
+devs" title=3D"W3Cdevs" class=3D"w3c-include-validator-donation-img"><img s=
+rc=3D"https://www.w3.org/developers/img/W3C-Developers-Dark.svg" alt=3D"W3C=
+devs logo" height=3D"50" class=3D"w3c-include-sponsor-img"></a></p><p><span=
+ class=3D"insert"><span>Interested in understanding what new technologies a=
+re coming out of W3C? Follow <a href=3D"https://twitter.com/w3cdevs">@w3cde=
+vs on Twitter</a> to keep track of what the future looks like!</span></span=
+><br><br><span><a href=3D"https://www.w3.org/QA/Tools/Donate">Donate</a> an=
+d help us build better tools for a better web.</span></p></div></div>
+           =20
+            <p>
+                If you like, you can download a copy of this image to keep =
+in your local web directory, and change the XHTML fragment above to referen=
+ce your local image rather than the one on this server.
+            </p>
+                        <p>
+                If you would like to create a link to this page (i.e., this=
+ validation result) to make it easier to re-validate this page in the futur=
+e or to allow others to validate your page, the URI is:
+            </p>
+<pre>http://jigsaw.w3.org/css-validator/validator?uri=3Dhttps%3A%2F%2Fplum-=
+recipes.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&amp;profile=3Dcss3svg&amp;=
+usermedium=3Dall&amp;warning=3D1&amp;vextwarning=3D
+or
+http://jigsaw.w3.org/css-validator/check/referer (for HTML/XML document onl=
+y)
+</pre>
+            <p>(Or, you can just add the current page to your bookmarks or =
+hotlist.)</p>
+       =20
+        </div>
+        <p class=3D"backtop"><a href=3D"https://jigsaw.w3.org/css-validator=
+/validator?uri=3Dhttps%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2F=
+style.css&amp;profile=3Dcss3svg&amp;usermedium=3Dall&amp;warning=3D1&amp;ve=
+xtwarning=3D&amp;lang=3Den#banner">=E2=86=91 Top</a></p>
+   =20
+
+        <div id=3D"css">
+            <h3>Valid CSS information</h3>
+            <div class=3D"vAtRule">
+   =20
+                                <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                body, html
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#0D0A0B</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-family</s=
+pan> :
+                                    <span class=3D"PropertyValue">'Roboto',=
+ sans-serif</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                body
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">min-height</sp=
+an> :
+                                    <span class=3D"PropertyValue">100vh</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-direction=
+</span> :
+                                    <span class=3D"PropertyValue">column</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                main
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex</span> :
+                                    <span class=3D"PropertyValue">1 0 auto<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-flow</spa=
+n> :
+                                    <span class=3D"PropertyValue">column no=
+wrap</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .vpad
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin-top</sp=
+an> :
+                                    <span class=3D"PropertyValue">5vh</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin-bottom<=
+/span> :
+                                    <span class=3D"PropertyValue">5vh</span=
+>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                h1, h2, h3, h4, h5, h6
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#0D0A0B</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-family</s=
+pan> :
+                                    <span class=3D"PropertyValue">'Open San=
+s', sans-serif</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                hr.section-divider
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">1px</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-ima=
+ge</span> :
+                                    <span class=3D"PropertyValue">linear-gr=
+adient(to right, rgb(142, 69, 133, 0), rgb(142, 69, 133, 1), rgb(142, 69, 1=
+33, 0))</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .section-header
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .btn-small, .btn-large
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .btn-small:hover, .btn-large:hover, .btn-sm=
+all:focus, .btn-large:focus
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#63A344</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .btn-plum
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .btn-plum:hover, .btn-plum:focus
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#9F54B0</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .select-dropdown
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">max-height</sp=
+an> :
+                                    <span class=3D"PropertyValue">50vh</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .input-field .prefix.active, .input-field t=
+extarea.materialize-textarea:focus:not([readonly]) + label, .input-field in=
+put[type=3D"text"]:not(.browser-default):focus:not([readonly]) + label, .in=
+put-field input[type=3D"email"]:not(.browser-default):focus:not([readonly])=
+ + label, .input-field input[type=3D"number"]:not(.browser-default):focus:n=
+ot([readonly]) + label, .input-field input[type=3D"password"]:not(.browser-=
+default):focus:not([readonly]) + label
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ul.dropdown-content.select-dropdown li span
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#0D0A0B</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .input-field input[type=3D"text"]:not(.brow=
+ser-default):focus, .input-field input[type=3D"email"]:not(.browser-default=
+):focus, .input-field input[type=3D"number"]:not(.browser-default):focus, .=
+input-field input[type=3D"password"]:not(.browser-default):focus, .input-fi=
+eld textarea.materialize-textarea:focus:not([readonly])
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-bottom<=
+/span> :
+                                    <span class=3D"PropertyValue">1px solid=
+ #8E4585</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">box-shadow</sp=
+an> :
+                                    <span class=3D"PropertyValue">0 1px 0 0=
+ #8E4585</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .brand-icon
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">50px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">50px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-ima=
+ge</span> :
+                                    <span class=3D"PropertyValue">url("../i=
+mages/plum.svg")</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-rep=
+eat</span> :
+                                    <span class=3D"PropertyValue">no-repeat=
+</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-pos=
+ition</span> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .brand-title
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                nav .nav-wrapper
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-bottom<=
+/span> :
+                                    <span class=3D"PropertyValue">2px solid=
+ #8E4585</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-family</s=
+pan> :
+                                    <span class=3D"PropertyValue">'Open San=
+s', sans-serif</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                nav ul li a
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .user-dropdown
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ul.user-dropdown li &gt; a
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .sidenav-trigger
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .sidenav
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-family</s=
+pan> :
+                                    <span class=3D"PropertyValue">'Open San=
+s', sans-serif</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .sidenav .collapsible-header, .sidenav .col=
+lapsible-body
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0 32px</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">transpare=
+nt</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-message-list
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">fixed</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">90vw</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">60px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">50%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">transform</spa=
+n> :
+                                    <span class=3D"PropertyValue">translate=
+X(-50%)</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">z-index</span>=
+ :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-message
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">align-items</s=
+pan> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">white</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-radius<=
+/span> :
+                                    <span class=3D"PropertyValue">5px</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">box-shadow</sp=
+an> :
+                                    <span class=3D"PropertyValue">0 0 5px #=
+0D0A0B</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">0 0 10px =
+0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">overflow</span=
+> :
+                                    <span class=3D"PropertyValue">hidden</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">animation</spa=
+n> :
+                                    <span class=3D"PropertyValue">grow 0.5s=
+</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-message:first-child
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding-top</s=
+pan> :
+                                    <span class=3D"PropertyValue">5px</span=
+>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                    	                    <div class=3D"atRule">
+                    <span class=3D"atSelector">
+                        @keyframes grow
+                    </span>
+                    {
+                                        <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                from
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                to
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">45px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                                        }
+                            </div>
+                                        <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .error
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#A94442</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F2DEDE</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">#A94442 s=
+olid 1px</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .warning
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8A6D3B</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#FCF8E3</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">#8A6D3B s=
+olid 1px</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .success
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3C763D</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#DFF0D8</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">#3C763D s=
+olid 1px</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .info
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#31708F</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#D9EDF7</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">#31708F s=
+olid 1px</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-icon
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-radius<=
+/span> :
+                                    <span class=3D"PropertyValue">5px 0 0 5=
+px</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">white</sp=
+an>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-icon i
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">40px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-content
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">flex-grow</spa=
+n> :
+                                    <span class=3D"PropertyValue">1</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">justify-conten=
+t</span> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-close
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">cursor</span> =
+:
+                                    <span class=3D"PropertyValue">pointer</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">align-items</s=
+pan> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">5px</span=
+>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-close:hover
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border-radius<=
+/span> :
+                                    <span class=3D"PropertyValue">50%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">box-shadow</sp=
+an> :
+                                    <span class=3D"PropertyValue">0 0 5px #=
+0D0A0B</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .flash-close i
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">25px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .error .flash-close
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#A94442</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .warning .flash-close
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8A6D3B</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .success .flash-close
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3C763D</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .info .flash-close
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#31708F</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .plum-tabs .tab a
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">rgb(63, 1=
+25, 32, 0.7)</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">white</sp=
+an>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .plum-tabs .tab a:hover
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-weight</s=
+pan> :
+                                    <span class=3D"PropertyValue">bold</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .plum-tabs .tab a.active, .plum-tabs .tab a=
+:focus.active
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-weight</s=
+pan> :
+                                    <span class=3D"PropertyValue">bold</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">white</sp=
+an>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .plum-tabs .indicator
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card .card-content
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">10px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card-title
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-family</s=
+pan> :
+                                    <span class=3D"PropertyValue">'Open San=
+s', sans-serif</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card .card-image, .card-panel.card-image, =
+.col.recipe-header-img
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card .card-image::after, .card-panel.card-=
+image::after, .col.recipe-header-img::after
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">""</span>=
+;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">block</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding-bottom=
+</span> :
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card .card-image img, .card-panel.card-ima=
+ge &gt; img, .recipe-header-img &gt; img
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">object-fit</sp=
+an> :
+                                    <span class=3D"PropertyValue">cover</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card-title
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">line-height</s=
+pan> :
+                                    <span class=3D"PropertyValue">1em</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">2.8em</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">overflow</span=
+> :
+                                    <span class=3D"PropertyValue">hidden</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-overflow<=
+/span> :
+                                    <span class=3D"PropertyValue">ellipsis<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">20px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card-title:hover
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">overflow</span=
+> :
+                                    <span class=3D"PropertyValue">visible</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .card-title:hover::after
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">attr(data=
+-expand)</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">overflow</span=
+> :
+                                    <span class=3D"PropertyValue">visible</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .item-tile
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">box-shadow</sp=
+an> :
+                                    <span class=3D"PropertyValue">1px 1px 5=
+px #0D0A0B</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">overflow</span=
+> :
+                                    <span class=3D"PropertyValue">hidden</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .tile-image
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">object-fit</sp=
+an> :
+                                    <span class=3D"PropertyValue">cover</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">100%</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .tile-overlay
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">bottom</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-ima=
+ge</span> :
+                                    <span class=3D"PropertyValue">linear-gr=
+adient(rgb(13, 10, 11, 0.0) 25%, #0D0A0B 100%)</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .tile-title
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">bottom</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">10px</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">white-space</s=
+pan> :
+                                    <span class=3D"PropertyValue">normal</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-tile
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">200px</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">200px</sp=
+an>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-tile .tile-title
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">20px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                footer
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">background-col=
+or</span> :
+                                    <span class=3D"PropertyValue">#3F7D20</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#F3FCF0</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating, .star-rating-ctl
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">inline-bl=
+ock</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">list-style-typ=
+e</span> :
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating &gt; .rating-text, .star-ratin=
+g &gt; .star
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">float</span> :
+                                    <span class=3D"PropertyValue">left</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">white-space</s=
+pan> :
+                                    <span class=3D"PropertyValue">nowrap</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating-ctl &gt; .star
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">float</span> :
+                                    <span class=3D"PropertyValue">right</sp=
+an>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star i, .rating-text
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#8E4585</=
+span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating &gt; .star.off i::after, .star=
+-rating-ctl &gt; .star i::after
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">"star_bor=
+der"</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating &gt; .star.half i::after
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">"star_hal=
+f"</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating &gt; .star.on i::after, .star-=
+rating-ctl &gt; .star:hover &gt; i::after, .star-rating-ctl &gt; .star:hove=
+r ~ .star &gt; i::after, .star-rating-ctl:not(:hover) &gt; input[type=3D"ra=
+dio"]:checked ~ .star &gt; i::after
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">content</span>=
+ :
+                                    <span class=3D"PropertyValue">"star"</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating-ctl.disabled, .star-rating-ctl=
+.disabled .star
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">pointer-events=
+</span> :
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">opacity</span>=
+ :
+                                    <span class=3D"PropertyValue">0.75</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating-ctl input[type=3D"radio"]:focu=
+s + .star &gt; i
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">color</span> :
+                                    <span class=3D"PropertyValue">#9F54B0</=
+span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">transpare=
+nt</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .star-rating-ctl .star:focus
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">outline</span>=
+ :
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">border</span> =
+:
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .scroller, .col.scroller
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">relative<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">overflow</span=
+> :
+                                    <span class=3D"PropertyValue">hidden</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0 25px</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                ul.scroller-items
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">list-style-typ=
+e</span> :
+                                    <span class=3D"PropertyValue">none</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">overflow</span=
+> :
+                                    <span class=3D"PropertyValue">hidden</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">white-space</s=
+pan> :
+                                    <span class=3D"PropertyValue">nowrap</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                li.scroll-item
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">1rem</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">inline-bl=
+ock</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">padding</span>=
+ :
+                                    <span class=3D"PropertyValue">10px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .scroll-item-bookend
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">font-size</spa=
+n> :
+                                    <span class=3D"PropertyValue">1rem</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">inline-bl=
+ock</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">text-align</sp=
+an> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">25px</spa=
+n>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .scroller .scroll-left
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">50%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">left</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">transform</spa=
+n> :
+                                    <span class=3D"PropertyValue">translate=
+Y(-50%)</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .scroller .scroll-right
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">position</span=
+> :
+                                    <span class=3D"PropertyValue">absolute<=
+/span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">top</span> :
+                                    <span class=3D"PropertyValue">50%</span=
+>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">right</span> :
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">transform</spa=
+n> :
+                                    <span class=3D"PropertyValue">translate=
+Y(-50%)</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                    	                    <div class=3D"atRule">
+                    <span class=3D"atSelector">
+                        @media only screen and (max-width: 360px)
+                    </span>
+                    {
+                                        <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-tile
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">height</span> =
+:
+                                    <span class=3D"PropertyValue">150px</sp=
+an>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">width</span> :
+                                    <span class=3D"PropertyValue">150px</sp=
+an>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                                        }
+                            </div>
+                                        <div>
+                            </div>
+                    	                    <div class=3D"atRule">
+                    <span class=3D"atSelector">
+                        @media only screen and (min-width: 992px)
+                    </span>
+                    {
+                                        <div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-header
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">display</span>=
+ :
+                                    <span class=3D"PropertyValue">flex</spa=
+n>;
+                                </div>
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">align-items</s=
+pan> :
+                                    <span class=3D"PropertyValue">center</s=
+pan>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                                <div class=3D"selector">
+                                                        <span class=3D"sele=
+ctorValue">
+                                .recipe-header-sub
+                            </span>
+                            {
+                                                        <div class=3D"RuleL=
+ist">
+                                            <div class=3D"Rule">
+                                    <span class=3D"Property">margin</span> =
+:
+                                    <span class=3D"PropertyValue">0</span>;
+                                </div>
+                                        </div>
+                                                        }
+                                                    </div>
+                            </div>
+                                        }
+                            </div>
+                                        <div>
+                            </div>
+                        </div>
+        </div>
+        <p class=3D"backtop"><a href=3D"https://jigsaw.w3.org/css-validator=
+/validator?uri=3Dhttps%3A%2F%2Fplum-recipes.herokuapp.com%2Fstatic%2Fcss%2F=
+style.css&amp;profile=3Dcss3svg&amp;usermedium=3Dall&amp;warning=3D1&amp;ve=
+xtwarning=3D&amp;lang=3Den#banner">=E2=86=91 Top</a></p>
+</div><!-- results_container -->
+        <ul class=3D"navbar" id=3D"menu">
+            <li><strong><a href=3D"https://jigsaw.w3.org/css-validator/" ti=
+tle=3D"Home page for the W3C CSS Validation Service">Home</a></strong> <spa=
+n class=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/about.html" =
+title=3D"About this service">About</a> <span class=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/documentatio=
+n.html" title=3D"Documentation for the W3C CSS Validation Service">Document=
+ation</a> <span class=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/DOWNLOAD.htm=
+l" title=3D"Download and install the CSS validator">Download</a> <span clas=
+s=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/Email.html" =
+title=3D"How to provide feedback on this service">Feedback</a> <span class=
+=3D"hideme">|</span></li>
+            <li><a href=3D"https://jigsaw.w3.org/css-validator/thanks.html"=
+ title=3D"Credits and Acknowlegments">Credits</a></li>
+        </ul>
+
+<div id=3D"footer">
+        <p id=3D"activity_logos">
+            <a href=3D"https://www.w3.org/QA/" title=3D"W3C's Quality Assur=
+ance Activity, bringing you free Web quality tools and more"><img src=3D"ht=
+tps://www.w3.org/QA/2002/12/qa-small.png" alt=3D"QA"></a><a href=3D"https:/=
+/www.w3.org/Style/CSS/learning" title=3D"Learn more about Cascading Style S=
+heets"><img src=3D"https://jigsaw.w3.org/css-validator/images/woolly-icon" =
+alt=3D"CSS"></a>
+        </p>
+        <p id=3D"support_logo">
+        <a href=3D"https://www.w3.org/QA/Tools/Donate">
+        <img src=3D"https://www.w3.org/QA/Tools/I_heart_validator" alt=3D"I=
+ heart Validator logo" title=3D" Validators Donation Program">
+        </a>
+        </p>
+        <p class=3D"copyright">
+            <a rel=3D"Copyright" href=3D"http://www.w3.org/Consortium/Legal=
+/ipr-notice#Copyright">Copyright</a>
+            =C2=A9 1994-2014
+            <a href=3D"http://www.w3.org/"><acronym title=3D"World Wide Web=
+ Consortium">W3C</acronym></a>=C2=AE
+            (<a href=3D"http://www.csail.mit.edu/"><acronym title=3D"Massac=
+husetts Institute of Technology">MIT</acronym></a>,
+            <a href=3D"http://www.ercim.eu/"><acronym title=3D"European Res=
+earch Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+            <a href=3D"http://www.keio.ac.jp/">Keio</a>,
+	   <a href=3D"http://ev.buaa.edu.cn/">Beihang</a>),
+            All Rights Reserved.
+            W3C <a href=3D"http://www.w3.org/Consortium/Legal/ipr-notice#Le=
+gal_Disclaimer">liability</a>,
+            <a href=3D"http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Tr=
+ademarks">trademark</a>,
+            <a rel=3D"Copyright" href=3D"http://www.w3.org/Consortium/Legal=
+/copyright-documents">document use</a>
+            and <a rel=3D"Copyright" href=3D"http://www.w3.org/Consortium/L=
+egal/copyright-software">software licensing</a>
+            rules apply. Your interactions with this site are in accordance
+            with our <a href=3D"http://www.w3.org/Consortium/Legal/privacy-=
+statement#Public">public</a> and
+            <a href=3D"http://www.w3.org/Consortium/Legal/privacy-statement=
+#Members">Member</a> privacy statements.
+        </p>
+</div>
+   =20
+
+</body></html>
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-f86d26d1-a24f-49dd-946d-fe99c5e6e28e@mhtml.blink
+
+@charset "utf-8";
+
+#w3c-include { display: table; width: 100%; box-sizing: border-box; margin:=
+ 1em 0px 0px; padding: 0px; }
+
+.w3c-include { display: table-row; padding-bottom: 1em; }
+
+.w3c-include > p { display: table-cell; vertical-align: middle; text-align:=
+ center; padding-bottom: 1em; }
+
+.w3c-include > p:first-of-type { padding-right: 1em; width: 20%; padding-le=
+ft: 2em; }
+
+.w3c-include > p:last-of-type { padding-right: 2em; }
+
+.w3c-include-sponsor-img { margin-left: 1em; }
+
+.FlattrButton { float: right; margin-right: 1em; }
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jigsaw.w3.org/css-validator/style/base.css
+
+@charset "utf-8";
+
+html, body, form, fieldset, p, a, ul, ol, li, div, legend, label, br, input=
+, button, textarea, h1, h2, h3, h4, h5, strong { margin: 0px; padding: 0px;=
+ border: 0px; font-weight: normal; font-style: normal; font-size: 100%; fon=
+t-family: Helvetica, Arial, sans-serif; vertical-align: baseline; backgroun=
+d-color: white; color: rgb(31, 33, 38); line-height: 1; text-align: left; }
+
+a img { border: 0px; }
+
+a:link, a:visited { text-decoration: underline; color: rgb(54, 93, 149); }
+
+a:hover, a:active { text-decoration: underline; color: rgb(31, 33, 38); }
+
+ul, ol { list-style: none; }
+
+abbr[title], acronym[title], span[title], strong[title] { border-bottom: th=
+in dotted; cursor: help; }
+
+acronym:hover, abbr:hover { cursor: help; }
+
+body { padding-bottom: 6em; min-width: 40em; }
+
+p { line-height: 130%; }
+
+strong { font-weight: bold; }
+
+h2 { color: rgb(102, 153, 0); font-family: Verdana, Arial, sans-serif; back=
+ground-color: white; font-size: 1.3em; margin-bottom: 1em; }
+
+h3 { font-family: Verdana, Arial, sans-serif; color: rgb(102, 153, 0); back=
+ground-color: white; font-size: 1.1em; border-bottom: 1px dotted rgb(170, 1=
+70, 119); text-decoration: none; margin-top: 1em; margin-bottom: 1em; }
+
+h4 { font-family: Verdana, Arial, sans-serif; color: rgb(102, 153, 0); font=
+-style: italic; text-decoration: none; font-size: 0.9em; font-weight: 600; =
+margin-top: 1.5em; margin-bottom: 0.5em; }
+
+h5, h6 { font-family: Verdana, Arial, sans-serif; color: rgb(17, 17, 26); b=
+ackground-color: white; font-weight: normal; font-size: small; margin-top: =
+1em; margin-left: 1em; margin-bottom: 0.7em; }
+
+table { }
+
+td, th { padding: 6px; }
+
+input#uri, input#file, input#uploaded_file, input#keywords, input#short_des=
+c, textarea { font-family: Monaco, "Courier New", monospace; font-size: 0.9=
+em; border-width: 1px; border-style: solid; border-color: rgb(119, 119, 119=
+) rgb(187, 187, 187) rgb(221, 221, 221); border-image: initial; background:=
+ url("../images/textbg.png") left top no-repeat rgb(254, 254, 254); padding=
+: 0.2em; max-width: 1000px; font-variant: normal; }
+
+input#uri, input#file, input#uploaded_file { width: 85%; margin: 0.3em 0px =
+0px 1em; }
+
+input#file, input#uploaded_file { width: 30em; }
+
+input#mailsearch, input#bugsearch { background-color: rgb(234, 235, 238); c=
+olor: rgb(54, 93, 149); padding: 0.3em 1em; border: 1px outset rgb(204, 204=
+, 204); }
+
+input#mailsearch:active, input#bugsearch:active { border-style: inset !impo=
+rtant; }
+
+a.submit { display: block; width: 10em; text-align: center; margin: 0px aut=
+o; background: url("../images/button-left.png") left center no-repeat; text=
+-decoration: none; }
+
+a.submit span { display: block; padding: 1.2em 2em; background: url("../ima=
+ges/button-right.png") right center no-repeat; }
+
+textarea { width: 98.5%; }
+
+p.submit_button input { overflow: visible; color: rgb(54, 93, 149); padding=
+: 0.3em 0.4em 0.1em 0.3em; font-size: 1.2em; width: 12em; text-align: cente=
+r; border-width: 1px 2px 2px 1px; border-style: solid; border-color: rgb(17=
+0, 170, 170) rgb(68, 68, 68) rgb(68, 68, 68) rgb(170, 170, 170); background=
+: url("../images/grad.png") left top repeat-x rgb(238, 238, 238); cursor: p=
+ointer; }
+
+p.submit_button input:active { color: rgb(31, 33, 38); border-width: 2px 1p=
+x 1px 2px; border-style: solid; border-color: rgb(68, 68, 68) rgb(170, 170,=
+ 170) rgb(170, 170, 170) rgb(68, 68, 68); }
+
+label { font-size: 0.9em; padding-left: 0.2em; padding-right: 0.2em; }
+
+div.options select { margin-right: 0.8em; }
+
+div.options label { margin: 1em 0.3em 0px 0px; background-color: rgb(234, 2=
+35, 238); }
+
+div.options table, div.options tbody, div.options td, div.options th, div.o=
+ptions tr { margin: 0px; padding: 0px; }
+
+div.options table { border-collapse: collapse; }
+
+div.options th, div.options th label { font-weight: bold; }
+
+div.options td, div.options th { padding: 0.5em 1.1em 0.5em 0px; text-align=
+: left; }
+
+div.options td input { margin-right: 0.2em; }
+
+div.options select { width: 12em; }
+
+div.options table tr.subchoice th { padding-left: 3em; }
+
+tr.subchoice th label { padding-left: 0px; }
+
+tr.subchoice th, tr.subchoice th label { font-size: 1em; font-weight: norma=
+l; }
+
+h1#title { font-family: "Myriad Web", "Myriad Pro", "Gill Sans", Helvetica,=
+ Arial, sans-serif; color: rgb(253, 253, 253); font-size: 1.6em; background=
+: url("../images/head-bl.png") left bottom no-repeat; padding-bottom: 0.43e=
+m; }
+
+h1#title a, h1#title a img { background-color: rgb(54, 93, 149); }
+
+h1 span { border-bottom: 1px solid rgb(78, 111, 158); border-top-color: rgb=
+(78, 111, 158); border-right-color: rgb(78, 111, 158); border-left-color: r=
+gb(78, 111, 158); }
+
+h1#title a:link, h1#title a:hover, h1#title a:visited, h1#title a:active { =
+text-decoration: none; color: rgb(253, 253, 253) !important; }
+
+h1#title img { vertical-align: middle; margin-right: 0.7em; }
+
+div#banner { background: url("../images/head-br.png") right bottom no-repea=
+t rgb(54, 93, 149); margin: 1.5em 2em; }
+
+p#tagline { font-size: 0.7em; margin: -2em 0px 0px 12.1em; padding-bottom: =
+1em; letter-spacing: 0.1em; color: rgb(208, 220, 238); background-color: tr=
+ansparent; line-height: 100% !important; }
+
+ul#lang_choice { position: absolute; text-align: right; top: 0px; right: 0p=
+x; font-size: 0.7em; padding: 0.5em 0px; line-height: 100%; margin-right: 3=
+.3em; min-width: 40em; background-color: transparent; }
+
+ul#lang_choice a:link, ul#lang_choice a:visited { text-decoration: none; }
+
+ul#lang_choice a:hover, ul#lang_choice a:active { text-decoration: underlin=
+e; }
+
+ul#lang_choice li { display: inline; padding-left: 0.5em; }
+
+ul#tabset_tabs { height: 1.59em; }
+
+ul#tabset_tabs li { cursor: pointer; float: left; margin-right: 0.245em; ba=
+ckground: url("../images/tab-tl.png") left top no-repeat rgb(218, 221, 227)=
+; border-bottom: 1px solid rgb(203, 208, 219); }
+
+ul#tabset_tabs li.selected { background: url("../images/round-tl.png") left=
+ top no-repeat rgb(234, 235, 238); border-bottom: 1px solid rgb(234, 235, 2=
+38); }
+
+ul#tabset_tabs li.selected a:link, ul#tabset_tabs li.selected a:visited { c=
+olor: rgb(31, 33, 38); background: url("../images/round-tr.png") right top =
+no-repeat rgb(234, 235, 238); }
+
+ul#tabset_tabs li span { color: rgb(97, 101, 113); }
+
+body ul#tabset_tabs li.selected a span { color: rgb(61, 66, 79); }
+
+ul#tabset_tabs li a:link, ul#tabset_tabs li a:visited { color: rgb(54, 93, =
+149); display: block; padding: 0.515em 1.3em 0.215em 0.8em; background: url=
+("../images/tab-tr.png") right top no-repeat rgb(218, 221, 227); margin-lef=
+t: 0.5em; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+
+ul#tabset_tabs li a:hover, ul#tabset_tabs li a:active { color: rgb(31, 33, =
+38); }
+
+ul#tabset_tabs li a:hover span, ul#tabset_tabs li a:active span { color: rg=
+b(61, 66, 79); }
+
+ul#tabset_tabs li.selected span { color: rgb(93, 99, 113); }
+
+div#frontforms { background: rgb(255, 255, 255); padding: 0px 2em; }
+
+div#fields { clear: both; background: url("../images/round-tr.png") right t=
+op no-repeat rgb(234, 235, 238); padding: 0.5em 1.3em; border-bottom: 1px s=
+olid rgb(220, 221, 224); }
+
+div#fields legend, div#fields p, div#fields fieldset, div#fields form, div#=
+fields form fieldset legend a, div#fields form p label, div#fields tr label=
+ { background-color: rgb(234, 235, 238); }
+
+fieldset { background: rgb(234, 235, 238); }
+
+legend { font-size: 1.1em; padding: 1em 0px 0.23em; letter-spacing: 0.06em;=
+ }
+
+legend a:link, legend a:visited, legend a:hover, legend a:active { text-dec=
+oration: none; }
+
+legend.toggletext { cursor: pointer; padding-left: 0.8em; background: url("=
+../images/arrow-closed.png") 0px 1.2em no-repeat rgb(234, 235, 238); }
+
+legend.toggled { background: url("../images/arrow-open.png") 0px 1.4em no-r=
+epeat rgb(234, 235, 238); }
+
+p.instructions { color: rgb(77, 82, 94); font-size: 0.8em; padding-bottom: =
+1em; padding-top: 0.5em; }
+
+p.instructions label { color: rgb(77, 82, 94); padding: 0px; margin: 0px; f=
+ont-size: 1em; }
+
+div.options { padding: 0.7em 0px 0.5em 1em; }
+
+div.options, p.submit_button, p.instructions, p#note { border-top: 1px soli=
+d rgb(203, 205, 213); background: url("../images/double.png") left top repe=
+at-x rgb(234, 235, 238); }
+
+p.submit_button { padding: 0.6em 0px 0px; margin: 0px; text-align: center; =
+}
+
+p#note { clear: both; color: rgb(77, 82, 94); font-size: 0.9em; padding: 0.=
+5em 0px 0.1em; }
+
+ul#menu { text-align: center; margin: 1em 2em; background: url("../images/r=
+ound-br.png") right bottom no-repeat rgb(234, 235, 238); padding: 0.5em 0px=
+ 0.3em; border-top: 1px solid rgb(220, 221, 224); }
+
+ul#menu span { display: none; }
+
+ul#menu a:link, ul#menu a:visited { background: rgb(234, 235, 238); color: =
+rgb(54, 93, 149); text-decoration: none; }
+
+ul#menu a:hover, ul#menu a:active { color: rgb(31, 33, 38); text-decoration=
+: underline; }
+
+ul#menu li { display: inline; margin-right: 0.8em; background: rgb(234, 235=
+, 238); }
+
+div#footer { padding: 0px 2em; }
+
+p#activity_logos { float: left; margin-right: 2em; }
+
+p#support_logo { float: right; font-size: 0.8em; text-align: center; margin=
+-left: 2em; }
+
+p.copyright { text-align: center; text-transform: uppercase; font-size: 0.7=
+em; line-height: 1.4; }
+
+p.copyright, p.copyright a { text-decoration: none; color: rgb(124, 131, 14=
+9); }
+
+p.copyright a:link, p.copyright a:visited { color: rgb(163, 117, 110); }
+
+p.copyright a:hover, p.copyright a:active { color: rgb(125, 74, 66); }
+
+p#version_info { font-size: small; text-align: center; color: rgb(136, 136,=
+ 136); background-color: white; }
+
+div.doc { margin: 1em 2em; padding: 0.5em 0px 0.3em; }
+
+div.doc p, div.doc li { line-height: 150% !important; }
+
+div.doc p { margin-bottom: 0.7em; margin-top: 0.5em; }
+
+div.doc p, div.doc dt, div.doc ul, div.doc ol { margin-left: 1.5em; margin-=
+right: 1.5em; }
+
+div.doc ul li { list-style-type: disc; margin-left: 1em; }
+
+#toc { font-size: 0.85em; font-weight: bold; margin-bottom: 2em; margin-lef=
+t: 3em; }
+
+div.doc div#toc ol { list-style-type: decimal; }
+
+div.doc div#toc ol li { line-height: 130%; font-weight: bold; }
+
+div.doc div#toc ol li ol { list-style-type: lower-alpha; font-weight: norma=
+l; margin-left: 1em; }
+
+div.doc div#toc ol li ol li ol { list-style-type: lower-roman; }
+
+dl#expl dt code { white-space: normal; font-weight: bold; }
+
+dl#expl dt { border-top: 1px dashed black; margin-top: 2em; margin-bottom: =
+1em; }
+
+div.doc dt { margin-top: 1.2em; margin-bottom: 0.2em; }
+
+div.doc dt, div.doc dt a { font-style: italic; }
+
+div.doc dd { margin-right: 0px; }
+
+div.doc var { color: rgb(0, 0, 102); }
+
+div.doc code { white-space: normal; display: inline; padding-left: 0.2em; p=
+adding-right: 0.2em; color: black; font-family: Monaco, "Courier New", mono=
+space; border: 1px dotted rgb(204, 204, 204); }
+
+div.doc code.block { display: block; padding: 1em; white-space: pre; margin=
+-top: 1em; margin-bottom: 1em; margin-right: 3em; }
+
+div.doc code samp { font-weight: normal; color: black; font-style: italic; =
+}
+
+div.doc table { border-collapse: collapse; border-right: 1px solid rgb(204,=
+ 204, 204); }
+
+div.doc table td, .doc table th { border-top: 0px solid rgb(221, 221, 221);=
+ border-bottom: 1px solid rgb(204, 204, 204); border-left: 1px solid rgb(23=
+8, 238, 238); padding: 6px; border-collapse: collapse; }
+
+div.doc table th { background-color: rgb(238, 238, 238); color: rgb(17, 17,=
+ 26); border-right: 1px solid rgb(204, 204, 204); }
+
+div.doc table { margin-top: 1em; margin-bottom: 0.5em; border-collapse: col=
+lapse; border-right: 1px solid rgb(204, 204, 204); }
+
+div.doc td, div.doc th { border-top: 0px solid rgb(221, 221, 221); border-b=
+ottom: 1px solid rgb(204, 204, 204); border-left: 1px solid rgb(238, 238, 2=
+38); border-collapse: collapse; }
+
+div.doc th { background-color: rgb(238, 238, 238); color: rgb(17, 17, 26); =
+border-right: 1px solid rgb(204, 204, 204); }
+
+div.intro { margin: 1em 2em; padding: 0.5em 0px 0.3em; }
+
+#news dt { font-weight: bold; margin-top: 1.5em; margin-bottom: 0.3em; }
+
+#news dd { margin-left: 2.5em; margin-right: 1.5em; }
+
+#test_warning { border-left: 1px solid rgb(204, 204, 204); border-right: 1p=
+x solid rgb(204, 204, 204); line-height: 160%; text-align: center; margin-t=
+op: 2em; margin-left: 12%; margin-right: 12%; padding-left: 1.5em; padding-=
+right: 1.5em; color: black; background-color: white; }
+
+#test_warning img { width: 1.3em; vertical-align: middle; }
+
+div#don_program { border: 1px solid rgb(85, 176, 90); padding: 0.5em; line-=
+height: 150%; text-align: center; margin-top: 0.5em; }
+
+div#don_program span#don_program_img { float: left; width: 150px; height: 6=
+0px; }
+
+div#don_program span#don_program_img img { vertical-align: middle; }
+
+div#don_program span#don_program_text { }
+
+div#don_program span#don_program_text a { font-weight: bold; }
+
+#w3c-include { margin-top: 1em; }
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/head-bl.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAABtQTFRFNl2V////+vv9qrrSWXqo6u70XHupZYOuaIWv8//jBgAAAB5J
+REFUeNpiYGcAAWYwycQCIhlZ2UAkIxMzB0CAAQACIAAs0f7R9gAAAABJRU5ErkJggg==
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/head-br.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAABtQTFRFNl2V////+vv9qrrSWXqo6u70XHupZYOuaIWv8//jBgAAACFJ
+REFUeNpiYAACdhDBwAwiWJiABBsrIwMHMxMjI0CAAQAB+gAswU2YfQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/round-br.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAMAAAAmGUT3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAABJQTFRF6uvu////7u/x9vf47/Dy/f39bZkEnAAAAB9JREFUeNpiYMAA
+LHAWM4zBxAhjsEJYLMyMjIwAAQYAAgUAHYEWSW8AAAAASUVORK5CYII=
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://jigsaw.w3.org/css-validator/style/results.css
+
+@charset "utf-8";
+
+#jumpbar { margin: 1em 2.4em; }
+
+#jumpbar li { color: rgb(17, 17, 26) !important; }
+
+#jumpbar { background-color: white; border-bottom: 1px solid rgb(0, 90, 156=
+); border-top: 1px solid rgb(0, 90, 156); color: rgb(0, 90, 156); font-size=
+: 0.9em; font-weight: bold; line-height: 140%; list-style-type: none; paddi=
+ng: 3px 0px; text-align: center; vertical-align: bottom; }
+
+#jumpbar li { display: inline; }
+
+#jumpbar li a { font-weight: 700; padding-left: 1.2em; padding-right: 1.2em=
+; text-decoration: none; }
+
+div#results_container { margin: 2em; }
+
+#congrats h3, #errors h3 { margin: 0px; font-family: "Bitstream Vera Sans",=
+ sans-serif; font-weight: 800; font-style: normal; text-decoration: none; w=
+ord-spacing: normal; letter-spacing: normal; text-transform: none; border-c=
+olor: black; padding: 0.4em; }
+
+#congrats h3 { background-color: rgb(85, 176, 90); color: white; }
+
+#congrats p { padding: 0.5em 1em; }
+
+#congrats p.toggle { text-indent: 10px; background: url("../images/arrow-do=
+wn.gif") 15px 0px no-repeat transparent; }
+
+#congrats p.closed { text-indent: 10px; background: url("../images/arrow-ri=
+ght.gif") 15px 0px no-repeat transparent; }
+
+#congrats pre { overflow: auto; }
+
+img.inline-badge { float: left; padding: 3em 10px 10px; margin: 0px 0px 0px=
+ 1.6em; }
+
+pre.badgeSnippet { margin-top: 0px; padding-left: 1em; font-size: small; co=
+lor: rgb(68, 68, 68); margin-bottom: 2em; margin-left: 108px !important; }
+
+#warnings table, #errors table { width: 100%; line-height: 120%; border-col=
+lapse: collapse; border-right: 1px solid rgb(204, 204, 204); border-top: 1p=
+x solid rgb(204, 204, 204) !important; }
+
+#warnings td, #errors td { border-width: 0px; }
+
+#errors h4, #warnings h4 { font-weight: bold; margin: 0px; padding: 0.4em; =
+background-color: rgb(238, 238, 238); color: black; }
+
+#errors h4 a, #warnings h4 a { background-color: rgb(238, 238, 238); }
+
+td.linenumber { width: 3em; background-color: rgb(225, 225, 225); text-alig=
+n: right; border-bottom: 1px solid rgb(204, 204, 204) !important; }
+
+td.codeContext { background-color: rgb(241, 241, 241); border-bottom: 1px s=
+olid rgb(221, 221, 221) !important; }
+
+#errors h2 { background-color: rgb(232, 40, 72); color: white; }
+
+#errors h3 { color: white; background-color: rgb(210, 61, 36) !important; }
+
+td.parse-error { padding: 5px 1em; border-bottom: 1px solid rgb(255, 221, 2=
+21) !important; }
+
+td.nocontext { width: 3em; background-color: rgb(241, 241, 241); border-bot=
+tom: 1px solid rgb(221, 221, 221) !important; }
+
+td.io, td.notfound, td.invalidparam, td.errortoken, td.unknownerror { paddi=
+ng: 5px 1em; border-bottom: 1px solid rgb(255, 221, 221) !important; }
+
+tr.warning { padding: 0px; }
+
+td.level1, td.level2, td.level0 { padding: 5px 1em; border-bottom: 1px soli=
+d rgb(255, 221, 221) !important; }
+
+.level0 { color: rgb(0, 0, 0); border-left: 10px solid rgb(204, 102, 102) !=
+important; }
+
+.level1 { color: rgb(0, 0, 0); border-left: 10px solid rgb(250, 144, 132) !=
+important; }
+
+.level2 { color: rgb(0, 0, 0); border-left: 10px solid rgb(255, 177, 167) !=
+important; }
+
+pre { margin-left: 1em; border-left: thin solid rgb(221, 221, 221); padding=
+: 2em; }
+
+#css { }
+
+.vAtRule { font-family: monospace; padding: 0em; }
+
+.atRule { margin: 1em 0px; padding-left: 0.5em; border-left: 3px solid rgb(=
+221, 221, 221); }
+
+.atSelector { }
+
+.selector { background-color: rgb(241, 241, 241); font-family: monospace; p=
+adding: 1em; border-bottom: 1px solid rgb(221, 221, 221); }
+
+.selectorValue { font-weight: bold; }
+
+.RuleList { padding: 0px 1em; background-color: rgb(241, 241, 241); }
+
+.Rule { background-color: rgb(241, 241, 241); font-family: monospace; }
+
+.Property { color: rgb(34, 34, 34); font-family: monospace; font-style: ita=
+lic; }
+
+.PropertyValue { color: rgb(102, 102, 102); }
+
+p.backtop { color: rgb(187, 187, 204); font-size: x-small; text-transform: =
+uppercase; font-weight: bold; padding-top: 0.3em; text-align: right; border=
+-top: 1px solid rgb(238, 238, 255); clear: both; padding-right: 0px !import=
+ant; margin: 1em 0px !important; }
+
+p.backtop a:link, p.backtop a:hover, p.backtop a:visited { color: rgb(187, =
+187, 204); text-decoration: none; }
+
+.error code, .warning code, .unrecognized, .exp, .skippedString, .codeConte=
+xt { border: 1px dashed rgb(153, 153, 153); padding: 2px 4px; }
+
+.unrecognized, .exp, .skippedString, .codeContext { font-family: monospace;=
+ }
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/w3c.png
+
+iVBORw0KGgoAAAANSUhEUgAAAG4AAAA9CAMAAAB7n6yQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAq9QTFRFNl2V8fHx/v7+////9fX19vb29PT0+vr68vLy+fn5+/v78/Pz
++Pj48PDw/Pz8/f399/f3AAAAQmebTnChPz8/aIWvfn5+Pj4+T3GiW3uoscDVICAgDw8PQmabEBAQ
+jKLBf5e6PT09WnmnTnGio7TNnp6edI+1fZW4c460T09Pfpa5W1tbb29vZoOt7O7yMDAwWnqncYyy
+6Ovu5unsgZm8rLvQX19fzc3N3OHouMTWf39/6u706+vrvLy8197pu8fZxcXFrq6u1Nzmt7e38PL2
+Z4SuorPMfX1909rlmKvH5+rtLy8v7e/zvr6+wszat8PVobLKoLHKl6rGytPhS26g7u7up6en8fT3
+Sm2fvb292+Dn2N/p3+Tr4ufur77TrbzRsL7Ts8DS7/H14+Pjtra20tnkgJi7+vv9WXmnx9Hf7e3t
+nZ2d4eXsco2ztsLUjaPCxc/d4+bq1dzn8fT4cYuyma3J0djjjY2NmazI4ebtqrrSVXWkZYOt3Nzc
+iZ+/iqDA2t/musjbi6HAiIiIO2GXf5i77Ozs7vD03uLnorPLyNLgYGBgTk5OzMzMHx8fQmecu7u7
+1tbWXHuprKysqqqqiZ++x9De5OnwWXmm5eXlVXal6+3xxMTEZYOulKjEs8HWmJiYxtDerr3SprfP
+ssHW29vbusbY0Njitr/Nx8fHvsrcusfYv8vc8vX4q7rP5ujsxsbGiYmJfJW48fP2eHh4vcnaiZ6+
+yMjIWXqoQEBAa2trz9fhLS0tpLbOl6vHv8zdydPh09PTgZq9V3im3eLpZYKsfHx8ytTi6evv4OXs
+vcrcXFxc09vlZ4Wvq7nO3uPqjY+TW3upenp66OjoLi4uPDw8Xl5eampqTU1N6Ortc461jo6OiqC/
+1dXVbGxsucXXlqrG3d3dfpe69fb5dZC2rKho9QAABLZJREFUeNrsl4d3E0cQxg8EkoUUSSvJMrYk
+bBkMFjbYxmAcF4JtwLhRAqGFhN4JhBJI6L2l995777333nuvf0h2ZnZ1e2qHACl5PL73LM03ZX+3
+qzs9S7NYlm3J36flSpbGq7QcatkLuaRpW3JK027NLW6fdkqn9H/X9N2Nluypcfd0A+2mDZbsasPb
+Ku4jS7b1uop7tHe29beK6519nTy4s44aNxP9TOFuB/OPOvVWwjOULxk/NzS0UHgx/2uoerGqLAXO
+rSsf/D3CPB1fdfdPxFGhZQDj8o/mYRlzuyvrAoFAXZk+mAJ3N/iR0n0J7hG9enbiNwT1ljHSAM4L
+sj/dVW7WE2ypMsXhgpdLd4EBLrxR10N+NJMKruTknp6Am/mDK/3JcS5FeFxjhBkDpr9eLESfj8JY
+uxDz/hiOVQYZCxzwu9iqoKtLn0yFWwuJtUnhrnHYPY7MYESjmY0gfyAQpBPd7oqu8ruidZXmuIcg
+USjdSH0HXEXgBlP8Pk4WYVwHjNkQbQZcwOU6EI0G/ArNgOunyguZc4RBQKEs4YZepRjP8lOKgXYp
+hVfzsAmC7c1N6qopcbhmkTBLsb4w8UrwOrRpGDdzXLMc38za+yVRShydmAqQ8Gn6VhdiYSnl2xn7
+Tp+PNpnhbKoOKqn1VP+JXDHExXroPUj5Sxi712ailDgbfirPYthBdS8V8DZdD9FFmO4QA37WZTt2
+XIe+iULR8EaMQeTx+BDYYrj2jHB2g1ohNRCi1bKhGNwgiPZDdASTR+RAAbvCbqbUOPtAyLXyYL5s
+QHg5RPNjDZr3tW6Jsx8Pbj/kBgmAF++K1XZ7N7Z2y23iVbQSrisznNOoMyA3ngdwt5evQLiSdZ4Z
+G/R+Ar6gwGmqNDiqDSfAuQR1OksEVsVp3uHcv3ecuHLi7CFqCb354O1D2bKihEZLeHxNhjhPnCbg
+Qh4AVHs8d4F7eCK8+pSmifSNM9fj+brAY6p0uLl4TgiY4PHcjPA/4HWP2nWdJho8v2WG6xuvasj+
+BS9LuBsG+8LUfYYuyGvDePB8X1Olxe2UFR+4w7Ebw9h1OPlw5rglsrIT3OfSnWfsuvMYcX0S5BWV
+39H5hJtnbNqEyU19jkbpcUPF6ZH7RfR9YGx6B5MPnADcPHF65M4nVx3XROkvrowfftAEZ03QCCqM
+EjaMbgqVRsimUZi9MRI/fFlb4oLpcVa8ybV64ehs7+dR/Y7wDquaLbX+MMM4+hV7MmPcFFpK3YdP
+EML16gkMtbaFnlAn2xj7OD3Okag5kL9Nuk5wQ3iA3NJOTNbg7OkORyQ0Vh8cG2KsInE9E5wDbv6X
+Y24bLezoxE+xdA4Ph9D3AI8Ws9Bi2biX/xMY+jVz3LW0lNBU2TWVJkq3iWcRrsHxEt8QbnBGBP6L
+vsORHpeXRJP56elul6bVUPSu4fePaAFKKBKhHyUVyZYzw+WFtcmK82mPUVC7XBlcXkvJRd/oP4GS
+0sxxNYb0c9ouEdXW6HurleVF3wtYaG+eKa5XMn22UXWTblDijXDDhJ+apDbcUvEKY98+82av5DLF
+nVj9h7jHs077UcWtyTpujYrbuu607GrdVsPTOmvBoSzCDi2Ypf0rwAAtbg13itqTcgAAAABJRU5E
+rkJggg==
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/vcss
+
+R0lGODlhWAAfAMYAAP///3OUxwxHnTZkrlR8ut/m8u7u7kxMTK6urp2dnb6+vrHD4KG32ZKr0yws
+LAAAAH19fRwcHO7y+CFVpsHP5o2NjQwMDBdNomSIwQtEnY6n0s7Ozl1dXdDb7CZZqIOfzUVwtDw8
+PGx6kW1tbczMzP/MZmOlxgBmmRh7rUqUvefv90pKSr29xpmZmbXW54S11jMzM4SEhCMcDg8MBlqc
+vWZmZu+/X4ltNjwwGG1XK9+yWa+MRkw8HsCZTM+lUltIJCwjEQwJBJx8PjGMtTk5ORwWC8OcTuu8
+XpkAAGYzAPTDYZUAAMyZM7mUSuG0Wt6xWHtzZiggEABmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBm
+mQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBm
+mQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmQBmmSH+
+ClZhbGlkIENTUyEAIfkEAQAAfwAsAAAAAFgAHwAAB/6AJIKDhIWGh4iJiouMhX+PjyQAk5SVlpeY
+mSWbnJ2en6ChoEdGK5CRmamqqaKtrq8lpKankqu2trC5urGlp3+1t8GYu8Stsr7AwsqTxc2fx7TL
+0gDO1ZvQkLUBAgOUBAIElQUC5OXkkwYHBwgACQqU1tXYqAAL5AWTDOeUDebl3QYcPBgIIQIEePGa
+zftFiRyDSRLILfAmYAIFCtsEUABQ4YGFAxEGJkCYkNhCYN/CTbogAEPDDBoASGCp0oGFDZM4RKhU
+sthJSvouTOpAzsMkewIkAPhwb9KDCpQMvCNp4waOqzl0cNrB4yqPHpx8/PC6Q9cxJNkojRMwkSm5
+Dv4AMHADsPYDpQcGWJWwAWRg3wdBtPYYGATHQLA6ggA2/EBILlJJkEimN2mAgAAALLNsAMCDAM7f
+BHjYCMCBqk03APvYa/hHidRBylp1nPrBjRI7cDiGdeSG5N8MKTH1EPEyN6IC4IIwtzHE6RI8HuQA
+tWMg4R82SviwPpDHali+f/9OhpzpgLqiK1FgCYLj8x/SOfW44djHjRw4inQvoePG2L9AwCKEeMAl
+AwBLLNllGTkuVSJXUjjpJQRg9fU1nWHTQfcADq89wMMmOQD2yoAEohUcJQ8mB0BGbFmij0arcAIf
+d0BkVx13D5Tlg2LcZfjabp2QSGBalSAlFADICf5wyYsiXCIVSbjh9wOQ2lmFww1gbdJfVzmUtQmJ
+QijBiZDiRVNJcQ0eCM6KHuATFzkJjFQJByNA2ROZSIiJJxJLIHPJNxNNItdDyw1AgVvtRQAVAOk8
+cBAzPW3CRIlI7InELERW0o9S+QiATwEsmQMXAg9EEMJAptlZkqUlNoEpZWqpBFE3R4XmQaAAIBDS
+AxzkpeqqlIrnRC9mWuKmWpZIAFcwkXoyabBK/DSNMs06S6mY0k7LbLWdPPubmLy8eqK2uHDbyRPf
+cpItuTGae+4N4F5DbKbsPueuKD+xoO++/Pbr77//GiHwwAQXbPDBCB8cAxTikrDCwxBHLPHEFA1X
+bPHFGGf8MBFR+BIIACH5BAEKAH8ALAEAAQAkABwAAAf+gACCg4SFhoeIiYqLjI2Oj5CRkpOUiAEC
+A4MEAgSEBQKgoaCCBgcHCAAJCoULoAWCDKODDaKhmQYOD7oQERCGoAyCEqALmgITFBSXAhQAFQ8W
+BxG6CYabnYIXAhiDAhkaABLa2A4WG4IcEYexF4IdoB6CrQISAB+ugg8Vgwarhp8Cit0D1QEABkwA
+AH4Y9MBAowECAgCAqK0BAA8CLG4S4KEZAAeO7nkYFhHTOwEFQYhqFsLRyXsDFHIkREEbCGePtGlb
+CBEUN0IH6Z1zFBQlgGUBC8ViBmleOwAnBRhaKsJQP0QkfwIYd9TDK4OgElQjxGFEok3FBB0MpnIA
+hYE8NyPsA1DqgS9EtOrBEvCqgDZRBRE8iBBCF8hEBbAJyyRvo4e0ABBMe8DBoaKvgzALK1ips+fP
+oEOLDh0IADs=
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/vcss-blue
+
+R0lGODlhWAAfAPcAAAAAAAcICQsLCw8RExMUFRMWGBwcHBoeIRwgIyMjIyInKyQqLigoKCctMSgu
+MysyNi41OjMzMzE4PTs7OzU9QjhARjxGTD9JUEtLTEFLUk9PUElUW1RVVVtbW0Rdb01YYVBcZVle
+YlVha1hlb1tpc2VlZWtrbGBveWJxfHt7ewBanAhfnx9bhwlgnw1ioRFlohVopBprph5tqDJtmSFv
+qSVyqil1rDF5rzl0oTV8sDh+smh4hG5/izyBs0SGtkeIt0qKuVWRvVqUv2uDl3CBjXSGknyPnXaR
+p3+ToF2WwGOawmmexG2hxnWlyXyqzIGDhYmOlpeXl5iYmIGUooaaqIidrJCXoI2isZmhqqOlpqur
+rbS0tL+/v4Kuzoawz4Ww0Imz0Zuywp+3yJC31JW61Zi815u+2KG6y6W+0J/B2qPD26nD1arG2qzI
+3LDL3rLN4LbQ48LCwszMzNTU1NjY2MDW58ba6M3f7NPj7t3p8ufn5+zs7OLs8+nx9u70+PPz8/L3
++vX4+/7+/szMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAIMALAAAAABYAB8A
+AAj+AOUIHEiwoMGDCBMqXMiQYJZBECHKEUSxosWLGDNm5POmo8ePIEOKHCmyCpQQESVqXMlSI0eS
+MGPKzHIy5aCJLXO2fCmzp8+OWGqmxKmzKEaeP5OSDIpyqNGnFpEqnfqRqU2iUI1KpUrVqlNBamQ0
+qQimBhiLflaskMGWbRCKf56YmLglEMWtXJV6jYgzjwoYFeuo0GFRjYrDiFU4oYgBAIAAdCLQuasU
+Tt6qQvlWtKHiTsUXKvpUTKIiSB8+Zv4CEpQFAIMUEwgI2EP5Mte9Kik2UdGl4g0VairCUJGHYg3g
+FDVMsCuoRIqKeHtattw1c25BgnPcPfxWkB0VNij+glGhnSIBooH+QP9o5IMFEWHerCGSwcKIM2/c
+TNlQ4cOV2ycdpllFLoQmSGoqvECREyqM1QdodsCVwEo8ZfAYBAd88AYIADwgAQFU6AcAAhQgIAKA
+LCB2nSBBINfib3AI8lsdgihxGBN+CBIIBhR2NAUABuD3hhhvEICAG2+0wcYbFhIpH1dVzJCYCjcV
+VpogLsjQRoN8JEhREMORt1oUPb4xAgAjgGQBAANYQEVHRFxIxJJU4TDlYVj1oYILb6igBCAr2JCa
+EBbZAVobgsRR5gcAnAASGzs44BgPPlIQAAAWTOWGD3dSiZUgOqjw2xuCcPpbcBYt4edOHRUBgAL+
+bbwBBxpv0PpGFQBc8MYZbsCxxgADKLVppysK4sVhLtg13mE5WtRnDax2JGkBH1AAwhsCWCtpEW9c
+4MAGFwCwwUht6EBGSJzeOWBFdxwGBEV+qdADRlvKQNtFf6gnCE9tnEDBART8twMFClSww5JTXLAA
+BCQIGdJvLoDxUbpTfmWRDCqUsZkKZ5GRREWq/sDFvRWZwEVtIMFB3Ugqk0TxCl10RDFiHlyFkY18
+VLQbHjU22IcaoKkRSAd6lBzAHCjb5pGqUzbxw5QrDNHUuhW9cYNFddBAESDDrXBYeXIYwAEHCQBA
+ZtJKJxlqp4itYIR1VV4USG8WLUYRHkvAAIO/EswJQgcHBkSghUV5pA3SsGyvAAZucWelleEhtXin
+4m8w/qnj0UL+kY2JrfAFUHBfjnmZmn/E9J6fgz51saOTXrpHTqiVuuo2t55TdJp7MTvtFtvu+uFI
+whQrSW4EH5Llgmyh/PLMN+/8885rYcX0VkBBvRVSXG9FFNZTLwUU2VPf/fTfX8999kWYsPpNGHCA
+AQYaxA+//PFrML/97uMP//37v5/B+wC0QAAFCMD//c9/CMQAAQuYQADGLwI2CQgAOw==
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.w3.org/developers/img/W3C-Developers-Dark.svg
+
+<?xml version=3D"1.0" encoding=3D"utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version:=
+ 6.00 Build 0)  -->
+<svg version=3D"1.1" id=3D"Layer_1" xmlns=3D"http://www.w3.org/2000/svg" xm=
+lns:xlink=3D"http://www.w3.org/1999/xlink" x=3D"0px" y=3D"0px"
+	 viewBox=3D"0 0 800 216" style=3D"enable-background:new 0 0 800 216;" xml:=
+space=3D"preserve">
+<style type=3D"text/css">
+	.st0{fill:#00589C;}
+	.st1{fill:#FFFFFF;}
+</style>
+<g>
+	<polygon class=3D"st0" points=3D"35,215 3.1,108 35,1 765,1 796.9,108 765,2=
+15 	"/>
+	<g>
+		<path class=3D"st1" d=3D"M218.3,161.5h-12.4v-107h12.4c29.1,0.1,31.3,11.6,=
+31.3,53.6C249.6,149.9,247.4,161.4,218.3,161.5z
+			 M221.7,145.8c11.1,0,11.8-2.8,11.6-37.9c0.1-34.9-0.6-37.7-11.6-37.7V145.=
+8z"/>
+		<path class=3D"st1" d=3D"M264.8,54.5h36v16.2h-20.2v28.1h14.6v17.2h-14.6v2=
+9.4h20.2v16.2h-36V54.5z"/>
+		<path class=3D"st1" d=3D"M343.8,54.5h15.3l-16.3,107h-15.7l-16.3-107h15.3l=
+7.9,58.8l0.6,4.5h0.9l0.6-4.5L343.8,54.5z"/>
+		<path class=3D"st1" d=3D"M371.5,54.5h36v16.2h-20.2v28.1h14.6v17.2h-14.6v2=
+9.4h20.2v16.2h-36V54.5z"/>
+		<path class=3D"st1" d=3D"M422.6,54.5h15.7v92.4h20.8v14.6h-36.5V54.5z"/>
+		<path class=3D"st1" d=3D"M489.7,162.7c-21.1,0-21-23.1-21-23.1v-63c0,0-0.1=
+-23.1,21-23.1s21,23.1,21,23.1v63
+			C510.6,139.5,510.8,162.7,489.7,162.7z M489.7,68.6c-5.5,0-5.2,7.9-5.2,7.9=
+v63c0,0-0.3,7.9,5.2,7.9s5.2-7.9,5.2-7.9v-63
+			C494.9,76.5,495.2,68.6,489.7,68.6z"/>
+		<path class=3D"st1" d=3D"M527.1,54.5c0,0,15,0,15.7,0c13.7,0,27.7,7.4,27.7=
+,32c0,24.6-14,32.2-27.7,32.2v42.8h-15.7V54.5z
+			 M542.8,102.7c9.9,0,11.8-3.6,11.8-15.6c0-11.9-1.9-16.6-11.8-16.6V102.7z"=
+/>
+		<path class=3D"st1" d=3D"M582.5,54.5h36v16.2h-20.2v28.1h14.6v17.2h-14.6v2=
+9.4h20.2v16.2h-36V54.5z"/>
+		<path class=3D"st1" d=3D"M661.1,161.5l-8.2-45.1h-4.2v45.1H633v-107h15.7c1=
+8.6,0,26.8,10.8,26.8,30.9c0,10.6-2.8,20.2-8.7,24.3
+			l10,51.8H661.1z M648.8,70.1v31.7c4.4,0,11.6-0.6,11.6-15.9S653.1,70.1,648=
+.8,70.1z"/>
+		<path class=3D"st1" d=3D"M706.8,53.3c18.9-0.4,22,16.5,22,28.4l-15.4,1.5c0=
+-7.1-1-15.4-6.3-15.4c-4.1,0.1-5.4,4.5-5.4,10.6
+			c0,7.3,6.3,15.4,12.4,24.3c7.3,10.9,14.7,21.5,14.7,33c0,14.3-4.7,26.9-21.=
+8,26.9c-20.2,0-22.9-15.3-22.9-31.2l15.4-1.5
+			c0,8.9,0.9,18.2,7.4,18.2c4.7,0,6.4-5.1,6.4-11.8c0-7.1-6.7-15.7-12.7-24.7=
+c-7.4-10.9-14.4-21.8-14.4-33.3
+			C686.3,66.7,692,53.6,706.8,53.3z"/>
+		<path class=3D"st1" d=3D"M181.1,78.8l1.4,7.5l-4.4,8.5c0,0-1.7-3.6-4.6-5.6=
+c-2.4-1.7-3.9-2-6.3-1.5c-3,0.7-6.6,4.4-8.2,9
+			c-1.8,5.4-1.8,8-1.8,10.5c-0.2,3.9,0.5,6.1,0.5,6.1s-2.7-4.9-2.7-12.2c0-5.=
+1,0.8-9.8,3.2-14.4c2.2-4.1,5.3-6.5,8-6.8
+			c2.9-0.3,5.3,1,7,2.6c1.9,1.5,3.7,5.1,3.7,5.1L181.1,78.8z"/>
+		<path class=3D"st1" d=3D"M181.8,121.5c0,0-2.1,3.4-3.2,4.8c-1.2,1.4-3.4,3.=
+7-6.1,4.9c-2.7,1.2-4.1,1.3-6.6,1.2
+			c-2.7-0.4-5.3-1.9-6.1-2.4c-0.8-0.7-3.1-2.5-4.2-4.4c-1.2-1.7-3.2-5.2-3.2-=
+5.2s1.2,3.6,1.9,5.1c0.3,0.9,1.5,3.4,3.2,5.8
+			c1.5,2.2,4.8,5.8,9.3,6.6c4.8,0.8,8-1.2,8.8-1.7c0.7-0.5,2.4-2,3.4-3.1c1.2=
+-1.2,2.2-2.7,2.9-3.7c0.3-0.7,1-2,1-2L181.8,121.5z"/>
+		<polygon class=3D"st1" points=3D"100.7,79.1 111.4,115.1 121.9,79.1 129.5,=
+79.1 112,138.3 111.4,138.3 100.3,101.5 89.3,138.3=20
+			88.6,138.3 71,79.1 78.8,79.1 89.3,115.1 96.6,90.8 93.1,79.1 		"/>
+		<path class=3D"st1" d=3D"M151.4,119.3c0,5.3-1.4,9.8-4.3,13.6c-2.9,3.6-6.6=
+,5.5-11.2,5.5c-3.4,0-6.3-1.2-8.8-3.3
+			c-2.5-2.2-4.4-5.1-5.6-8.8l5.9-2.5c0.8,2.2,2,4.1,3.4,5.2c1.5,1.4,3.2,2,5.=
+1,2c2,0,3.9-1.2,5.3-3.6c1.3-2.2,2.2-4.9,2.2-8.2
+			c0-3.5-0.9-6.3-2.4-8.3c-1.7-2.2-4.4-3.4-8.3-3.4h-2.9V104l10.3-17.6h-12.4=
+l-3.5,5.8h-2.2V79.1h28.7v3.6l-10.9,18.7
+			c3.7,1.2,6.6,3.4,8.6,6.6C150.4,111.2,151.4,114.9,151.4,119.3"/>
+		<polygon class=3D"st1" points=3D"72.5,54.5 71.4,58.4 182.4,58.4 182.4,54.=
+5 		"/>
+		<polygon class=3D"st1" points=3D"72.7,161.5 182.4,161.5 182.4,157.6 71.5,=
+157.6 		"/>
+	</g>
+</g>
+</svg>
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.w3.org/QA/2002/12/qa-small.png
+
+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
+oUrYAAAAAElFTkSuQmCC
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://jigsaw.w3.org/css-validator/images/woolly-icon
+
+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
++2rvZGYs/wfPRkulpOSSMQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.w3.org/QA/Tools/I_heart_validator
+
+iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAEJQTFRFAFqc////AAAAu9PlRIa2d6fKiLLRM3uwEWWjzN7rwNbngK3O
+ZpzEInCpkLfUmb3X3enyVZG9MHmvYJjBIG+o7vT4nbi73AAAAK1JREFUeNrMk+sOwjAIhWFAadV5
+9/1f1UI7XZz9h4kkpZxD+jUsHUzBAROGhgEhMH4JvN59E8kXyRHA3d6yIhZEqVXSvqgLS4lMdY9I
+3+UIOPuXNSCxr3RgasISianmaamT9LbbX4EglXe2kfWkpBmoEK6ADKbcW65sBo+AQIjaCvZTwlug
+8AeQcTvy8db2+SG9uVDQb2lAxJfX+ytj8GzkX99hIDD6Xw6OpwADAALMBacrRrN/AAAAAElFTkSu
+QmCC
+
+------MultipartBoundary--uqE9xJVUqS20hgDUxvRuNgPx0nw24JgY4M5jNx0hus------
