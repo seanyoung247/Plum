@@ -36,7 +36,7 @@ function ajaxFlashResponse(response) {
           ${response.flash.message}
         </div>
         <a class="flash-close"><i class="material-icons">close</i></a>
-      </li>`
+      </li>`;
 
     $( ".flash-message-list" ).append(flashMessage);
   }
