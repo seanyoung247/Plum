@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 {% from "items.html" import generate_recipe_card %}
+{% from "search.html" import search_form %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
 
 {% block content %}
-  <div class="container vpad">
-    <div class="row">
+  <div class="container">
+    {{ search_form() }}
+    {#<div class="row">
       <h4 class="section-header col s12">Latest Recipes</h4>
       <hr class="col s12 section-divider"/>
-    </div>
+    </div>#}
     <div class="row">
       {% for recipe in recipes %}
         <div class="col s12 m6 l4 xl3">
