@@ -225,7 +225,10 @@ def edit_recipe(pageid):
 @requires_logged_in_user
 def delete_recipe():
     """ Deletes a given recipe from the database """
+    #Remove the recipe
     mongo.db.recipes.delete_one({"_id" : ObjectId(request.form["recipeId"])})
+    #Remove any pre-existing interactions
+    mongo.db.ratings.delete_many({"recipe_id" : ObjectId(request.form["recipeId"])})
 
     flash("Recipe {title} deleted!".format(title=request.form["recipeTitle"]),
         category="success")
