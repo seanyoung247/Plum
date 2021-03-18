@@ -10,7 +10,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from helpers import ( user_logged_in, log_user_in, log_user_out,
+from helpers import ( user_logged_in, log_user_in, log_user_out, encode_time,
                       calculate_rating, compile_recipe_record)
 from decorators import requires_logged_in_user, requires_user_not_logged_in
 if os.path.exists("env.py"):
@@ -63,9 +63,8 @@ def search():
                 "value" : request.form["servings"]
             })
 
-        if "time" in request.form and request.form["time"]:
-            time = request.form["time"].split(":")
-            minutes = ( (int(time[0]) * 60) + int(time[1]) )
+        if "time" in request.form and request.form["time"] != "00:00":
+            minutes = encode_time(request.form["time"])
             if minutes > 0:
                 query["time"] = { "$lte" : minutes }
                 form_query.append({
