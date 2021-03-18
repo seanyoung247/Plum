@@ -389,6 +389,7 @@ The site allows users to upload new recipes and edit their existing ones. Users 
   - Performs searches on the servings field
   - Performs searches on the time field
   - Performs searches on the rating field
+  - Performs searches on any combination of fields
 - (**US006**): Recipes can be favourited with a heart icon on the recipe page
 - (**US007**): Recipes can be added with the "add recipe" option on the main menu
 - (**US008**): The site allows users to:

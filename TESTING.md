@@ -128,7 +128,7 @@ search page
 
 Automated unit testing was performed on functions suitable for it:
 
-calculate_rating
+- calculate_rating
 
 ```
 .
@@ -143,6 +143,8 @@ Test criteria is in test.py
 
 
 ## Manual Testing
+
+
 
 ## Solved Issues
 
