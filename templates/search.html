@@ -2,7 +2,7 @@
 {% from "items.html" import generate_item_tile %}
 {% from "star-rating.html" import generate_star_rating_control, generate_star_rating_display %}
 
-{# To do: Could do with only showing a maximum number of pages at once. #}
+{# To do: Only showing a maximum number of page links at once. #}
 {% macro pagination() %}
 <form class="col s12 search-pages-form" method="POST" action="{{ url_for('search') }}">
   <div class="search-pages">
@@ -54,7 +54,7 @@
 
           {# cuisine, rating, servings, time #}
           <div class="input-field col s12 l6">
-            <select name="cuisine">
+            <select id="recipe_cuisines" name="cuisine">
               <option value="" selected>Search cuisines</option>
               {% for cuisine in cuisines %}
                 <option value="{{ cuisine.name }}">
@@ -68,15 +68,15 @@
           {# Servings search #}
           <div class="input-field col s6 l3">
             <i class="material-icons prefix">restaurant</i>
-            <input name="servings" type="number" id="recipe_servings" min="0">
+            <input id="recipe_servings" name="servings" type="number" min="0">
             <label for="recipe_servings">Servings</label>
           </div>
 
           {# Time search #}
           <div class="input-field col s6 l3">
             <i class="material-icons prefix">access_time</i>
-            <input name="time" id="recipe_time" type="text" class="timepicker"
-              value="00:00">
+            <input id="recipe_time" name="time" type="text" class="timepicker"
+              value="0">
             <label for="recipe_time">Max Time</label>
           </div>
 

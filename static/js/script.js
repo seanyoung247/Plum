@@ -47,6 +47,16 @@ function ajaxFlashResponse(response) {
  */
 $( "#advanced_search_toggle a" ).click(function(event) {
   $( "#advanced_search_pane" ).toggleClass("show").toggleClass("allow-overflow");
+  /* Whether we're showing or hiding to the advanced search we want
+     to make sure it's blank. */
+  // Clear cuisine selector
+  $( "#recipe_cuisines" )[0].selectedIndex = 0;
+  // Clear Servings field
+  $( "#recipe_servings" ).val("");
+  // Clear recipe time field
+  $( "#recipe_time" ).val("00:00");
+  // Clear ratings field
+  $( ".search-rating .star-rating-ctl #rating0" ).prop("checked", true);
 });
 
 /*

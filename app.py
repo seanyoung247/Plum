@@ -1,5 +1,5 @@
 """
-Defines plum recipes main server code. Flask initialisation,
+Defines plum recipe's main server code. Flask initialisation,
 database interface, and server routes.
 """
 
