@@ -2,9 +2,68 @@
 {% from "items.html" import generate_item_tile %}
 {% from "star-rating.html" import generate_star_rating_control, generate_star_rating_display %}
 
+{% macro search_form() %}
+<div class="row">
+  <form class="col s12 {#l8 offset-l2#}"  method="POST" action="{{ url_for('search') }}">
+    <div id="basic_search_pane" class="row line-spacing-5">
+      <div class="input-field col s12 m8 l10">
+        <i class="material-icons prefix">search</i>
+        <input id="search-text" name="search-text" type="text">
+        <label for="search-text">Search</label>
+      </div>
+      <div id="advanced_search_toggle" class="col s12 m4 l2 center-align">
+        <a>Advanced Search</a>
+      </div>
+    </div>
+    {# Advanced search options #}
+    <div id="advanced_search_pane" class="row line-spacing-5">
+
+      {# cuisine, rating, servings, time #}
+      <div class="input-field col s12 l6">
+        <select id="recipe_cuisines" name="cuisine">
+          <option value="" selected>Search cuisines</option>
+          {% for cuisine in cuisines %}
+            <option value="{{ cuisine.name }}">
+              {{- cuisine.name|capitalize -}}
+            </option>
+          {% endfor %}
+        </select>
+        <label>Cuisine type</label>
+      </div>
+
+      {# Servings search #}
+      <div class="input-field col s6 l3">
+        <i class="material-icons prefix">restaurant</i>
+        <input id="recipe_servings" name="servings" type="number" min="0">
+        <label for="recipe_servings">Servings</label>
+      </div>
+
+      {# Time search #}
+      <div class="input-field col s6 l3">
+        <i class="material-icons prefix">access_time</i>
+        <input id="recipe_time" name="time" type="text" class="timepicker"
+          value="00:00">
+        <label for="recipe_time">Max Time</label>
+      </div>
+
+      {# Rating #}
+      <div class="search-rating">
+        <div>Minimum rating</div>
+        {{ generate_star_rating_control(0) }}
+      </div>
+
+      <div class="row">
+        <input class="col s6 offset-s3 btn-small" type="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>
+{% endmacro %}
+
+
 {# To do: Only showing a maximum number of page links at once. #}
-{% macro pagination() %}
-<form class="col s12 search-pages-form" method="POST" action="{{ url_for('search') }}">
+{% macro pagination(route) %}
+<form class="col s12 search-pages-form" method="POST" action="{{ route }}">
   <div class="search-pages">
     <button class="search-pages-btn" type="submit" name="page" value="{{ pages.current_page - 1 }}"
       {{ 'disabled' if pages.current_page == 0 }}>
@@ -37,61 +96,8 @@
 
 {% block content %}
   <div class="container">
-    <div class="row">
-      <form class="col s12 {#l8 offset-l2#}"  method="POST" action="{{ url_for('search') }}">
-        <div id="basic_search_pane" class="row line-spacing-5">
-          <div class="input-field col s12 m8 l10">
-            <i class="material-icons prefix">search</i>
-            <input id="search-text" name="search-text" type="text">
-            <label for="search-text">Search</label>
-          </div>
-          <div id="advanced_search_toggle" class="col s12 m4 l2 center-align">
-            <a>Advanced Search</a>
-          </div>
-        </div>
-        {# Advanced search options #}
-        <div id="advanced_search_pane" class="row line-spacing-5">
 
-          {# cuisine, rating, servings, time #}
-          <div class="input-field col s12 l6">
-            <select id="recipe_cuisines" name="cuisine">
-              <option value="" selected>Search cuisines</option>
-              {% for cuisine in cuisines %}
-                <option value="{{ cuisine.name }}">
-                  {{- cuisine.name|capitalize -}}
-                </option>
-              {% endfor %}
-            </select>
-            <label>Cuisine type</label>
-          </div>
-
-          {# Servings search #}
-          <div class="input-field col s6 l3">
-            <i class="material-icons prefix">restaurant</i>
-            <input id="recipe_servings" name="servings" type="number" min="0">
-            <label for="recipe_servings">Servings</label>
-          </div>
-
-          {# Time search #}
-          <div class="input-field col s6 l3">
-            <i class="material-icons prefix">access_time</i>
-            <input id="recipe_time" name="time" type="text" class="timepicker"
-              value="00:00">
-            <label for="recipe_time">Max Time</label>
-          </div>
-
-          {# Rating #}
-          <div class="search-rating">
-            <div>Minimum rating</div>
-            {{ generate_star_rating_control(0) }}
-          </div>
-
-          <div class="row">
-            <input class="col s6 offset-s3 btn-small" type="submit" value="Submit">
-          </div>
-        </div>
-      </form>
-    </div>
+    {{ search_form() }}
 
     <div class="row">
       {# Only display categories if no search was conducted #}
@@ -114,7 +120,7 @@
         {% if pages.total_items > 0 %}
           {# Only show pagination controls if there are multiple pages #}
           {% if pages.page_count > 0 %}
-            {{ pagination() }}
+            {{ pagination(url_for('search')) }}
             <div class="col s12 search-pages-count">
               Showing results {{ pages.first_item }} to {{ pages.last_item }} of {{ pages.total_items }}
             </div>
@@ -136,7 +142,7 @@
           </div>
 
           {% if pages.page_count > 0 %}
-            {{ pagination() }}
+            {{ pagination(url_for('search')) }}
           {% endif %}
         {% else %}
           No results
