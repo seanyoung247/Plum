@@ -11,7 +11,7 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from helpers import ( user_logged_in, log_user_in, log_user_out, encode_time,
-                      calculate_rating, compile_recipe_record)
+                      calculate_pages, calculate_rating, compile_recipe_record)
 from decorators import requires_logged_in_user, requires_user_not_logged_in
 if os.path.exists("env.py"):
     import env
@@ -29,23 +29,37 @@ mongo = PyMongo(app)
 #
 # App routes
 #
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def home():
-    """Shows the home page"""
-    #Finds the newest eight Recipes
-    recipes = mongo.db.recipes.find().sort("_id", -1).limit(8)
-    return render_template("home.html", recipes=recipes)
+    """ Shows the home page. """
+    pages = {}
+    page = 0
+
+    # Has a page been requested?
+    if request.method == "POST" and "page" in request.form:
+        page = int(request.form["page"])
+
+    # Calculate the total and current pages
+    pages = calculate_pages(
+        mongo.db.recipes.count_documents({}),
+        page,
+        8
+    )
+    # Return the recipes to show on the current page
+    recipes = mongo.db.recipes.find().sort("_id", -1).skip(
+        pages["current_page"] * pages["items_per_page"]).limit(
+            pages["items_per_page"])
+
+    return render_template("home.html", recipes=recipes, pages=pages)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    """Shows the search page and results."""
-    items_per_page = 10
+    """ Shows the search page and results. """
     pages = {}
     query = {}
     form_query = []
     recipes = None
-    items_per_page = 10
 
     if request.method == "POST":
         #Construct the search query
@@ -92,29 +106,19 @@ def search():
 
         #Only search if at least one field has been passed.
         if query:
-            #Get page details
-            pages["items_per_page"] = items_per_page
-            if "page" in request.form and request.form["page"]:
-                pages["current_page"] = int(request.form["page"])
-                pages["page_count"] = int(request.form["page_count"])
-                pages["total_items"] = int(request.form["total_items"])
-            else:
-                pages["total_items"] = mongo.db.recipes.count_documents(query)
-                pages["current_page"] = 0
-                pages["page_count"] = int(pages["total_items"] / pages["items_per_page"])
-
+            page = 0
+            if "page" in request.form:
+                page = int(request.form["page"])
+            pages = calculate_pages(
+                mongo.db.recipes.count_documents(query),
+                page,
+                10
+            )
             if pages["total_items"] > 0:
-                #calculates the first and last items shown by the current page
-                pages["first_item"] = (pages["current_page"] * pages["items_per_page"]) + 1
-                last_item = ( (pages["current_page"] * pages["items_per_page"]) +
-                    pages["items_per_page"] )
-                pages["last_item"] = pages["total_items"]
-                if last_item < pages["total_items"]:
-                    pages["last_item"] = last_item
-
                 #Get the page
                 recipes = mongo.db.recipes.find(query).skip(
-                    pages["current_page"] * items_per_page).limit(items_per_page)
+                    pages["current_page"] * pages["items_per_page"]).limit(
+                        pages["items_per_page"])
 
 
     #Get the cuisines for the category search

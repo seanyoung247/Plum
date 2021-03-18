@@ -62,7 +62,7 @@
 
 
 {# To do: Only showing a maximum number of page links at once. #}
-{% macro pagination(route) %}
+{% macro pagination(route, pages) %}
 <form class="col s12 search-pages-form" method="POST" action="{{ route }}">
   <div class="search-pages">
     <button class="search-pages-btn" type="submit" name="page" value="{{ pages.current_page - 1 }}"
@@ -81,8 +81,7 @@
     </button>
   </div>
   {# Store the query details for form resubmission #}
-  <input type="hidden" name="page_count" value="{{ pages.page_count }}">
-  <input type="hidden" name="total_items" value="{{ pages.total_items }}">
+  {#<input type="hidden" name="total_items" value="{{ pages.total_items }}">#}
   {% for field in query %}
     <input type="hidden" name="{{ field.key }}" value="{{ field.value }}">
   {% endfor %}
@@ -120,7 +119,7 @@
         {% if pages.total_items > 0 %}
           {# Only show pagination controls if there are multiple pages #}
           {% if pages.page_count > 0 %}
-            {{ pagination(url_for('search')) }}
+            {{ pagination(url_for('search'), pages) }}
             <div class="col s12 search-pages-count">
               Showing results {{ pages.first_item }} to {{ pages.last_item }} of {{ pages.total_items }}
             </div>
@@ -142,7 +141,7 @@
           </div>
 
           {% if pages.page_count > 0 %}
-            {{ pagination(url_for('search')) }}
+            {{ pagination(url_for('search'), pages) }}
           {% endif %}
         {% else %}
           No results

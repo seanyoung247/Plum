@@ -28,11 +28,37 @@ def log_user_out():
 
 
 def encode_time(time):
+    """ Converts a time string in HH:MM format into minutes """
     time_list = time.split(":")
     if len(time_list) >= 2:
         return ( (int(time_list[0]) * 60) + int(time_list[1]) )
 
     return 0
+
+
+def calculate_pages(total_items, current_page, items_per_page):
+    """ Calculates page details for result pagination """
+    pages = {
+        "items_per_page" : items_per_page,
+        "current_page" : current_page,
+        "total_items" : total_items,
+        "page_count" : 0,
+        "first_item" : 0,
+        "last_item" : 0
+    }
+    if total_items > 0:
+        pages["page_count"] = int(pages["total_items"] / pages["items_per_page"])
+
+        #calculates the first and last items shown by the current page
+        pages["first_item"] = (pages["current_page"] * pages["items_per_page"]) + 1
+        last_item = ( (pages["current_page"] * pages["items_per_page"]) +
+            pages["items_per_page"] )
+
+        pages["last_item"] = pages["total_items"]
+        if last_item < pages["total_items"]:
+            pages["last_item"] = last_item
+
+    return pages
 
 
 def calculate_rating(rating):
