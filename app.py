@@ -200,7 +200,7 @@ def edit_recipe(pageid):
         return abort(404)
 
     #Check the currently logged in user has rights to edit this recipe
-    if (session['user'] != recipe['author'] and session['userrole'] != "admin"):
+    if (session['user'] != recipe_record['author'] and session['userrole'] != "admin"):
         flash("You don't have authorisation to edit this recipe", category="error")
         return redirect(url_for("home"))
 
