@@ -27,6 +27,14 @@ def log_user_out():
     session.pop("userrole")
 
 
+def encode_time(time):
+    time_list = time.split(":")
+    if len(time_list) >= 2:
+        return ( (int(time_list[0]) * 60) + int(time_list[1]) )
+
+    return 0
+
+
 def calculate_rating(rating):
     """Calculates overall rating from rating array."""
     #Uses a simple averaging formula. A refinement could be to replace this with
@@ -66,7 +74,6 @@ def compile_recipe_record(form_data, recipe = None, new_pageid = True):
         pageid = recipe['pageid']
 
     #construct new recipe record
-    time = form_data.get("time").split(":")
     recipe = {
         "pageid" : pageid,
         "title" : form_data.get('title'),
@@ -74,7 +81,7 @@ def compile_recipe_record(form_data, recipe = None, new_pageid = True):
         "description" : form_data.get('description'),
         "image" : form_data.get('image'),
         "cuisine" : form_data.get('cuisine'),
-        "time" : ( (int(time[0]) * 60) + int(time[1]) ),
+        "time" : encode_time(form_data.get("time")),
         "servings" : int(form_data.get('servings')),
         "rating" : rating,
         "ingredients" : form_data.getlist('ingredients'),
