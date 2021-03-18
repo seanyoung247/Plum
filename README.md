@@ -27,7 +27,7 @@ Plum is a recipe sharing website designed to help users find recipes and share t
   - [Existing Features](#Existing-Features)
   - [Future Features](Future-Features)
 - **[Technologies](#Technologies)**
-  - [Site architecture](#Site architecture)
+  - [Site architecture](#Site-architecture)
   - [Languages](#Languages)
   - [Libraries](#Libraries)
   - [Editors](#Editors)
@@ -389,6 +389,7 @@ The site allows users to upload new recipes and edit their existing ones. Users 
   - Performs searches on the servings field
   - Performs searches on the time field
   - Performs searches on the rating field
+  - Performs searches on any combination of fields
 - (**US006**): Recipes can be favourited with a heart icon on the recipe page
 - (**US007**): Recipes can be added with the "add recipe" option on the main menu
 - (**US008**): The site allows users to:
@@ -841,7 +842,13 @@ The site is deployed to Heroku at: https://plum-recipes.herokuapp.com/
 - Recipe from [BBC Good Food](https://www.bbcgoodfood.com/recipes/lighter-spaghetti-meatballs)
 
 - Chicken Provençal image and recipe from [The Modern Proper](https://themodernproper.com/chicken-provencal)
+
 - Beef Wellington image by [Chanwit Voraakan](https://pixabay.com/users/pzphone-1813175/) recipe from [BBC Good Food](https://www.bbcgoodfood.com/recipes/beef-wellington)
+  
+- photo credit: *_* <a href="http://www.flickr.com/photos/22539273@N00/30353488223">Katsu Curry @ Nagoya @ Montparnasse @ Paris</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by/2.0/">(license)</a>
+  
+- Katsu Curry Recipe from [BBC Good Food](https://www.bbcgoodfood.com/recipes/you-it-katsu-curry)
+  
   </details>
 
 General:

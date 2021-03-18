@@ -1,14 +1,16 @@
-from flask import session
+"""
+Exposes some simple functions for common tasks.
+"""
 from secrets import token_urlsafe
 from urllib.parse import urlparse
-from datetime import date, datetime
+from flask import session
 
 def user_logged_in():
     """Returns whether a user is currently logged in"""
     if session.get("user") is None:
         return False
-    else:
-        return True
+
+    return True
 
 
 def log_user_in(user):
@@ -37,14 +39,15 @@ def calculate_rating(rating):
 
     if weight > 0 and cumulative > 0:
         return cumulative / weight
-    else:
-        return 0
+
+    return 0
 
 
-def compile_recipe_record(form_data, recipe = {}, new_pageid = True):
+def compile_recipe_record(form_data, recipe = None, new_pageid = True):
     """Creates a new recipe record from formdata and any existing recipe document"""
     #carry over any existing values that shouldn't be reset
-    if recipe == {}:
+    if recipe is None:
+        recipe = {}
         new_pageid = True
         rating = [0.0,0,0,0,0,0]
         comments = []

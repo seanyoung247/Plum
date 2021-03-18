@@ -1,14 +1,17 @@
+"""
+Defines plum recipe's main server code. Flask initialisation,
+database interface, and server routes.
+"""
+
 import os
 from flask import ( Flask, flash, render_template, redirect,
                     request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from secrets import token_urlsafe
-from urllib.parse import urlparse
-from datetime import date, datetime
 
-from helpers import *
+from helpers import ( user_logged_in, log_user_in, log_user_out,
+                      calculate_rating, compile_recipe_record)
 from decorators import requires_logged_in_user, requires_user_not_logged_in
 if os.path.exists("env.py"):
     import env
@@ -104,11 +107,12 @@ def search():
             if pages["total_items"] > 0:
                 #calculates the first and last items shown by the current page
                 pages["first_item"] = (pages["current_page"] * pages["items_per_page"]) + 1
-                last_item = (pages["current_page"] * pages["items_per_page"]) + pages["items_per_page"]
+                last_item = ( (pages["current_page"] * pages["items_per_page"]) +
+                    pages["items_per_page"] )
+                pages["last_item"] = pages["total_items"]
                 if last_item < pages["total_items"]:
                     pages["last_item"] = last_item
-                else:
-                    pages["last_item"] = pages["total_items"]
+
                 #Get the page
                 recipes = mongo.db.recipes.find(query).skip(
                     pages["current_page"] * items_per_page).limit(items_per_page)
@@ -116,30 +120,31 @@ def search():
 
     #Get the cuisines for the category search
     cuisines = list(mongo.db.cuisines.find().sort("name", 1))
-    return render_template("search.html", cuisines=cuisines, query=form_query, pages=pages, recipes=recipes)
+    return render_template("search.html", cuisines=cuisines, query=form_query,
+        pages=pages, recipes=recipes)
 
 
 @app.route("/recipe/<pageid>")
 def recipe(pageid):
     """Shows the recipe page for the pageid passed."""
-    recipe = mongo.db.recipes.find_one({"pageid": pageid})
+    recipe_record = mongo.db.recipes.find_one({"pageid": pageid})
 
-    if recipe: #Valid recipe found
+    if recipe_record: #Valid recipe found
         #if a user is logged in, get user/recipe interation (if any)
         interaction = {}
         if user_logged_in():
             interaction = mongo.db.ratings.find_one({
                 "user_id"   : ObjectId(session['userid']),
-                "recipe_id" : recipe['_id']
+                "recipe_id" : recipe_record['_id']
             })
         #if the user hasn't interacted with this recipe yet, provide a dummy
         #interaction to populate favorite and rating with default values
         if not interaction:
             interaction = {"rating" : 0, "favorited" : False}
 
-        return render_template("recipe.html", recipe=recipe, interaction=interaction)
-    else: #No recipe found
-        return abort(404)
+        return render_template("recipe.html", recipe=recipe_record, interaction=interaction)
+
+    return abort(404)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -149,18 +154,18 @@ def add_recipe():
 
     if request.method == "POST":
         #construct new recipe record
-        recipe = compile_recipe_record(request.form)
-        result = mongo.db.recipes.insert_one(recipe)
+        recipe_record = compile_recipe_record(request.form)
+        result = mongo.db.recipes.insert_one(recipe_record)
         #Add new recipe to user record
         recipe_token = {
             "_id"    : str(result.inserted_id),
-            "title"  : recipe['title'],
-            "pageid" : recipe['pageid'],
-            "image"  : recipe['image']
+            "title"  : recipe_record['title'],
+            "pageid" : recipe_record['pageid'],
+            "image"  : recipe_record['image']
         }
         mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
             {"$push" : {"recipes" : recipe_token}})
-        return redirect(url_for("recipe", pageid=recipe['pageid']))
+        return redirect(url_for("recipe", pageid=recipe_record['pageid']))
 
     #Page specific variables
     page = {
@@ -168,7 +173,7 @@ def add_recipe():
         "route": url_for("add_recipe")
     }
     #Dummy recipe values
-    recipe = {
+    recipe_record = {
         "_id" : "none",
         "title" : "",
         "description" : "",
@@ -180,7 +185,7 @@ def add_recipe():
     }
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
-    return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
+    return render_template("edit_recipe.html", page=page, recipe=recipe_record, cuisines=cuisines)
 
 
 @app.route("/edit_recipe/<pageid>", methods=["GET", "POST"])
@@ -189,22 +194,22 @@ def edit_recipe(pageid):
     """Shows the edit recipe form and adds changes to existing recipe document."""
 
     #Get the recipe to be edited
-    recipe = mongo.db.recipes.find_one({"pageid": pageid})
+    recipe_record = mongo.db.recipes.find_one({"pageid": pageid})
     #If the recipe can't be found, raise not found error
-    if not recipe:
+    if not recipe_record:
         return abort(404)
 
     #Check the currently logged in user has rights to edit this recipe
-    if (session['user'] != recipe['author'] and session['userrole'] != "admin"):
+    if (session['user'] != recipe_record['author'] and session['userrole'] != "admin"):
         flash("You don't have authorisation to edit this recipe", category="error")
         return redirect(url_for("home"))
 
     if request.method == "POST":
         #Update the recipe record
-        recipe = compile_recipe_record(request.form, recipe,
-            ( recipe['title'] != request.form.get('title') ))
-        mongo.db.recipes.replace_one({"pageid" : pageid}, recipe)
-        return redirect(url_for("recipe", pageid=recipe['pageid']))
+        recipe_record = compile_recipe_record(request.form, recipe_record,
+            ( recipe_record['title'] != request.form.get('title') ))
+        mongo.db.recipes.replace_one({"pageid" : pageid}, recipe_record)
+        return redirect(url_for("recipe", pageid=recipe_record['pageid']))
 
     #Page specific variables
     page = {
@@ -213,14 +218,17 @@ def edit_recipe(pageid):
     }
     #Get the cuisines list (to populate the cuisines selector)
     cuisines = mongo.db.cuisines.find().sort("name", 1)
-    return render_template("edit_recipe.html", page=page, recipe=recipe, cuisines=cuisines)
+    return render_template("edit_recipe.html", page=page, recipe=recipe_record, cuisines=cuisines)
 
 
 @app.route("/delete_recipe", methods=["POST"])
 @requires_logged_in_user
 def delete_recipe():
     """ Deletes a given recipe from the database """
+    #Remove the recipe
     mongo.db.recipes.delete_one({"_id" : ObjectId(request.form["recipeId"])})
+    #Remove any pre-existing interactions
+    mongo.db.ratings.delete_many({"recipe_id" : ObjectId(request.form["recipeId"])})
 
     flash("Recipe {title} deleted!".format(title=request.form["recipeTitle"]),
         category="success")
@@ -250,8 +258,8 @@ def profile(username):
         ]))
 
         return render_template("user_profile.html", user=user, recipes=recipes, favorites=favorites)
-    else:
-        return abort(404)
+
+    return abort(404)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -268,18 +276,18 @@ def register():
             return redirect(url_for("login"))
 
         #Ensure there's no typos in the password field:
-        if (request.form.get("password") != request.form.get("password-confirm")):
+        if request.form.get("password") != request.form.get("password-confirm"):
             flash("Passwords don't match!", category="warning")
             return redirect(url_for("login"))
 
-        register = {
+        user_record = {
             "name"     : request.form.get("username").lower(),
             "password" : generate_password_hash(request.form.get("password")),
             "role"     : "user"
         }
         #register user and add them to the session cookie
-        register["_id"] = mongo.db.users.insert_one(register).inserted_id
-        log_user_in(register)
+        user_record["_id"] = mongo.db.users.insert_one(user_record).inserted_id
+        log_user_in(user_record)
 
         flash("User " + session["user"] + " registered!", category="info")
         return redirect(url_for("home"))
@@ -302,12 +310,12 @@ def login():
                 log_user_in(existing_user)
                 flash("User " + session["user"] + " Logged in!", category="info")
                 return redirect(url_for("home"))
-            else:
-                flash("Incorrect username or password", category="warning")
-                return redirect(url_for("login"))
-        else:
+
             flash("Incorrect username or password", category="warning")
             return redirect(url_for("login"))
+
+        flash("Incorrect username or password", category="warning")
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -350,8 +358,8 @@ def ajax_rating():
         #What is the current rating provided by the user?
         old_rating = existing_interaction['rating']
         #Get the recipe record
-        recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
-        rating = recipe['rating']
+        recipe_record = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        rating = recipe_record['rating']
         #Remove old rating vote and add the new one
         if rating[old_rating] > 0:
             rating[old_rating] -= 1
@@ -371,12 +379,12 @@ def ajax_rating():
             existing_interaction['rating'] = new_rating
             result = mongo.db.ratings.update_one({"_id" : existing_interaction['_id']},
                 {"$set" : {"rating" : new_rating}})
-            response["success"] = True;
+            response["success"] = True
 
     else:                       #User has not rated this recipe before
         #Get the recipe's current rating
-        recipe = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
-        rating = recipe['rating']
+        recipe_record = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        rating = recipe_record['rating']
         #Update with the new vote and calculate the new average
         rating[new_rating] += 1
         rating[0] = calculate_rating(rating)
@@ -397,7 +405,7 @@ def ajax_rating():
                 "favorited" : False
             }
             mongo.db.ratings.insert_one(interaction)
-            response["success"] = True;
+            response["success"] = True
 
     response["response"] = new_rating
     return response
@@ -512,7 +520,7 @@ def ajax_checkusername():
 def not_found_error(error):
     """Called when a page can't be found."""
     #temporary error handling - just returns to home page with flash message
-    flash("Page not found: 404", category="error")
+    flash(str(error), category="error")
     return redirect(url_for("home"))
 
 

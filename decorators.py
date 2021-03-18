@@ -1,6 +1,11 @@
+"""
+Exposes custom decorators to simplify some defensive programming tasks.
+"""
+
 from functools import wraps
-from flask import ( Flask, flash, redirect, url_for, abort)
-from helpers import *
+from flask import flash, redirect, url_for
+from helpers import user_logged_in
+
 
 
 def requires_logged_in_user(func):
@@ -10,10 +15,10 @@ def requires_logged_in_user(func):
         if user_logged_in():
             #If a user is logged in proceed with function
             return func(*args, **kwargs)
-        else:
-            #If user is not logged in, redirect to login page with error message
-            flash("You need to be logged in to access that page!", category="error")
-            return redirect(url_for("login"))
+
+        #If user is not logged in, redirect to login page with error message
+        flash("You need to be logged in to access that page!", category="error")
+        return redirect(url_for("login"))
 
     return route
 
@@ -25,9 +30,9 @@ def requires_user_not_logged_in(func):
         if not user_logged_in():
             #If no user logged in, call the function
             return func(*args, **kwargs)
-        else:
-            #If user is logged in, redirect to home with error message
-            flash("User logged in!", category="error")
-            return redirect(url_for("home"))
+
+        #If user is logged in, redirect to home with error message
+        flash("User logged in!", category="error")
+        return redirect(url_for("home"))
 
     return route

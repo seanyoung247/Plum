@@ -10,7 +10,7 @@ $( "#recipe_rating_form" ).submit(function(event) {
   submitFormAJAX(event, ratingSuccess);
   // Stop reading star rating while server deals with request
   $( "input", this ).prop('disabled', true);
-  $( ".star-rating-ctl", this ).addClass('disabled')
+  $( ".star-rating-ctl", this ).addClass('disabled');
   // Show spinner to indicate users request is being dealt with
   $( ".preloader-wrapper", this ).removeClass("hide");
 });
@@ -37,7 +37,7 @@ $( ".star-rating-ctl" ).focusout(function(event) {
 function ratingSuccess(response) {
   // Stop reading star rating while server deals with request
   $( "input", "#recipe_rating_form" ).prop('disabled', false);
-  $( ".star-rating-ctl", "#recipe_rating_form" ).removeClass('disabled')
+  $( ".star-rating-ctl", "#recipe_rating_form" ).removeClass('disabled');
   // Show spinner to indicate users request is being dealt with
   $( ".preloader-wrapper", "#recipe_rating_form" ).addClass("hide");
   //TODO: Update rating display element
@@ -91,7 +91,7 @@ function commentSuccess(response) {
             <i class="material-icons">delete_outline</i>
           </a>
         </div>
-      </div>`
+      </div>`;
 
   $( "#recipe_comments_wrapper" ).append(commentHTML);
 }
@@ -145,7 +145,7 @@ $( "#steps .add-list-item" ).click(function(event) {
 
 // Shows the current selected image in the image box
 $( "#recipe_image_url" ).on('change', function(event) {
-  $( '#recipe_header_image' ).prop("src", $( this ).val())
+  $( '#recipe_header_image' ).prop("src", $( this ).val());
 });
 
 // cloudinary callback. Sets upload image url input
