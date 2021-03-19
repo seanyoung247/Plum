@@ -31,7 +31,7 @@ def encode_time(time):
     """ Converts a time string in HH:MM format into minutes """
     time_list = time.split(":")
     if len(time_list) >= 2:
-        return ( (int(time_list[0]) * 60) + int(time_list[1]) )
+        return (int(time_list[0]) * 60) + int(time_list[1])
 
     return 0
 
