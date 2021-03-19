@@ -217,7 +217,8 @@ A Final sanity check was done with the student check list to ensure the site fit
 
 ## Solved Issues
 
-#### 404 when opening login page when user logged in
+<details>
+<summary><h4>404 when opening login page when user logged in</h4></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/5). If a user is already logged in and tries to open the login page the website raises a 404 error.
 
@@ -228,10 +229,10 @@ Missing url_for in redirect
 **Resolution**
 
 [Fix: Fixes 404 error from login page when user already logged in](https://github.com/seanyoung247/Plum/commit/48d99c929fc639fb840b948ceb74c05125b0ff3c)
+</details>
 
-
-
-#### Recipe page layout broken on small screens
+<details>
+<summary><h4>Recipe page layout broken on small screens</h4></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/6). Page layout breaks when using Google Chrome's responsive layout test.
 
@@ -242,10 +243,10 @@ Fault in either Google Chrome or Materialize.
 **Resolution**
 
 Not applicable.
+</details>
 
-
-
-#### Exception on registering new user
+<details>
+<summary><h4>Exception on registering new user</h4></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/7). Exception raised when registering new user.
 
@@ -256,10 +257,10 @@ User not being added properly to session cookie after registration.
 **Resolution**
 
 [Fix: Fixes exception on registering new user](https://github.com/seanyoung247/Plum/commit/715e6082fe0249b77427f4768a93af4d3bb59e8d)
+</details>
 
-
-
-#### Admin editing another users recipe changes recipe author
+<details>
+<summary><h4> Admin editing another users recipe changes recipe author</h4>
 
 [Link](https://github.com/seanyoung247/Plum/issues/13). Admin user overwrites original author field.
 
@@ -270,10 +271,10 @@ Author field overwritten when updating recipe record
 **Resolution**
 
 [Fix: Prevents overwriting author when editing a recipe](https://github.com/seanyoung247/Plum/commit/769cca4aee720263c1868fa3bc02b0d66a1b8226)
+</details>
 
-
-
-#### On refresh horizontal scroller is offset vertically by to bottom of the page
+<details>
+<summary><h4>On refresh horizontal scroller is offset vertically by to bottom of the page</h4></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/15). Firefox offsets contents.
 
@@ -284,11 +285,10 @@ Scroll-item being set to 100% height.
 **Resolution**
 
 [Fix: Fixes firefox layout issue of horizontal scroller](https://github.com/seanyoung247/Plum/commit/00b358e11f80abb1bfb0b158ce4d1775b60360ac)
+</details>
 
-
-
-#### Using the time picker in the search form gives an error message
-
+<details>
+<summary><h4>Using the time picker in the search form gives an error message</h4></summary>
 [Link](https://github.com/seanyoung247/Plum/issues/32). The following error is displayed in the console when using the time-picker component:
 `[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.`
 
@@ -299,3 +299,4 @@ Appears to be issue within materialize. Possibly using a passive scroll event li
 **Resolution**
 
 Not Applicable
+</details>
