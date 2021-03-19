@@ -1,17 +1,33 @@
 /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/*
  * Search page styles
  */
 .row.line-spacing-5 {
   margin-bottom: 5px;
 }
 #basic_search_pane {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 #advanced_search_toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 #advanced_search_toggle a {
   text-decoration: none;
@@ -28,11 +44,15 @@
   border-bottom: 1px solid #8E4585;
 
   max-height: 0;
+  -webkit-transition: max-height 0.5s ease-in;
+  -o-transition: max-height 0.5s ease-in;
   transition: max-height 0.5s ease-in;
 }
 #advanced_search_pane.show {
   display: block;
   max-height: 300px;
+  -webkit-transition: max-height 0.5s ease-in;
+  -o-transition: max-height 0.5s ease-in;
   transition: max-height 0.5s ease-in;
 }
 /* These classes allow overflow of the advanced search panel,
@@ -40,9 +60,16 @@
    delay the overflow property change, so that contents remain
    clipped until after the search panel has extended. */
 #advanced_search_pane.allow-overflow {
-  animation: delay-overflow 0.5s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+  -webkit-animation: delay-overflow 0.5s;
+          animation: delay-overflow 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes delay-overflow {
+  from {overflow: hidden;}
+  to {overflow: visible;}
 }
 @keyframes delay-overflow {
   from {overflow: hidden;}
@@ -57,8 +84,12 @@
   font-size: 35px;
 }
 .search-pages-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .search-pages-btn {
   background: none;
@@ -116,7 +147,6 @@
 .search-pages-btn.break-point1,
 .search-pages-btn.break-point2,
 .search-pages-btn.break-point3,
-.search-pages-btn.break-point4,
 .more-indicator.always_show.adjacent,
 .more-indicator.break-point2.adjacent,
 .more-indicator.break-point3.adjacent {
@@ -124,9 +154,14 @@
 }
 
 .search-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .search-result {
   display: inline-block;

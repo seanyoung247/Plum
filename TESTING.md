@@ -5,7 +5,14 @@
 ## Contents
 
 - [Automated Testing](#Automated-Testing)
+  - [Validation](#Validation)
+  - [Python unit tests](#Python-unit-tests)
 - [Manual Testing](#Manual-Testing)
+  - [Testing Environments](#Testing-Environments)
+  - [Testing Methodology](#Testing-Methodology)
+  - [Unit Testing](#Unit-Testing)
+  - [Peer Code Review](#Peer-Code-Review)
+  - [Student Checklist](#Student-Checklist)
 - [Solved Issues](#Solved-Issues)
 - [Known Issues](#Known-Issues)
 
@@ -132,7 +139,7 @@ Automated unit testing was performed on functions suitable for it:
 
 
 
-To perform automated testing, from the project root direct type:
+To perform automated testing, from the project root directory type:
 
 python test.py
 
@@ -150,9 +157,43 @@ OK
 
 ### Testing Environments
 
+Primary iterative testing was undertaken on a Windows 10 desktop machine with the Google Chrome browser. Once a feature was considered complete it was tested in other environments.
+
+**Desktop testing**
+
+- Platforms:
+  - Custom Desktop (Windows 10, Fedora 33)
+  - Microsoft SurfaceBook 2 (Windows 10)
+  - Apple MacBook Air M1 (macOS Big Sur 11.2.2)
+- Browsers:
+  - Google Chrome/Chromium
+  - Microsoft Edge
+  - Firefox
+  - Opera
+  - Safari
+
+**Tablet testing**
+
+- Platforms:
+  - Lenovo Tab M10 (Android 10)
+- Browsers:
+  - Google Chrome
+  - Firefox
+  - Opera
+
+**Mobile testing**
+
+- Platforms:
+  - OnePlus7 (Android 10)
+  - Samsung Galaxy J6 (Android 10)
+- Browsers:
+  - Chrome
+  - FireFox
+  - Opera
+
 ### Testing Methodology
 
-Code changes were tested prior to committing and pushing to github on the local machine. This was in an attempt to prevent faulty or broken code from being pushed to the repository or deployed to the live site. On occasions where bugs were missed in testing an issue was opened on github if appropriate. Issues were not raised for bugs arising from known feature incomplete code committed to github, as this information was captured in the coding to-do lists. This approach kept most bugs from being uploaded, with only a few cases of bugs either too complex to be fixed for the current release, or those that introduced regressions in existing code being uploaded.
+Code changes were tested prior to committing and pushing to github on the local machine. This was in an attempt to prevent faulty or broken code from being pushed to the repository or deployed to the live site. Further, new features were pushed to a separate branch, which wasn't merged to main and deployed to the live site until tested. On occasions where bugs were missed in testing an issue was opened on github if appropriate. Issues were not raised for bugs arising from known feature incomplete code committed to github, as this information was captured in the coding to-do lists. This approach kept most bugs from being uploaded, with only a few cases of bugs either too complex to be fixed for the current release, or those that introduced regressions in existing code being uploaded.
 
 ### Unit Testing
 

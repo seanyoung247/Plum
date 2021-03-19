@@ -538,6 +538,8 @@ The site also uses the following JavaScript files for dynamic functionality:
   - Used to store and serve recipe images and handle image uploading.
 - [Coolors](https://coolors.co/)
   - Used to help define the site colour scheme.
+- [Autoprefixer](https://autoprefixer.github.io/)
+  - Used to ensure backwards CSS compatibility with legacy browsers.
 
 ### Platforms
 

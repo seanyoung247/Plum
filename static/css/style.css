@@ -1,10 +1,10 @@
 /*
-Colours:
-  Main Brand Colour (Sap Green)  : #3F7D20 : rgb(63,125,32)
-  Accent Colour (Plum purple)    : #8E4585 : rgb(142,69,133)
-  Background Colour (Honeydew)   : #F3FCF0 : rgb(243,252,240)
-  Main text colour (Rich Black)  : #0D0A0B : rgb(13,10,11)
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
 */
+
 /*
  * Global styles
  */
@@ -15,14 +15,26 @@ body, html {
 }
  /*Forces body to full height so footer can be positioned to bottom*/
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   min-height: 100vh;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: 1 0 auto;
-  flex-flow: column nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
 }
 /* Ensures there's a little space between the content and the header and footer.
    Scales to screen size so small screens don't have a lot of wasted space. */
@@ -37,6 +49,8 @@ h1, h2, h3, h4, h5, h6 {
 hr.section-divider {
   border: 0;
   height: 1px;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(142,69,133,0)), color-stop(rgba(142,69,133,1)), to(rgba(142,69,133,0)));
+  background-image: -o-linear-gradient(left, rgba(142,69,133,0), rgba(142,69,133,1), rgba(142,69,133,0));
   background-image: linear-gradient(to right, rgba(142,69,133,0), rgba(142,69,133,1), rgba(142,69,133,0));
 }
 .section-header {
@@ -82,7 +96,8 @@ ul.dropdown-content.select-dropdown li span {
 .input-field input[type="password"]:not(.browser-default):focus,
 .input-field textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #8E4585;
-  box-shadow: 0 1px 0 0 #8E4585;
+  -webkit-box-shadow: 0 1px 0 0 #8E4585;
+          box-shadow: 0 1px 0 0 #8E4585;
 }
 /*
  * Header and Navigation
@@ -134,22 +149,38 @@ ul.user-dropdown li > a {
   width: 90vw;
   top: 50px;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   margin: 0;
   z-index: 1;
 }
 .flash-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0 0 5px #0D0A0B;
+  -webkit-box-shadow: 0 0 5px #0D0A0B;
+          box-shadow: 0 0 5px #0D0A0B;
   margin: 0 0 10px 0;
   overflow: hidden;
-  animation: grow 0.5s;
+  -webkit-animation: grow 0.5s;
+          animation: grow 0.5s;
 }
 .flash-message:first-child {
   padding-top: 5px;
+}
+@-webkit-keyframes grow {
+  from {
+    height: 0;
+  }
+  to {
+    height: 45px;
+  }
 }
 @keyframes grow {
   from {
@@ -180,6 +211,8 @@ ul.user-dropdown li > a {
   border: 1px solid #31708F;
 }
 .flash-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border-radius: 5px 0 0 5px;
   background-color: white;
@@ -188,20 +221,31 @@ ul.user-dropdown li > a {
   font-size: 40px;
 }
 .flash-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   text-align: center;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .flash-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   cursor: pointer;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 5px;
 }
 .flash-close:hover {
   border-radius: 50%;
-  box-shadow: 0 0 5px #0D0A0B;
+  -webkit-box-shadow: 0 0 5px #0D0A0B;
+          box-shadow: 0 0 5px #0D0A0B;
 }
 .flash-close i {
   font-size: 25px;
@@ -273,7 +317,8 @@ ul.user-dropdown li > a {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   background-color: #8E4585;
 }
 /*Makes the card-title only 2 lines high and hides any overflow*/
@@ -282,7 +327,8 @@ ul.user-dropdown li > a {
   line-height: 1em;
   height: 2.8em;
   overflow: hidden;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   font-size: 20px;
   color: #8E4585;
 }
@@ -302,7 +348,8 @@ ul.user-dropdown li > a {
  * Icons tiles
  */
 .item-tile {
-  box-shadow: 1px 1px 5px #0D0A0B;
+  -webkit-box-shadow: 1px 1px 5px #0D0A0B;
+          box-shadow: 1px 1px 5px #0D0A0B;
   position: absolute;
   top: 0;
   left: 0;
@@ -312,7 +359,8 @@ ul.user-dropdown li > a {
 }
 .tile-image {
   position: relative;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100%;
   width: 100%;
 }
@@ -324,6 +372,8 @@ ul.user-dropdown li > a {
   left: 0;
   bottom: 0;
   right: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, rgba(13,10,11,0.0)), to(#0D0A0B));
+  background-image: -o-linear-gradient(rgba(13,10,11,0.0) 25%, #0D0A0B 100%);
   background-image: linear-gradient(rgba(13,10,11,0.0) 25%, #0D0A0B 100%);
 }
 .tile-title {
@@ -450,13 +500,17 @@ li.scroll-item {
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 .scroller .scroll-right {
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 /*
  * Media Queries
@@ -481,8 +535,12 @@ li.scroll-item {
   /* Makes header content vertically centred when header
      image and text are side-by side */
   .recipe-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      align-items: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
   }
   /* prevents overflowing header when image
      and title are side by side */
