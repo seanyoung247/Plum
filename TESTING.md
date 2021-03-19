@@ -14,7 +14,6 @@
   - [Peer Code Review](#Peer-Code-Review)
   - [Student Checklist](#Student-Checklist)
 - [Solved Issues](#Solved-Issues)
-- [Known Issues](#Known-Issues)
 
 ## Automated Testing
 
@@ -136,17 +135,20 @@ search page
 Automated unit testing was performed on functions suitable for it:
 
 - calculate_rating
+- encode_time
+- calculate_pages
 
 
 
 To perform automated testing, from the project root directory type:
 
-python test.py
+`python test.py`
 
 ```
-.
+>python test.py
+...
 ----------------------------------------------------------------------
-Ran 1 test in 0.000s
+Ran 3 tests in 0.000s
 
 OK
 ```
@@ -207,7 +209,7 @@ Final UI testing was conducted prior to submission to confirm the UI fulfilled t
 
 ### Peer Code Review
 
-The project was submitted to peer review on the code institute slack [channel]().
+The project was submitted to peer review on the code institute slack [channel](https://code-institute-room.slack.com/archives/CGWQJQKC5/p1616189018032700).
 
 ### Student Checklist
 
@@ -215,4 +217,85 @@ A Final sanity check was done with the student check list to ensure the site fit
 
 ## Solved Issues
 
-## Known Issues
+#### 404 when opening login page when user logged in
+
+[Link](https://github.com/seanyoung247/Plum/issues/5). If a user is already logged in and tries to open the login page the website raises a 404 error.
+
+**Cause**
+
+Missing url_for in redirect
+
+**Resolution**
+
+[Fix: Fixes 404 error from login page when user already logged in](https://github.com/seanyoung247/Plum/commit/48d99c929fc639fb840b948ceb74c05125b0ff3c)
+
+
+
+#### Recipe page layout broken on small screens
+
+[Link](https://github.com/seanyoung247/Plum/issues/6). Page layout breaks when using Google Chrome's responsive layout test.
+
+**Cause**
+
+Fault in either Google Chrome or Materialize.
+
+**Resolution**
+
+Not applicable.
+
+
+
+#### Exception on registering new user
+
+[Link](https://github.com/seanyoung247/Plum/issues/7). Exception raised when registering new user.
+
+**Cause**
+
+User not being added properly to session cookie after registration.
+
+**Resolution**
+
+[Fix: Fixes exception on registering new user](https://github.com/seanyoung247/Plum/commit/715e6082fe0249b77427f4768a93af4d3bb59e8d)
+
+
+
+#### Admin editing another users recipe changes recipe author
+
+[Link](https://github.com/seanyoung247/Plum/issues/13). Admin user overwrites original author field.
+
+**Cause**
+
+Author field overwritten when updating recipe record
+
+**Resolution**
+
+[Fix: Prevents overwriting author when editing a recipe](https://github.com/seanyoung247/Plum/commit/769cca4aee720263c1868fa3bc02b0d66a1b8226)
+
+
+
+#### On refresh horizontal scroller is offset vertically by to bottom of the page
+
+[Link](https://github.com/seanyoung247/Plum/issues/15). Firefox offsets contents.
+
+**Cause**
+
+Scroll-item being set to 100% height.
+
+**Resolution**
+
+[Fix: Fixes firefox layout issue of horizontal scroller](https://github.com/seanyoung247/Plum/commit/00b358e11f80abb1bfb0b158ce4d1775b60360ac)
+
+
+
+#### Using the time picker in the search form gives an error message
+
+[Link](https://github.com/seanyoung247/Plum/issues/32). The following error is displayed in the console when using the time-picker component:
+`[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.`
+
+**Cause**
+
+Appears to be issue within materialize. Possibly using a passive scroll event listener.
+
+**Resolution**
+
+Not Applicable
