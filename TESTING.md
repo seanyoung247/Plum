@@ -138,6 +138,8 @@ Automated unit testing was performed on functions suitable for it:
 - encode_time
 - calculate_pages
 
+Automated tests also check correct responses from the flask app routes:
+
 
 
 To perform automated testing, from the project root directory type:
