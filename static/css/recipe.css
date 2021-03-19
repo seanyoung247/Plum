@@ -1,4 +1,11 @@
 /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/*
  * Recipe Page Styles
  */
 .recipe-header {
@@ -125,19 +132,37 @@ ol.collection input:checked + label .collection-item::before
   margin-bottom: 50px;
 }
 .comment-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   margin: 25px 10px;
 }
 .comment-author {
-  flex: 1;
-  flex-basis: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .comment-author > a {
   text-decoration: none;
@@ -153,11 +178,15 @@ ol.collection input:checked + label .collection-item::before
   top: 0;
 }
 .comment-box {
-  flex: 1;
-  flex-basis: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
   position: relative;
   background-color: white;
-  box-shadow: 0 0 5px #0D0A0B;
+  -webkit-box-shadow: 0 0 5px #0D0A0B;
+          box-shadow: 0 0 5px #0D0A0B;
   border-radius: 25px 25px 25px 25px;
 }
 
@@ -232,17 +261,25 @@ input#recipe_image {
 /* Tablet screens 600px - 991px */
 @media only screen and (min-width: 600px) {
   .comment-author {
-    flex: 1;
-    flex-basis: 25%;
-    justify-content: flex-end;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
   .delete-comment {
     right: 0;
     top: 0;
   }
   .comment-box {
-    flex: 1;
-    flex-basis: 74%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -ms-flex-preferred-size: 74%;
+        flex-basis: 74%;
     margin-left: 1%;
     border-radius: 2px 25px 25px 25px;
   }
@@ -250,20 +287,26 @@ input#recipe_image {
 /* Desktop screens 992px - 1199px */
 @media only screen and (min-width: 992px) {
   .comment-author {
-    flex: 1;
-    flex-basis: 20%;
-    justify-content: flex-end;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
   .delete-comment {
     right: 0;
     top: 0;
   }
   .comment-box {
-    flex: 1;
-    flex-basis: 79%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -ms-flex-preferred-size: 79%;
+        flex-basis: 79%;
     margin-left: 1%;
     border-radius: 2px 25px 25px 25px;
   }
 }
-/* Large Desktop screens > 1200px */
-/*@media only screen and (min-width: 992px) {}*/
