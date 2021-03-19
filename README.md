@@ -78,7 +78,6 @@ The project goal is to produce a recipe sharing website that allows users to sha
 **Administration**
 
 - (US012) - As an admin I want to be able to edit content to ensure it adheres to site rules.
-- (US013) - As an admin I want to be able to add cuisine categories so users can search efficiently.
 
 **General**
 
@@ -90,7 +89,7 @@ The project goal is to produce a recipe sharing website that allows users to sha
 
 #### ![Plum ERD_Page_2](dev/mockups/plum_erd.png)
 
-[(PDF)](dev/mockups/plum_erd.pdf)
+[(PDF)](dev/mockups/plum_erd.pdf) [(dbdiagram)](https://dbdiagram.io/d/604bd233fcdcb6230b23ec14)
 
 #### Indexes
 
@@ -166,10 +165,11 @@ The project goal is to produce a recipe sharing website that allows users to sha
 ##### Browsing
 
 <details>
-<summary><b>Find the 8 newest recipes (for US001):</b></summary>
+<summary><b>Find the newest recipes (for US001):</b></summary>
 
 ```mongodb
-plumdb.recipes.find().sort(_id, -1).limit(8)
+plumdb.recipes.find().sort(_id, -1).skip(
+	current_page * items_per_page).limit(items_per_page)
 ```
 </details>
 
@@ -349,10 +349,6 @@ mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
 
 
 
-##### Administration
-
-TODO: Administration database queries here
-
 ### Fonts
 
 Headers are rendered using [Open Sans](https://fonts.google.com/specimen/Open+Sans) with body text in [Roboto](https://fonts.google.com/specimen/Roboto). Open Sans was chosen for headers because it is bold and clear, while Roboto is easy to read and widely used on the web. Both are obtained from Google Fonts.
@@ -401,21 +397,22 @@ The site allows users to upload new recipes and edit their existing ones. Users 
 - (**US010**): New users can register on the site from the log on page
 - (**US011**): Registered users can log in to the site from the log on page
 - (**US012**): The site allows admin users to:
-  - Edit any recipe from it's page
-  - Delete any recipe from it's page
+  - Edit any recipe from its page
+  - Delete any recipe from its page
   - Delete any comment
-- (**US014**): The site provides multiple feedback mechanisms:
+- (**US013**): The site provides multiple feedback mechanisms:
   - Flash messages from the server provides information, warning and error messages raised during backend operations.
   - Forms indicate required fields with warning messages on submit.
   - Forms provide validation warnings through colour cues and messages on the form field.
   - Interactive site components react to user actions with hover cues.
-  - Recipe ingredients can be "checked" to indicate usage or availability.
+  - Recipe ingredients in the recipe ingredient list indicate usage or availability.
   - Recipe steps can be highlighted to indicate the user's current progress.
 
 ### Future Features
 
-- (**US013**): There is currently no facility to add cuisine categories within the website.
 - (**US012**): Admin panel to simplify administration tasks.
+- (**US012**): User accounts can't be suspended.
+- (**US013**): A custom 404 error page to help users find content if url is mis-linked/typed.
 - User password can't be changed. Related to (**US010 and US011**).
 - (**US007, US008, US009**): Rich text input for comments and recipe text.
 

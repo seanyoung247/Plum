@@ -27,6 +27,40 @@ def log_user_out():
     session.pop("userrole")
 
 
+def encode_time(time):
+    """ Converts a time string in HH:MM format into minutes """
+    time_list = time.split(":")
+    if len(time_list) >= 2:
+        return ( (int(time_list[0]) * 60) + int(time_list[1]) )
+
+    return 0
+
+
+def calculate_pages(total_items, current_page, items_per_page):
+    """ Calculates page details for result pagination """
+    pages = {
+        "items_per_page" : items_per_page,
+        "current_page" : current_page,
+        "total_items" : total_items,
+        "page_count" : 0,
+        "first_item" : 0,
+        "last_item" : 0
+    }
+    if total_items > 0:
+        pages["page_count"] = int(pages["total_items"] / pages["items_per_page"])
+
+        #calculates the first and last items shown by the current page
+        pages["first_item"] = (pages["current_page"] * pages["items_per_page"]) + 1
+        last_item = ( (pages["current_page"] * pages["items_per_page"]) +
+            pages["items_per_page"] )
+
+        pages["last_item"] = pages["total_items"]
+        if last_item < pages["total_items"]:
+            pages["last_item"] = last_item
+
+    return pages
+
+
 def calculate_rating(rating):
     """Calculates overall rating from rating array."""
     #Uses a simple averaging formula. A refinement could be to replace this with
@@ -66,7 +100,6 @@ def compile_recipe_record(form_data, recipe = None, new_pageid = True):
         pageid = recipe['pageid']
 
     #construct new recipe record
-    time = form_data.get("time").split(":")
     recipe = {
         "pageid" : pageid,
         "title" : form_data.get('title'),
@@ -74,7 +107,7 @@ def compile_recipe_record(form_data, recipe = None, new_pageid = True):
         "description" : form_data.get('description'),
         "image" : form_data.get('image'),
         "cuisine" : form_data.get('cuisine'),
-        "time" : ( (int(time[0]) * 60) + int(time[1]) ),
+        "time" : encode_time(form_data.get("time")),
         "servings" : int(form_data.get('servings')),
         "rating" : rating,
         "ingredients" : form_data.getlist('ingredients'),

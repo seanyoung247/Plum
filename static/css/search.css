@@ -99,6 +99,30 @@
 .search-pages-count {
   text-align: center;
 }
+.more-indicator {
+  vertical-align: bottom;
+}
+/* These classes hide and shows pagination buttons depending on screen
+   size and how close they are to the current page. */
+.search-pages-btn.end-point,
+.more-indicator.always_show,
+.more-indicator.break-point1,
+.more-indicator.break-point2,
+.more-indicator.break-point3 {
+  display: inline-block;
+}
+.more-indicator.active,
+.more-indicator.end-point,
+.search-pages-btn.break-point1,
+.search-pages-btn.break-point2,
+.search-pages-btn.break-point3,
+.search-pages-btn.break-point4,
+.more-indicator.always_show.adjacent,
+.more-indicator.break-point2.adjacent,
+.more-indicator.break-point3.adjacent {
+  display: none;
+}
+
 .search-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -130,4 +154,31 @@
 }
 .search-tile:hover .tile-title {
   padding: 15px;
+}
+/* Tablet screens and up */
+@media only screen and (min-width: 600px) {
+  .search-pages-btn.break-point3 {
+    display: inline-block;
+  }
+  .more-indicator.break-point3 {
+    display: none;
+  }
+}
+/* Large screens and up */
+@media only screen and (min-width: 992px) {
+  .search-pages-btn.break-point2 {
+    display: inline-block;
+  }
+  .more-indicator.break-point2 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .search-pages-btn.break-point1 {
+    display: inline-block;
+  }
+  .more-indicator.break-point1 {
+    display: none;
+  }
 }

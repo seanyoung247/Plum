@@ -2,28 +2,142 @@
 {% from "items.html" import generate_item_tile %}
 {% from "star-rating.html" import generate_star_rating_control, generate_star_rating_display %}
 
-{# To do: Only showing a maximum number of page links at once. #}
-{% macro pagination() %}
-<form class="col s12 search-pages-form" method="POST" action="{{ url_for('search') }}">
+{# Generates the search form panel #}
+{% macro search_form(cuisines) %}
+<div class="row">
+  <form class="col s12 {#l8 offset-l2#}"  method="POST" action="{{ url_for('search') }}">
+    <div id="basic_search_pane" class="row line-spacing-5">
+      <div class="input-field col s12 m8 l10">
+        <i class="material-icons prefix">search</i>
+        <input id="search-text" name="search-text" type="text">
+        <label for="search-text">Search</label>
+      </div>
+      <div id="advanced_search_toggle" class="col s12 m4 l2 center-align">
+        <a>Advanced Search</a>
+      </div>
+    </div>
+    {# Advanced search options #}
+    <div id="advanced_search_pane" class="row line-spacing-5">
+
+      {# cuisine, rating, servings, time #}
+      <div class="input-field col s12 l6">
+        <select id="recipe_cuisines" name="cuisine">
+          <option value="" selected>Search cuisines</option>
+          {% for cuisine in cuisines %}
+            <option value="{{ cuisine.name }}">
+              {{- cuisine.name|capitalize -}}
+            </option>
+          {% endfor %}
+        </select>
+        <label>Cuisine type</label>
+      </div>
+
+      {# Servings search #}
+      <div class="input-field col s6 l3">
+        <i class="material-icons prefix">restaurant</i>
+        <input id="recipe_servings" name="servings" type="number" min="0">
+        <label for="recipe_servings">Servings</label>
+      </div>
+
+      {# Time search #}
+      <div class="input-field col s6 l3">
+        <i class="material-icons prefix">access_time</i>
+        <input id="recipe_time" name="time" type="text" class="timepicker"
+          value="00:00">
+        <label for="recipe_time">Max Time</label>
+      </div>
+
+      {# Rating #}
+      <div class="search-rating">
+        <div>Minimum rating</div>
+        {{ generate_star_rating_control(0) }}
+      </div>
+
+      <div class="row">
+        <input class="col s6 offset-s3 btn-small" type="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>
+{% endmacro %}
+
+{# Calculates classes to added to pagination elements to ensure they hide
+   and show at the correct breakpoints #}
+{% macro page_btn_class(current_page, index, last_page,
+  range_start=current_page, range_end=last_page) %}
+
+  {%- if current_page == index -%}
+    active {{ 'adjacent' if (current_page == 0 or current_page == last_page) }}
+  {%- elif index < range_start or index > range_end -%}
+    always_show {{ 'adjacent' if (current_page == 0 or current_page == last_page) }}
+  {%- elif index == 0 or index == last_page -%}
+    end-point
+  {%- elif index < current_page - 5 or index > current_page + 5 -%}
+    break-point2 {{ 'adjacent' if (current_page == 0 or current_page == last_page) }}
+  {%- elif index < current_page - 2 or index > current_page + 2 -%}
+    break-point1
+  {%- else -%}
+    break-point3 {{ 'adjacent' if (current_page == 0 or current_page == last_page) }}
+  {%- endif -%}
+
+{% endmacro %}
+
+{# Generates the pagination control form #}
+{% macro pagination(route, pages) %}
+<form class="col s12 search-pages-form" method="POST" action="{{ route }}">
   <div class="search-pages">
     <button class="search-pages-btn" type="submit" name="page" value="{{ pages.current_page - 1 }}"
       {{ 'disabled' if pages.current_page == 0 }}>
       <i class="material-icons">chevron_left</i>
     </button>
-    {%- for i in range(pages.page_count + 1) -%}
-      <button class="search-pages-btn {{ 'active' if pages.current_page == loop.index -1 }}"
-        type="submit" name="page" value="{{ loop.index - 1 }}" {{ 'disabled' if pages.current_page == loop.index - 1 }}>
-        {{- loop.index -}}
+
+    <button class="search-pages-btn
+      {{ page_btn_class(pages.current_page, 0, pages.page_count) }}"
+      type="submit" name="page" value="0" {{ 'disabled' if pages.current_page == 0 }}>
+      1
+    </button>
+
+    {# Show no more than 12 page links at once #}
+    {% set range_start = [1, pages.current_page - 5]|max %}
+    {% set range_end = [12, pages.current_page + 6]|max %}
+    {% set range_start = [range_start, pages.page_count - 12]|min %}
+    {% set range_end = [range_end, pages.page_count]|min %}
+
+    {% set range_start = [1, range_start]|max %}
+    {% set range_end = [pages.page_count, range_end]|min %}
+
+    <span class="more-indicator
+      {{ page_btn_class(pages.current_page, 1, pages.page_count, range_start, range_end) }}">
+      <i class="material-icons">more_horiz</i>
+    </span>
+
+    {%- for i in range(range_start, range_end) -%}
+      <button class="search-pages-btn
+        {{ page_btn_class(pages.current_page, i, pages.page_count, range_start, range_end) }}"
+        type="submit" name="page" value="{{ i }}"
+        {{ 'disabled' if pages.current_page == i }}>
+        {{- i + 1 -}}
       </button>
     {%- endfor -%}
+    <span class="more-indicator
+      {{ page_btn_class(pages.current_page, pages.page_count - 1, pages.page_count, range_start, range_end) }}">
+      <i class="material-icons">more_horiz</i>
+    </span>
+
+    <button class="search-pages-btn
+      {{ page_btn_class(pages.current_page, pages.page_count, pages.page_count) }}"
+      type="submit" name="page" value="{{ pages.page_count }}"
+      {{ 'disabled' if pages.current_page == pages.page_count }}>
+      {{ pages.page_count + 1 }}
+    </button>
+
     <button class="search-pages-btn" type="submit" name="page" value="{{ pages.current_page + 1 }}"
       {{ 'disabled' if pages.current_page == pages.page_count }}>
       <i class="material-icons">chevron_right</i>
     </button>
   </div>
   {# Store the query details for form resubmission #}
-  <input type="hidden" name="page_count" value="{{ pages.page_count }}">
-  <input type="hidden" name="total_items" value="{{ pages.total_items }}">
+  {#<input type="hidden" name="total_items" value="{{ pages.total_items }}">#}
   {% for field in query %}
     <input type="hidden" name="{{ field.key }}" value="{{ field.value }}">
   {% endfor %}
@@ -37,61 +151,8 @@
 
 {% block content %}
   <div class="container">
-    <div class="row">
-      <form class="col s12 {#l8 offset-l2#}"  method="POST" action="{{ url_for('search') }}">
-        <div id="basic_search_pane" class="row line-spacing-5">
-          <div class="input-field col s12 m8 l10">
-            <i class="material-icons prefix">search</i>
-            <input id="search-text" name="search-text" type="text">
-            <label for="search-text">Search</label>
-          </div>
-          <div id="advanced_search_toggle" class="col s12 m4 l2 center-align">
-            <a>Advanced Search</a>
-          </div>
-        </div>
-        {# Advanced search options #}
-        <div id="advanced_search_pane" class="row line-spacing-5">
 
-          {# cuisine, rating, servings, time #}
-          <div class="input-field col s12 l6">
-            <select id="recipe_cuisines" name="cuisine">
-              <option value="" selected>Search cuisines</option>
-              {% for cuisine in cuisines %}
-                <option value="{{ cuisine.name }}">
-                  {{- cuisine.name|capitalize -}}
-                </option>
-              {% endfor %}
-            </select>
-            <label>Cuisine type</label>
-          </div>
-
-          {# Servings search #}
-          <div class="input-field col s6 l3">
-            <i class="material-icons prefix">restaurant</i>
-            <input id="recipe_servings" name="servings" type="number" min="0">
-            <label for="recipe_servings">Servings</label>
-          </div>
-
-          {# Time search #}
-          <div class="input-field col s6 l3">
-            <i class="material-icons prefix">access_time</i>
-            <input id="recipe_time" name="time" type="text" class="timepicker"
-              value="0">
-            <label for="recipe_time">Max Time</label>
-          </div>
-
-          {# Rating #}
-          <div class="search-rating">
-            <div>Minimum rating</div>
-            {{ generate_star_rating_control(0) }}
-          </div>
-
-          <div class="row">
-            <input class="col s6 offset-s3 btn-small" type="submit" value="Submit">
-          </div>
-        </div>
-      </form>
-    </div>
+    {{ search_form(cuisines) }}
 
     <div class="row">
       {# Only display categories if no search was conducted #}
@@ -114,7 +175,7 @@
         {% if pages.total_items > 0 %}
           {# Only show pagination controls if there are multiple pages #}
           {% if pages.page_count > 0 %}
-            {{ pagination() }}
+            {{ pagination(url_for('search'), pages) }}
             <div class="col s12 search-pages-count">
               Showing results {{ pages.first_item }} to {{ pages.last_item }} of {{ pages.total_items }}
             </div>
@@ -136,7 +197,7 @@
           </div>
 
           {% if pages.page_count > 0 %}
-            {{ pagination() }}
+            {{ pagination(url_for('search'), pages) }}
           {% endif %}
         {% else %}
           No results
