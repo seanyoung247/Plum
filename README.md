@@ -4,6 +4,8 @@
 
 Plum is a recipe sharing website designed to help users find recipes and share their own with others.
 
+![Multi device mockup](dev/mockups/devices.png)
+
 [See live site.](https://plum-recipes.herokuapp.com/)
 
 ## Table of Contents
@@ -81,7 +83,7 @@ The project goal is to produce a recipe sharing website that allows users to sha
 
 **General**
 
-- (US014) - As a user I want to receive clear feedback for my actions so I know if any further action is required.
+- (US013) - As a user I want to receive clear feedback for my actions so I know if any further action is required.
 
 ##  Design
 
