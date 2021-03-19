@@ -542,6 +542,8 @@ The site also uses the following JavaScript files for dynamic functionality:
   - Used to help define the site colour scheme.
 - [Autoprefixer](https://autoprefixer.github.io/)
   - Used to ensure backwards CSS compatibility with legacy browsers.
+- [ami.responsive](http://ami.responsivedesign.is/)
+  - Used to generate multi-device mockup image.
 
 ### Platforms
 
@@ -791,6 +793,8 @@ From the MongoDB CLI:
 The site is deployed to Heroku at: https://plum-recipes.herokuapp.com/
 
 #### Creating a Heroku app
+
+
 
 #### Setting Environment variables
 
