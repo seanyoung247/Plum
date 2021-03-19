@@ -20,10 +20,23 @@
 }
 .login-header h5 {
   color: #AAA;
+  font-size: 15px;
+}
+.login-header h5 i {
+  font-size: 15px;
 }
 .login-header.active h5 {
   color: #3F7D20;
 }
 .login-body {
   padding: 10px;
+}
+
+@media only screen and (min-width: 400px) {
+  .login-header h5 {
+    font-size: 25px;
+  }
+  .login-header h5 i {
+    font-size: 25px;
+  }
 }
