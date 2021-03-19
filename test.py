@@ -1,6 +1,8 @@
+import os
 import unittest
-from helpers import calculate_rating, encode_time, calculate_pages
 
+from helpers import calculate_rating, encode_time, calculate_pages
+from app import app
 
 class TestHelpers(unittest.TestCase):
 
@@ -71,6 +73,36 @@ class TestHelpers(unittest.TestCase):
                 "last_item" : 40
             }
             self.assertEqual(calculate_pages(53,3,10), pages)
+
+
+class TestApp(unittest.TestCase):
+
+    def setUp(self):
+        self.app = app.test_client()
+
+    def tearDown(self):
+        pass
+
+    #
+    # Get tests
+    #
+    def test_get_main_page(self):
+        response = self.app.get('/', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_get_recipe(self):
+        with self.subTest():
+            #Test existing page
+            response = self.app.get('/recipe/crispy-parmesan-crusted-chicken-mDkZitREMUU', follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
+        with self.subTest():
+            #Test missing page redirects
+            response = self.app.get('/recipe/', follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
+
+    def test_profile(self):
+        response = self.app.get('/profile/testuser', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
 
 
 if __name__ == '__main__':
