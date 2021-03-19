@@ -218,7 +218,7 @@ A Final sanity check was done with the student check list to ensure the site fit
 ## Solved Issues
 
 <details>
-<summary><h4>404 when opening login page when user logged in</h4></summary>
+<summary><b>404 when opening login page when user logged in</b></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/5). If a user is already logged in and tries to open the login page the website raises a 404 error.
 
@@ -232,7 +232,7 @@ Missing url_for in redirect
 </details>
 
 <details>
-<summary><h4>Recipe page layout broken on small screens</h4></summary>
+<summary><b>Recipe page layout broken on small screens</b></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/6). Page layout breaks when using Google Chrome's responsive layout test.
 
@@ -246,7 +246,7 @@ Not applicable.
 </details>
 
 <details>
-<summary><h4>Exception on registering new user</h4></summary>
+<summary><b>Exception on registering new user</b></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/7). Exception raised when registering new user.
 
@@ -260,7 +260,7 @@ User not being added properly to session cookie after registration.
 </details>
 
 <details>
-<summary><h4> Admin editing another users recipe changes recipe author</h4>
+<summary><b> Admin editing another users recipe changes recipe author</b></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/13). Admin user overwrites original author field.
 
@@ -274,7 +274,7 @@ Author field overwritten when updating recipe record
 </details>
 
 <details>
-<summary><h4>On refresh horizontal scroller is offset vertically by to bottom of the page</h4></summary>
+<summary><b>On refresh horizontal scroller is offset vertically by to bottom of the page</b></summary>
 
 [Link](https://github.com/seanyoung247/Plum/issues/15). Firefox offsets contents.
 
@@ -288,7 +288,7 @@ Scroll-item being set to 100% height.
 </details>
 
 <details>
-<summary><h4>Using the time picker in the search form gives an error message</h4></summary>
+<summary><b>Using the time picker in the search form gives an error message</b></summary>
 [Link](https://github.com/seanyoung247/Plum/issues/32). The following error is displayed in the console when using the time-picker component:
 `[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.`
 
