@@ -8,7 +8,7 @@
 
 {% block content %}
   <div class="container">
-    {{ search_form() }}
+    {{ search_form(cuisines) }}
 
     {% if pages.total_items > 0 %}
       {# Only show pagination controls if there are multiple pages #}

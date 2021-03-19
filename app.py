@@ -50,7 +50,8 @@ def home():
         pages["current_page"] * pages["items_per_page"]).limit(
             pages["items_per_page"])
 
-    return render_template("home.html", recipes=recipes, pages=pages)
+    cuisines = list(mongo.db.cuisines.find().sort("name", 1))
+    return render_template("home.html", recipes=recipes, cuisines=cuisines, pages=pages)
 
 
 @app.route("/search", methods=["GET", "POST"])
