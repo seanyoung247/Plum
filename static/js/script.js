@@ -11,7 +11,6 @@ $(document).ready(function(){
     twelveHour: false
   });
   $(".collapsible").collapsible();
-  $("select").formSelect();
 });
 
 /*

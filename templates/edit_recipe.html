@@ -33,7 +33,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <input name="title" type="text" id="recipe_title"
-                  value="{{ recipe.title }}" required>
+                  value="{{ recipe.title }}" maxlength="40" required>
                 <label for="recipe_title">Title</label>
               </div>
             </div>
@@ -49,14 +49,16 @@
               <div class="input-field col s6">
                 <i class="material-icons prefix">restaurant</i>
                 <input name="servings" type="number" id="recipe_servings"
-                  min="0" value="{{ recipe.servings }}" required>
+                  min="0" max="50" value="{{ recipe.servings }}" required>
                 <label for="recipe_servings">Servings</label>
               </div>
             </div>
 
             <div class="row">
+
+              <label>Cuisine type</label>
               <div class="input-field col s12">
-                <select name="cuisine" required>
+                <select name="cuisine" class="browser-default" required>
                   {% for cuisine in cuisines %}
                     <option value="{{ cuisine.name }}"
                       {{- 'selected' if recipe.cuisine == cuisine.name -}}>
@@ -64,7 +66,6 @@
                     </option>
                   {% endfor %}
                 </select>
-                <label>Cuisine type</label>
               </div>
             </div>
           </div>
@@ -88,7 +89,7 @@
               {% for ingredient in recipe.ingredients %}
                 <li class="collection-item">
                   <div class="input-field">
-                    <input name="ingredients" type="text" value="{{ ingredient }}" required>
+                    <input name="ingredients" type="text" value="{{ ingredient }}" maxlength="85" required>
                   </div>
                   <a class="remove-list-item"><i class="material-icons">clear</i></a>
                 </li>

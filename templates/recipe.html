@@ -134,27 +134,30 @@
     <div class="row">
       <span class="col s12">{{ session.user }}</span>
     </div>
-    <div class="row">
-      <form id="recipe_rating_form" class="col s12 recipe-rating-form"
-        method="POST" action="{{ url_for('ajax_rating') }}">
+    {# Recipe author shouldn't be able to rate their own recipe #}
+    {% if session.user != recipe.author %}
+      <div class="row">
+        <form id="recipe_rating_form" class="col s12 recipe-rating-form"
+          method="POST" action="{{ url_for('ajax_rating') }}">
 
-        <input name="recipeId" type="hidden" value="{{ recipe._id }}">
-        {{ generate_star_rating_control(interaction.rating) }}
+          <input name="recipeId" type="hidden" value="{{ recipe._id }}">
+          {{ generate_star_rating_control(interaction.rating) }}
 
-        <div class="preloader-wrapper small active hide">
-          <div class="spinner-layer spinner-green-only">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
+          <div class="preloader-wrapper small active hide">
+            <div class="spinner-layer spinner-green-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
             </div>
           </div>
-        </div>
 
-      </form>
-    </div>
+        </form>
+      </div>
+    {% endif %}
 
     <div class="row">
       <form id="recipe_comment_form" class="col s12 recipe-comment-form"

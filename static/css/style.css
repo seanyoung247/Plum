@@ -75,8 +75,16 @@ hr.section-divider {
 .btn-plum:focus {
   background-color: #9F54B0;
 }
-.select-dropdown {
-  max-height: 50vh;
+/* Makes browser input look like materialize */
+.input-field select {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+.input-field select:focus {
+  outline: none;
+  border: transparent;
+  border-bottom: 2px solid #8E4585;
 }
 /* Changes materialize input fields to brand colours */
 .input-field .prefix.active,
