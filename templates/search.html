@@ -21,7 +21,7 @@
 
       {# cuisine, rating, servings, time #}
       <div class="input-field col s12 l6">
-        <select id="recipe_cuisines" name="cuisine">
+        <select id="recipe_cuisines" name="cuisine" class="browser-default">
           <option value="" selected>Search cuisines</option>
           {% for cuisine in cuisines %}
             <option value="{{ cuisine.name }}">
@@ -29,13 +29,13 @@
             </option>
           {% endfor %}
         </select>
-        <label>Cuisine type</label>
+        {#<label>Cuisine type</label>#}
       </div>
 
       {# Servings search #}
       <div class="input-field col s6 l3">
         <i class="material-icons prefix">restaurant</i>
-        <input id="recipe_servings" name="servings" type="number" min="0">
+        <input id="recipe_servings" name="servings" type="number" min="0" max="50">
         <label for="recipe_servings">Servings</label>
       </div>
 
@@ -98,13 +98,17 @@
     </button>
 
     {# Show no more than 12 page links at once #}
-    {% set range_start = [1, pages.current_page - 5]|max %}
-    {% set range_end = [12, pages.current_page + 6]|max %}
-    {% set range_start = [range_start, pages.page_count - 12]|min %}
-    {% set range_end = [range_end, pages.page_count]|min %}
+    {# Range is clamped to first twelve elements #}
+      {% set range_start = [1, pages.current_page - 5]|max %}
+      {% set range_end = [12, pages.current_page + 6]|max %}
 
-    {% set range_start = [1, range_start]|max %}
-    {% set range_end = [pages.page_count, range_end]|min %}
+    {# Range is clamped to last 12 elements #}
+      {% set range_start = [range_start, pages.page_count - 12]|min %}
+      {% set range_end = [range_end, pages.page_count]|min %}
+
+    {# Start of range is never lower than 1 and end is never higher than page_count #}
+      {% set range_start = [1, range_start]|max %}
+      {% set range_end = [pages.page_count, range_end]|min %}
 
     <span class="more-indicator
       {{ page_btn_class(pages.current_page, 1, pages.page_count, range_start, range_end) }}">
