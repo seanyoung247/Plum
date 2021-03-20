@@ -148,9 +148,15 @@ To perform automated testing, from the project root directory type:
 
 ```
 >python test.py
-...
+test_get_main_page (__main__.TestApp) ... ok
+test_get_recipe (__main__.TestApp) ... ok
+test_profile (__main__.TestApp) ... ok
+test_calculate_pages (__main__.TestHelpers) ... ok
+test_calculate_rating (__main__.TestHelpers) ... ok
+test_encode_time (__main__.TestHelpers) ... ok
+
 ----------------------------------------------------------------------
-Ran 3 tests in 0.000s
+Ran 6 tests in 2.032s
 
 OK
 ```

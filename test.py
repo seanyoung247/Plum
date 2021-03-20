@@ -1,5 +1,7 @@
 import os
 import unittest
+import urllib
+import json
 
 from helpers import calculate_rating, encode_time, calculate_pages
 from app import app
@@ -73,6 +75,17 @@ class TestHelpers(unittest.TestCase):
                 "last_item" : 40
             }
             self.assertEqual(calculate_pages(53,3,10), pages)
+        with self.subTest():
+            #Test silent failure on bad data case
+            pages = {
+                "items_per_page" : 10,
+                "current_page" : 6,
+                "total_items" : 53,
+                "page_count" : 5,
+                "first_item" : 61,
+                "last_item" : 53
+            }
+            self.assertEqual(calculate_pages(53,6,10), pages)
 
 
 class TestApp(unittest.TestCase):
@@ -84,10 +97,14 @@ class TestApp(unittest.TestCase):
         pass
 
     #
-    # Get tests
+    # GET tests
     #
     def test_get_main_page(self):
         response = self.app.get('/', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_get_search(self):
+        response = self.app.get('/search', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
     def test_get_recipe(self):
@@ -104,6 +121,16 @@ class TestApp(unittest.TestCase):
         response = self.app.get('/profile/testuser', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
+    #
+    # POST tests
+    #
+    def test_post_search(self):
+        data = {"cuisine" : "american"}
+        response = self.app.post('/search', data=data)
+        print(response.get_data(as_text=True))
+        self.assertEqual(response.status_code, 200)
+
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(argv=[''],verbosity=2, exit=False)
