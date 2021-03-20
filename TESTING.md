@@ -320,4 +320,19 @@ Appears to be a materialize bug. Missed as no IOS hardware was available for tes
 **Resolution**
 
 Converted select items to system default with custom styling to fit site design. Fixed in commit [c9174f2](https://github.com/seanyoung247/Plum/commit/c9174f2b7a4b7b288d8bfe2bed99c0809cd60aa3).
+
+</details>
+
 <details>
+<summary>Flash messages appear under recipe admin panel buttons</summary>
+
+[Link](https://github.com/seanyoung247/Plum/issues/39). Flash messages appear beneath recipe admin buttons.
+
+**Cause**
+
+Flash messages given too low a z-index.
+
+**Resolution**
+
+Flash message z-index increased to 5. Fixed in commit: [0528c8b](https://github.com/seanyoung247/Plum/commit/0528c8bf2d231b8305659cc0a4d5ecc3ad43a63b)
+</details>
