@@ -125,7 +125,7 @@ $( "#steps, #ingredients").on("click", ".remove-list-item", function(event) {
 $( "#ingredients .add-list-item" ).click(function(event) {
   let listItem = `<li class='collection-item'>
                     <div class='input-field'>
-                      <input name='ingredients' type='text' required>
+                      <input name='ingredients' type='text' maxlength='100' required>
                     </div>
                     <a class='remove-list-item'><i class='material-icons'>clear</i></a>
                   </li>`;
