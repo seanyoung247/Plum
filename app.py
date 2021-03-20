@@ -160,15 +160,7 @@ def add_recipe():
         #construct new recipe record
         recipe_record = compile_recipe_record(request.form)
         result = mongo.db.recipes.insert_one(recipe_record)
-        #Add new recipe to user record
-        recipe_token = {
-            "_id"    : str(result.inserted_id),
-            "title"  : recipe_record['title'],
-            "pageid" : recipe_record['pageid'],
-            "image"  : recipe_record['image']
-        }
-        mongo.db.users.update_one({"_id" : ObjectId(session['userid'])},
-            {"$push" : {"recipes" : recipe_token}})
+
         return redirect(url_for("recipe", pageid=recipe_record['pageid']))
 
     #Page specific variables
