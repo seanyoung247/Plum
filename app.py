@@ -363,6 +363,13 @@ def ajax_rating():
         old_rating = existing_interaction['rating']
         #Get the recipe record
         recipe_record = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        if recipe_record["author"] == session["user"]:
+            response["flash"] = {
+                "message" : "Recipe Author can't rate their own recipe!",
+                "category" : "error"
+            }
+            return response
+
         rating = recipe_record['rating']
         #Remove old rating vote and add the new one
         if rating[old_rating] > 0:
@@ -388,6 +395,13 @@ def ajax_rating():
     else:                       #User has not rated this recipe before
         #Get the recipe's current rating
         recipe_record = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+        if recipe_record["author"] == session["user"]:
+            response["flash"] = {
+                "message" : "Recipe Author can't rate their own recipe!",
+                "category" : "error"
+            }
+            return response
+
         rating = recipe_record['rating']
         #Update with the new vote and calculate the new average
         rating[new_rating] += 1
