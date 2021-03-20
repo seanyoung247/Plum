@@ -299,7 +299,6 @@ Scroll-item being set to 100% height.
 <summary><b>Using the time picker in the search form gives an error message</b></summary>
 [Link](https://github.com/seanyoung247/Plum/issues/32). The following error is displayed in the console when using the time-picker component:
 `[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.`
-
 **Cause**
 
 Appears to be issue within materialize. Possibly using a passive scroll event listener.
@@ -308,3 +307,17 @@ Appears to be issue within materialize. Possibly using a passive scroll event li
 
 Not Applicable
 </details>
+
+<details>
+<summary><b>Wrong dropdown items selected on IOS</b></summary>
+
+[Link](https://github.com/seanyoung247/Plum/issues/37). Materialize select control selects incorrect options when using IOS.
+
+**Cause**
+
+Appears to be a materialize bug. Missed as no IOS hardware was available for testing, problem doesn't seem to appear when using browser stack.
+
+**Resolution**
+
+Converted select items to system default with custom styling to fit site design. Fixed in commit [c9174f2](https://github.com/seanyoung247/Plum/commit/c9174f2b7a4b7b288d8bfe2bed99c0809cd60aa3).
+<details>
