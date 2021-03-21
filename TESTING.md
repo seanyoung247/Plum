@@ -138,30 +138,42 @@ Automated unit testing was performed on functions suitable for it:
 - encode_time
 - calculate_pages
 
-Automated tests also check correct responses from the flask app routes:
+Automated tests also check correct behaviour from the flask app routes:
 
-
+- home
+- search
+- recipe
+- profile
+- register
+- login
+- logout
+- add_recipe
 
 To perform automated testing, from the project root directory type:
 
 `python test.py`
 
+Note: running route tests requires database access credentials.
+
 ```
 >python test.py
-test_get_main_page (__main__.TestApp) ... ok
-test_get_recipe (__main__.TestApp) ... ok
+test_add_recipe (__main__.TestApp) ... ok
+test_login (__main__.TestApp) ... ok
+test_logout (__main__.TestApp) ... ok
+test_mainpage (__main__.TestApp) ... ok
 test_profile (__main__.TestApp) ... ok
+test_recipe (__main__.TestApp) ... ok
+test_registration (__main__.TestApp) ... ok
+test_search (__main__.TestApp) ... ok
 test_calculate_pages (__main__.TestHelpers) ... ok
 test_calculate_rating (__main__.TestHelpers) ... ok
 test_encode_time (__main__.TestHelpers) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 2.032s
+Ran 11 tests in 12.686s
 
 OK
 ```
-
-
 
 ## Manual Testing
 
@@ -299,7 +311,6 @@ Scroll-item being set to 100% height.
 <summary><b>Using the time picker in the search form gives an error message</b></summary>
 [Link](https://github.com/seanyoung247/Plum/issues/32). The following error is displayed in the console when using the time-picker component:
 `[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive.`
-
 **Cause**
 
 Appears to be issue within materialize. Possibly using a passive scroll event listener.
@@ -308,3 +319,45 @@ Appears to be issue within materialize. Possibly using a passive scroll event li
 
 Not Applicable
 </details>
+
+<details>
+<summary><b>Wrong dropdown items selected on IOS</b></summary>
+
+[Link](https://github.com/seanyoung247/Plum/issues/37). Materialize select control selects incorrect options when using IOS.
+
+**Cause**
+
+Appears to be a materialize bug. Missed as no IOS hardware was available for testing, problem doesn't seem to appear when using browser stack.
+
+**Resolution**
+
+Converted select items to system default with custom styling to fit site design. Fixed in commit [c9174f2](https://github.com/seanyoung247/Plum/commit/c9174f2b7a4b7b288d8bfe2bed99c0809cd60aa3).
+
+</details>
+
+<details>
+<summary>Flash messages appear under recipe admin panel buttons</summary>
+[Link](https://github.com/seanyoung247/Plum/issues/39). Flash messages appear beneath recipe admin buttons.
+
+**Cause**
+
+Flash messages given too low a z-index.
+
+**Resolution**
+
+Flash message z-index increased to 5. Fixed in commit: [0528c8b](https://github.com/seanyoung247/Plum/commit/0528c8bf2d231b8305659cc0a4d5ecc3ad43a63b)
+</details>
+
+
+
+## Known Issues
+
+### Lighthouse
+
+A number of the lighthouse reports flag issues with slow performance, mostly stemming from downloading large recipe image files. Cloudinary offers features for responsive image uploading which could be used to mitigate this.
+
+
+
+#### Testing Database
+
+The current automatic unit testing tests routes with the live database. This potentially could allow testing records to be left in the live database. A better approach would be to patch the database during tests to use a testing database of a mock database such as mongomock.

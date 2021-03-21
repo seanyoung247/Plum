@@ -417,6 +417,7 @@ The site allows users to upload new recipes and edit their existing ones. Users 
 - (**US013**): A custom 404 error page to help users find content if url is mis-linked/typed.
 - User password can't be changed. Related to (**US010 and US011**).
 - (**US007, US008, US009**): Rich text input for comments and recipe text.
+- (**US001, US003, US004, US005**): "Load more" pagination may be better than the current pages solution. This would also be simpler to implement both in the backend and frontend.
 
 ## Technologies
 
@@ -445,6 +446,9 @@ The site allows users to upload new recipes and edit their existing ones. Users 
   - Generates the login page. Performs user login and registration.
 - search.html
   - Generates the search page. Performs searches and shows search results.
+  - Also provides macros to generate:
+    - The basic and advanced search forms
+    - A responsive pagination control
 - recipe.html
   - Generate individual recipe pages.
 - edit_recipe.html
@@ -806,13 +810,106 @@ The site is deployed to Heroku at: https://plum-recipes.herokuapp.com/
 
 #### Creating a Heroku app
 
+<details>
+<summary>From the Heroku dashboard:</summary>
 
+- Select "New"
+
+  - Select "Create new app" 
+
+  ![Create Heroku app step one](dev/images/docs/new_heroku_app.png)
+
+- Add new app details to form
+
+  - Add app name
+  - Select region
+  - Click create app
+
+  ![Create Heroku app step 2](dev/images/docs/new_heroku_app2.png)
+</details>
 
 #### Setting Environment variables
 
+<details>
+<summary>From the Heroku dashboard:</summary>
+
+- Select the app from the list
+
+  ![Environment Variables1](dev/images/docs/environment_variables1.png)
+
+- Select "Settings" from the menu
+
+  - From the settings menu select "Reveal Config Vars"
+  - Add environment variables in key value pairs
+  - Click "Add" to add each key/value pair
+</details>
+
 #### Deployment
+<details>
+<summary>Creating the required deployment files in the repository:</summary>
+
+- requirements.txt
+  - Lists the required python modules for Heroku to install on deployment.
+  - To create
+    - from the project root directory type:
+    - pip freeze > requirements.txt
+- Procfile
+  - Tells heroku what command to use to start the app.
+  - To create
+    - Type the following command into the project root directory:
+    - echo web: python app.py > Procfile
+- slugignore (optional)
+  - Lists files and directories that shouldn't be deployed to the live app, like testing and development files. Uses a similar syntax to .gitignore.
+  - Create a text file.
+    - List the files and directories to be excluded from the live deployment
+    - Save to the project root directory as ".slugignore"
+</details>
+
+<details>
+<summary>From the Heroku dashboard:</summary>
+
+- Select the app from the list
+
+- Select "Deploy" from the menu
+
+- Connect app to github
+
+  - Scroll to the "Connect to GitHub" section
+  - Select github user
+  - Add repo name and select search
+  - Click connect button next to repository name
+
+  ![heroku connect to github](dev/images/docs/heroku_connect_github.png)
+
+- Manual deployment
+
+  - Scroll to the "Manual deploy" section
+  - Select the deployment branch
+  - Select "Deploy Branch"
+
+  ![heroku manual deploy](dev/images/docs/heroku_manual_deploy.png)
+</details>
 
 #### Automatic Deployment
+
+<details>
+<summary>From the Heroku dashboard:</summary>
+
+- Select the app from the list
+
+- Select "Deploy" from the menu
+
+- Ensure app is connected to github repository
+
+- Enable automatic deployment
+
+  - Scroll to Automatic deployment
+  - Select the deployment branch "Choose a branch to deploy" dropdown
+    - This will usually be the main branch
+  - Select "Enable Automatic Deploys"
+
+  ![heroku automatic deploy](dev/images/docs/heroku_automatic_deploy.png)
+</details>
 
 ## Credits
 
