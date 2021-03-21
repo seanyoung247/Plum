@@ -352,6 +352,12 @@ Flash message z-index increased to 5. Fixed in commit: [0528c8b](https://github.
 
 ## Known Issues
 
-<lighthouse issues>
+### Lighthouse
 
-<using live database for testing>
+A number of the lighthouse reports flag issues with slow performance, mostly stemming from downloading large recipe image files. Cloudinary offers features for responsive image uploading which could be used to mitigate this.
+
+
+
+#### Testing Database
+
+The current automatic unit testing tests routes with the live database. This potentially could allow testing records to be left in the live database. A better approach would be to patch the database during tests to use a testing database of a mock database such as mongomock.
