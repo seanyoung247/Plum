@@ -1,0 +1,4 @@
+# This file lists files and directories to be ignored by heroku during deployment
+test.py
+*.md
+/dev
