@@ -221,6 +221,7 @@ def edit_recipe(pageid):
 @requires_logged_in_user
 def delete_recipe():
     """ Deletes a given recipe from the database """
+    print(request.form["recipeId"])
     #Remove the recipe
     mongo.db.recipes.delete_one({"_id" : ObjectId(request.form["recipeId"])})
     #Remove any pre-existing interactions
@@ -285,7 +286,7 @@ def register():
         user_record["_id"] = mongo.db.users.insert_one(user_record).inserted_id
         log_user_in(user_record)
 
-        flash("User " + session["user"] + " registered!", category="info")
+        flash("User {user} registered!".format(user=session["user"]), category="info")
         return redirect(url_for("home"))
 
     return render_template("login.html")
@@ -304,7 +305,7 @@ def login():
             #ensure password matches
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 log_user_in(existing_user)
-                flash("User " + session["user"] + " Logged in!", category="info")
+                flash("User {user} Logged in!".format(user=session["user"]), category="info")
                 return redirect(url_for("home"))
 
             flash("Incorrect username or password", category="warning")
@@ -320,7 +321,7 @@ def login():
 @requires_logged_in_user
 def logout():
     """Logs the current user out."""
-    flash("User " + session["user"] + " Logged out", category="info")
+    flash("User {user} Logged out".format(user=session["user"]), category="info")
     #remove user from session
     log_user_out()
 
@@ -334,88 +335,70 @@ def logout():
 @requires_logged_in_user
 def ajax_rating():
     """Accepts an AJAX request for a recipe rating and updates the recipe document."""
-
     response = {
         "success" : False,
         "flash" : None,
         "response" : -1
     }
 
+    # Don't try and rate the recipe if no rating has been given
     if "rating" not in request.json or "recipeId" not in request.json:
         return  {"new_rating" : 0}
 
-    #Check whether this user has already rated this recipe
+    # Check whether this user has already rated this recipe
     existing_interaction = mongo.db.ratings.find_one({
         "user_id"   : ObjectId(session['userid']),
         "recipe_id" : ObjectId(request.json['recipeId'])
     })
     new_rating = int(request.json['rating'])
-    if existing_interaction:    #User has rated this recipe before
-        #What is the current rating provided by the user?
+    # If this is a new rating there's no old rating
+    old_rating = 0
+    interation_id = None
+    if existing_interaction:
+        interation_id = existing_interaction['_id']
         old_rating = existing_interaction['rating']
-        #Get the recipe record
-        recipe_record = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
-        if recipe_record["author"] == session["user"]:
-            response["flash"] = {
-                "message" : "Recipe Author can't rate their own recipe!",
-                "category" : "error"
-            }
-            return response
 
-        rating = recipe_record['rating']
-        #Remove old rating vote and add the new one
-        if rating[old_rating] > 0:
-            rating[old_rating] -= 1
-        rating[new_rating] += 1
-        rating[0] = calculate_rating(rating)
-        #Update the recipe document with the new rating
-        result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
-        {
-            "$set" : {
-                "rating.0" : rating[0],
-                "rating.{i}".format(i=new_rating) : int(rating[new_rating]),
-                "rating.{i}".format(i=old_rating) : int(rating[old_rating])
-            }
-        })
-        #If update was successful, update interaction record
-        if result.matched_count > 0:
-            existing_interaction['rating'] = new_rating
-            result = mongo.db.ratings.update_one({"_id" : existing_interaction['_id']},
-                {"$set" : {"rating" : new_rating}})
-            response["success"] = True
+    # Get the recipe record
+    recipe_record = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
+    # Can't rate a recipe that doesn't exist...
+    if not recipe_record:
+        return response
 
-    else:                       #User has not rated this recipe before
-        #Get the recipe's current rating
-        recipe_record = mongo.db.recipes.find_one({"_id" : ObjectId(request.json['recipeId'])})
-        if recipe_record["author"] == session["user"]:
-            response["flash"] = {
-                "message" : "Recipe Author can't rate their own recipe!",
-                "category" : "error"
-            }
-            return response
-
-        rating = recipe_record['rating']
-        #Update with the new vote and calculate the new average
-        rating[new_rating] += 1
-        rating[0] = calculate_rating(rating)
-        #Update the recipe document with the new rating
-        result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
-        {
-            "$set" : {
-                "rating.0" : rating[0],
-                "rating.{i}".format(i=new_rating) : int(rating[new_rating])
-            }
-        })
-        #if the update was successful log the new interation
-        if result.matched_count > 0:
-            interaction = {
-                "user_id"   : ObjectId(session['userid']),
-                "recipe_id" : ObjectId(request.json['recipeId']),
-                "rating"    : new_rating,
-                "favorited" : False
-            }
-            mongo.db.ratings.insert_one(interaction)
-            response["success"] = True
+    # Prevent a user from rating their own recipe
+    if recipe_record["author"] == session["user"]:
+        response["flash"] = {
+            "message" : "Recipe Author can't rate their own recipe!",
+            "category" : "error"
+        }
+        return response
+    rating = recipe_record['rating']
+    # If there's an existing rating for this user, remove it
+    if old_rating > 0 and rating[old_rating] > 0:
+        rating[old_rating] -= 1
+    # Add the new rating and recalculate the average
+    rating[new_rating] += 1
+    rating[0] = calculate_rating(rating)
+    # Update the recipe document
+    result = mongo.db.recipes.update_one({"_id" : ObjectId(request.json['recipeId'])},
+    {
+        "$set" : {
+            "rating.0" : rating[0],
+            "rating.{i}".format(i=new_rating) : int(rating[new_rating]),
+            "rating.{i}".format(i=old_rating) : int(rating[old_rating])
+        }
+    })
+    #If update was successful, update interaction record
+    if result.matched_count > 0:
+        result = mongo.db.ratings.update_one({"_id" : interation_id},
+            {
+                "$set" : {"rating" : new_rating}, #Updating
+                "$setOnInsert" : {                #Inserting
+                    "user_id"   : ObjectId(session['userid']),
+                    "recipe_id" : ObjectId(request.json['recipeId']),
+                    "favorited" : False
+                }
+            }, True)  #Allows update to insert if record doesn't exist
+        response["success"] = True
 
     response["response"] = new_rating
     return response
