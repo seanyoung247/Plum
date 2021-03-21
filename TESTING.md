@@ -149,8 +149,6 @@ Automated tests also check correct behaviour from the flask app routes:
 - logout
 - add_recipe
 
-
-
 To perform automated testing, from the project root directory type:
 
 `python test.py`
@@ -176,8 +174,6 @@ Ran 11 tests in 12.686s
 
 OK
 ```
-
-
 
 ## Manual Testing
 
