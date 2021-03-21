@@ -446,6 +446,9 @@ The site allows users to upload new recipes and edit their existing ones. Users 
   - Generates the login page. Performs user login and registration.
 - search.html
   - Generates the search page. Performs searches and shows search results.
+  - Also provides macros to generate:
+    - The basic and advanced search forms
+    - A responsive pagination control
 - recipe.html
   - Generate individual recipe pages.
 - edit_recipe.html
