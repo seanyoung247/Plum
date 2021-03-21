@@ -138,7 +138,16 @@ Automated unit testing was performed on functions suitable for it:
 - encode_time
 - calculate_pages
 
-Automated tests also check correct responses from the flask app routes:
+Automated tests also check correct behaviour from the flask app routes:
+
+- home
+- search
+- recipe
+- profile
+- register
+- login
+- logout
+- add_recipe
 
 
 
@@ -146,17 +155,24 @@ To perform automated testing, from the project root directory type:
 
 `python test.py`
 
+Note: running route tests requires database access credentials.
+
 ```
 >python test.py
-test_get_main_page (__main__.TestApp) ... ok
-test_get_recipe (__main__.TestApp) ... ok
+test_add_recipe (__main__.TestApp) ... ok
+test_login (__main__.TestApp) ... ok
+test_logout (__main__.TestApp) ... ok
+test_mainpage (__main__.TestApp) ... ok
 test_profile (__main__.TestApp) ... ok
+test_recipe (__main__.TestApp) ... ok
+test_registration (__main__.TestApp) ... ok
+test_search (__main__.TestApp) ... ok
 test_calculate_pages (__main__.TestHelpers) ... ok
 test_calculate_rating (__main__.TestHelpers) ... ok
 test_encode_time (__main__.TestHelpers) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 2.032s
+Ran 11 tests in 12.686s
 
 OK
 ```
@@ -325,7 +341,6 @@ Converted select items to system default with custom styling to fit site design.
 
 <details>
 <summary>Flash messages appear under recipe admin panel buttons</summary>
-
 [Link](https://github.com/seanyoung247/Plum/issues/39). Flash messages appear beneath recipe admin buttons.
 
 **Cause**
@@ -336,3 +351,11 @@ Flash messages given too low a z-index.
 
 Flash message z-index increased to 5. Fixed in commit: [0528c8b](https://github.com/seanyoung247/Plum/commit/0528c8bf2d231b8305659cc0a4d5ecc3ad43a63b)
 </details>
+
+
+
+## Known Issues
+
+<lighthouse issues>
+
+<using live database for testing>
