@@ -4,13 +4,14 @@
 {% block content %}
   <div class="container vpad">
 
+    <div class="row">
+      <h4 class="section-header col s12">
+        {{ user.name|capitalize }}'s recipes
+      </h4>
+    </div>
+    <hr class="row section-divider">
+
     {% if recipes|length > 0 %}
-      <div class="row">
-        <h4 class="section-header col s12">
-          {{ user.name|capitalize }}'s recipes
-        </h4>
-      </div>
-      <hr class="row section-divider">
       <div class="row">
         <div class="scroller col s12">
           <button class="scroll-left btn-floating btn-large btn-plum">
@@ -35,15 +36,19 @@
           </ul>
         </div>
       </div>
+    {% else %}
+      <div class="row">
+        <div class="col s12">No recipes uploaded.</div>
+      </div>
     {% endif %}
 
+    <div class="row">
+      <h4 class="section-header col s12">
+        {{ user.name|capitalize }}'s favorites
+      </h4>
+    </div>
+    <hr class="row section-divider">
     {% if favorites|length > 0 %}
-      <div class="row">
-        <h4 class="section-header col s12">
-          {{ user.name|capitalize }}'s favorites
-        </h4>
-      </div>
-      <hr class="row section-divider">
       <div class="row">
         <div class="scroller col s12">
           <button class="scroll-left btn-floating btn-large btn-plum">
@@ -67,6 +72,10 @@
             <li class="scroll-item-bookend"></li>
           </ul>
         </div>
+      </div>
+    {% else %}
+      <div class="row">
+        <div class="col s12">No recipes favourited.</div>
       </div>
     {% endif %}
 

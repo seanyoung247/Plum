@@ -95,7 +95,8 @@ The project goal is to produce a recipe sharing website that allows users to sha
 
 #### Indexes
 
-**recipes:**
+<details>
+<summary><b>recipes:</b></summary>
 
 1. Unique index on page_id - Ensures pageid field is unique.
 
@@ -118,8 +119,10 @@ The project goal is to produce a recipe sharing website that allows users to sha
    	description : "text"
    })
    ```
+</details>
 
-**users:**
+<details>
+<summary><b>users:</b></summary>
 
 1. Unique index on name - Ensures two users can't share a username.
 
@@ -132,8 +135,10 @@ The project goal is to produce a recipe sharing website that allows users to sha
    	unqiue: true
    })
    ```
+</details>
 
-**ratings:**
+<details>
+<summary><b>ratings:</b></summary>
 
 1. Unique compound index on user_id and recipe_id - Ensures only one interaction record between one recipe and user.
 
@@ -147,8 +152,10 @@ The project goal is to produce a recipe sharing website that allows users to sha
    	unique : true
    })
    ```
+</details>
 
-**cuisines:**
+<details>
+<summary><b>cuisines:</b></summary>
 
 1. Unique index on name - Ensures each cuisine type only appears once.
 
@@ -161,6 +168,7 @@ The project goal is to produce a recipe sharing website that allows users to sha
    	unique : true
    })
    ```
+</details>
 
 #### Queries
 
@@ -369,7 +377,142 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 
 ### Layout
 
+All initial wireframes are available in pdf format:
+
 [Wireframes](dev/mockups/wireframes.pdf)
+
+#### Components
+
+<details>
+<summary><b>Main menu</b></summary>
+
+Changes from wireframes to final site:
+
+- General:
+  - User option replaced with username
+    - Aids user inclusion.
+  - User option changed to drop down, log out moved to drop down
+    - Reduces clutter and aids categorisation.
+</details>
+
+<details>
+<summary><b>Recipe Cards</b></summary>
+
+Changes from wireframes to final site:
+
+- General:
+  - Rating moved from image overlay to card body
+    - Improves impact of image
+    - Improves readability of rating
+  - Mouseover text removed
+    - No required
+</details>
+
+#### Pages
+
+<details>
+<summary><b>Home page</b></summary>
+
+The home page shows a list of recent recipes uploaded to the site. Individual recipes are linked through individual recipe cards.
+
+Changes from wireframes to final site:
+
+- General:
+  - The search form is also shown on the front page.
+    - Improves search usability
+- Mobile:
+  - Recipe cards take full width instead of two side by side.
+    - Recipe cards would be too small on mobile views
+  - The menu icon is on the left instead of the right
+    - Changed to reflect Materialize design language
+</details>
+
+<details>
+<summary><b>Recipe page</b></summary>
+
+The recipe page shows an individual recipe's information.
+
+Changes from wireframes to final site:
+
+- General:
+  - The ingredient/Method box uses tabs instead of an accordion.
+    - Improves usability. The user has to move the mouse less to swap views.
+  - Cooking and prep time has been combined.
+    - Creates a cleaner look and easier search interface.
+- Mobile:
+  - Header and description information has been reordered.
+    - Makes the data more hierarchical. 
+- Desktop:
+  - Header has been reorganised
+    - Makes the image more eye-grabbing and improves information hierarchy.
+  - Description moved below header
+    - Improves use of space.
+  - Moves ingredient/method section below header
+    - Improves use of space.
+</details>
+
+<details>
+<summar><b>Login/Registration page</b></summary>
+
+The Login/Registration page provides a dialog for adding new users and logging in existing users.
+
+Changes from wireframes to final site:
+
+- General:
+  - Cancel button removed
+    - Not required
+  - Login/Register moved to separate forms
+    - Allows adding extra fields to registration if needed
+  - Adds icons to fields
+</details>
+
+<details>
+<summary><b>Add/Edit recipe page</b></summary>
+
+The Add/Edit recipe page allows editing of recipe data so that it can 
+
+Changes from wireframes to final site:
+
+- General:
+  - Layout changed to resemble recipe page
+    - Helps the user know what the final page will look like.
+  - Combines the prep and cook time fields in one
+    - Reflects backend database changes
+  - Switches ingredient and method step fields to dynamic lists
+    - Easier to deal with in the backend. Appears more impressive to user than a text box.
+  - Removes cancel button
+    - Not required
+</details>
+
+<details>
+<summary><b>Search page</b></summary>
+
+The search page provides search functionality and quick links to cuisine types when a search has not been conducted. If a search has been performed the page contents is the search results.
+
+Changes from wireframes to final site:
+
+- General:
+  - An advanced search form has been added to perform more targeted searches.
+    - Improves search functionality
+  - Search results are displayed as icons instead of cards
+    - Improves continuity between cuisine categories view and search results. 
+    - Allows more results to be displayed per page.
+  - Adds pagination
+    - Improves functionality as fewer results can be returned at once.
+</details>
+
+<details>
+<summary><b>User Profile</b></summary>
+
+The user profile page displays a user's uploaded recipes and favourites.
+
+Changes from wireframes to final site:
+
+- General:
+  - The vertical list has been replaced with a horizontal list.
+    - Aids in categorisation. 
+    - Inspired by netflix/various video sites categorisation.
+</details>
 
 ## Features
 
