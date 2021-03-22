@@ -229,7 +229,7 @@ Final UI testing was conducted prior to submission to confirm the UI fulfilled t
 
 ### Peer Code Review
 
-The project was submitted to peer review on the code institute slack [channel](https://code-institute-room.slack.com/archives/CGWQJQKC5/p1616189018032700).
+The project was submitted for peer review on the code institute slack [channel](https://code-institute-room.slack.com/archives/CGWQJQKC5/p1616189018032700).
 
 ### Student Checklist
 

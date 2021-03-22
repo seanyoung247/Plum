@@ -266,6 +266,11 @@ plumdb.recipes.find({
 ```
 
 *Optional
+
+**Potential improvements:** 
+
+The mongodb text search defaults to "or" operations on the search terms. This means a search for `Chicken Curry` will return results that include the word `Chicken` or the word `Curry`. For instance searching for `Chicken Curry` will return results like `Beef Curry` and `Fried Chicken`. It may be more intuitive to try and use an "and" operation, so search results by default return results that match all the search terms. Wrapping the entire text search in double quotes (") will make mongodb match the whole phrase in order. So `Chicken Curry` will match `Red Chicken Curry`, but not `Chicken with Curry` or `Beef Curry`. Alternatively the individual words in the search can be wrapped in double quotes, which will match recipes with the search terms in any order.
+
 </details>
 
 ##### Uploading
@@ -357,8 +362,6 @@ mongo.db.recipes.replace_one({pageid : pageid}, recipe-record)
 ```
 </details>
 
-
-
 ### Fonts
 
 Headers are rendered using [Open Sans](https://fonts.google.com/specimen/Open+Sans) with body text in [Roboto](https://fonts.google.com/specimen/Roboto). Open Sans was chosen for headers because it is bold and clear, while Roboto is easy to read and widely used on the web. Both are obtained from Google Fonts.
@@ -376,6 +379,8 @@ Sap Green was chosen as it is associated with nature, health, and freshness. Plu
 - White - As a background to bring out some sections
 
 ### Layout
+
+The site is designed to work and be usable on various devices from mobile phones to desktop computers with a responsive layout. The minimum targeted screen width is 320 pixels wide and a maximum tested width of 2560 pixels.
 
 All initial wireframes are available in pdf format:
 
@@ -449,10 +454,11 @@ Changes from wireframes to final site:
     - Improves use of space.
   - Moves ingredient/method section below header
     - Improves use of space.
+
 </details>
 
 <details>
-<summar><b>Login/Registration page</b></summary>
+<summary><b>Login/Registration page</b></summary>
 
 The Login/Registration page provides a dialog for adding new users and logging in existing users.
 
@@ -557,10 +563,13 @@ The site allows users to upload new recipes and edit their existing ones. Users 
 
 - (**US012**): Admin panel to simplify administration tasks.
 - (**US012**): User accounts can't be suspended.
-- (**US013**): A custom 404 error page to help users find content if url is mis-linked/typed.
+- (**US013**): A custom 404 error page with suggestions to help users find content if url is mis-linked/typed.
 - User password can't be changed. Related to (**US010 and US011**).
 - (**US007, US008, US009**): Rich text input for comments and recipe text.
-- (**US001, US003, US004, US005**): "Load more" pagination may be better than the current pages solution. This would also be simpler to implement both in the backend and frontend.
+- (**US003**): A more refined text search to allow better combination than the current "or" method.
+- (**US001, US003, US004, US005**): "Load more" pagination may be better than the current pages solution.  This would allow more or less search results to be returned dependent on screen size through appropriate use of JavaScript within the ajax request.
+- (**US009, US012**): Allow reordering of ingredients and steps in the recipe form.
+- (**US012**): Deletion of cloudinary recipe images through site and when recipe record is deleted.
 
 ## Technologies
 
