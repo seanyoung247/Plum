@@ -1120,5 +1120,3 @@ The site is deployed to Heroku at: https://plum-recipes.herokuapp.com/
 General:
 
 - [New Recipe image](https://unsplash.com/photos/x5SRhkFajrA) - photograph by [Todd Quackenbush](https://unsplash.com/@toddquackenbush)
-
-### Acknowledgements
